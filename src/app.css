@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @define-mixin color-scheme-light {
+    /** Foreground **/
+    --fg-color-body: theme("colors.zinc.950");
+    --fg-color-soft: theme("colors.zinc.800");
+    --fg-color-muted: theme("colors.zinc.500");
+    --fg-color-accent: theme("colors.blue.600");
+
+    /** Background **/
+    --bg-color-body: theme("colors.white");
+    --bg-color-default: theme("colors.zinc.100");
+    --bg-color-secondary: theme("colors.zinc.200");
+    --bg-color-tertiary: theme("colors.zinc.300");
+
+    /** Stroke **/
+    --ring-color-accent: theme("colors.blue.400");
+    --border-color-accent: theme("colors.blue.400");
+
+    color-scheme: light;
+  }
+
+  @define-mixin color-scheme-dark {
+    /** Foreground **/
+    --fg-color-body: theme("colors.zinc.50");
+    --fg-color-soft: theme("colors.zinc.400");
+    --fg-color-muted: theme("colors.zinc.400");
+    --fg-color-accent: theme("colors.blue.500");
+
+    /** Background **/
+    --bg-color-body: theme("colors.zinc.900");
+    --bg-color-default: theme("colors.zinc.800");
+    --bg-color-secondary: theme("colors.zinc.700");
+    --bg-color-tertiary: theme("colors.zinc.600");
+
+    /** Stroke **/
+    --ring-color-accent: theme("colors.blue.600");
+    --border-color-accent: theme("colors.blue.500");
+
+    color-scheme: dark;
+  }
+
+  @define-mixin color-scheme-night {
+    /** Foreground **/
+    --fg-color-body: theme("colors.zinc.100");
+    --fg-color-soft: theme("colors.zinc.400");
+    --fg-color-muted: theme("colors.zinc.400");
+    --fg-color-accent: theme("colors.blue.500");
+
+    /** Background **/
+    --bg-color-body: theme("colors.black");
+    --bg-color-default: theme("colors.zinc.900");
+    --bg-color-secondary: theme("colors.zinc.800");
+    --bg-color-tertiary: theme("colors.zinc.700");
+
+    /** Stroke **/
+    --ring-color-accent: theme("colors.blue.700");
+    --border-color-accent: theme("colors.blue.600");
+
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  @media (prefers-color-scheme: light) {
+    [data-theme="system"] {
+      @mixin color-scheme-light;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    [data-theme="system"] {
+      @mixin color-scheme-dark;
+    }
+  }
+
+  [data-theme="light"] {
+    @mixin color-scheme-light;
+  }
+
+  [data-theme="dark"] {
+    @mixin color-scheme-dark;
+  }
+
+  [data-theme="night"] {
+    @mixin color-scheme-night;
+  }
+}

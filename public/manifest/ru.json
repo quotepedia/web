@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest",
+  "lang": "ru",
+  "id": "quotepedia",
+  "name": "Quotepedia",
+  "description": "",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "72x72 96x96 128x128 256x256"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Главная",
+      "url": "/"
+    },
+    {
+      "name": "Библиотека",
+      "url": "/library"
+    },
+    {
+      "name": "Сохранённое",
+      "url": "/saved"
+    },
+    {
+      "name": "Настройки",
+      "url": "/settings"
+    }
+  ],
+  "display": "standalone"
+}

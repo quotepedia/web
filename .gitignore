@@ -1,0 +1,31 @@
+# General
+dist
+.solid
+.output
+.vercel
+.netlify
+.vinxi
+
+# Environment
+.env
+.env*.local
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.vs
+/.vscode
+/.idea
+.project
+.classpath
+*.launch
+.settings/
+
+# Temp
+gitignore
+app.config.timestamp*
+
+# System Files
+.DS_Store
+Thumbs.db

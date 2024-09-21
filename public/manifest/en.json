@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest",
+  "lang": "en",
+  "id": "quotepedia",
+  "name": "Quotepedia",
+  "description": "",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "72x72 96x96 128x128 256x256"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Library",
+      "url": "/library"
+    },
+    {
+      "name": "Saved",
+      "url": "/saved"
+    },
+    {
+      "name": "Settings",
+      "url": "/settings"
+    }
+  ],
+  "display": "standalone"
+}
