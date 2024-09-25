@@ -1,18 +1,21 @@
-import { type JSX, type ParentProps, ValidComponent, createMemo, createSignal } from "solid-js";
+import { type JSX, ValidComponent, createMemo, createSignal } from "solid-js";
 
-import { StepperContext } from "./context";
 import { Polymorphic, PolymorphicProps } from "@kobalte/core";
+import { StepperContext } from "./context";
 
-export const StepperRoot = <T extends ValidComponent = "div">(
-  props: PolymorphicProps<T, ParentProps & { index?: number }>,
-) => {
+export type StepperRootProps = {
+  index?: number;
+  onFinish?: () => any;
+};
+
+export const StepperRoot = <T extends ValidComponent = "div">(props: PolymorphicProps<T, StepperRootProps>) => {
   const [previousIndex, setPreviousIndex] = createSignal(-1);
   const [currentIndex, setCurrentIndex] = createSignal(props.index || 0);
   const [stepsCount, setStepsCount] = createSignal(0);
   const canMoveForward = createMemo(() => stepsCount() - 1 > currentIndex());
   const canMoveBackward = createMemo(() => currentIndex() > 0);
   const canMovePrevious = createMemo(() => previousIndex() >= 0 && stepsCount() > previousIndex());
-  const moveForward = () => canMoveForward() && updateCurrentIndex((i) => i + 1);
+  const moveForward = async () => (canMoveForward() ? updateCurrentIndex((i) => i + 1) : await props.onFinish?.());
   const moveBackward = () => canMoveBackward() && updateCurrentIndex((i) => i - 1);
   const movePrevious = () => canMovePrevious() && updateCurrentIndex((_) => previousIndex());
 
