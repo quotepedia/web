@@ -35,7 +35,7 @@ const OtpFieldSlot: Component<ComponentProps<"div"> & { index: number }> = (prop
   return (
     <div
       class={merge(
-        "flex size-8 items-center justify-center rounded-md font-mono text-sm ring-1 ring-bg-secondary transition-all",
+        "flex size-8 items-center justify-center rounded-md font-mono ring-1 ring-bg-secondary transition-all overflow-hidden",
         context.activeSlots().includes(local.index) && "ring-blue-600",
         local.class,
       )}
