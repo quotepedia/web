@@ -1,17 +1,29 @@
-import { type JSX, type ValidComponent, ParentProps } from "solid-js";
+import { type JSX, type ValidComponent, createEffect, ParentProps } from "solid-js";
 import createPersistent from "~/lib/utils/create/persistent";
 
 import { Polymorphic, PolymorphicProps } from "@kobalte/core";
 
 import { Stepper } from ".";
 
-export const StepperStep = <T extends ValidComponent = "div">(props: PolymorphicProps<T, ParentProps>) => {
+export type StepperStepProps = ParentProps & {
+  index?: number;
+  onEnter?: () => any;
+};
+
+export const StepperStep = <T extends ValidComponent = "div">(props: PolymorphicProps<T, StepperStepProps>) => {
   const stepper = Stepper.useContext();
 
   const getPersistentStep = () => stepper.persistentSteps.get(stepper.currentIndex());
 
   const createPersistentStep = () => {
-    const step = createPersistent(() => <Polymorphic as={"div"} {...props} />);
+    props.index = stepper.currentIndex();
+    const step = createPersistent(() => {
+      createEffect(() => {
+        props.index === stepper.currentIndex() && props.onEnter?.();
+      });
+
+      return <Polymorphic as={"div"} {...props} />;
+    });
 
     stepper.persistentSteps.set(stepper.currentIndex(), step);
 
