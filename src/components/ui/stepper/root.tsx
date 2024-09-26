@@ -8,7 +8,7 @@ export type StepperRootProps = {
   onFinish?: () => any;
 };
 
-export const StepperRoot = <T extends ValidComponent = "div">(props: PolymorphicProps<T, StepperRootProps>) => {
+export const StepperRoot = <T extends ValidComponent = "ol">(props: PolymorphicProps<T, StepperRootProps>) => {
   const [previousIndex, setPreviousIndex] = createSignal(-1);
   const [currentIndex, setCurrentIndex] = createSignal(props.index || 0);
   const [stepsCount, setStepsCount] = createSignal(0);
@@ -44,7 +44,7 @@ export const StepperRoot = <T extends ValidComponent = "div">(props: Polymorphic
 
   return (
     <StepperContext.Provider value={value}>
-      <Polymorphic as={"div"} {...props} />
+      <Polymorphic as={"ol"} {...props} />
     </StepperContext.Provider>
   );
 };

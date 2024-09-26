@@ -3,7 +3,7 @@ import createPersistent from "~/lib/utils/create/persistent";
 
 import { Polymorphic, PolymorphicProps } from "@kobalte/core";
 
-import { Stepper } from ".";
+import { useStepper } from "./context";
 
 export type StepperStepProps = ParentProps & {
   index?: number;
@@ -11,7 +11,7 @@ export type StepperStepProps = ParentProps & {
 };
 
 export const StepperStep = <T extends ValidComponent = "div">(props: PolymorphicProps<T, StepperStepProps>) => {
-  const stepper = Stepper.useContext();
+  const stepper = useStepper();
 
   const getPersistentStep = () => stepper.persistentSteps.get(stepper.currentIndex());
 
@@ -22,7 +22,7 @@ export const StepperStep = <T extends ValidComponent = "div">(props: Polymorphic
         props.index === stepper.currentIndex() && props.onEnter?.();
       });
 
-      return <Polymorphic as={"div"} {...props} />;
+      return <Polymorphic as={"li"} aria-current="step" {...props} />;
     });
 
     stepper.persistentSteps.set(stepper.currentIndex(), step);
@@ -32,7 +32,5 @@ export const StepperStep = <T extends ValidComponent = "div">(props: Polymorphic
 
   const ref = () => getPersistentStep() ?? createPersistentStep();
 
-  return {
-    ref: ref,
-  } as unknown as JSX.Element;
+  return { ref: ref } as unknown as JSX.Element;
 };
