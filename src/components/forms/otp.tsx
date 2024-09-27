@@ -63,7 +63,7 @@ export const OtpForm = (props: OtpStepProps) => {
         <p>
           <Suspense fallback={t.sending()}>
             <Show when={resourse()}>{t.sent()}</Show>
-          </Suspense>
+          </Suspense>{" "}
           <Link href={`mailto:${props.recipient}`}>{props.recipient}</Link>
         </p>
       </hgroup>
