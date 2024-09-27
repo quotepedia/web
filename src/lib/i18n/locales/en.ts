@@ -5,35 +5,40 @@ export const dict: DictionaryMap = {
     404: {
       title: "Page not found",
       heading: "This page does not exist",
-      paragraph: "Sorry, we couldn't find the page you're looking for.",
-      back: "Take me home",
+      description: "Sorry, we couldn't find the page you're looking for.",
+      home: "Take me home",
     },
     login: {
       title: "Sign in",
       heading: "Log in to your account",
-      paragraph: "We're happy to see you again! Enter credentials in order to access your account:",
+      description: "We're happy to see you again! Enter credentials in order to access your account:",
       form: {
         fields: {
           email: {
             label: "Email",
             placeholder: "Enter your email address…",
-            description: "Use an organization email to easily collaborate with teammates.",
-            required: "Please enter your email.",
-            error: "The email address is badly formatted.",
+            description: "Your address is not transferred to third parties.",
+            required: "You haven't entered your email address. Please provide it to continue.",
+            invalid:
+              "The email address you entered isn't in the correct format. Please enter a valid one (e.g. name@example.com).",
           },
           password: {
             label: "Password",
             placeholder: "Enter your password…",
             description: "Passwords are encrypted.",
             forgot: "Forgot your password?",
-            required: "Please enter your password.",
-            minLength: "Your password must have 8 characters or more.",
+            required: "You haven't entered your password. Please provide it to continue.",
+            minLength: "Your password must be at least {{ length }} characters long.",
           },
         },
-        submit: "Log in",
+        submit: "Login",
       },
-      footer: "Don't have an account? ",
-      signup: "Sign up for free",
+      home: "Home",
+      settings: "Settings",
+      register: "Register",
+    },
+    register: {
+      title: "Registration",
     },
     resetPassword: {
       title: "Reset password",
@@ -102,62 +107,75 @@ export const dict: DictionaryMap = {
       },
     },
   },
-  steps: {
-    resetPassword: {
-      email: {
-        heading: "Password Recovery",
-        back: "Back to login form",
-      },
-      password: {
-        heading: "Change Password",
-        paragraph: "You are setting a new password for ",
-        form: {
-          fields: {
-            password: {
-              label: "New password",
-              placeholder: "Enter your new password…",
-              description: "Regularly update your passwords for added security.",
-              required: "Please enter your new password.",
-              minLength: "Your new password must be at least {{ length }} characters long.",
-            },
-            confirm: {
-              label: "Confirm new password",
-              placeholder: "Re-enter your new password…",
-              description: "Make sure both entered passwords match.",
-              required: "Please re-enter your new password.",
-              minLength: "The confirmation password must be at least {{ length }} characters long.",
-            },
-          },
-          errors: {
-            mismatch: "The entered passwords don't match!",
-          },
-          submit: "Update my password",
-          success: "Password changed successfully.",
-        },
-      },
-    },
-    verification: {
+  components: {
+    forms: {
       email: {
         label: "Email",
-        placeholder: "Enter your email address…",
-        description:
-          "Enter the email address associated with your account and we'll send you a message with further instructions.",
-        required: "We need your email address to send you a verification code.",
-        error: "The email address is badly formatted.",
-        submit: "Send verification code",
-        notExists: "There is no user with this email address!",
+        description: "This address is not transferred to third parties.",
+        placeholder: "Enter email address…",
+        required: "You haven't entered the email address. Please provide it to continue.",
+        invalid:
+          "The email address you entered isn't in the correct format. Please enter a valid one (e.g. name@example.com).",
+        registered: "This email address is already registered. Please try a different one.",
+        unregistered: "This email address isn't registered yet. Please enter an existing one.",
+        submit: "Continue",
       },
       otp: {
         heading: "Verification",
-        sent: "We’ve sent an e-mail with verification code to your inbox: ",
+        sent: "We've sent a message with 6-digit verification code to your inbox:",
         resend: "Re-send code",
-        sending: "We’re sending an e-mail with verification code to your inbox: ",
-        uncomplete: "Please enter the code completely.",
-        incorrect: "The code you entered is incorrect!",
+        sending: "We're sending a message with 6-digit verification code to your inbox:",
+        minLength: "Please enter the code completely.",
+      },
+      password: {
+        newPassword1: {
+          label: "New password",
+          description: "Regularly update your passwords for added security.",
+          placeholder: "Enter your new password…",
+          required: "Please enter your new password.",
+          minLength: "Your new password must be at least {{ length }} characters long.",
+        },
+        newPassword2: {
+          label: "Confirm new password",
+          description: "Make sure both entered passwords match.",
+          placeholder: "Re-enter your new password…",
+          required: "Please re-enter your new password.",
+          minLength: "The confirmation password must be at least {{ length }} characters long.",
+        },
+        mismatch: "The entered passwords don't match.",
+        submit: "Set password",
       },
     },
-  },
-  components: {
+    registration: {
+      steps: {
+        email: {
+          heading: "Registration",
+          description:
+            "Enter your email to create an account. A one-time password (OTP) will be sent to this address for verification.",
+          home: "Home",
+          settings: "Settings",
+          login: "Login",
+        },
+        password: {
+          heading: "Set password",
+          description: "Enter a password for your new account. You can always change it later.",
+        },
+      },
+    },
+    resetPassword: {
+      steps: {
+        email: {
+          heading: "Forgot your password?",
+          description:
+            "Enter the email address associated with your account and we'll send you a message with further instructions.",
+          login: "Go to login form",
+        },
+        password: {
+          heading: "Set new password",
+          description: "Enter a new password for your account. You can always change it later.",
+        },
+      },
+    },
     sessionExpirationObserver: {
       expired: "Your session has expired!",
     },

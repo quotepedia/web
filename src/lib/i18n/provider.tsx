@@ -1,6 +1,6 @@
 import { Link } from "@solidjs/meta";
 import { type Accessor, type ParentComponent, createContext, createEffect, useContext, useTransition } from "solid-js";
-import { getDefaultLocale, type Locale, type LocalizedTranslator, createTranslator } from "~/lib/i18n";
+import { type Locale, type LocalizedTranslator, createTranslator, getDefaultLocale } from "~/lib/i18n";
 import { usePreferences } from "~/lib/preferences";
 
 export type I18nContextValue = {
@@ -50,4 +50,12 @@ export const I18nProvider: ParentComponent = (props) => {
   );
 };
 
-export const useI18n = () => useContext(I18nContext);
+export const useI18n = () => {
+  const context = useContext(I18nContext);
+
+  if (context === undefined) {
+    throw new Error("'useI18n' must be used within a 'I18nProvider' component");
+  }
+
+  return context;
+};

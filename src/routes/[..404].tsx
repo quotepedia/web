@@ -18,13 +18,13 @@ export default function Page() {
 
         <hgroup class="space-y-4">
           <Heading>{i18n.t.routes[404].heading()}</Heading>
-          <p class="text-sm text-fg-muted">{i18n.t.routes[404].paragraph()}</p>
+          <p class="text-sm text-fg-muted">{i18n.t.routes[404].description()}</p>
         </hgroup>
 
         <section class="flex gap-2">
           <Button as={A} href="/">
             <Icon path={homeModern} width={16} />
-            {i18n.t.routes[404].back()}
+            {i18n.t.routes[404].home()}
           </Button>
           <LocaleSwitcher />
         </section>

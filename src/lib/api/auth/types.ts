@@ -3,3 +3,9 @@ export type LoginForm = {
   password: string;
   redirect: string | undefined;
 };
+
+export type RegisterForm = {
+  email: string;
+  password: string;
+  otp: number;
+};

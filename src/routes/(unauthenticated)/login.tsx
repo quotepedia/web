@@ -1,84 +1,81 @@
-import { A, useAction, useSearchParams, useSubmission } from "@solidjs/router";
+import { A, useAction, useSearchParams } from "@solidjs/router";
 import { JSX, Show } from "solid-js";
 
-import { createForm, email, minLength, required } from "@modular-forms/solid";
-import { toast } from "solid-sonner";
+import { createForm, email, FormError, minLength, required } from "@modular-forms/solid";
 
 import { Button, FormControl, Heading, Link, LottiePresenter, Title } from "~/components";
+import { MIN_PASSWORD_LENGTH } from "~/components/forms/password";
 import { authenticate, LoginForm } from "~/lib/api/auth";
 import { useI18n } from "~/lib/i18n";
 
 export default function Login() {
+  const i18n = useI18n();
+  const t = i18n.t.routes.login;
+
+  const login = useAction(authenticate);
   const [searchParams] = useSearchParams();
 
-  const i18n = useI18n();
+  const [form, { Form, Field }] = createForm<LoginForm>({ validateOn: "input" });
 
-  const [, Login] = createForm<LoginForm>();
-  const action = useAction(authenticate);
-  const submission = useSubmission(authenticate);
-
-  const submit = async (form: LoginForm) => {
-    const result = await action(form);
-    if (result.error) {
-      toast.error(result.error.detail?.toString())
+  const onSubmit = async (form: LoginForm) => {
+    const result = await login(form);
+    if (result.error && result.error.detail) {
+      throw new FormError<LoginForm>(result.error.detail.toString());
     }
-  }
+  };
 
   return (
     <div class="m-auto max-w-xs space-y-6 py-6">
-      <Title>{i18n.t.routes.login.title()}</Title>
+      <Title>{t.title()}</Title>
 
       <header class="space-y-6 text-center">
         <LottiePresenter path="tgs/wave.json" class="size-24 w-full" />
         <hgroup class="space-y-4">
-          <Heading>{i18n.t.routes.login.heading()}</Heading>
-          <p>{i18n.t.routes.login.paragraph()}</p>
+          <Heading>{t.heading()}</Heading>
+          <p>{t.description()}</p>
         </hgroup>
       </header>
 
       <main>
-        <Login.Form onSubmit={submit} method="post">
-          <fieldset disabled={submission.pending} class="space-y-4">
-            <Login.Field
+        <Form onSubmit={onSubmit} method="post">
+          <fieldset disabled={form.submitting} class="space-y-4">
+            <Field
               name="email"
-              validate={[
-                required(i18n.t.routes.login.form.fields.email.required()),
-                email(i18n.t.routes.login.form.fields.email.error()),
-              ]}
+              validate={[required(t.form.fields.email.required()), email(t.form.fields.email.invalid())]}
             >
               {(field, props) => (
                 <FormControl
                   {...props}
                   type="email"
-                  label={i18n.t.routes.login.form.fields.email.label()}
-                  placeholder={i18n.t.routes.login.form.fields.email.placeholder()}
-                  description={i18n.t.routes.login.form.fields.email.description()}
+                  label={t.form.fields.email.label()}
+                  placeholder={t.form.fields.email.placeholder()}
+                  description={t.form.fields.email.description()}
                   value={field.value}
                   error={field.error}
                   required
                 />
               )}
-            </Login.Field>
+            </Field>
 
-            <Login.Field
+            <Field
               name="password"
               validate={[
-                required(i18n.t.routes.login.form.fields.password.required()),
-                minLength(8, i18n.t.routes.login.form.fields.password.minLength({ length: 8 })),
+                required(t.form.fields.password.required()),
+                minLength(MIN_PASSWORD_LENGTH, t.form.fields.password.minLength({ length: MIN_PASSWORD_LENGTH })),
               ]}
             >
               {(field, props) => (
                 <FormControl
                   {...props}
                   type="password"
-                  label={i18n.t.routes.login.form.fields.password.label()}
-                  placeholder={i18n.t.routes.login.form.fields.password.placeholder()}
+                  label={t.form.fields.password.label()}
+                  placeholder={t.form.fields.password.placeholder()}
                   description={
                     (() => (
                       <>
-                        <span>{i18n.t.routes.login.form.fields.password.description()}</span>
+                        <span>{t.form.fields.password.description()}</span>
                         <Link as={A} href="/reset-password">
-                          {i18n.t.routes.login.form.fields.password.forgot()}
+                          {t.form.fields.password.forgot()}
                         </Link>
                       </>
                     )) as unknown as JSX.Element
@@ -88,25 +85,40 @@ export default function Login() {
                   required
                 />
               )}
-            </Login.Field>
+            </Field>
 
             <Show when={searchParams.redirect}>
-              <Login.Field name="redirect">
+              <Field name="redirect">
                 {(_field, props) => <input type="hidden" value={searchParams.redirect} {...props} />}
-              </Login.Field>
+              </Field>
             </Show>
 
-            <Button color="primary" type="submit" class="w-full" aria-busy={submission.pending}>
-              {i18n.t.routes.login.form.submit()}
+            <Show when={form.response.message}>{(message) => <p class="text-xs text-red-600">{message()}</p>}</Show>
+
+            <Button
+              color="primary"
+              type="submit"
+              class="w-full"
+              aria-busy={form.submitting}
+              disabled={form.invalid || !form.dirty}
+            >
+              {t.form.submit()}
             </Button>
           </fieldset>
-        </Login.Form>
+        </Form>
       </main>
 
       <footer class="text-center text-xs text-fg-muted">
-        {i18n.t.routes.login.footer()}
         <Link as={A} href="/">
-          {i18n.t.routes.login.signup()}
+          {t.home()}
+        </Link>
+        {" · "}
+        <Link as={A} href="/settings">
+          {t.settings()}
+        </Link>
+        {" · "}
+        <Link as={A} href="/register">
+          {t.register()}
         </Link>
       </footer>
     </div>

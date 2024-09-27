@@ -1,6 +1,6 @@
 import * as i18n from "@solid-primitives/i18n";
-import { Theme } from "~/lib/theme";
 import { SUPPORTED_CULTURES } from "~/lib/i18n";
+import { Theme } from "~/lib/theme";
 
 export type Locale = keyof typeof SUPPORTED_CULTURES;
 
@@ -9,13 +9,13 @@ export type DictionaryMap = {
     404: {
       title: string;
       heading: string;
-      paragraph: string;
-      back: string;
+      description: string;
+      home: string;
     };
     login: {
       title: string;
       heading: string;
-      paragraph: string;
+      description: string;
       form: {
         fields: {
           email: {
@@ -23,7 +23,7 @@ export type DictionaryMap = {
             placeholder: string;
             description: string;
             required: string;
-            error: string;
+            invalid: string;
           };
           password: {
             label: string;
@@ -36,8 +36,12 @@ export type DictionaryMap = {
         };
         submit: string;
       };
-      footer: string;
-      signup: string;
+      home: string;
+      settings: string;
+      register: string;
+    };
+    register: {
+      title: string;
     };
     resetPassword: {
       title: string;
@@ -101,61 +105,72 @@ export type DictionaryMap = {
       };
     };
   };
-  steps: {
-    verification: {
+  components: {
+    forms: {
       email: {
         label: string;
-        placeholder: string;
         description: string;
+        placeholder: string;
         required: string;
-        error: string;
+        invalid: string;
+        registered: string;
+        unregistered: string;
         submit: string;
-        notExists: string;
       };
       otp: {
         heading: string;
         sent: string;
         resend: string;
         sending: string;
-        uncomplete: string;
-        incorrect: string;
-      };
-    };
-    resetPassword: {
-      email: {
-        heading: string;
-        back: string;
+        minLength: string;
       };
       password: {
-        heading: string;
-        paragraph: string;
-        form: {
-          fields: {
-            password: {
-              label: string;
-              placeholder: string;
-              description: string;
-              required: string;
-              minLength: string;
-            };
-            confirm: {
-              label: string;
-              placeholder: string;
-              description: string;
-              required: string;
-              minLength: string;
-            };
-          };
-          errors: {
-            mismatch: string;
-          };
-          submit: string;
-          success: string;
+        newPassword1: {
+          label: string;
+          description: string;
+          placeholder: string;
+          required: string;
+          minLength: string;
+        };
+        newPassword2: {
+          label: string;
+          description: string;
+          placeholder: string;
+          required: string;
+          minLength: string;
+        };
+        mismatch: string;
+        submit: string;
+      };
+    };
+    registration: {
+      steps: {
+        email: {
+          heading: string;
+          description: string;
+          home: string;
+          settings: string;
+          login: string;
+        };
+        password: {
+          heading: string;
+          description: string;
         };
       };
     };
-  };
-  components: {
+    resetPassword: {
+      steps: {
+        email: {
+          heading: string;
+          description: string;
+          login: string;
+        };
+        password: {
+          heading: string;
+          description: string;
+        };
+      };
+    };
     sessionExpirationObserver: {
       expired: string;
     };
