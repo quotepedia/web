@@ -5,10 +5,11 @@ import { type PolymorphicProps, Polymorphic } from "@kobalte/core/polymorphic";
 import { type RendererType } from "lottie-web";
 
 import { type LottieExpositorProps } from "./expositor";
+import { Motion } from "../motion";
 
 export const LottieExpositor = clientOnly(() => import("./expositor"));
 
-export const LottiePresenter = <T extends ValidComponent = "div", R extends RendererType = "svg">(
+export const LottiePresenter = <T extends ValidComponent = typeof Motion, R extends RendererType = "svg">(
   props: PolymorphicProps<T, LottieExpositorProps<R>>,
 ) => {
   const [options, others] = splitProps(props, [
@@ -24,7 +25,7 @@ export const LottiePresenter = <T extends ValidComponent = "div", R extends Rend
   ]);
 
   return (
-    <Polymorphic as="div" {...others}>
+    <Polymorphic as={Motion} {...others}>
       <LottieExpositor {...options} />
     </Polymorphic>
   );

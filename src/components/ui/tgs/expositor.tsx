@@ -1,4 +1,4 @@
-import { createEffect, createSignal, on, onCleanup } from "solid-js";
+import { createEffect, createSignal, mergeProps, on, onCleanup } from "solid-js";
 
 import { createEventListener } from "@solid-primitives/event-listener";
 import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
@@ -9,6 +9,13 @@ import Lottie from "lottie-web/build/player/lottie_light";
 export type LottieExpositorProps<R extends RendererType = "svg"> = Omit<AnimationConfigWithPath<R>, "container">;
 
 export const LottieExpositor = (props: LottieExpositorProps) => {
+  const defaultedProps = mergeProps(
+    {
+      loop: false,
+    },
+    props,
+  );
+
   const [containerRef, setContainerRef] = createSignal<Element>();
   const [animationItem, setAnimationItem] = createSignal<AnimationItem>();
 
@@ -20,9 +27,11 @@ export const LottieExpositor = (props: LottieExpositorProps) => {
       const container = containerRef();
       if (!container) return;
 
-      const animation = Lottie.loadAnimation({ container: container, ...props });
+      const animation = Lottie.loadAnimation({ container: container, ...defaultedProps });
       animationItem()?.destroy();
       setAnimationItem(animation);
+
+      createEventListener(container, "click", () => animation.isPaused && animation.goToAndPlay(0));
     }),
   );
 
