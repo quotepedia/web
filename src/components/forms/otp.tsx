@@ -36,7 +36,7 @@ export const OtpForm = (props: OtpStepProps) => {
     }
 
     if (result.error.detail) {
-      throw new FormError<OtpFormData>(result.error.detail.toString());
+      throw new FormError<OtpFormData>({ otp: result.error.detail.toString() });
     }
 
     resetForm();
