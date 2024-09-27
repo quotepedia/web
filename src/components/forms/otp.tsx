@@ -35,11 +35,11 @@ export const OtpForm = (props: OtpStepProps) => {
       return;
     }
 
+    resetForm();
+
     if (result.error.detail) {
       throw new FormError<OtpFormData>({ otp: result.error.detail.toString() });
     }
-
-    resetForm();
   };
 
   const resetForm = () => {
