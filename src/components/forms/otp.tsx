@@ -56,7 +56,7 @@ export const OtpForm = (props: OtpStepProps) => {
 
   return (
     <Motion class="flex w-full flex-col items-center justify-center gap-6 text-center">
-      <LottiePresenter path="tgs/mailbox.json" class="size-24" />
+      <LottiePresenter path="/tgs/mailbox.json" class="size-24" />
 
       <hgroup class="w-full space-y-4">
         <Heading>{t.heading()}</Heading>

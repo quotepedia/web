@@ -19,7 +19,7 @@ export const ResetPasswordEmailStep = () => {
 
   return (
     <Stepper.Step class="flex w-full flex-col items-stretch space-y-6">
-      <LottiePresenter path="tgs/envelope.json" class="size-24 self-center" />
+      <LottiePresenter path="/tgs/envelope.json" class="size-24 self-center" />
 
       <hgroup class="space-y-4 text-center">
         <Heading>{t.heading()}</Heading>
