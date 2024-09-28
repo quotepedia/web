@@ -241,6 +241,19 @@ export interface components {
       file: Blob;
     };
     /**
+     * CurrentUserEmailUpdateRequest
+     * @description Represents a request to update current user's email.
+     */
+    CurrentUserEmailUpdateRequest: {
+      /** Otp */
+      otp: number;
+      /**
+       * Email
+       * Format: email
+       */
+      email: string;
+    };
+    /**
      * CurrentUserResponse
      * @description Represents the private response data for a user.
      */
@@ -622,7 +635,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["UserEmailRequest"];
+        "application/json": components["schemas"]["CurrentUserEmailUpdateRequest"];
       };
     };
     responses: {
