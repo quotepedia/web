@@ -2,7 +2,7 @@
 import { createHandler, StartServer } from "@solidjs/start/server";
 import { getCookie } from "vinxi/http";
 import { getRequestLocale } from "~/lib/i18n";
-import { PREFERENCES_COOKIE_NAME, Preferences } from "~/lib/preferences";
+import { Preferences, PREFERENCES_COOKIE_NAME } from "~/lib/preferences";
 
 export default createHandler((event) => {
   const cookie = getCookie(event.nativeEvent, PREFERENCES_COOKIE_NAME);
@@ -23,8 +23,8 @@ export default createHandler((event) => {
             <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
             {assets}
           </head>
-          <body class="overflow-x-hidden">
-            <div id="app" class="flex min-h-dvh bg-bg-body text-sm text-fg-body antialiased transition-colors">
+          <body class="overflow-x-hidden text-sm text-fg-body antialiased transition-colors">
+            <div id="app" class="flex min-h-dvh bg-bg-body">
               {children}
             </div>
             {scripts}
