@@ -18,7 +18,7 @@ export const styles = tv({
       "data-[expanded]:slide-in-from-left-1/2 data-[closed]:slide-out-to-left-1/2",
       "data-[expanded]:slide-in-from-top-1/2 data-[closed]:slide-out-to-top-1/2",
     ],
-    dismiss: ["size-6 rounded-sm p-0.5 text-fg-muted transition-colors hover:bg-bg-secondary active:bg-bg-tertiary"],
+    dismiss: ["size-6 rounded-md p-0.5 text-fg-muted transition-colors hover:bg-bg-secondary active:bg-bg-tertiary"],
     header: ["flex items-center justify-between"],
     title: ["text-xl font-semibold leading-none tracking-tight"],
     description: ["text-sm"],
