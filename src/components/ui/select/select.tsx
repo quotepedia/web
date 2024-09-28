@@ -3,7 +3,7 @@ import { splitProps, type ValidComponent } from "solid-js";
 import { PolymorphicProps } from "@kobalte/core/polymorphic";
 import * as SelectPrimitive from "@kobalte/core/select";
 
-import { merge } from "~/lib/utils/css/merge";
+import { cn } from "~/lib/utils/css";
 import { DropdownMenuContentProps, DropdownMenuItemProps } from "./select.props";
 import { styles } from "./select.styles";
 
@@ -21,7 +21,7 @@ const SelectContent = <T extends ValidComponent = "div">(props: PolymorphicProps
   const [, rest] = splitProps(props as DropdownMenuContentProps, ["class"]);
   return (
     <SelectPrimitive.Portal>
-      <SelectPrimitive.Content class={merge(styles().content(), props.class)} {...rest}>
+      <SelectPrimitive.Content class={cn(styles().content(), props.class)} {...rest}>
         <SelectPrimitive.Arrow />
         {props.children}
       </SelectPrimitive.Content>
@@ -31,7 +31,7 @@ const SelectContent = <T extends ValidComponent = "div">(props: PolymorphicProps
 
 const SelectItem = <T extends ValidComponent = "div">(props: PolymorphicProps<T, DropdownMenuItemProps<T>>) => {
   const [, rest] = splitProps(props as DropdownMenuItemProps, ["class"]);
-  return <SelectPrimitive.Item class={merge(styles().item(), props.class)} {...rest} />;
+  return <SelectPrimitive.Item class={cn(styles().item(), props.class)} {...rest} />;
 };
 
 export const Select = Object.assign(SelectRoot, {

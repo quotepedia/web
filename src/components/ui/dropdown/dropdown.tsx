@@ -3,7 +3,7 @@ import { splitProps, type ValidComponent } from "solid-js";
 import * as DropdownPrimitive from "@kobalte/core/dropdown-menu";
 import { PolymorphicProps } from "@kobalte/core/polymorphic";
 
-import { merge } from "~/lib/utils/css/merge";
+import { cn } from "~/lib/utils/css";
 import { DropdownMenuContentProps, DropdownMenuItemProps } from "./dropdown.props";
 import { styles } from "./dropdown.styles";
 import { Icon } from "solid-heroicons";
@@ -21,7 +21,7 @@ const DropdownContent = <T extends ValidComponent = "div">(props: PolymorphicPro
   const [, rest] = splitProps(props as DropdownMenuContentProps, ["class"]);
   return (
     <DropdownPrimitive.Portal>
-      <DropdownPrimitive.Content class={merge(styles().content(), props.class)} {...rest}>
+      <DropdownPrimitive.Content class={cn(styles().content(), props.class)} {...rest}>
         <DropdownPrimitive.Arrow />
         {props.children}
       </DropdownPrimitive.Content>
@@ -31,7 +31,7 @@ const DropdownContent = <T extends ValidComponent = "div">(props: PolymorphicPro
 
 const DropdownItem = <T extends ValidComponent = "div">(props: PolymorphicProps<T, DropdownMenuItemProps<T>>) => {
   const [, rest] = splitProps(props as DropdownMenuItemProps, ["class"]);
-  return <DropdownPrimitive.Item class={merge(styles().item(), props.class)} {...rest} />;
+  return <DropdownPrimitive.Item class={cn(styles().item(), props.class)} {...rest} />;
 };
 
 export const Dropdown = Object.assign(DropdownRoot, {

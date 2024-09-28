@@ -3,7 +3,7 @@ import { type ValidComponent, splitProps } from "solid-js";
 import { PolymorphicProps } from "@kobalte/core/polymorphic";
 import * as SeparatorPrimitive from "@kobalte/core/separator";
 
-import { merge } from "~/lib/utils/css/merge";
+import { cn } from "~/lib/utils/css";
 
 import { SeparatorProps } from "./separator.props";
 import { styles } from "./separator.styles";
@@ -13,7 +13,7 @@ export const Separator = <T extends ValidComponent = "hr">(props: PolymorphicPro
   return (
     <SeparatorPrimitive.Root
       orientation={variants.orientation}
-      class={merge(styles({ ...variants }), local.class)}
+      class={cn(styles({ ...variants }), local.class)}
       {...others}
     />
   );

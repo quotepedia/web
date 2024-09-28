@@ -8,7 +8,7 @@ import { useI18n } from "~/lib/i18n";
 
 import { Avatar } from "../avatar";
 import { SidebarItem } from "./item";
-import { merge } from "~/lib/utils/css/merge";
+import { cn } from "~/lib/utils/css";
 
 export const Sidebar: Component = () => {
   const i18n = useI18n();
@@ -36,7 +36,7 @@ export const Sidebar: Component = () => {
                 as={(props) => {
                   const [local, rest] = splitProps(props, ["class"]);
                   return (
-                    <Avatar class={merge("group-aria-[current='page']:max-md:ring-fg-accent", local.class)} {...rest}>
+                    <Avatar class={cn("group-aria-[current='page']:max-md:ring-fg-accent", local.class)} {...rest}>
                       <Avatar.Img src={user().avatar_url} alt={user().email} />
                     </Avatar>
                   );

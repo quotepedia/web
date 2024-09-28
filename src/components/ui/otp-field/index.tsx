@@ -6,7 +6,7 @@ import { Transition } from "solid-transition-group";
 import type { DynamicProps, RootProps } from "@corvu/otp-field";
 import OtpFieldPrimitive from "@corvu/otp-field";
 
-import { merge } from "~/lib/utils/css/merge";
+import { cn } from "~/lib/utils/css";
 import { Cursor } from "~/components";
 
 type OtpFieldProps<T extends ValidComponent = "div"> = RootProps<T> & JSX.StylableSVGAttributes;
@@ -15,7 +15,7 @@ const OtpFieldRoot = <T extends ValidComponent = "div">(props: DynamicProps<T, O
   const [local, others] = splitProps(props as OtpFieldProps, ["class"]);
   return (
     <OtpFieldPrimitive
-      class={merge(
+      class={cn(
         "flex items-center justify-center gap-2 disabled:cursor-not-allowed has-[:disabled]:opacity-75",
         local.class,
       )}
@@ -34,7 +34,7 @@ const OtpFieldSlot: Component<ComponentProps<"div"> & { index: number }> = (prop
 
   return (
     <div
-      class={merge(
+      class={cn(
         "flex size-8 items-center justify-center rounded-md font-mono ring-1 ring-bg-secondary transition-all overflow-hidden",
         context.activeSlots().includes(local.index) && "ring-blue-600",
         local.class,

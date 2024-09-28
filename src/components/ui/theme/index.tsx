@@ -4,7 +4,7 @@ import { check } from "solid-heroicons/solid-mini";
 import { For, JSX } from "solid-js";
 import { useI18n } from "~/lib/i18n";
 import { SUPPORTED_THEMES, Theme, useTheme } from "~/lib/theme";
-import { merge } from "~/lib/utils/css/merge";
+import { cn } from "~/lib/utils/css";
 
 export type ThemeCardProps = {
   name: string;
@@ -15,7 +15,7 @@ export const ThemeSwitcherOptionPreview = (props: { key: Theme }) => {
   return (
     <div
       data-theme={props.key}
-      class={merge(
+      class={cn(
         "relative flex h-20 w-32 overflow-clip rounded-lg bg-bg-body shadow transition-[color,transform]",
         "group-active:scale-95 group-active:duration-0",
         "after:absolute after:inset-0 after:rounded-lg after:transition-[box-shadow,color]",
@@ -77,7 +77,7 @@ export const ThemeSwitcher = (props: JSX.StylableSVGAttributes) => {
                 <p class="flex items-center text-xs font-semibold peer-checked:group-[]:text-fg-accent">
                   <Icon
                     path={check}
-                    class={merge(
+                    class={cn(
                       "me-1 size-3.5 select-none transition-[transform,opacity]",
                       "-translate-x-3.5 scale-0 opacity-0",
                       "group-data-[checked]:translate-x-0 group-data-[checked]:scale-100 group-data-[checked]:opacity-100",

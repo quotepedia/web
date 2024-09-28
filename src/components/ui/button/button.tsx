@@ -1,7 +1,7 @@
 import * as ButtonPrimitive from "@kobalte/core/button";
 import type { PolymorphicProps } from "@kobalte/core/polymorphic";
 import { type ValidComponent, splitProps } from "solid-js";
-import { merge } from "~/lib/utils/css/merge";
+import { cn } from "~/lib/utils/css";
 import type { ButtonProps } from "./button.props";
 import { styles } from "./button.styles";
 
@@ -9,7 +9,7 @@ export const Button = <T extends ValidComponent = "button">(props: PolymorphicPr
   const [local, variants, others] = splitProps(props as ButtonProps, ["class"], ["variant", "color", "size"]);
 
   return (
-    <ButtonPrimitive.Root class={merge(styles({ ...variants }), local.class)} {...others}>
+    <ButtonPrimitive.Root class={cn(styles({ ...variants }), local.class)} {...others}>
       {props.children}
     </ButtonPrimitive.Root>
   );
