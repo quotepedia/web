@@ -68,6 +68,9 @@ importers:
       solid-transition-group:
         specifier: ^0.2.3
         version: 0.2.3(solid-js@1.8.23)
+      solid-transition-size:
+        specifier: ^0.1.4
+        version: 0.1.4(solid-js@1.8.23)
       tailwind-merge:
         specifier: ^2.5.2
         version: 2.5.2
@@ -77,6 +80,9 @@ importers:
       tailwindcss:
         specifier: ^3.4.10
         version: 3.4.10
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.10)
       vinxi:
         specifier: ^0.4.2
         version: 0.4.2(@types/node@22.1.0)(ioredis@5.4.1)(sugarss@4.0.1(postcss@8.4.45))(terser@5.31.5)
@@ -2570,6 +2576,11 @@ packages:
     peerDependencies:
       solid-js: ^1.6.12
 
+  solid-transition-size@0.1.4:
+    resolution: {integrity: sha512-ocHVnbfy23CgfaH4cEUR/AFg0Y3CEL8Oh3n9Qv8OHFJgPh+zkmERKZQfi/xH5XvxDCizg8VjPrVUhiHB1Gza8g==}
+    peerDependencies:
+      solid-js: ^1.8
+
   solid-use@0.8.0:
     resolution: {integrity: sha512-YX+XmcKLvSx3bwMimMhFy40ZkDnShnUcEw6cW6fSscwKEgl1TG3GlgAvkBmQ3AeWjvQSd8+HGTr82ImsrjkkqA==}
     engines: {node: '>=10'}
@@ -2675,6 +2686,11 @@ packages:
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwindcss: '*'
+
+  tailwindcss-animate@1.0.7:
+    resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
 
   tailwindcss@3.4.10:
     resolution: {integrity: sha512-KWZkVPm7yJRhdu4SRSl9d4AK2wM3a50UsvgHZO7xY77NQr2V+fIrEuoDGQcbvswWvFGbS2f6e+jC/6WJm1Dl0w==}
@@ -5459,6 +5475,11 @@ snapshots:
       '@solid-primitives/transition-group': 1.0.5(solid-js@1.8.23)
       solid-js: 1.8.23
 
+  solid-transition-size@0.1.4(solid-js@1.8.23):
+    dependencies:
+      '@corvu/utils': 0.3.2(solid-js@1.8.23)
+      solid-js: 1.8.23
+
   solid-use@0.8.0(solid-js@1.8.23):
     dependencies:
       solid-js: 1.8.23
@@ -5555,6 +5576,10 @@ snapshots:
   tailwind-variants@0.2.1(tailwindcss@3.4.10):
     dependencies:
       tailwind-merge: 2.5.2
+      tailwindcss: 3.4.10
+
+  tailwindcss-animate@1.0.7(tailwindcss@3.4.10):
+    dependencies:
       tailwindcss: 3.4.10
 
   tailwindcss@3.4.10:
