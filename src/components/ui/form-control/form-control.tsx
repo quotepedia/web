@@ -24,7 +24,7 @@ export function FormControl(props: TextFieldProps) {
         </Show>
       </TextField.InputWrapper>
       <Show when={props.description}>
-        {(description) => <TextField.Description>{description()}</TextField.Description>} 
+        {(description) => <TextField.Description>{description()}</TextField.Description>}
       </Show>
       <TextField.ErrorMessage>{props.error}</TextField.ErrorMessage>
     </TextField>
