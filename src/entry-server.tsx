@@ -1,3 +1,4 @@
+// @refresh reload
 import { createHandler, StartServer } from "@solidjs/start/server";
 import { getCookie } from "vinxi/http";
 import { getRequestLocale } from "~/lib/i18n";
