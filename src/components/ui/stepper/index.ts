@@ -1,10 +1,10 @@
-import { StepperBackward } from "./backward";
+import { StepperBackward } from "./Backward";
 import { useStepper } from "./context";
-import { StepperForward } from "./forward";
-import { StepperPrevious } from "./previous";
-import { StepperRoot } from "./root";
-import { StepperStep } from "./step";
-import { StepperSteps } from "./steps";
+import { StepperForward } from "./Forward";
+import { StepperPrevious } from "./Previous";
+import { StepperRoot } from "./Root";
+import { StepperStep } from "./Step";
+import { StepperSteps } from "./Steps";
 
 export const Stepper = Object.assign(StepperRoot, {
   Steps: StepperSteps,
