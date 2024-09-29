@@ -4,30 +4,35 @@ import { Icon } from "solid-heroicons";
 import { arrowRightOnRectangle, chevronRight, envelopeOpen, key } from "solid-heroicons/solid-mini";
 import { Show } from "solid-js";
 import { AvatarEdit, Heading, SettingsCard, SettingsGroup, Title } from "~/components";
+import { ChangeEmailStepper } from "~/components/change-email/stepper";
+import { ChangePasswordStepper } from "~/components/change-password/stepper";
+import Dialog from "~/components/ui/dialog";
 import { unauthenticate } from "~/lib/api/auth";
 import { getCurrentUser } from "~/lib/api/users/me";
 import { useI18n } from "~/lib/i18n";
 
 export default function Account() {
   const i18n = useI18n();
+  const t = i18n.t.routes.settings;
+
   const currentUser = createAsync(() => getCurrentUser());
 
   const unauthenticating = useSubmission(unauthenticate);
 
   return (
     <div class="space-y-6">
-      <Title>{i18n.t.routes.settings.account.heading()}</Title>
+      <Title>{t.account.heading()}</Title>
 
       <Breadcrumbs separator={<Icon class="size-5" path={chevronRight} />}>
         <ol class="flex select-none items-center gap-1 text-fg-muted">
           <li>
             <Breadcrumbs.Link as={A} href="/settings">
-              <Heading>{i18n.t.routes.settings.heading()}</Heading>
+              <Heading>{t.heading()}</Heading>
             </Breadcrumbs.Link>
           </li>
           <Breadcrumbs.Separator />
           <li class="text-fg-body">
-            <Heading>{i18n.t.routes.settings.account.heading()}</Heading>
+            <Heading>{t.account.heading()}</Heading>
           </li>
         </ol>
       </Breadcrumbs>
@@ -47,36 +52,50 @@ export default function Account() {
 
             <section class="space-y-4">
               <Heading size="subheading" as="h2">
-                {i18n.t.routes.settings.account.sections.security.heading()}
+                {t.account.sections.security.heading()}
               </Heading>
 
               <SettingsGroup>
-                <SettingsCard variant="hover">
-                  <SettingsCard.Icon path={envelopeOpen} class="size-4" />
-                  <SettingsCard.HeaderGroup>
-                    <SettingsCard.Header>
-                      {i18n.t.routes.settings.account.sections.security.cards.email.heading()}
-                    </SettingsCard.Header>
-                    <SettingsCard.Description>
-                      {i18n.t.routes.settings.account.sections.security.cards.email.description()}
-                    </SettingsCard.Description>
-                  </SettingsCard.HeaderGroup>
-                  <SettingsCard.Value>{user().email}</SettingsCard.Value>
-                  <SettingsCard.Icon path={chevronRight} class="size-4" />
-                </SettingsCard>
+                <Dialog>
+                  <SettingsCard as={Dialog.Trigger} variant="hover">
+                    <SettingsCard.Icon path={envelopeOpen} class="size-4" />
+                    <SettingsCard.HeaderGroup>
+                      <SettingsCard.Header>{t.account.sections.security.cards.email.heading()}</SettingsCard.Header>
+                      <SettingsCard.Description>
+                        {t.account.sections.security.cards.email.description()}
+                      </SettingsCard.Description>
+                    </SettingsCard.HeaderGroup>
+                    <SettingsCard.Value>{user().email}</SettingsCard.Value>
+                    <SettingsCard.Icon path={chevronRight} class="size-4" />
+                  </SettingsCard>
+                  <Dialog.Content>
+                    <Dialog.Header>
+                      <Dialog.Title>{t.account.sections.security.cards.email.update()}</Dialog.Title>
+                      <Dialog.Dismiss />
+                    </Dialog.Header>
+                    <ChangeEmailStepper />
+                  </Dialog.Content>
+                </Dialog>
 
-                <SettingsCard variant="hover">
-                  <SettingsCard.Icon path={key} class="size-4" />
-                  <SettingsCard.HeaderGroup>
-                    <SettingsCard.Header>
-                      {i18n.t.routes.settings.account.sections.security.cards.password.heading()}
-                    </SettingsCard.Header>
-                    <SettingsCard.Description>
-                      {i18n.t.routes.settings.account.sections.security.cards.password.description()}
-                    </SettingsCard.Description>
-                  </SettingsCard.HeaderGroup>
-                  <SettingsCard.Icon path={chevronRight} class="size-4" />
-                </SettingsCard>
+                <Dialog>
+                  <SettingsCard as={Dialog.Trigger} variant="hover">
+                    <SettingsCard.Icon path={key} class="size-4" />
+                    <SettingsCard.HeaderGroup>
+                      <SettingsCard.Header>{t.account.sections.security.cards.password.heading()}</SettingsCard.Header>
+                      <SettingsCard.Description>
+                        {t.account.sections.security.cards.password.description()}
+                      </SettingsCard.Description>
+                    </SettingsCard.HeaderGroup>
+                    <SettingsCard.Icon path={chevronRight} class="size-4" />
+                  </SettingsCard>
+                  <Dialog.Content>
+                    <Dialog.Header>
+                      <Dialog.Title>{t.account.sections.security.cards.password.update()}</Dialog.Title>
+                      <Dialog.Dismiss />
+                    </Dialog.Header>
+                    <ChangePasswordStepper />
+                  </Dialog.Content>
+                </Dialog>
               </SettingsGroup>
 
               <SettingsGroup as="form" action={unauthenticate} method="post">
@@ -90,10 +109,10 @@ export default function Account() {
                   <SettingsCard.Icon path={arrowRightOnRectangle} class="size-4 text-red-600" />
                   <SettingsCard.HeaderGroup>
                     <SettingsCard.Header class="text-red-600">
-                      {i18n.t.routes.settings.sections.account.cards.signout.heading()}
+                      {t.sections.account.cards.signout.heading()}
                     </SettingsCard.Header>
                     <SettingsCard.Description>
-                      {i18n.t.routes.settings.sections.account.cards.signout.description()}
+                      {t.sections.account.cards.signout.description()}
                     </SettingsCard.Description>
                   </SettingsCard.HeaderGroup>
                   <SettingsCard.Icon path={chevronRight} class="size-4" />

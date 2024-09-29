@@ -94,10 +94,12 @@ export type DictionaryMap = {
               password: {
                 heading: string;
                 description: string;
+                update: string;
               };
               email: {
                 heading: string;
                 description: string;
+                update: string;
               };
             };
           };
@@ -168,6 +170,36 @@ export type DictionaryMap = {
         password: {
           heading: string;
           description: string;
+        };
+      };
+    };
+    changePassword: {
+      steps: {
+        password: {
+          heading: string;
+          description: string;
+        };
+        done: {
+          heading: string;
+          description: string;
+          purpose: string;
+          editable: string;
+          close: string;
+        };
+      };
+    };
+    changeEmail: {
+      steps: {
+        email: {
+          heading: string;
+          description: string;
+        };
+        done: {
+          heading: string;
+          description: string;
+          purpose: string;
+          editable: string;
+          close: string;
         };
       };
     };

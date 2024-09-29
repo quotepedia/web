@@ -95,11 +95,13 @@ export const dict: DictionaryMap = {
             cards: {
               email: {
                 heading: "Email address",
-                description: "The address that receive notifications and used to log in and recover account access.",
+                description: "The address used to log in and recover account access.",
+                update: "Change email address",
               },
               password: {
                 heading: "Password",
                 description: "Permanent password used to log in your account.",
+                update: "Change password",
               },
             },
           },
@@ -173,6 +175,36 @@ export const dict: DictionaryMap = {
         password: {
           heading: "Set new password",
           description: "Enter a new password for your account. You can always change it later.",
+        },
+      },
+    },
+    changePassword: {
+      steps: {
+        password: {
+          heading: "Enter new password",
+          description: "Enter password for your account which will be used to log in.",
+        },
+        done: {
+          heading: "Password changed!",
+          description: "You have successfully changed permanent password for your current account.",
+          purpose: "Now it will be used to log into your account and verify your identity.",
+          editable: "You can always change it again later.",
+          close: "Done",
+        },
+      },
+    },
+    changeEmail: {
+      steps: {
+        email: {
+          heading: "Enter new email",
+          description: "The address that can be used to log in and recover account access.",
+        },
+        done: {
+          heading: "Email changed!",
+          description: "You have successfully changed and verified the email address for your current account.",
+          purpose: "Now it will receive security notifications and can be used to log in and recover account access.",
+          editable: "You can always change it again later.",
+          close: "Done",
         },
       },
     },
