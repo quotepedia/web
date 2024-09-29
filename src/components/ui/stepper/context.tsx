@@ -76,7 +76,7 @@ export const useStepper = (): StepperContextValue => {
   const context = useContext(StepperContext);
 
   if (context === undefined) {
-    throw new Error(`'useStepper' must be used within a 'Stepper' component.`);
+    throw new Error(`'useStepper' must be used within a 'StepperRoot' component.`);
   }
 
   return context;
