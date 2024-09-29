@@ -1,4 +1,5 @@
-import { type Accessor, type JSX, type Setter, createContext, useContext } from "solid-js";
+import type { Accessor, JSX, Setter } from "solid-js";
+import { createContext, useContext } from "solid-js";
 
 /**
  * The context value for the Stepper component.
@@ -67,17 +68,19 @@ export type StepperContextValue = {
 export const StepperContext = createContext<StepperContextValue>();
 
 /**
- * A custom hook to access the Stepper context.
+ * A hook to access the stepper context.
  *
- * @throws If used outside of a Stepper component.
- * @returns The current Stepper context value.
+ * @throws If used outside of a `<StepperRoot>` component.
+ * @returns The current stepper context value.
  */
-export const useStepper = (): StepperContextValue => {
+export const useStepperContext = (): StepperContextValue => {
   const context = useContext(StepperContext);
 
   if (context === undefined) {
-    throw new Error(`'useStepper' must be used within a 'StepperRoot' component.`);
+    throw new Error("A 'useStepperContext' must be used within a <StepperRoot> component.");
   }
 
   return context;
 };
+
+export default useStepperContext;

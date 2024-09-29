@@ -27,6 +27,7 @@
     "postcss": "^8.4.45",
     "solid-heroicons": "^3.2.4",
     "solid-js": "^1.8.23",
+    "solid-persistent": "^0.1.0",
     "solid-sonner": "^0.2.8",
     "solid-transition-group": "^0.2.3",
     "solid-transition-size": "^0.1.4",

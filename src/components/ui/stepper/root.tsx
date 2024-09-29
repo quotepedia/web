@@ -1,6 +1,8 @@
-import { type JSX, ValidComponent, createMemo, createSignal } from "solid-js";
+import type { JSX, ValidComponent } from "solid-js";
+import { createMemo, createSignal } from "solid-js";
 
-import { Polymorphic, PolymorphicProps } from "@kobalte/core";
+import { Polymorphic, PolymorphicProps } from "@kobalte/core/polymorphic";
+
 import { StepperContext } from "./context";
 
 export type StepperRootProps = {
@@ -59,3 +61,5 @@ export const StepperRoot = <T extends ValidComponent = "ol">(props: PolymorphicP
     </StepperContext.Provider>
   );
 };
+
+export default StepperRoot;

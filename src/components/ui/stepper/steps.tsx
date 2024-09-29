@@ -1,15 +1,18 @@
-import { Accessor, FlowComponent, type JSX, children, createEffect } from "solid-js";
-
+import type { Accessor, FlowProps, JSX } from "solid-js";
+import { children, createEffect } from "solid-js";
 import { Transition } from "solid-transition-group";
-import { useStepper } from "./context";
 
-export const StepperSteps: FlowComponent = (props) => {
+import useStepperContext from "./context";
+
+export type StepperStepsProps = FlowProps;
+
+export const StepperSteps = (props: StepperStepsProps) => {
   // eslint-disable-next-line solid/reactivity
   const steps = children(() => props.children) as unknown as Accessor<Array<{ ref: () => JSX.Element }>>;
-  const stepper = useStepper();
+  const context = useStepperContext();
 
   createEffect(() => {
-    stepper.setLength(steps()?.length || 0);
+    context.setLength(steps()?.length || 0);
   });
 
   return (
@@ -19,7 +22,7 @@ export const StepperSteps: FlowComponent = (props) => {
           [
             {
               opacity: 0,
-              transform: stepper.previousIndex < stepper.currentIndex ? "translateX(100%)" : "translateX(-100%)",
+              transform: context.previousIndex < context.currentIndex ? "translateX(100%)" : "translateX(-100%)",
             },
             {
               opacity: 1,
@@ -42,7 +45,7 @@ export const StepperSteps: FlowComponent = (props) => {
             },
             {
               opacity: 0,
-              transform: stepper.previousIndex < stepper.currentIndex ? "translateX(-100%)" : "translateX(100%)",
+              transform: context.previousIndex < context.currentIndex ? "translateX(-100%)" : "translateX(100%)",
             },
           ],
           {
@@ -54,7 +57,9 @@ export const StepperSteps: FlowComponent = (props) => {
       }}
       mode="outin"
     >
-      {steps()[stepper.currentIndex].ref()}
+      {steps()[context.currentIndex].ref()}
     </Transition>
   );
 };
+
+export default StepperSteps;
