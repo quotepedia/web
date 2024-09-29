@@ -9,7 +9,7 @@ export const StepperSteps: FlowComponent = (props) => {
   const stepper = useStepper();
 
   createEffect(() => {
-    stepper.setStepsCount(steps()?.length || 0);
+    stepper.setLength(steps()?.length || 0);
   });
 
   return (

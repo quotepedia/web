@@ -5,9 +5,20 @@ import { type Accessor, type JSX, type Setter, createContext, useContext } from 
  */
 export type StepperContextValue = {
   /**
-   * An accessor for the index of the previous step.
+   * A map that holds persistent steps, where the key is the step index
+   * and the value is an accessor for the corresponding JSX element.
    */
-  previousIndex: Accessor<number>;
+  steps: Map<number, Accessor<JSX.Element>>;
+
+  /**
+   * An accessor for the total number of steps.
+   */
+  length: Accessor<number>;
+
+  /**
+   * A setter function to update the total number of steps.
+   */
+  setLength: Setter<number>;
 
   /**
    * An accessor for the index of the current step.
@@ -15,40 +26,9 @@ export type StepperContextValue = {
   currentIndex: Accessor<number>;
 
   /**
-   * A setter function to update the current step index.
+   * An accessor for the index of the previous step.
    */
-  setCurrentIndex: Setter<number>;
-
-  /**
-   * An accessor for the total number of steps.
-   */
-  stepsCount: Accessor<number>;
-
-  /**
-   * A setter function to update the total number of steps.
-   */
-  setStepsCount: Setter<number>;
-
-  /**
-   * A map that holds persistent steps, where the key is the step index
-   * and the value is an accessor for the corresponding JSX element.
-   */
-  persistentSteps: Map<number, Accessor<JSX.Element>>;
-
-  /**
-   * An accessor that indicates whether the user can move forward to the next step.
-   */
-  canMoveForward: Accessor<boolean>;
-
-  /**
-   * An accessor that indicates whether the user can move backward to the previous step.
-   */
-  canMoveBackward: Accessor<boolean>;
-
-  /**
-   * An accessor that indicates whether the user can move to the previous step.
-   */
-  canMovePrevious: Accessor<boolean>;
+  previousIndex: Accessor<number>;
 
   /**
    * A function to move forward to the next step.
@@ -56,14 +36,29 @@ export type StepperContextValue = {
   moveForward: () => any;
 
   /**
+   * An accessor that indicates whether the user can move forward to the next step.
+   */
+  canMoveForward: Accessor<boolean>;
+
+  /**
    * A function to move backward to the previous step.
    */
   moveBackward: () => any;
 
   /**
+   * An accessor that indicates whether the user can move backward to the previous step.
+   */
+  canMoveBackward: Accessor<boolean>;
+
+  /**
    * A function to move to the previous step.
    */
   movePrevious: () => any;
+
+  /**
+   * An accessor that indicates whether the user can move to the previous step.
+   */
+  canMovePrevious: Accessor<boolean>;
 };
 
 /**
