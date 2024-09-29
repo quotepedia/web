@@ -1,10 +1,9 @@
 import { action, redirect } from "@solidjs/router";
 
 import { resetSession, updateSession } from "~/lib/http";
-import type { components } from "~/lib/api/schema";
 
-import type { LoginForm, RegisterForm } from "./types";
 import { $login, $register, $resetUserPassword } from "./service";
+import type { LoginForm, RegisterForm, UserPasswordResetForm } from "./types";
 
 export const authenticate = action(async (form: LoginForm) => {
   "use server";
@@ -41,8 +40,6 @@ export const unauthenticate = action(async () => {
 
   throw redirect("/");
 });
-
-export type UserPasswordResetForm = components["schemas"]["UserPasswordResetRequest"];
 
 export const resetUserPassword = action(async (body: UserPasswordResetForm) => {
   "use server";
