@@ -13,19 +13,19 @@ export type StepperStepProps = ParentProps & {
 export const StepperStep = <T extends ValidComponent = "div">(props: PolymorphicProps<T, StepperStepProps>) => {
   const stepper = useStepper();
 
-  const getPersistentStep = () => stepper.steps.get(stepper.currentIndex());
+  const getPersistentStep = () => stepper.steps.get(stepper.currentIndex);
 
   const createPersistentStep = () => {
-    props.index = stepper.currentIndex();
+    props.index = stepper.currentIndex;
     const step = createPersistent(() => {
       createEffect(() => {
-        props.index === stepper.currentIndex() && props.onEnter?.();
+        props.index === stepper.currentIndex && props.onEnter?.();
       });
 
       return <Polymorphic as={"li"} aria-current="step" {...props} />;
     });
 
-    stepper.steps.set(stepper.currentIndex(), step);
+    stepper.steps.set(stepper.currentIndex, step);
 
     return step;
   };

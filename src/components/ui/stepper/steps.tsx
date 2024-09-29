@@ -19,7 +19,7 @@ export const StepperSteps: FlowComponent = (props) => {
           [
             {
               opacity: 0,
-              transform: stepper.previousIndex() < stepper.currentIndex() ? "translateX(100%)" : "translateX(-100%)",
+              transform: stepper.previousIndex < stepper.currentIndex ? "translateX(100%)" : "translateX(-100%)",
             },
             {
               opacity: 1,
@@ -42,7 +42,7 @@ export const StepperSteps: FlowComponent = (props) => {
             },
             {
               opacity: 0,
-              transform: stepper.previousIndex() < stepper.currentIndex() ? "translateX(-100%)" : "translateX(100%)",
+              transform: stepper.previousIndex < stepper.currentIndex ? "translateX(-100%)" : "translateX(100%)",
             },
           ],
           {
@@ -54,7 +54,7 @@ export const StepperSteps: FlowComponent = (props) => {
       }}
       mode="outin"
     >
-      {steps()[stepper.currentIndex()].ref()}
+      {steps()[stepper.currentIndex].ref()}
     </Transition>
   );
 };

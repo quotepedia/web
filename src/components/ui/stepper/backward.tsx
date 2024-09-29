@@ -12,5 +12,5 @@ export const StepperBackward = <T extends ValidComponent = "button">(
 ) => {
   const context = useStepper();
 
-  return <Polymorphic as="button" onClick={context.moveBackward} disabled={!context.canMoveBackward()} {...props} />;
+  return <Polymorphic as="button" onClick={context.moveBackward} disabled={!context.canMoveBackward} {...props} />;
 };

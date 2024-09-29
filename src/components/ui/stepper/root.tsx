@@ -29,16 +29,28 @@ export const StepperRoot = <T extends ValidComponent = "ol">(props: PolymorphicP
 
   const context = {
     steps,
-    length,
+    get length() {
+      return length();
+    },
     setLength,
-    currentIndex,
-    previousIndex,
+    get currentIndex() {
+      return currentIndex();
+    },
+    get previousIndex() {
+      return previousIndex();
+    },
     moveForward,
-    canMoveForward,
+    get canMoveForward() {
+      return canMoveForward();
+    },
     moveBackward,
-    canMoveBackward,
+    get canMoveBackward() {
+      return canMoveBackward();
+    },
     movePrevious,
-    canMovePrevious,
+    get canMovePrevious() {
+      return canMovePrevious();
+    },
   };
 
   return (
