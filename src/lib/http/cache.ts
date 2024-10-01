@@ -22,7 +22,7 @@ export const getSessionExpirationDate = cache(async () => {
 
   const session = await getSession();
   const jwt = session.data.jwt;
-  const sessionExpirationDate = jwt ? Date.parse(jwt.expires_at) : Date.now();
+  const sessionExpirationDate = jwt ? Date.parse(jwt.expires_at) : undefined;
 
   return sessionExpirationDate;
 }, "sessionExpirationDate");

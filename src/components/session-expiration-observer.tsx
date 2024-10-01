@@ -40,7 +40,6 @@ export const SessionExpirationObserver: ParentComponent = (props) => {
     revalidate([getIsLoggedIn.key, getSessionExpirationDate.key, getCurrentUser.key]);
   };
 
-  // BUG: When logging out, toast infinitely shows up on mobile until logged in.
   const toastSessionExpired = (): void => {
     if (isLoggedIn() === false) {
       toast.info(i18n.t.components.sessionExpirationObserver.expired());
