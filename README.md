@@ -28,11 +28,11 @@ To see the current and future tasks for this project, please navigate to the [pr
 
 ### Prerequisites
 
+To start, open a command prompt and follow these instructions:
+
 To run this web app on your local machine, install the following:
 
 - [pnPm](https://pnpm.io/installation): Fast, disk space efficient package manager.
-
-To start, open a command prompt and follow these instructions:
 
 ### Step 1 — Install dependencies
 
