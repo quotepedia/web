@@ -1,12 +1,36 @@
-# Quotepedia front-end
+<p align="center">
+  <img width="96" src="https://github.com/user-attachments/assets/a7ca904e-0cd4-42cf-9b05-368b5ac250ad" alt="App icon" />
+</p>
 
-## 📃 Prerequisites
+<h1 align="center">
+  Quotepedia
+</h1>
 
-To run the frontend at your local machine, install the following:
+<p align="center">
+  A library of inspiration that you create yourself.
+</p>
 
-- [pnPm](https://pnpm.io/installation): Fast, disk space efficient package manager.
+<p align="center">
+  <img src="https://img.shields.io/librariesio/github/quotepedia/web" alt="Dependencies" />
+  <img src="https://img.shields.io/github/actions/workflow/status/quotepedia/web/pnpm.yaml" alt="Status" />
+  <img src="https://img.shields.io/github/repo-size/quotepedia/web" alt="Size" />
+</p>
+
+## 🗝️ Features
+
+* Comming soon…
+
+## 🗺️ Roadmap
+
+To see the current and future tasks for this project, please navigate to the [projects](https://github.com/quotepedia/web/projects) tab.
 
 ## 📦 Building from source
+
+### Prerequisites
+
+To run this web app on your local machine, install the following:
+
+- [pnPm](https://pnpm.io/installation): Fast, disk space efficient package manager.
 
 To start, open a command prompt and follow these instructions:
 
@@ -52,15 +76,23 @@ pnpm serve
 
 The setup is done. Enjoy using this! 🎉
 
-## 🛟 FAQ
+### FAQ
 
-### Error | Uncaught Client Exception
+#### Error | Uncaught Client Exception
 
 Make sure `VITE_SECURE_COOKIES` is not set to `true` or you have a valid SSL (HTTPS) certificate.
 
-### Error: Empty password
+#### Error: Empty password
 
 `VITE_SESSION_SECRET` Configuration option is not set. Make sure to re-read the [step 2](#step-2--configure-the-environment) and clear browser cookies.
 
 > [!NOTE]
 > You may also need to **re-build** the web app using `pnpm serve` or `pnpm build` to include newly configured options in `.env`.
+
+## ❤️ Acknowledgments
+
+See the [contributors](https://github.com/quotepedia/web/contributors) who participated in this project and the [dependencies](https://github.com/quotepedia/web/network/dependencies) used.
+
+## 📜 License
+
+This project is licensed under the **MIT** — see the [`LICENSE.md`](LICENSE.md) file for details.
