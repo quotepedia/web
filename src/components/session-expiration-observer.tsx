@@ -1,22 +1,22 @@
 import { createAsync, revalidate } from "@solidjs/router";
-import { createEffect, createSignal, on, onCleanup, onMount, ParentComponent } from "solid-js";
+import { createEffect, createSignal, on, ParentComponent } from "solid-js";
 
 import { toast } from "solid-sonner";
 
+import { makeBroadcastChannel } from "@solid-primitives/broadcast-channel";
 import { makeEventListener } from "@solid-primitives/event-listener";
 import { getCurrentUser } from "~/lib/api/users/me";
 import { getIsLoggedIn, getSessionExpirationDate } from "~/lib/http";
 import { useI18n } from "~/lib/i18n";
 
 export const SessionExpirationObserver: ParentComponent = (props) => {
-  const sync = new BroadcastChannel("auth_sync");
-
   const i18n = useI18n();
 
   const isLoggedIn = createAsync(() => getIsLoggedIn(), { deferStream: true });
   const sessionExpirationDate = createAsync(() => getSessionExpirationDate(), { deferStream: true });
 
   const [revalidateTimeout, setRevalidateTimeout] = createSignal<NodeJS.Timeout | undefined>();
+  const { onMessage, postMessage } = makeBroadcastChannel("sync-auth");
 
   const rewriteRevalidateTimeout = (timeout: NodeJS.Timeout): void => {
     clearRevalidateTimeout();
@@ -46,15 +46,13 @@ export const SessionExpirationObserver: ParentComponent = (props) => {
     }
   };
 
-  onMount(() => {
-    sync.onmessage = () => {
-      revalidateSession();
-    };
+  onMessage(() => {
+    revalidateSession();
   });
 
   createEffect(
     on(isLoggedIn, () => {
-      sync.postMessage(true);
+      postMessage(true);
 
       if (isLoggedIn() === false && revalidateTimeout() !== undefined) {
         clearRevalidateTimeout();
@@ -77,10 +75,6 @@ export const SessionExpirationObserver: ParentComponent = (props) => {
       rewriteRevalidateTimeout(timeout);
     }),
   );
-
-  onCleanup(() => {
-    sync.close();
-  });
 
   return props.children;
 };
