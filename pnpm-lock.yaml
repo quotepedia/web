@@ -17,6 +17,9 @@ importers:
       '@modular-forms/solid':
         specifier: ^0.23.0
         version: 0.23.0(solid-js@1.8.23)(typescript@5.5.4)
+      '@solid-primitives/broadcast-channel':
+        specifier: ^0.0.105
+        version: 0.0.105(solid-js@1.8.23)
       '@solid-primitives/event-listener':
         specifier: ^2.3.3
         version: 2.3.3(solid-js@1.8.23)
@@ -868,6 +871,11 @@ packages:
   '@sindresorhus/merge-streams@2.3.0':
     resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
     engines: {node: '>=18'}
+
+  '@solid-primitives/broadcast-channel@0.0.105':
+    resolution: {integrity: sha512-0bK6q9GWKxQV1oPluX82nHtgPJD4qp2rdKO1Yhxipanf9K4QxAi+i3eenWOem99pbe7b5n/w6LyGCAdgqXtdLw==}
+    peerDependencies:
+      solid-js: ^1.6.12
 
   '@solid-primitives/event-listener@2.3.3':
     resolution: {integrity: sha512-DAJbl+F0wrFW2xmcV8dKMBhk9QLVLuBSW+TR4JmIfTaObxd13PuL7nqaXnaYKDWOYa6otB00qcCUIGbuIhSUgQ==}
@@ -3681,6 +3689,10 @@ snapshots:
     optional: true
 
   '@sindresorhus/merge-streams@2.3.0': {}
+
+  '@solid-primitives/broadcast-channel@0.0.105(solid-js@1.8.23)':
+    dependencies:
+      solid-js: 1.8.23
 
   '@solid-primitives/event-listener@2.3.3(solid-js@1.8.23)':
     dependencies:

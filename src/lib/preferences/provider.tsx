@@ -1,7 +1,9 @@
-import * as storage from "@solid-primitives/storage";
-import { type ParentComponent, createContext, createEffect, onCleanup, onMount, useContext } from "solid-js";
+import { cookieStorage, makePersisted } from "@solid-primitives/storage";
+import { type ParentComponent, createContext, useContext } from "solid-js";
 import { type SetStoreFunction, createStore } from "solid-js/store";
+
 import { type Preferences, getDefaultSettings } from "~/lib/preferences";
+import { makeBroadcastChannelSync } from "~/lib/utils/storage";
 
 export type PreferencesContextValue = {
   settings: Preferences;
@@ -10,40 +12,29 @@ export type PreferencesContextValue = {
 
 export const PREFERENCES_COOKIE_NAME = "preferences";
 
-export const PreferencesContext = createContext<PreferencesContextValue>({} as PreferencesContextValue);
+export const PreferencesContext = createContext<PreferencesContextValue>();
 
 export const PreferencesProvider: ParentComponent = (props) => {
-  const sync = new BroadcastChannel("preferences_sync");
-
-  // TODO: Use sync @solid-primitives/storage's API
-  const [settings, set] = storage.makePersisted(createStore(getDefaultSettings()), {
+  const [settings, set] = makePersisted(createStore(getDefaultSettings()), {
     name: PREFERENCES_COOKIE_NAME,
-    storage: storage.cookieStorage,
+    storage: cookieStorage,
     storageOptions: {
       secure: /true/i.test(import.meta.env.VITE_SECURE_COOKIES),
       sameSite: "Lax",
       path: "/",
     },
-  });
-
-  onMount(() => {
-    sync.onmessage = (event) => {
-      set(event.data);
-    };
-  });
-
-  createEffect(
-    () => {
-      sync.postMessage({ ...settings });
-    },
-    { defer: true },
-  );
-
-  onCleanup(() => {
-    sync.close();
+    sync: makeBroadcastChannelSync(`sync-${PREFERENCES_COOKIE_NAME}`),
   });
 
   return <PreferencesContext.Provider value={{ settings, set }}>{props.children}</PreferencesContext.Provider>;
 };
 
-export const usePreferences = () => useContext(PreferencesContext);
+export const usePreferences = (): PreferencesContextValue => {
+  const context = useContext(PreferencesContext);
+
+  if (context === undefined) {
+    throw new Error("The 'usePreferences' must be used within a <PreferencesProvider> component.");
+  }
+
+  return context;
+};

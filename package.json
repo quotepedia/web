@@ -12,6 +12,7 @@
     "@corvu/otp-field": "^0.1.2",
     "@kobalte/core": "^0.13.6",
     "@modular-forms/solid": "^0.23.0",
+    "@solid-primitives/broadcast-channel": "^0.0.105",
     "@solid-primitives/event-listener": "^2.3.3",
     "@solid-primitives/i18n": "^2.1.1",
     "@solid-primitives/intersection-observer": "^2.1.6",
