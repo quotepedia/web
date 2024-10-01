@@ -2530,10 +2530,6 @@ packages:
     peerDependencies:
       solid-js: ^1.7
 
-  source-map-js@1.2.0:
-    resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
-    engines: {node: '>=0.10.0'}
-
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -3702,7 +3698,7 @@ snapshots:
       seroval: 1.1.1
       seroval-plugins: 1.1.1(seroval@1.1.1)
       shikiji: 0.9.19
-      source-map-js: 1.2.0
+      source-map-js: 1.2.1
       terracotta: 1.0.5(solid-js@1.9.1)
       vite-plugin-solid: 2.10.2(solid-js@1.9.1)(vite@5.4.0(@types/node@22.1.0)(sugarss@4.0.1(postcss@8.4.47))(terser@5.31.5))
     transitivePeerDependencies:
@@ -5328,8 +5324,6 @@ snapshots:
   solid-use@0.8.0(solid-js@1.9.1):
     dependencies:
       solid-js: 1.9.1
-
-  source-map-js@1.2.0: {}
 
   source-map-js@1.2.1: {}
 

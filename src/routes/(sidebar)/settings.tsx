@@ -92,12 +92,12 @@ export default function Settings() {
           <SettingsCard>
             <SettingsCard.Icon path={informationCircle} class="size-4" />
             <SettingsCard.HeaderGroup>
-              <SettingsCard.Header class="capitalize">{import.meta.env.VITE_APP_NAME}</SettingsCard.Header>
+              <SettingsCard.Header class="capitalize">{import.meta.env.APP_NAME}</SettingsCard.Header>
               <SettingsCard.Description>
                 {i18n.t.routes.settings.sections.about.cards.app.description()}
               </SettingsCard.Description>
             </SettingsCard.HeaderGroup>
-            <SettingsCard.Value as="code">{import.meta.env.VITE_APP_VERSION}</SettingsCard.Value>
+            <SettingsCard.Value as="code">{import.meta.env.APP_VERSION}</SettingsCard.Value>
           </SettingsCard>
         </SettingsGroup>
       </section>

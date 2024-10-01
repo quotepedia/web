@@ -4,12 +4,12 @@ interface ImportMetaEnv {
   /**
    * The web app name.
    */
-  readonly VITE_APP_NAME: string;
+  readonly APP_NAME: string;
 
   /**
    * The web app version.
    */
-  readonly VITE_APP_VERSION: string;
+  readonly APP_VERSION: string;
 
   /**
    * URL of the API server that the web app will interact with.

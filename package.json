@@ -2,11 +2,14 @@
   "name": "quotepedia",
   "type": "module",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "vinxi dev",
+    "test": "pnpm \"/^test:.*/\"",
+    "test:ts": "tsc",
     "build": "vinxi build",
     "start": "vinxi start",
-    "serve": "vinxi build && vinxi start"
+    "serve": "pnpm build && pnpm start"
   },
   "dependencies": {
     "@corvu/otp-field": "^0.1.2",
@@ -46,7 +49,8 @@
     "prettier-plugin-tailwindcss": "^0.6.8",
     "typescript": "^5.6.2"
   },
+  "packageManager": "pnpm@9.11.0",
   "engines": {
-    "node": ">=18"
+    "node": ">=20.8.0"
   }
 }
