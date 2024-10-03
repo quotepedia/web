@@ -3,7 +3,7 @@ import { JSX, Show } from "solid-js";
 
 import { createForm, email, FormError, minLength, required } from "@modular-forms/solid";
 
-import { Button, FormControl, Heading, Link, LottiePresenter, Title } from "~/components";
+import { Button, FormControl, Heading, Link, Lottie, Title } from "~/components";
 import { MIN_PASSWORD_LENGTH } from "~/components/forms/password";
 import { authenticate, LoginForm } from "~/lib/api/auth";
 import { useI18n } from "~/lib/i18n";
@@ -29,7 +29,7 @@ export default function Login() {
       <Title>{t.title()}</Title>
 
       <header class="space-y-6 text-center">
-        <LottiePresenter path="tgs/wave.json" class="size-24 w-full" />
+        <Lottie path="tgs/wave.json" class="size-24 w-full" />
         <hgroup class="space-y-4">
           <Heading>{t.heading()}</Heading>
           <p>{t.description()}</p>

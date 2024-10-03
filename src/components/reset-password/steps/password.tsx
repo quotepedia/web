@@ -2,7 +2,7 @@ import { SubmitHandler } from "@modular-forms/solid";
 import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
 import { PasswordForm, PasswordFormData } from "~/components/forms/password";
-import { Heading, LottiePresenter, Stepper } from "~/components/ui";
+import { Heading, Lottie, Stepper } from "~/components/ui";
 import { resetUserPassword } from "~/lib/api/auth";
 import { useI18n } from "~/lib/i18n";
 import { useResetPassword } from "../context";
@@ -26,7 +26,7 @@ export const ResetPasswordPasswordStep = () => {
 
   return (
     <Stepper.Step class="flex w-full flex-col items-stretch gap-6">
-      <LottiePresenter path="/tgs/key.json" class="size-24 self-center" />
+      <Lottie path="/tgs/key.json" class="size-24 self-center" />
 
       <hgroup class="space-y-4 text-center">
         <Heading>{t.heading()}</Heading>

@@ -2,7 +2,7 @@ import { createEffect, createResource, createSignal, For, on, Show, splitProps, 
 
 import { createForm, FormError, FormProps, minLength, submit, SubmitHandler } from "@modular-forms/solid";
 
-import { Button, Heading, Link, LottiePresenter, Motion, OtpField, TextField } from "~/components";
+import { Button, Heading, Link, Lottie, Motion, OtpField, TextField } from "~/components";
 import { isCorrectOtp, sendOtp } from "~/lib/api/otp";
 import { useI18n } from "~/lib/i18n";
 
@@ -56,7 +56,7 @@ export const OtpForm = (props: OtpStepProps) => {
 
   return (
     <Motion class="flex w-full flex-col items-center justify-center gap-6 text-center">
-      <LottiePresenter path="/tgs/mailbox.json" class="size-24" />
+      <Lottie path="/tgs/mailbox.json" class="size-24" />
 
       <hgroup class="w-full space-y-4">
         <Heading>{t.heading()}</Heading>

@@ -3,7 +3,7 @@ import { A } from "@solidjs/router";
 import { Icon } from "solid-heroicons";
 import { homeModern } from "solid-heroicons/solid-mini";
 
-import { Button, Heading, LocaleSwitcher, LottiePresenter, Title } from "~/components";
+import { Button, Heading, LocaleSwitcher, Lottie, Title } from "~/components";
 import { useI18n } from "~/lib/i18n";
 
 export default function Page() {
@@ -14,7 +14,7 @@ export default function Page() {
       <Title>{i18n.t.routes[404].title()}</Title>
 
       <main class="m-auto flex flex-col items-center justify-center gap-6 px-4 py-6 text-center">
-        <LottiePresenter path="tgs/eyes.json" class="size-24" />
+        <Lottie path="tgs/eyes.json" class="size-24" />
 
         <hgroup class="space-y-4">
           <Heading>{i18n.t.routes[404].heading()}</Heading>

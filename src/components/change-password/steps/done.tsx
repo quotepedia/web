@@ -1,6 +1,6 @@
 import { Icon } from "solid-heroicons";
 import { arrowRight } from "solid-heroicons/solid-mini";
-import { Button, Heading, LottiePresenter, Stepper } from "~/components/ui";
+import { Button, Heading, Lottie, Stepper } from "~/components/ui";
 import Dialog from "~/components/ui/dialog";
 import { useI18n } from "~/lib/i18n";
 
@@ -10,7 +10,7 @@ export const ChangePasswordDoneStep = () => {
 
   return (
     <Stepper.Step class="flex w-full flex-col items-stretch gap-4">
-      <LottiePresenter path="/tgs/boomstick.json" class="mb-3 size-24 self-center" />
+      <Lottie path="/tgs/boomstick.json" class="mb-3 size-24 self-center" />
 
       <hgroup class="space-y-4 text-center">
         <Heading>{t.heading()}</Heading>
