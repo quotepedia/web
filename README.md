@@ -24,15 +24,15 @@
 
 To see the current and future tasks for this project, please navigate to the [projects](https://github.com/quotepedia/web/projects) tab.
 
-## 📦 Building from source
+## 📦 Building
+
+To start, open a command prompt and follow these instructions:
 
 ### Prerequisites
 
 To run this web app on your local machine, install the following:
 
 - [pnPm](https://pnpm.io/installation): Fast, disk space efficient package manager.
-
-To start, open a command prompt and follow these instructions:
 
 ### Step 1 — Install dependencies
 
