@@ -1,4 +1,4 @@
-import { EventEmitter } from "events";
+import EventEmitter from "events";
 
 import { LogLevel, type LogEvent, type LoggerEventMap } from "./types";
 
