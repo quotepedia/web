@@ -14,7 +14,7 @@ export type {
   BackwardProps,
   PreviousProps,
   ContextValue,
-}
+};
 
 export {
   Root,
