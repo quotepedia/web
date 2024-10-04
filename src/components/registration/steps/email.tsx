@@ -19,7 +19,7 @@ export const RegistrationEmailStep = () => {
 
   return (
     <Stepper.Step class="flex w-full flex-col items-stretch gap-6">
-      <Lottie path="/tgs/writing.json"  class="size-24 self-center" />
+      <Lottie path="/tgs/writing.json" class="size-24 self-center" />
 
       <hgroup class="space-y-4 text-center">
         <Heading>{t.heading()}</Heading>
