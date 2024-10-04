@@ -63,7 +63,15 @@ export const dict: DictionaryMap = {
           heading: "О приложении",
           cards: {
             app: {
-              description: "© 2024. Все права защищены.",
+              description: "Все права защищены.",
+              feedback: {
+                heading: "Обратная связь",
+                description: "Сообщите о багах и других проблемах.",
+              },
+              contribute: {
+                heading: "Содействовие",
+                description: "Исследуйте исходный код приложения.",
+              },
             },
           },
         },

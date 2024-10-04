@@ -81,6 +81,14 @@ export type DictionaryMap = {
           cards: {
             app: {
               description: string;
+              feedback: {
+                heading: string;
+                description: string;
+              };
+              contribute: {
+                heading: string;
+                description: string;
+              };
             };
           };
         };

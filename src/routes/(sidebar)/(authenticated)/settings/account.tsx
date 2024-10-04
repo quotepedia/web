@@ -66,7 +66,7 @@ export default function Account() {
                       </SettingsCard.Description>
                     </SettingsCard.HeaderGroup>
                     <SettingsCard.Value>{user().email}</SettingsCard.Value>
-                    <SettingsCard.Icon path={chevronRight} class="size-4" />
+                    <SettingsCard.Icon path={chevronRight} class="size-4 text-fg-muted" />
                   </SettingsCard>
                   <Dialog.Content>
                     <Dialog.Header>
@@ -86,7 +86,7 @@ export default function Account() {
                         {t.account.sections.security.cards.password.description()}
                       </SettingsCard.Description>
                     </SettingsCard.HeaderGroup>
-                    <SettingsCard.Icon path={chevronRight} class="size-4" />
+                    <SettingsCard.Icon path={chevronRight} class="size-4 text-fg-muted" />
                   </SettingsCard>
                   <Dialog.Content>
                     <Dialog.Header>
@@ -115,7 +115,7 @@ export default function Account() {
                       {t.sections.account.cards.signout.description()}
                     </SettingsCard.Description>
                   </SettingsCard.HeaderGroup>
-                  <SettingsCard.Icon path={chevronRight} class="size-4" />
+                  <SettingsCard.Icon path={chevronRight} class="size-4 text-fg-muted" />
                 </SettingsCard>
               </SettingsGroup>
             </section>

@@ -12,6 +12,21 @@ interface ImportMetaEnv {
   readonly APP_VERSION: string;
 
   /**
+   * The URL to report bugs and other issues.
+   */
+  readonly APP_BUGS_URL: string;
+
+  /**
+   * The URL to the app's repo.
+   */
+  readonly APP_REPOSITORY_URL: string;
+
+  /**
+   * The name of the web app's author.
+   */
+  readonly APP_AUTHOR_NAME: string;
+
+  /**
    * URL of the API server that the web app will interact with.
    */
   readonly VITE_API_URL: string;

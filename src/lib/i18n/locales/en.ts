@@ -63,7 +63,15 @@ export const dict: DictionaryMap = {
           heading: "About",
           cards: {
             app: {
-              description: "© 2024. All rights reserved.",
+              description: "All rights reserved.",
+              feedback: {
+                heading: "Feedback",
+                description: "Report bugs and other issues.",
+              },
+              contribute: {
+                heading: "Contribute",
+                description: "Explore application’s source code.",
+              },
             },
           },
         },
