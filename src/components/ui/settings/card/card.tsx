@@ -23,7 +23,7 @@ export const SettingsCardHeaderGroup = <T extends ValidComponent = "hgroup">(
   props: PolymorphicProps<T, SettingsCardHeaderGroupProps>,
 ) => {
   const [local, others] = splitProps(props, ["class"]);
-  return <Polymorphic as="hgroup" class={cn("flex-1 space-y-1.5 text-start", local.class)} {...others} />;
+  return <Polymorphic as="hgroup" class={cn("min-w-0 flex-1 space-y-1 text-start", local.class)} {...others} />;
 };
 
 export const SettingsCardHeader = <T extends ValidComponent = "h3">(
@@ -37,13 +37,7 @@ export const SettingsCardDescription = <T extends ValidComponent = "p">(
   props: PolymorphicProps<T, SettingsCardDescriptionProps>,
 ) => {
   const [local, others] = splitProps(props, ["class"]);
-  return (
-    <Polymorphic
-      as="p"
-      class={cn("text-xs text-fg-muted max-md:hidden max-md:leading-none", local.class)}
-      {...others}
-    />
-  );
+  return <Polymorphic as="p" class={cn("truncate text-xs text-fg-muted", local.class)} {...others} />;
 };
 
 export const SettingsCardValue = <T extends ValidComponent = "span">(

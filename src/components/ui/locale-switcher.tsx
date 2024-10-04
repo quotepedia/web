@@ -28,7 +28,7 @@ export const LocaleSwitcher: Component = () => {
             <span class="text-fg-muted">{languageNames().of(props.item.rawValue)}</span>
           </Select.ItemLabel>
           <Select.ItemIndicator class="text-fg-accent">
-            <Icon path={check} width={14} />
+            <Icon path={check} width={14} stroke="currentColor" stroke-width={1} />
           </Select.ItemIndicator>
         </Select.Item>
       )}

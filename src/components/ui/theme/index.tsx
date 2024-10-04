@@ -67,23 +67,25 @@ export const ThemeSwitcher = (props: JSX.StylableSVGAttributes) => {
       <RadioGroup.Label as={"h3"} class="sr-only">
         {i18n.t.routes.settings.sections.appearance.cards.theme.heading()}
       </RadioGroup.Label>
-      <ul class="flex gap-4 overflow-x-auto pb-4">
+      <ul class="flex gap-3 overflow-x-auto py-1">
         <For each={SUPPORTED_THEMES}>
           {(theme) => (
             <RadioGroup.Item as={"li"} value={theme}>
               <RadioGroup.ItemInput class="peer" />
               <RadioGroup.ItemLabel class="group cursor-pointer space-y-1 peer-checked:cursor-default">
                 <ThemeSwitcherOptionPreview key={theme} />
-                <p class="flex items-center text-xs font-semibold peer-checked:group-[]:text-fg-accent">
+                <p class="flex items-center text-xs font-semibold leading-none peer-checked:group-[]:text-fg-accent">
                   <Icon
                     path={check}
+                    stroke="currentColor"
+                    stroke-width={1}
                     class={cn(
-                      "me-1 size-3.5 select-none transition-[transform,opacity]",
-                      "-translate-x-3.5 scale-0 opacity-0",
+                      "me-0.5 size-3 select-none transition-[transform,opacity]",
+                      "-translate-x-3 scale-0 opacity-0",
                       "group-data-[checked]:translate-x-0 group-data-[checked]:scale-100 group-data-[checked]:opacity-100",
                     )}
                   />
-                  <span class="-translate-x-3.5 select-none transition-[transform,opacity] group-data-[checked]:translate-x-0">
+                  <span class="-translate-x-3 select-none transition-[transform,opacity] group-data-[checked]:translate-x-0">
                     {i18n.t.routes.settings.sections.appearance.cards.theme.options[theme]()}
                   </span>
                 </p>

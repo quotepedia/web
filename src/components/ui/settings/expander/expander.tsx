@@ -3,15 +3,15 @@ import { splitProps } from "solid-js";
 import { Collapsible } from "@kobalte/core/collapsible";
 import { chevronDown } from "solid-heroicons/solid-mini";
 
-import { SettingsCard } from "../card";
 import { cn } from "~/lib/utils/css";
+import { SettingsCard } from "../card";
 
+import { Separator } from "../../separator";
 import type {
   SettingsExpanderContentProps,
   SettingsExpanderRootProps,
   SettingsExpanderTriggerProps,
 } from "./expander.props";
-import { Separator } from "../../separator";
 
 export const SettingsExpanderRoot = (props: SettingsExpanderRootProps) => {
   const [local, others] = splitProps(props, ["class"]);
@@ -19,14 +19,20 @@ export const SettingsExpanderRoot = (props: SettingsExpanderRootProps) => {
 };
 
 export const SettingsExpanderTrigger = (props: SettingsExpanderTriggerProps) => {
-  return <Collapsible.Trigger as={(props) => <SettingsCard as={"button"} {...props} />} variant="hover" {...props} />;
+  return (
+    <Collapsible.Trigger
+      as={(props) => <SettingsCard as={"button"} type="button" {...props} />}
+      variant="hover"
+      {...props}
+    />
+  );
 };
 
 export const SettingsExpanderIndicator = () => (
   <SettingsCard.Icon
     path={chevronDown}
     class={cn(
-      "size-4 transition-[transform,color]",
+      "size-4 text-fg-muted transition-[transform,color]",
       "group-data-[expanded]/collapsible:[transform:rotateX(180deg)]",
     )}
   />
