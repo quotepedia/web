@@ -7,7 +7,6 @@ import useStepperContext from "./context";
 export type StepperStepsProps = FlowProps;
 
 export const StepperSteps = (props: StepperStepsProps) => {
-  // eslint-disable-next-line solid/reactivity
   const steps = children(() => props.children) as unknown as Accessor<Array<{ ref: () => JSX.Element }>>;
   const context = useStepperContext();
 
