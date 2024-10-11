@@ -15,30 +15,38 @@
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
-    "test": "pnpm \"/^test:.*/\"",
-    "test:ts": "tsc",
     "build": "vinxi build",
     "start": "vinxi start",
-    "serve": "pnpm build && pnpm start"
+    "serve": "pnpm build && pnpm start",
+    "test": "pnpm \"/^test:.*/\"",
+    "test:ts": "tsc"
   },
-  "dependencies": {
+  "devDependencies": {
     "@corvu/otp-field": "^0.1.2",
+    "@corvu/resizable": "^0.2.3",
     "@kobalte/core": "^0.13.6",
     "@modular-forms/solid": "^0.23.0",
     "@solid-primitives/broadcast-channel": "^0.0.105",
     "@solid-primitives/event-listener": "^2.3.3",
     "@solid-primitives/i18n": "^2.1.1",
     "@solid-primitives/intersection-observer": "^2.1.6",
+    "@solid-primitives/range": "^0.1.18",
     "@solid-primitives/storage": "^4.2.1",
     "@solid-primitives/upload": "^0.0.117",
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.14.7",
     "@solidjs/start": "^1.0.8",
+    "@types/node": "^22.7.4",
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "lottie-web": "^5.12.2",
     "openapi-fetch": "^0.12.2",
+    "openapi-typescript": "^7.4.1",
+    "picocolors": "^1.1.0",
     "postcss": "^8.4.47",
+    "postcss-mixins": "^11.0.3",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "solid-heroicons": "^3.2.4",
     "solid-js": "^1.9.1",
     "solid-persistent": "^0.1.0",
@@ -49,19 +57,11 @@
     "tailwind-variants": "^0.2.1",
     "tailwindcss": "^3.4.13",
     "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.6.2",
     "vinxi": "^0.4.3"
   },
-  "devDependencies": {
-    "@types/node": "^22.7.4",
-    "openapi-typescript": "^7.4.1",
-    "picocolors": "^1.1.0",
-    "postcss-mixins": "^11.0.3",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.8",
-    "typescript": "^5.6.2"
-  },
+  "packageManager": "pnpm@9.11.0",
   "engines": {
     "node": ">=20.8.0"
-  },
-  "packageManager": "pnpm@9.11.0"
+  }
 }

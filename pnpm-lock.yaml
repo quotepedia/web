@@ -7,10 +7,13 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       '@corvu/otp-field':
         specifier: ^0.1.2
         version: 0.1.2(solid-js@1.9.1)
+      '@corvu/resizable':
+        specifier: ^0.2.3
+        version: 0.2.3(solid-js@1.9.1)
       '@kobalte/core':
         specifier: ^0.13.6
         version: 0.13.6(solid-js@1.9.1)
@@ -29,6 +32,9 @@ importers:
       '@solid-primitives/intersection-observer':
         specifier: ^2.1.6
         version: 2.1.6(solid-js@1.9.1)
+      '@solid-primitives/range':
+        specifier: ^0.1.18
+        version: 0.1.18(solid-js@1.9.1)
       '@solid-primitives/storage':
         specifier: ^4.2.1
         version: 4.2.1(solid-js@1.9.1)
@@ -44,6 +50,9 @@ importers:
       '@solidjs/start':
         specifier: ^1.0.8
         version: 1.0.8(solid-js@1.9.1)(vinxi@0.4.3(@types/node@22.7.4)(ioredis@5.4.1)(sugarss@4.0.1(postcss@8.4.47))(terser@5.31.5))(vite@5.4.0(@types/node@22.7.4)(sugarss@4.0.1(postcss@8.4.47))(terser@5.31.5))
+      '@types/node':
+        specifier: ^22.7.4
+        version: 22.7.4
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.47)
@@ -56,9 +65,24 @@ importers:
       openapi-fetch:
         specifier: ^0.12.2
         version: 0.12.2
+      openapi-typescript:
+        specifier: ^7.4.1
+        version: 7.4.1(typescript@5.6.2)
+      picocolors:
+        specifier: ^1.1.0
+        version: 1.1.0
       postcss:
         specifier: ^8.4.47
         version: 8.4.47
+      postcss-mixins:
+        specifier: ^11.0.3
+        version: 11.0.3(postcss@8.4.47)
+      prettier:
+        specifier: ^3.3.3
+        version: 3.3.3
+      prettier-plugin-tailwindcss:
+        specifier: ^0.6.8
+        version: 0.6.8(prettier@3.3.3)
       solid-heroicons:
         specifier: ^3.2.4
         version: 3.2.4(solid-js@1.9.1)
@@ -89,31 +113,12 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.13)
-      vinxi:
-        specifier: ^0.4.3
-        version: 0.4.3(@types/node@22.7.4)(ioredis@5.4.1)(sugarss@4.0.1(postcss@8.4.47))(terser@5.31.5)
-    devDependencies:
-      '@types/node':
-        specifier: ^22.7.4
-        version: 22.7.4
-      openapi-typescript:
-        specifier: ^7.4.1
-        version: 7.4.1(typescript@5.6.2)
-      picocolors:
-        specifier: ^1.1.0
-        version: 1.1.0
-      postcss-mixins:
-        specifier: ^11.0.3
-        version: 11.0.3(postcss@8.4.47)
-      prettier:
-        specifier: ^3.3.3
-        version: 3.3.3
-      prettier-plugin-tailwindcss:
-        specifier: ^0.6.8
-        version: 0.6.8(prettier@3.3.3)
       typescript:
         specifier: ^5.6.2
         version: 5.6.2
+      vinxi:
+        specifier: ^0.4.3
+        version: 0.4.3(@types/node@22.7.4)(ioredis@5.4.1)(sugarss@4.0.1(postcss@8.4.47))(terser@5.31.5)
 
 packages:
 
@@ -222,6 +227,11 @@ packages:
 
   '@corvu/otp-field@0.1.2':
     resolution: {integrity: sha512-R7Ks4EoIY6/ptY0W4ewO6wtSSqYGvz30eIsQBffc+6zOWAL4tc/qEKxUCLpOdAUyxp28ODCLHg1/ZpzNjgZBZw==}
+    peerDependencies:
+      solid-js: ^1.8
+
+  '@corvu/resizable@0.2.3':
+    resolution: {integrity: sha512-UwpObxqKlx1mc3G496Daz9NjK25Gx1V5fB8zIGazbq5tJs7aU8RjPW4png5OoNpMyxV7GQWjQtVc59zaAEVAJg==}
     peerDependencies:
       solid-js: ^1.8
 
@@ -906,6 +916,11 @@ packages:
 
   '@solid-primitives/props@3.1.11':
     resolution: {integrity: sha512-jZAKWwvDRHjiydIumDgMj68qviIbowQ1ci7nkEAgzgvanNkhKSQV8iPgR2jMk1uv7S2ZqXYHslVQTgJel/TEyg==}
+    peerDependencies:
+      solid-js: ^1.6.12
+
+  '@solid-primitives/range@0.1.18':
+    resolution: {integrity: sha512-F5OTdpRFdeLOPEHs92S714GKUk1ZUUmEJ45Z/Z5h6i43DHi7fUFgUL7LeHFxVgIjtGv+Tg5Op7aM9PdSo5iqeQ==}
     peerDependencies:
       solid-js: ^1.6.12
 
@@ -3103,6 +3118,11 @@ snapshots:
       '@corvu/utils': 0.4.0(solid-js@1.9.1)
       solid-js: 1.9.1
 
+  '@corvu/resizable@0.2.3(solid-js@1.9.1)':
+    dependencies:
+      '@corvu/utils': 0.4.0(solid-js@1.9.1)
+      solid-js: 1.9.1
+
   '@corvu/utils@0.3.2(solid-js@1.9.1)':
     dependencies:
       '@floating-ui/dom': 1.6.10
@@ -3631,6 +3651,11 @@ snapshots:
       solid-js: 1.9.1
 
   '@solid-primitives/props@3.1.11(solid-js@1.9.1)':
+    dependencies:
+      '@solid-primitives/utils': 6.2.3(solid-js@1.9.1)
+      solid-js: 1.9.1
+
+  '@solid-primitives/range@0.1.18(solid-js@1.9.1)':
     dependencies:
       '@solid-primitives/utils': 6.2.3(solid-js@1.9.1)
       solid-js: 1.9.1
