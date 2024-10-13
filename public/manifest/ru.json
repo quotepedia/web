@@ -26,10 +26,6 @@
       "url": "/library"
     },
     {
-      "name": "Сохранённое",
-      "url": "/saved"
-    },
-    {
       "name": "Настройки",
       "url": "/settings"
     }

@@ -20,7 +20,7 @@ export const SidebarItemRoot: ParentComponent<AnchorProps> = (props) => {
         "max-md:text-fg-accent md:text-fg-body md:bg-bg-tertiary md:hover:bg-bg-tertiary !transition-[opacity,color,background-color]",
         local.activeClass,
       )}
-      end
+      end={false}
       {...others}
     />
   );
