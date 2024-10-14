@@ -1,5 +1,5 @@
 import type { Accessor, FlowProps, JSX } from "solid-js";
-import { children, createEffect } from "solid-js";
+import { children, createEffect, createSignal } from "solid-js";
 import { Transition } from "solid-transition-group";
 
 import useStepperContext from "./context";
@@ -9,6 +9,7 @@ export type StepperStepsProps = FlowProps;
 export const StepperSteps = (props: StepperStepsProps) => {
   const steps = children(() => props.children) as unknown as Accessor<Array<{ ref: () => JSX.Element }>>;
   const context = useStepperContext();
+  const [previousElementClientHeight, setPreviousElementClientHeight] = createSignal(0);
 
   createEffect(() => {
     context.setLength(steps()?.length || 0);
@@ -21,10 +22,12 @@ export const StepperSteps = (props: StepperStepsProps) => {
           [
             {
               opacity: 0,
+              height: `${previousElementClientHeight()}px`,
               transform: context.previousIndex < context.currentIndex ? "translateX(100%)" : "translateX(-100%)",
             },
             {
               opacity: 1,
+              height: `${el.clientHeight}px`,
               transform: "translateX(0)",
             },
           ],
@@ -34,6 +37,9 @@ export const StepperSteps = (props: StepperStepsProps) => {
           },
         );
         a.finished.then(done);
+      }}
+      onBeforeExit={(el) => {
+        setPreviousElementClientHeight(el.clientHeight);
       }}
       onExit={(el, done) => {
         const a = el.animate(
