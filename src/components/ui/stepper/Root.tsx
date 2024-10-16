@@ -1,15 +1,13 @@
-import type { JSX, ValidComponent } from "solid-js";
+import type { JSX, ParentProps } from "solid-js";
 import { createMemo, createSignal } from "solid-js";
-
-import { Polymorphic, PolymorphicProps } from "@kobalte/core/polymorphic";
 
 import { StepperContext } from "./context";
 
-export type StepperRootProps = {
+export type StepperRootProps = ParentProps & {
   index?: number;
 };
 
-export const StepperRoot = <T extends ValidComponent = "ol">(props: PolymorphicProps<T, StepperRootProps>) => {
+export const StepperRoot = (props: StepperRootProps) => {
   const steps = new Map<number, () => JSX.Element>();
   const [length, setLength] = createSignal(0);
   const [currentIndex, setCurrentIndex] = createSignal(props.index || 0);
@@ -55,11 +53,7 @@ export const StepperRoot = <T extends ValidComponent = "ol">(props: PolymorphicP
     },
   };
 
-  return (
-    <StepperContext.Provider value={context}>
-      <Polymorphic as={"ol"} {...props} />
-    </StepperContext.Provider>
-  );
+  return <StepperContext.Provider value={context}>{props.children}</StepperContext.Provider>;
 };
 
 export default StepperRoot;

@@ -1,12 +1,13 @@
-import { type ParentProps } from "solid-js";
 import { Sidebar } from "~/components";
 
 import Resizable from "@corvu/resizable";
 import { cookieStorage, makePersisted } from "@solid-primitives/storage";
+import type { RouteSectionProps } from "@solidjs/router";
 import { createSignal } from "solid-js";
+import { DynamicBreadcrumbs } from "~/components/Breadcrumbs";
 import { makeBroadcastChannelSync } from "~/lib/utils/storage";
 
-export default function Aside(props: ParentProps) {
+export default function SidebarRouteSection(props: RouteSectionProps) {
   const [sizes, setSizes] = makePersisted(createSignal<number[]>([0.2, 0.8]), {
     storage: cookieStorage,
     name: "sidebar-sizes",
@@ -43,6 +44,8 @@ export default function Aside(props: ParentProps) {
         as="main"
         class="mx-auto size-full max-w-3xl px-3 py-6 max-md:!flex-1 md:px-6"
       >
+        <DynamicBreadcrumbs class="mb-6" />
+
         {props.children}
       </Resizable.Panel>
     </Resizable>

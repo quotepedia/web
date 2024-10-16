@@ -4,6 +4,7 @@ import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 import { Toaster } from "solid-sonner";
 import { SessionExpirationObserver } from "~/components";
+import { AppTitle } from "~/components/app-title";
 import { I18nProvider } from "~/lib/i18n";
 import { PreferencesProvider } from "~/lib/preferences";
 import { ThemeProvider } from "~/lib/theme";
@@ -20,6 +21,7 @@ export default function App() {
                 <Suspense>{props.children}</Suspense>
 
                 <Toaster />
+                <AppTitle />
                 <SessionExpirationObserver />
               </ThemeProvider>
             </I18nProvider>

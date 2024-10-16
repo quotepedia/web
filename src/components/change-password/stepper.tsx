@@ -4,8 +4,8 @@ import { ChangePasswordPasswordStep } from "./steps/password";
 
 export const ChangePasswordStepper = () => {
   return (
-    <Stepper class="w-full">
-      <Stepper.Steps>
+    <Stepper>
+      <Stepper.Steps class="w-full overflow-clip">
         <ChangePasswordPasswordStep />
         <ChangePasswordDoneStep />
       </Stepper.Steps>

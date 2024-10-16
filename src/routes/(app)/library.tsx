@@ -1,10 +1,18 @@
-import { Heading } from "~/components";
+import type { RouteDefinition } from "@solidjs/router";
+import { createEnsureLoggedIn } from "~/lib/http";
 
-export default function Library() {
+export const route = {
+  preload: ({ location }) => {
+    createEnsureLoggedIn(location.pathname);
+  },
+  info: {
+    title: () => "Library",
+  },
+} satisfies RouteDefinition;
+
+export default function LibraryRoute() {
   return (
-    <div class="space-y-4">
-      <Heading>Library</Heading>
-
+    <div class="space-y-6">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis impedit tempora nisi hic iste alias odio
         dolorem, natus quasi et quibusdam recusandae sequi, exercitationem deserunt sit nobis laboriosam. Maxime

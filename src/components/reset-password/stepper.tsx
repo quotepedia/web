@@ -7,8 +7,8 @@ import { ResetPasswordPasswordStep } from "./steps/password";
 export const ResetPasswordStepper = () => {
   return (
     <ResetPasswordProvider>
-      <Stepper class="m-auto w-full max-w-xs py-6">
-        <Stepper.Steps>
+      <Stepper>
+        <Stepper.Steps class="m-auto max-w-xs py-6">
           <ResetPasswordEmailStep />
           <ResetPasswordOtpStep />
           <ResetPasswordPasswordStep />

@@ -1,14 +1,24 @@
-import { A, useAction, useSearchParams } from "@solidjs/router";
+import { A, useAction, useSearchParams, type RouteDefinition } from "@solidjs/router";
 import { JSX, Show } from "solid-js";
 
 import { createForm, email, FormError, minLength, required } from "@modular-forms/solid";
 
-import { Button, FormControl, Heading, Link, Lottie, Title } from "~/components";
+import { Button, Collapse, FormControl, Heading, Link, Lottie } from "~/components";
 import { MIN_PASSWORD_LENGTH } from "~/components/forms/password";
 import { authenticate, LoginForm } from "~/lib/api/auth";
+import { createEnsureLoggedOut } from "~/lib/http";
 import { useI18n } from "~/lib/i18n";
 
-export default function Login() {
+export const route = {
+  preload: ({ location }) => {
+    createEnsureLoggedOut(location.pathname);
+  },
+  info: {
+    title: () => useI18n().t.routes.login.title(),
+  },
+} satisfies RouteDefinition;
+
+export default function LoginRoute() {
   const i18n = useI18n();
   const t = i18n.t.routes.login;
 
@@ -26,8 +36,6 @@ export default function Login() {
 
   return (
     <div class="m-auto max-w-xs space-y-6 py-6">
-      <Title>{t.title()}</Title>
-
       <header class="space-y-6 text-center">
         <Lottie path="tgs/wave.json" class="size-24 w-full" />
         <hgroup class="space-y-4">
@@ -93,7 +101,9 @@ export default function Login() {
               </Field>
             </Show>
 
-            <Show when={form.response.message}>{(message) => <p class="text-xs text-red-600">{message()}</p>}</Show>
+            <Collapse>
+              <Show when={form.response.message}>{(message) => <p class="text-xs text-red-600">{message()}</p>}</Show>
+            </Collapse>
 
             <Button
               color="primary"

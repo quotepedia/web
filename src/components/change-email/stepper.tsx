@@ -7,8 +7,8 @@ import { ChangeEmailOtpStep } from "./steps/otp";
 export const ChangeEmailStepper = () => {
   return (
     <ChangeEmailProvider>
-      <Stepper class="w-full">
-        <Stepper.Steps>
+      <Stepper>
+        <Stepper.Steps class="w-full">
           <ChangeEmailEmailStep />
           <ChangeEmailOtpStep />
           <ChangeEmailDoneStep />

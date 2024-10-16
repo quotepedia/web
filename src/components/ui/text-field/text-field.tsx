@@ -5,6 +5,7 @@ import * as TextFieldPrimitive from "@kobalte/core/text-field";
 
 import { cn } from "~/lib/utils/css";
 
+import { CollapseGroup } from "../transition";
 import {
   TextFieldDescriptionProps,
   TextFieldErrorMessageProps,
@@ -18,7 +19,13 @@ import { styles } from "./text-field.styles";
 export const TextFieldRoot = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, TextFieldPrimitive.TextFieldRootProps<T>>,
 ) => {
-  return <TextFieldPrimitive.Root {...props} />;
+  const [local, others] = splitProps(props as TextFieldWrapperProps, ["children"]);
+
+  return (
+    <TextFieldPrimitive.Root {...others}>
+      <CollapseGroup>{local.children}</CollapseGroup>
+    </TextFieldPrimitive.Root>
+  );
 };
 
 export const TextFieldInputWrapper = <T extends ValidComponent = "div">(

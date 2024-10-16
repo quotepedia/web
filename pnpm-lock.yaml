@@ -98,9 +98,6 @@ importers:
       solid-transition-group:
         specifier: ^0.2.3
         version: 0.2.3(solid-js@1.9.2)
-      solid-transition-size:
-        specifier: ^0.1.4
-        version: 0.1.4(solid-js@1.9.2)
       tailwind-merge:
         specifier: ^2.5.3
         version: 2.5.3
@@ -2537,11 +2534,6 @@ packages:
     engines: {node: '>=18.0.0', pnpm: '>=8.6.0'}
     peerDependencies:
       solid-js: ^1.6.12
-
-  solid-transition-size@0.1.4:
-    resolution: {integrity: sha512-ocHVnbfy23CgfaH4cEUR/AFg0Y3CEL8Oh3n9Qv8OHFJgPh+zkmERKZQfi/xH5XvxDCizg8VjPrVUhiHB1Gza8g==}
-    peerDependencies:
-      solid-js: ^1.8
 
   solid-use@0.8.0:
     resolution: {integrity: sha512-YX+XmcKLvSx3bwMimMhFy40ZkDnShnUcEw6cW6fSscwKEgl1TG3GlgAvkBmQ3AeWjvQSd8+HGTr82ImsrjkkqA==}
@@ -5343,11 +5335,6 @@ snapshots:
     dependencies:
       '@solid-primitives/refs': 1.0.8(solid-js@1.9.2)
       '@solid-primitives/transition-group': 1.0.5(solid-js@1.9.2)
-      solid-js: 1.9.2
-
-  solid-transition-size@0.1.4(solid-js@1.9.2):
-    dependencies:
-      '@corvu/utils': 0.3.2(solid-js@1.9.2)
       solid-js: 1.9.2
 
   solid-use@0.8.0(solid-js@1.9.2):

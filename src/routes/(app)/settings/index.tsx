@@ -17,12 +17,11 @@ import {
   SettingsExpander,
   SettingsGroup,
   ThemeSwitcher,
-  Title,
 } from "~/components";
 import { useI18n } from "~/lib/i18n";
 import { useTheme } from "~/lib/theme";
 
-export default function Settings() {
+export default function SettingsRoute() {
   const i18n = useI18n();
   const t = i18n.t.routes.settings;
 
@@ -30,16 +29,13 @@ export default function Settings() {
 
   return (
     <div class="space-y-6">
-      <Title>{t.heading()}</Title>
-      <Heading>{t.heading()}</Heading>
-
       <section class="space-y-3">
         <Heading as="h2" size="subheading">
           {t.sections.account.heading()}
         </Heading>
 
         <SettingsGroup>
-          <SettingsCard variant="hover" as={A} href="/settings/account">
+          <SettingsCard variant="hover" as={A} href={"/settings/account"}>
             <SettingsCard.Icon path={userCircle} class="size-4" />
             <SettingsCard.HeaderGroup>
               <SettingsCard.Header>{t.sections.account.cards.account.heading()}</SettingsCard.Header>

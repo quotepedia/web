@@ -1,9 +1,10 @@
-import { JSX, ValidComponent } from "solid-js";
+import { JSX, ValidComponent, type ParentProps } from "solid-js";
 
 import * as TextFieldPrimitive from "@kobalte/core/text-field";
 
 export type TextFieldWrapperProps<T extends ValidComponent = "div"> = TextFieldPrimitive.TextFieldErrorMessageProps<T> &
-  JSX.StylableSVGAttributes;
+  JSX.StylableSVGAttributes &
+  ParentProps;
 
 export type TextFieldInputProps<T extends ValidComponent = "input"> = TextFieldPrimitive.TextFieldInputProps<T> &
   JSX.StylableSVGAttributes;

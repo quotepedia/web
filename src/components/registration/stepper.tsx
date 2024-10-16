@@ -7,8 +7,8 @@ import { RegistrationPasswordStep } from "./steps/password";
 export const RegistrationStepper = () => {
   return (
     <RegistrationProvider>
-      <Stepper class="m-auto w-full max-w-xs py-6">
-        <Stepper.Steps>
+      <Stepper>
+        <Stepper.Steps class="m-auto max-w-xs py-6">
           <RegistrationEmailStep />
           <RegistrationOtpStep />
           <RegistrationPasswordStep />

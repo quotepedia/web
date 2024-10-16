@@ -2,7 +2,7 @@ import { createEffect, createResource, createSignal, For, on, Show, splitProps, 
 
 import { createForm, FormError, FormProps, minLength, submit, SubmitHandler } from "@modular-forms/solid";
 
-import { Button, Heading, Link, Lottie, Motion, OtpField, TextField } from "~/components";
+import { Button, Collapse, CollapseGroup, Heading, Link, Lottie, OtpField, TextField } from "~/components";
 import { isCorrectOtp, sendOtp } from "~/lib/api/otp";
 import { useI18n } from "~/lib/i18n";
 
@@ -55,44 +55,50 @@ export const OtpForm = (props: OtpStepProps) => {
   createEffect(on(resourse, resetForm));
 
   return (
-    <Motion class="flex w-full flex-col items-center justify-center gap-6 text-center">
-      <Lottie path="/tgs/mailbox.json" class="size-24" />
+    <div class="flex w-full flex-col items-center justify-center gap-6 text-center">
+      <CollapseGroup duration={300}>
+        <Lottie path="/tgs/mailbox.json" class="size-24" />
 
-      <hgroup class="w-full space-y-4">
-        <Heading>{t.heading()}</Heading>
-        <p>
-          <Suspense fallback={t.sending()}>
-            <Show when={resourse()}>{t.sent()}</Show>
-          </Suspense>{" "}
-          <Link href={`mailto:${props.recipient}`}>{props.recipient}</Link>
-        </p>
-      </hgroup>
+        <hgroup class="w-full space-y-4">
+          <Heading>{t.heading()}</Heading>
+          <p>
+            <Suspense fallback={t.sending()}>
+              <Show when={resourse()}>{t.sent()}</Show>
+            </Suspense>{" "}
+            <Link href={`mailto:${props.recipient}`}>{props.recipient}</Link>
+          </p>
+        </hgroup>
 
-      <Suspense>
-        <Show when={resourse()} keyed>
-          <Form onSubmit={onSubmit} {...otherProps}>
-            <fieldset disabled={form.submitting} class="flex flex-col items-center justify-center gap-4 text-center">
-              <Field name="otp" validate={minLength(OTP_LENGTH, t.minLength())}>
-                {(field, props) => (
-                  <TextField validationState={field.error ? "invalid" : "valid"}>
-                    <OtpField maxLength={OTP_LENGTH} onComplete={() => submit(form)}>
-                      <TextField.Input as={OtpField.Input} {...props} ref={setOtpInputRef} />
-                      <For each={Array(OTP_LENGTH)}>{(_, index) => <OtpField.Slot index={index()} />}</For>
-                    </OtpField>
-                    <TextField.ErrorMessage>{field.error}</TextField.ErrorMessage>
-                  </TextField>
-                )}
-              </Field>
+        <Suspense>
+          <Show when={resourse()} keyed>
+            <Form onSubmit={onSubmit} {...otherProps} class="w-full">
+              <fieldset disabled={form.submitting} class="flex flex-col items-center justify-center gap-4 text-center">
+                <Field name="otp" validate={minLength(OTP_LENGTH, t.minLength())}>
+                  {(field, props) => (
+                    <TextField validationState={field.error ? "invalid" : "valid"}>
+                      <OtpField maxLength={OTP_LENGTH} onComplete={() => submit(form)}>
+                        <TextField.Input as={OtpField.Input} {...props} ref={setOtpInputRef} />
+                        <For each={Array(OTP_LENGTH)}>{(_, index) => <OtpField.Slot index={index()} />}</For>
+                      </OtpField>
+                      <TextField.ErrorMessage>{field.error}</TextField.ErrorMessage>
+                    </TextField>
+                  )}
+                </Field>
 
-              <Show when={form.response.message}>{(message) => <p class="text-xs text-red-600">{message()}</p>}</Show>
+                <Collapse>
+                  <Show when={form.response.message}>
+                    {(message) => <p class="text-xs text-red-600">{message()}</p>}
+                  </Show>
+                </Collapse>
 
-              <Button variant="hyperlink" class="text-xs" onClick={resend}>
-                {t.resend()}
-              </Button>
-            </fieldset>
-          </Form>
-        </Show>
-      </Suspense>
-    </Motion>
+                <Button variant="hyperlink" class="text-xs" onClick={resend}>
+                  {t.resend()}
+                </Button>
+              </fieldset>
+            </Form>
+          </Show>
+        </Suspense>
+      </CollapseGroup>
+    </div>
   );
 };

@@ -17,7 +17,7 @@ export const EmailForm = (props: EmailFormProps) => {
   const [form, { Form, Field }] = createForm<EmailFormData>({ validateOn: "input" });
 
   return (
-    <Form {...props}>
+    <Form {...props} class="w-full">
       <fieldset disabled={form.submitting} class="space-y-4">
         <Field name="email" validate={[required(t.required()), email(t.invalid())]}>
           {(field, props) => (

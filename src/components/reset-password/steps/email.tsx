@@ -18,7 +18,7 @@ export const ResetPasswordEmailStep = () => {
   };
 
   return (
-    <Stepper.Step class="flex w-full flex-col items-stretch space-y-6">
+    <Stepper.Step class="flex w-full flex-col space-y-6">
       <Lottie path="/tgs/envelope.json" class="size-24 self-center" />
 
       <hgroup class="space-y-4 text-center">
@@ -28,7 +28,7 @@ export const ResetPasswordEmailStep = () => {
 
       <RegisteredEmailForm onSubmit={onSubmit} />
 
-      <Button as={A} href="/login" class="!mt-2">
+      <Button as={A} href="/login" class="!mt-2 w-full">
         {t.login()}
       </Button>
     </Stepper.Step>

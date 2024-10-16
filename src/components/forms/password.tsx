@@ -1,6 +1,6 @@
 import { createForm, FormError, FormProps, minLength, required, SubmitHandler } from "@modular-forms/solid";
 import { Show, splitProps } from "solid-js";
-import { Button, FormControl } from "~/components";
+import { Button, Collapse, FormControl } from "~/components";
 import { useI18n } from "~/lib/i18n";
 
 export const MIN_PASSWORD_LENGTH = 8;
@@ -28,7 +28,7 @@ export const PasswordForm = (props: PasswordFormProps) => {
   };
 
   return (
-    <Form onSubmit={onSubmit} {...otherProps}>
+    <Form onSubmit={onSubmit} {...otherProps} class="w-full">
       <fieldset disabled={form.submitting} class="space-y-4">
         <Field
           name="newPassword1"
@@ -72,7 +72,9 @@ export const PasswordForm = (props: PasswordFormProps) => {
           )}
         </Field>
 
-        <Show when={form.response.message}>{(message) => <p class="text-xs text-red-600">{message()}</p>}</Show>
+        <Collapse>
+          <Show when={form.response.message}>{(message) => <p class="text-xs text-red-600">{message()}</p>}</Show>
+        </Collapse>
 
         <Button
           type="submit"

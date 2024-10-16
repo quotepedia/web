@@ -12,7 +12,7 @@ export const ChangeEmailDoneStep = () => {
   const context = useChangeEmail();
 
   return (
-    <Stepper.Step class="flex w-full flex-col items-stretch gap-4">
+    <Stepper.Step class="flex w-full flex-col gap-4">
       <Lottie path="/tgs/boomstick.json" class="mb-3 size-24 self-center" />
 
       <hgroup class="space-y-4 text-center">
@@ -30,7 +30,7 @@ export const ChangeEmailDoneStep = () => {
 
       <p class="text-center text-xs text-fg-muted">{t.editable()}</p>
 
-      <Dialog.Close as={Button} color="primary" class="mt-3">
+      <Dialog.Close as={Button} color="primary" class="mt-3 w-full">
         {t.close()}
       </Dialog.Close>
     </Stepper.Step>

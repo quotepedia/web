@@ -17,7 +17,7 @@ export const ChangeEmailEmailStep = () => {
   };
 
   return (
-    <Stepper.Step class="flex w-full flex-col items-stretch space-y-6">
+    <Stepper.Step class="flex w-full flex-col space-y-6">
       <Lottie path="/tgs/envelope.json" class="size-24 self-center" />
 
       <hgroup class="space-y-4 text-center">

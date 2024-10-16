@@ -1,0 +1,16 @@
+export const KEYFRAME_ANIMATION_OPTIONS_KEY_NAMES: Array<keyof KeyframeAnimationOptions> = [
+  "composite",
+  "delay",
+  "direction",
+  "duration",
+  "easing",
+  "endDelay",
+  "fill",
+  "id",
+  "iterationComposite",
+  "iterationStart",
+  "iterations",
+  "playbackRate",
+  "pseudoElement",
+  "timeline",
+] as const;
