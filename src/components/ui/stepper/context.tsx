@@ -34,7 +34,7 @@ export type StepperContextValue = {
   /**
    * A function to move forward to the next step.
    */
-  moveForward: () => any;
+  moveForward: VoidFunction;
 
   /**
    * Indicates whether the user can move forward to the next step.
@@ -44,7 +44,7 @@ export type StepperContextValue = {
   /**
    * A function to move backward to the previous step.
    */
-  moveBackward: () => any;
+  moveBackward: VoidFunction;
 
   /**
    * Indicates whether the user can move backward to the previous step.
@@ -54,7 +54,7 @@ export type StepperContextValue = {
   /**
    * A function to move to the previous step.
    */
-  movePrevious: () => any;
+  movePrevious: VoidFunction;
 
   /**
    * Indicates whether the user can move to the previous step.
