@@ -1,5 +1,5 @@
 import { type RouteDefinition, type RouteSectionProps } from "@solidjs/router";
-import { useI18n } from "~/lib/i18n";
+import { useI18n } from "~/shared/i18n";
 
 export const route = {
   info: {

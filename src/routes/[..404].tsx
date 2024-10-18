@@ -3,8 +3,9 @@ import { A, type RouteDefinition } from "@solidjs/router";
 import { Icon } from "solid-heroicons";
 import { homeModern } from "solid-heroicons/solid-mini";
 
-import { Button, Heading, LocaleSwitcher, Lottie } from "~/components";
-import { useI18n } from "~/lib/i18n";
+import { LocaleSwitcher } from "~/features/change-locale";
+import { Button, Heading, Lottie } from "~/shared/components";
+import { useI18n } from "~/shared/i18n";
 
 export const route = {
   info: {

@@ -1,13 +1,13 @@
 // @refresh reload
 import { createHandler, StartServer } from "@solidjs/start/server";
-import type { Preferences } from "~/lib/preferences";
+import type { Settings } from "~/shared/settings";
 
 declare module "@solidjs/start/server" {
   interface RequestEventLocals {
     /**
      * Custom user-specific web app settings.
      */
-    settings: Preferences;
+    settings: Settings;
   }
 }
 

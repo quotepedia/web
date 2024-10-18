@@ -1,5 +1,5 @@
 import type { RouteDefinition } from "@solidjs/router";
-import { createEnsureLoggedIn } from "~/lib/http";
+import { createEnsureLoggedIn } from "~/shared/http";
 
 export const route = {
   preload: ({ location }) => {

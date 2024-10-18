@@ -1,7 +1,7 @@
 import type { RouteDefinition } from "@solidjs/router";
-import { ResetPasswordStepper } from "~/components/reset-password/stepper";
-import { createEnsureLoggedOut } from "~/lib/http";
-import { useI18n } from "~/lib/i18n";
+import { ResetPasswordStepper } from "~/features/reset-password";
+import { createEnsureLoggedOut } from "~/shared/http";
+import { useI18n } from "~/shared/i18n";
 
 export const route = {
   preload: ({ location }) => {

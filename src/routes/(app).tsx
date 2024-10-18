@@ -1,20 +1,20 @@
-import { Sidebar } from "~/components";
+import { Sidebar } from "~/widgets/Sidebar";
 
 import Resizable from "@corvu/resizable";
 import { cookieStorage, makePersisted } from "@solid-primitives/storage";
 import type { RouteSectionProps } from "@solidjs/router";
 import { createSignal } from "solid-js";
-import { DynamicBreadcrumbs } from "~/components/Breadcrumbs";
-import { makeBroadcastChannelSync } from "~/lib/utils/storage";
+import { DynamicBreadcrumbs } from "~/widgets/breadcrumbs";
+import { makeBroadcastChannelSync } from "~/shared/utils/storage";
 
 export default function SidebarRouteSection(props: RouteSectionProps) {
   const [sizes, setSizes] = makePersisted(createSignal<number[]>([0.2, 0.8]), {
     storage: cookieStorage,
     name: "sidebar-sizes",
     storageOptions: {
+      path: "/",
       secure: /true/i.test(import.meta.env.VITE_SECURE_COOKIES),
       sameSite: "Lax",
-      path: "/",
     },
     sync: makeBroadcastChannelSync(`sync-sidebar-sizes`),
   });
