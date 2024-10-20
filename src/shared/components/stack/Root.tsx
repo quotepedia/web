@@ -3,7 +3,7 @@ import { splitProps, type ParentProps, type ValidComponent } from "solid-js";
 import { tv } from "tailwind-variants";
 
 export const styles = tv({
-  base: "flex gap-2 items-center justify-center",
+  base: "flex w-full gap-2 items-center justify-center",
 });
 
 export type StackRootRenderProps = { class?: string };
