@@ -1,7 +1,7 @@
 import { language, paintBrush } from "solid-heroicons/solid-mini";
 import { LocaleSwitcher } from "~/features/change-locale";
 import { ThemeSwitcher } from "~/features/change-theme";
-import { Heading, SettingsCard, SettingsExpander, SettingsGroup } from "~/shared/components";
+import { Heading, SettingsCard, SettingsExpander, SettingsGroup, Stack } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 import { useTheme } from "~/shared/theme";
 
@@ -11,7 +11,7 @@ export const SettingsAppearanceSection = () => {
   const t = i18n.t.routes.settings.sections.appearance;
 
   return (
-    <section class="space-y-3">
+    <Stack.Vertical class="items-start gap-3">
       <Heading as="h2" size="subheading">
         {t.heading()}
       </Heading>
@@ -40,6 +40,6 @@ export const SettingsAppearanceSection = () => {
           <LocaleSwitcher />
         </SettingsCard>
       </SettingsGroup>
-    </section>
+    </Stack.Vertical>
   );
 };

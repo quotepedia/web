@@ -2,7 +2,7 @@ import { A, createAsync } from "@solidjs/router";
 import { chevronRight, userCircle } from "solid-heroicons/solid-mini";
 import { Show } from "solid-js";
 import { getCurrentUser } from "~/shared/api/users/me";
-import { Avatar, Heading, SettingsCard, SettingsGroup } from "~/shared/components";
+import { Avatar, Heading, SettingsCard, SettingsGroup, Stack } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const SettingsAccountSection = () => {
@@ -12,7 +12,7 @@ export const SettingsAccountSection = () => {
   const currentUser = createAsync(() => getCurrentUser());
 
   return (
-    <section class="space-y-3">
+    <Stack.Vertical class="items-start gap-3">
       <Heading as="h2" size="subheading">
         {t.heading()}
       </Heading>
@@ -33,6 +33,6 @@ export const SettingsAccountSection = () => {
           <SettingsCard.Icon path={chevronRight} class="size-4 text-fg-muted" />
         </SettingsCard>
       </SettingsGroup>
-    </section>
+    </Stack.Vertical>
   );
 };

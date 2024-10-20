@@ -2,9 +2,9 @@ import { SubmitHandler } from "@modular-forms/solid";
 import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
 import { PasswordForm, PasswordFormData } from "~/entities/user/password";
-import { Heading, Lottie, Stepper } from "~/shared/components";
-import { useStepperContext } from "~/shared/components/stepper/context";
 import { updateCurrentUserPassword } from "~/shared/api/users/me";
+import { Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
+import { useStepperContext } from "~/shared/components/stepper/context";
 import { useI18n } from "~/shared/i18n";
 
 export const NewPasswordFormStep = () => {
@@ -27,15 +27,17 @@ export const NewPasswordFormStep = () => {
   };
 
   return (
-    <Stepper.Step class="flex w-full flex-col gap-6">
-      <Lottie path="/tgs/key.json" class="size-24 self-center" />
+    <Stepper.Step>
+      <Stack.Vertical class="gap-6">
+        <Lottie path="/tgs/key.json" class="size-24" />
 
-      <hgroup class="space-y-4 text-center">
-        <Heading>{t.heading()}</Heading>
-        <p>{t.description()}</p>
-      </hgroup>
+        <Stack.Vertical class="text-center">
+          <Heading>{t.heading()}</Heading>
+          <Text>{t.description()}</Text>
+        </Stack.Vertical>
 
-      <PasswordForm onSubmit={onSubmit} />
+        <PasswordForm onSubmit={onSubmit} />
+      </Stack.Vertical>
     </Stepper.Step>
   );
 };

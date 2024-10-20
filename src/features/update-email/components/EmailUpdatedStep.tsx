@@ -1,6 +1,6 @@
 import { Icon } from "solid-heroicons";
 import { arrowRight } from "solid-heroicons/solid-mini";
-import { Button, Dialog, Heading, Lottie, Stepper } from "~/shared/components";
+import { Button, Dialog, Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 import { useUpdateEmail } from "../context";
 
@@ -11,27 +11,35 @@ export const EmailUpdatedStep = () => {
   const context = useUpdateEmail();
 
   return (
-    <Stepper.Step class="flex w-full flex-col gap-4">
-      <Lottie path="/tgs/boomstick.json" class="mb-3 size-24 self-center" />
+    <Stepper.Step>
+      <Stack.Vertical class="gap-6 text-center">
+        <Lottie path="/tgs/boomstick.json" class="size-24" />
 
-      <hgroup class="space-y-4 text-center">
-        <Heading>{t.heading()}</Heading>
-        <p>{t.description()}</p>
-      </hgroup>
+        <Stack.Vertical>
+          <Heading>{t.heading()}</Heading>
+          <Text>{t.description()}</Text>
 
-      <div class="flex w-full items-center justify-center gap-2">
-        <span class="text-red-600">{context.store.previousEmail}</span>
-        <Icon class="size-4" path={arrowRight} />
-        <span class="text-green-600">{context.store.email}</span>
-      </div>
+          <Stack.Horizontal>
+            <Text size="sm" variant="danger">
+              {context.store.previousEmail}
+            </Text>
+            <Icon class="size-3.5 text-fg-muted" path={arrowRight} />
+            <Text size="sm" variant="success">
+              {context.store.email}
+            </Text>
+          </Stack.Horizontal>
 
-      <p class="text-center">{t.purpose()}</p>
+          <Text size="sm">{t.purpose()}</Text>
 
-      <p class="text-center text-xs text-fg-muted">{t.editable()}</p>
+          <Text size="sm" variant="muted">
+            {t.editable()}
+          </Text>
+        </Stack.Vertical>
 
-      <Dialog.Close as={Button} color="primary" class="mt-3 w-full">
-        {t.close()}
-      </Dialog.Close>
+        <Dialog.Close as={Button} color="primary" class="w-full">
+          {t.close()}
+        </Dialog.Close>
+      </Stack.Vertical>
     </Stepper.Step>
   );
 };

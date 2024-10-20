@@ -2,8 +2,19 @@ import { createEffect, createResource, createSignal, For, on, Show, splitProps, 
 
 import { createForm, FormError, FormProps, minLength, submit, SubmitHandler } from "@modular-forms/solid";
 
-import { Button, Collapse, CollapseGroup, Heading, Link, Lottie, OtpField, TextField } from "~/shared/components";
 import { isCorrectOtp, sendOtp } from "~/shared/api/otp";
+import {
+  Button,
+  Collapse,
+  CollapseGroup,
+  Heading,
+  Link,
+  Lottie,
+  OtpField,
+  Stack,
+  Text,
+  TextField,
+} from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const OTP_LENGTH = 6;
@@ -55,24 +66,24 @@ export const OtpForm = (props: OtpStepProps) => {
   createEffect(on(resourse, resetForm));
 
   return (
-    <div class="flex w-full flex-col items-center justify-center gap-6 text-center">
+    <Stack.Vertical class="gap-6 text-center">
       <CollapseGroup duration={300}>
         <Lottie path="/tgs/mailbox.json" class="size-24" />
 
-        <hgroup class="w-full space-y-4">
+        <Stack.Vertical>
           <Heading>{t.heading()}</Heading>
-          <p>
+          <Text>
             <Suspense fallback={t.sending()}>
               <Show when={resourse()}>{t.sent()}</Show>
             </Suspense>{" "}
             <Link href={`mailto:${props.recipient}`}>{props.recipient}</Link>
-          </p>
-        </hgroup>
+          </Text>
+        </Stack.Vertical>
 
         <Suspense>
           <Show when={resourse()} keyed>
-            <Form onSubmit={onSubmit} {...otherProps} class="w-full">
-              <fieldset disabled={form.submitting} class="flex flex-col items-center justify-center gap-4 text-center">
+            <Form onSubmit={onSubmit} {...otherProps}>
+              <Stack.Vertical as={"fieldset"} class="gap-4" disabled={form.submitting}>
                 <Field name="otp" validate={minLength(OTP_LENGTH, t.minLength())}>
                   {(field, props) => (
                     <TextField validationState={field.error ? "invalid" : "valid"}>
@@ -87,18 +98,22 @@ export const OtpForm = (props: OtpStepProps) => {
 
                 <Collapse>
                   <Show when={form.response.message}>
-                    {(message) => <p class="text-xs text-red-600">{message()}</p>}
+                    {(message) => (
+                      <Text size="sm" variant="danger">
+                        {message()}
+                      </Text>
+                    )}
                   </Show>
                 </Collapse>
 
                 <Button variant="hyperlink" class="text-xs" onClick={resend}>
                   {t.resend()}
                 </Button>
-              </fieldset>
+              </Stack.Vertical>
             </Form>
           </Show>
         </Suspense>
       </CollapseGroup>
-    </div>
+    </Stack.Vertical>
   );
 };

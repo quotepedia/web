@@ -1,9 +1,9 @@
 import { createForm, email, FormError, minLength, required } from "@modular-forms/solid";
 import { A, useAction, useSearchParams } from "@solidjs/router";
-import { JSX, Show } from "solid-js";
+import { Show } from "solid-js";
 import { MIN_PASSWORD_LENGTH } from "~/entities/user/password";
 import { authenticate, LoginForm } from "~/shared/api/auth";
-import { Button, Collapse, FormControl, Heading, Link, Lottie } from "~/shared/components";
+import { Button, Collapse, Container, FormControl, Heading, Link, Lottie, Stack, Text } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const UserLoginForm = () => {
@@ -23,18 +23,17 @@ export const UserLoginForm = () => {
   };
 
   return (
-    <div class="m-auto max-w-xs space-y-6 py-6">
-      <header class="space-y-6 text-center">
-        <Lottie path="tgs/wave.json" class="size-24 w-full" />
-        <hgroup class="space-y-4">
-          <Heading>{t.heading()}</Heading>
-          <p>{t.description()}</p>
-        </hgroup>
-      </header>
+    <Container size="tight" class="self-center">
+      <Stack.Vertical class="gap-6">
+        <Lottie path="tgs/wave.json" class="size-24" />
 
-      <main>
+        <Stack.Vertical class="text-center">
+          <Heading>{t.heading()}</Heading>
+          <Text>{t.description()}</Text>
+        </Stack.Vertical>
+
         <Form onSubmit={onSubmit} method="post">
-          <fieldset disabled={form.submitting} class="space-y-4">
+          <Stack.Vertical as="fieldset" class="items-stretch gap-4" disabled={form.submitting}>
             <Field
               name="email"
               validate={[required(t.form.fields.email.required()), email(t.form.fields.email.invalid())]}
@@ -66,16 +65,14 @@ export const UserLoginForm = () => {
                   type="password"
                   label={t.form.fields.password.label()}
                   placeholder={t.form.fields.password.placeholder()}
-                  description={
-                    (() => (
-                      <>
-                        <span>{t.form.fields.password.description()}</span>
-                        <Link as={A} href="/reset-password">
-                          {t.form.fields.password.forgot()}
-                        </Link>
-                      </>
-                    )) as unknown as JSX.Element
-                  }
+                  description={(() => (
+                    <>
+                      <span>{t.form.fields.password.description()}</span>
+                      <Link as={A} href="/reset-password">
+                        {t.form.fields.password.forgot()}
+                      </Link>
+                    </>
+                  ))()}
                   value={field.value}
                   error={field.error}
                   required
@@ -90,7 +87,13 @@ export const UserLoginForm = () => {
             </Show>
 
             <Collapse>
-              <Show when={form.response.message}>{(message) => <p class="text-xs text-red-600">{message()}</p>}</Show>
+              <Show when={form.response.message}>
+                {(message) => (
+                  <Text size="sm" variant="danger">
+                    {message()}
+                  </Text>
+                )}
+              </Show>
             </Collapse>
 
             <Button
@@ -102,23 +105,23 @@ export const UserLoginForm = () => {
             >
               {t.form.submit()}
             </Button>
-          </fieldset>
+          </Stack.Vertical>
         </Form>
-      </main>
 
-      <footer class="text-center text-xs text-fg-muted">
-        <Link as={A} href="/">
-          {t.home()}
-        </Link>
-        {" · "}
-        <Link as={A} href="/settings">
-          {t.settings()}
-        </Link>
-        {" · "}
-        <Link as={A} href="/register">
-          {t.register()}
-        </Link>
-      </footer>
-    </div>
+        <Stack.Horizontal class="gap-1 text-xs">
+          <Link as={A} href="/">
+            {t.home()}
+          </Link>
+          {" · "}
+          <Link as={A} href="/settings">
+            {t.settings()}
+          </Link>
+          {" · "}
+          <Link as={A} href="/register">
+            {t.register()}
+          </Link>
+        </Stack.Horizontal>
+      </Stack.Vertical>
+    </Container>
   );
 };

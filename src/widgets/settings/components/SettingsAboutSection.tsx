@@ -1,7 +1,7 @@
 import { Image } from "@kobalte/core/image";
 import { A } from "@solidjs/router";
 import { arrowTopRightOnSquare, chatBubbleOvalLeft, codeBracket, informationCircle } from "solid-heroicons/solid-mini";
-import { Heading, Separator, SettingsCard, SettingsExpander, SettingsGroup } from "~/shared/components";
+import { Heading, Separator, SettingsCard, SettingsExpander, SettingsGroup, Stack } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const SettingsAboutSection = () => {
@@ -9,7 +9,7 @@ export const SettingsAboutSection = () => {
   const t = i18n.t.routes.settings.sections.about;
 
   return (
-    <section class="space-y-3">
+    <Stack.Vertical class="items-start gap-3">
       <Heading as="h2" size="subheading">
         {t.heading()}
       </Heading>
@@ -51,6 +51,6 @@ export const SettingsAboutSection = () => {
           </SettingsExpander.Content>
         </SettingsExpander>
       </SettingsGroup>
-    </section>
+    </Stack.Vertical>
   );
 };

@@ -1,6 +1,6 @@
 import { Icon } from "solid-heroicons";
 import { arrowRight } from "solid-heroicons/solid-mini";
-import { Button, Dialog, Heading, Lottie, Stepper } from "~/shared/components";
+import { Button, Dialog, Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const PasswordUpdatedStep = () => {
@@ -8,27 +8,35 @@ export const PasswordUpdatedStep = () => {
   const t = i18n.t.components.changePassword.steps.done;
 
   return (
-    <Stepper.Step class="flex w-full flex-col gap-4">
-      <Lottie path="/tgs/boomstick.json" class="mb-3 size-24 self-center" />
+    <Stepper.Step>
+      <Stack.Vertical class="gap-6 text-center">
+        <Lottie path="/tgs/boomstick.json" class="size-24" />
 
-      <hgroup class="space-y-4 text-center">
-        <Heading>{t.heading()}</Heading>
-        <p>{t.description()}</p>
-      </hgroup>
+        <Stack.Vertical>
+          <Heading>{t.heading()}</Heading>
+          <Text>{t.description()}</Text>
 
-      <div class="flex w-full items-center justify-center gap-2">
-        <span class="text-red-600">••••••••</span>
-        <Icon class="size-4" path={arrowRight} />
-        <span class="text-green-600">••••••••</span>
-      </div>
+          <Stack.Horizontal>
+            <Text size="lg" variant="danger">
+              ••••••••
+            </Text>
+            <Icon class="size-4 text-fg-muted" path={arrowRight} />
+            <Text size="lg" variant="success">
+              ••••••••
+            </Text>
+          </Stack.Horizontal>
 
-      <p class="text-center">{t.purpose()}</p>
+          <Text size="sm">{t.purpose()}</Text>
 
-      <p class="text-center text-xs text-fg-muted">{t.editable()}</p>
+          <Text size="sm" variant="muted">
+            {t.editable()}
+          </Text>
+        </Stack.Vertical>
 
-      <Dialog.Close as={Button} color="primary" class="mt-3 w-full">
-        {t.close()}
-      </Dialog.Close>
+        <Dialog.Close as={Button} color="primary" class="w-full">
+          {t.close()}
+        </Dialog.Close>
+      </Stack.Vertical>
     </Stepper.Step>
   );
 };

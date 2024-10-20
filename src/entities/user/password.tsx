@@ -1,6 +1,6 @@
 import { createForm, FormError, FormProps, minLength, required, SubmitHandler } from "@modular-forms/solid";
 import { Show, splitProps } from "solid-js";
-import { Button, Collapse, FormControl } from "~/shared/components";
+import { Button, Collapse, FormControl, Stack, Text } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const MIN_PASSWORD_LENGTH = 8;
@@ -29,7 +29,7 @@ export const PasswordForm = (props: PasswordFormProps) => {
 
   return (
     <Form onSubmit={onSubmit} {...otherProps} class="w-full">
-      <fieldset disabled={form.submitting} class="space-y-4">
+      <Stack.Vertical as={"fieldset"} class="items-stretch gap-4" disabled={form.submitting}>
         <Field
           name="newPassword1"
           validate={[
@@ -73,7 +73,13 @@ export const PasswordForm = (props: PasswordFormProps) => {
         </Field>
 
         <Collapse>
-          <Show when={form.response.message}>{(message) => <p class="text-xs text-red-600">{message()}</p>}</Show>
+          <Show when={form.response.message}>
+            {(message) => (
+              <Text size="sm" variant="danger">
+                {message()}
+              </Text>
+            )}
+          </Show>
         </Collapse>
 
         <Button
@@ -85,7 +91,7 @@ export const PasswordForm = (props: PasswordFormProps) => {
         >
           {t.submit()}
         </Button>
-      </fieldset>
+      </Stack.Vertical>
     </Form>
   );
 };

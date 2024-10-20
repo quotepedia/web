@@ -5,7 +5,7 @@ import { UpdateEmailStepper } from "~/features/update-email";
 import { UpdatePasswordStepper } from "~/features/update-password";
 import { unauthenticate } from "~/shared/api/auth";
 import { getCurrentUser } from "~/shared/api/users/me";
-import { Dialog, Heading, SettingsCard, SettingsGroup } from "~/shared/components";
+import { Dialog, Heading, SettingsCard, SettingsGroup, Stack } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const AccountSecuritySection = () => {
@@ -19,7 +19,7 @@ export const AccountSecuritySection = () => {
   return (
     <Show when={currentUser()}>
       {(user) => (
-        <section class="space-y-4">
+        <Stack.Vertical class="items-start gap-3">
           <Heading size="subheading" as="h2">
             {t.heading()}
           </Heading>
@@ -79,7 +79,7 @@ export const AccountSecuritySection = () => {
               <SettingsCard.Icon path={chevronRight} class="size-4 text-fg-muted" />
             </SettingsCard>
           </SettingsGroup>
-        </section>
+        </Stack.Vertical>
       )}
     </Show>
   );

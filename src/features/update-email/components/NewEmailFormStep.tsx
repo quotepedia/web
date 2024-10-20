@@ -1,6 +1,6 @@
 import { SubmitHandler } from "@modular-forms/solid";
 import { EmailFormData, UnregisteredEmailForm } from "~/entities/user/email";
-import { Heading, Lottie, Stepper } from "~/shared/components";
+import { Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 import { useUpdateEmail } from "../context";
 
@@ -17,15 +17,17 @@ export const NewEmailFormStep = () => {
   };
 
   return (
-    <Stepper.Step class="flex w-full flex-col space-y-6">
-      <Lottie path="/tgs/envelope.json" class="size-24 self-center" />
+    <Stepper.Step>
+      <Stack.Vertical class="gap-6">
+        <Lottie path="/tgs/envelope.json" class="size-24" />
 
-      <hgroup class="space-y-4 text-center">
-        <Heading>{t.heading()}</Heading>
-        <p>{t.description()}</p>
-      </hgroup>
+        <Stack.Vertical class="text-center">
+          <Heading>{t.heading()}</Heading>
+          <Text>{t.description()}</Text>
+        </Stack.Vertical>
 
-      <UnregisteredEmailForm onSubmit={onSubmit} />
+        <UnregisteredEmailForm onSubmit={onSubmit} />
+      </Stack.Vertical>
     </Stepper.Step>
   );
 };

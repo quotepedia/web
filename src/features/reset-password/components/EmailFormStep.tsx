@@ -1,7 +1,7 @@
 import { SubmitHandler } from "@modular-forms/solid";
 import { A } from "@solidjs/router";
 import { EmailFormData, RegisteredEmailForm } from "~/entities/user/email";
-import { Button, Heading, Lottie, Stepper } from "~/shared/components";
+import { Button, Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 import { useResetPassword } from "../context";
 
@@ -18,19 +18,22 @@ export const EmailFormStep = () => {
   };
 
   return (
-    <Stepper.Step class="flex w-full flex-col space-y-6">
-      <Lottie path="/tgs/envelope.json" class="size-24 self-center" />
+    <Stepper.Step>
+      <Stack.Vertical class="gap-6">
+        <Lottie path="/tgs/envelope.json" class="size-24" />
 
-      <hgroup class="space-y-4 text-center">
-        <Heading>{t.heading()}</Heading>
-        <p>{t.description()}</p>
-      </hgroup>
+        <Stack.Vertical class="text-center">
+          <Heading>{t.heading()}</Heading>
+          <Text>{t.description()}</Text>
+        </Stack.Vertical>
 
-      <RegisteredEmailForm onSubmit={onSubmit} />
-
-      <Button as={A} href="/login" class="!mt-2 w-full">
-        {t.login()}
-      </Button>
+        <Stack.Vertical>
+          <RegisteredEmailForm onSubmit={onSubmit} />
+          <Button as={A} href="/login" class="w-full">
+            {t.login()}
+          </Button>
+        </Stack.Vertical>
+      </Stack.Vertical>
     </Stepper.Step>
   );
 };

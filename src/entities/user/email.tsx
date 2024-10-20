@@ -1,7 +1,7 @@
 import { createForm, email, FormError, FormProps, required, SubmitHandler } from "@modular-forms/solid";
 import { splitProps } from "solid-js";
-import { Button, FormControl } from "~/shared/components";
 import { getUserExists } from "~/shared/api/users";
+import { Button, FormControl, Stack } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export type EmailFormData = {
@@ -18,7 +18,7 @@ export const EmailForm = (props: EmailFormProps) => {
 
   return (
     <Form {...props} class="w-full">
-      <fieldset disabled={form.submitting} class="space-y-4">
+      <Stack.Vertical as={"fieldset"} class="items-stretch gap-4" disabled={form.submitting}>
         <Field name="email" validate={[required(t.required()), email(t.invalid())]}>
           {(field, props) => (
             <FormControl
@@ -43,7 +43,7 @@ export const EmailForm = (props: EmailFormProps) => {
         >
           {t.submit()}
         </Button>
-      </fieldset>
+      </Stack.Vertical>
     </Form>
   );
 };
