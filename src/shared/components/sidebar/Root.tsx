@@ -8,3 +8,5 @@ export const SidebarRoot: ParentComponent = (props) => {
     />
   );
 };
+
+export default SidebarRoot;

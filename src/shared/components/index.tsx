@@ -18,7 +18,7 @@ export { FormControl } from "./form-control";
 export { OtpField } from "./otp-field";
 export { Select } from "./select";
 export { SettingsCard, SettingsExpander, SettingsGroup } from "./settings";
-export { SidebarRoot as Sidebar } from "./sidebar";
+export { Sidebar } from "./sidebar";
 export { Stepper } from "./stepper";
 
 export { TextField } from "./text-field";

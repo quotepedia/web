@@ -19,10 +19,10 @@ export const SettingsAccountSection = () => {
 
       <SettingsGroup>
         <SettingsCard variant="hover" as={A} href={"/settings/account"}>
-          <Show when={currentUser()?.avatar_url} fallback={<SettingsCard.Icon path={userCircle} class="size-4" />}>
-            {(avatar_url) => (
+          <Show when={currentUser()} fallback={<SettingsCard.Icon path={userCircle} class="size-4" />}>
+            {(user) => (
               <Avatar class="size-4">
-                <Avatar.Img src={avatar_url()} alt="" />
+                <Avatar.Img src={user().avatar_url} alt={user().email} />
               </Avatar>
             )}
           </Show>
