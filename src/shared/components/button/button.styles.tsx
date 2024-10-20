@@ -10,7 +10,7 @@ export const styles = tv({
   ],
   variants: {
     size: {
-      md: "px-3 py-2 gap-2 rounded-lg",
+      md: "px-3 py-2 gap-1 rounded-lg",
     },
     color: {
       default: [
