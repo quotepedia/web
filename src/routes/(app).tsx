@@ -4,8 +4,8 @@ import type { RouteSectionProps } from "@solidjs/router";
 import { createSignal } from "solid-js";
 import { Container } from "~/shared/components";
 import { makeBroadcastChannelSync } from "~/shared/utils/storage";
+import { Aside } from "~/widgets/aside";
 import { DynamicBreadcrumbs } from "~/widgets/breadcrumbs";
-import { Aside } from "~/widgets/Sidebar";
 
 export default function SidebarRouteSection(props: RouteSectionProps) {
   const [sizes, setSizes] = makePersisted(createSignal<number[]>([0.2, 0.8]), {
