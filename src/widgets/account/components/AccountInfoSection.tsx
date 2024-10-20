@@ -10,7 +10,7 @@ export const AccountInfoSection = () => {
   return (
     <Show when={currentUser()}>
       {(user) => (
-        <section class="flex flex-col items-center justify-center gap-3 px-2 py-1 text-center">
+        <section class="flex flex-col items-center justify-center gap-3 text-center">
           <AvatarEdit user={user()} />
           <hgroup>
             <Heading as="h3" size="subheading">
