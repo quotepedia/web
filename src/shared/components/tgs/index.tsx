@@ -1,4 +1,5 @@
-import Lottie, { LottieProps as Props, LottieConfigProps as ConfigProps } from "./Lottie";
+import type { LottieProps as Props, LottieConfigProps as ConfigProps } from "./Player";
+import Lottie from "./Lottie";
 
 export type { Props, ConfigProps };
 

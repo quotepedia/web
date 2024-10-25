@@ -1,28 +1,17 @@
-import { createEventListener } from "@solid-primitives/event-listener";
-import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
+import { clientOnly } from "@solidjs/start";
+import { type ValidComponent, splitProps } from "solid-js";
 
-import {
-  type ComponentProps,
-  type VoidComponent,
-  createEffect,
-  createSignal,
-  on,
-  onCleanup,
-  splitProps,
-} from "solid-js";
+import { type PolymorphicProps, Polymorphic } from "@kobalte/core/polymorphic";
+import { type RendererType } from "lottie-web";
 
-import LottiePlayer, {
-  type AnimationConfigWithPath,
-  type AnimationItem,
-  type RendererType,
-} from "lottie-web/build/player/lottie_light";
+import { type LottieProps } from "./Player";
 
-export type LottieProps<R extends RendererType = "svg"> = ComponentProps<"div"> & LottieConfigProps<R>;
+export const LottiePlayer = clientOnly(() => import("./Player"));
 
-export type LottieConfigProps<R extends RendererType = "svg"> = Omit<AnimationConfigWithPath<R>, "container">;
-
-export const Lottie: VoidComponent<LottieProps> = (props) => {
-  const [configProps, otherProps] = splitProps(props, [
+export const Lottie = <T extends ValidComponent = "div", R extends RendererType = "svg">(
+  props: PolymorphicProps<T, LottieProps<R>>,
+) => {
+  const [options, others] = splitProps(props, [
     "assetsPath",
     "audioFactory",
     "autoplay",
@@ -34,52 +23,11 @@ export const Lottie: VoidComponent<LottieProps> = (props) => {
     "rendererSettings",
   ]);
 
-  const [containerRef, setContainerRef] = createSignal<Element>();
-  const [animationItem, setAnimationItem] = createSignal<AnimationItem>();
-
-  const isContainerVisible = createVisibilityObserver()(containerRef);
-
-  const path = () => configProps.path;
-  const play = () => animationItem()?.play();
-  const pause = () => animationItem()?.pause();
-
-  createEffect(
-    on(path, () => {
-      // NOTE: `requestAnimationFrame` call here is important to ensure that the
-      // animation stays in sync with the browser's repaint cycle in all scenarios.
-      requestAnimationFrame(() => {
-        setAnimationItem((animation) => {
-          animation?.destroy();
-
-          const container = containerRef();
-
-          if (container === undefined) {
-            throw new Error("Lottie animation container is undefined. Ensure the component is mounted.");
-          }
-
-          return LottiePlayer.loadAnimation({ container: container, ...configProps });
-        });
-      });
-    }),
+  return (
+    <Polymorphic as="div" {...others}>
+      <LottiePlayer {...options} />
+    </Polymorphic>
   );
-
-  createEffect(() => {
-    isContainerVisible() ? play() : pause();
-  });
-
-  createEffect(() => {
-    createEventListener(window, "focus", play);
-    createEventListener(window, "blur", pause);
-  });
-
-  onCleanup(() => {
-    setAnimationItem((animation) => {
-      animation?.destroy();
-      return undefined;
-    });
-  });
-
-  return <div ref={setContainerRef} {...otherProps} />;
 };
 
 export default Lottie;
