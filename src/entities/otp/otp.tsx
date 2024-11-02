@@ -1,20 +1,9 @@
 import { createEffect, createResource, createSignal, For, on, Show, splitProps, Suspense } from "solid-js";
 
-import { createForm, FormError, FormProps, minLength, submit, SubmitHandler } from "@modular-forms/solid";
+import { createForm, FormError, FormProps, minLength, reset, submit, SubmitHandler } from "@modular-forms/solid";
 
 import { isCorrectOtp, sendOtp } from "~/shared/api/otp";
-import {
-  Button,
-  Collapse,
-  CollapseGroup,
-  Heading,
-  Link,
-  Lottie,
-  OtpField,
-  Stack,
-  Text,
-  TextField,
-} from "~/shared/components";
+import { Button, Collapse, Heading, Link, Lottie, OtpField, Stack, Text, TextField } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const OTP_LENGTH = 6;
@@ -59,6 +48,8 @@ export const OtpForm = (props: OtpStepProps) => {
 
     requestAnimationFrame(() => {
       input.form?.reset();
+      reset(form);
+
       input.focus();
     });
   };
@@ -67,53 +58,49 @@ export const OtpForm = (props: OtpStepProps) => {
 
   return (
     <Stack.Vertical class="gap-6 text-center">
-      <CollapseGroup duration={300}>
-        <Lottie path="/tgs/mailbox.json" class="size-24" />
+      <Lottie path="/tgs/mailbox.json" class="size-24" />
 
-        <Stack.Vertical>
-          <Heading>{t.heading()}</Heading>
-          <Text>
-            <Suspense fallback={t.sending()}>
-              <Show when={resourse()}>{t.sent()}</Show>
-            </Suspense>{" "}
-            <Link href={`mailto:${props.recipient}`}>{props.recipient}</Link>
-          </Text>
-        </Stack.Vertical>
+      <Stack.Vertical>
+        <Heading>{t.heading()}</Heading>
+        <Text>
+          <Suspense fallback={t.sending()}>
+            <Show when={resourse()}>{t.sent()}</Show>
+          </Suspense>{" "}
+          <Link href={`mailto:${props.recipient}`}>{props.recipient}</Link>
+        </Text>
+      </Stack.Vertical>
 
-        <Suspense>
-          <Show when={resourse()} keyed>
-            <Form onSubmit={onSubmit} {...otherProps}>
-              <Stack.Vertical as={"fieldset"} class="gap-4" disabled={form.submitting}>
-                <Field name="otp" validate={minLength(OTP_LENGTH, t.minLength())}>
-                  {(field, props) => (
-                    <TextField validationState={field.error ? "invalid" : "valid"}>
-                      <OtpField maxLength={OTP_LENGTH} onComplete={() => submit(form)}>
-                        <TextField.Input as={OtpField.Input} {...props} ref={setOtpInputRef} />
-                        <For each={Array(OTP_LENGTH)}>{(_, index) => <OtpField.Slot index={index()} />}</For>
-                      </OtpField>
-                      <TextField.ErrorMessage>{field.error}</TextField.ErrorMessage>
-                    </TextField>
-                  )}
-                </Field>
+      <Suspense>
+        <Form onSubmit={onSubmit} {...otherProps}>
+          <Stack.Vertical as={"fieldset"} class="gap-4" disabled={form.submitting || resourse.loading}>
+            <Field name="otp" validate={minLength(OTP_LENGTH, t.minLength())}>
+              {(field, props) => (
+                <TextField validationState={field.error ? "invalid" : "valid"}>
+                  <OtpField maxLength={OTP_LENGTH} onComplete={() => submit(form)}>
+                    <TextField.Input as={OtpField.Input} {...props} ref={setOtpInputRef} />
+                    <For each={Array(OTP_LENGTH)}>{(_, index) => <OtpField.Slot index={index()} />}</For>
+                  </OtpField>
+                  <TextField.ErrorMessage class="mt-2">{field.error}</TextField.ErrorMessage>
+                </TextField>
+              )}
+            </Field>
 
-                <Collapse>
-                  <Show when={form.response.message}>
-                    {(message) => (
-                      <Text size="sm" variant="danger">
-                        {message()}
-                      </Text>
-                    )}
-                  </Show>
-                </Collapse>
+            <Collapse>
+              <Show when={form.response.message}>
+                {(message) => (
+                  <Text size="sm" variant="danger">
+                    {message()}
+                  </Text>
+                )}
+              </Show>
+            </Collapse>
 
-                <Button variant="hyperlink" class="text-xs" onClick={resend}>
-                  {t.resend()}
-                </Button>
-              </Stack.Vertical>
-            </Form>
-          </Show>
-        </Suspense>
-      </CollapseGroup>
+            <Button variant="hyperlink" class="text-xs" onClick={resend}>
+              {t.resend()}
+            </Button>
+          </Stack.Vertical>
+        </Form>
+      </Suspense>
     </Stack.Vertical>
   );
 };
