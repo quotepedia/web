@@ -1,12 +1,14 @@
 import type { Accessor, JSX, ValidComponent } from "solid-js";
-import { createEffect } from "solid-js";
+import { createEffect, splitProps } from "solid-js";
 import createPersistent from "solid-persistent";
 
 import { Polymorphic, PolymorphicProps } from "@kobalte/core/polymorphic";
 
 import useStepperContext from "./context";
+import { cn } from "~/shared/utils/css";
 
 export type StepperStepProps = {
+  class?: string;
   index?: number;
   onEnter?: VoidFunction;
   children: ((current: Accessor<boolean>) => JSX.Element) | JSX.Element;
@@ -14,6 +16,7 @@ export type StepperStepProps = {
 
 export const StepperStep = <T extends ValidComponent = "li">(props: PolymorphicProps<T, StepperStepProps>) => {
   const context = useStepperContext();
+  const [scopedProps, otherProps] = splitProps(props, ["class"]);
 
   const getPersistentStep = () => context.steps.get(context.currentIndex);
 
@@ -27,7 +30,14 @@ export const StepperStep = <T extends ValidComponent = "li">(props: PolymorphicP
         current() && props.onEnter?.();
       });
 
-      return <Polymorphic as={"li"} aria-current="step" {...props} />;
+      return (
+        <Polymorphic
+          as={"li"}
+          class={cn("flex items-center justify-center", scopedProps)}
+          aria-current="step"
+          {...otherProps}
+        />
+      );
     });
 
     context.steps.set(context.currentIndex, step);
