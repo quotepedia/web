@@ -4,10 +4,10 @@ import { Show, splitProps } from "solid-js";
 import { Transition } from "solid-transition-group";
 
 import type { DynamicProps, RootProps } from "@corvu/otp-field";
-import OtpFieldPrimitive from "@corvu/otp-field";
+import OtpFieldPrimitive, { type InputProps } from "@corvu/otp-field";
 
-import { cn } from "~/shared/utils/css";
 import { Cursor } from "~/shared/components";
+import { cn } from "~/shared/utils/css";
 
 type OtpFieldProps<T extends ValidComponent = "div"> = RootProps<T> & JSX.StylableSVGAttributes;
 
@@ -24,7 +24,14 @@ const OtpFieldRoot = <T extends ValidComponent = "div">(props: DynamicProps<T, O
   );
 };
 
-const OtpFieldInput = OtpFieldPrimitive.Input;
+type OtpFieldInputProps<T extends ValidComponent = "input"> = InputProps<T> & {
+  class?: string;
+};
+
+const OtpFieldInput = <T extends ValidComponent = "input">(props: DynamicProps<T, OtpFieldInputProps<T>>) => {
+  const [local, others] = splitProps(props as OtpFieldInputProps, ["class"]);
+  return <OtpFieldPrimitive.Input class={cn("peer", local.class)} {...others} />;
+};
 
 const OtpFieldSlot: Component<ComponentProps<"div"> & { index: number }> = (props) => {
   const [local, others] = splitProps(props, ["class", "index"]);
@@ -35,8 +42,10 @@ const OtpFieldSlot: Component<ComponentProps<"div"> & { index: number }> = (prop
   return (
     <div
       class={cn(
-        "flex size-8 items-center justify-center rounded-md font-mono ring-1 ring-bg-secondary transition-all overflow-hidden",
-        context.activeSlots().includes(local.index) && "ring-blue-600",
+        "flex size-8 items-center justify-center overflow-hidden rounded-md bg-bg-body font-mono transition-all",
+        "ring-1 ring-bg-secondary peer-hover:ring-bg-tertiary peer-data-[valid]:ring-green-600",
+        "peer-disabled:bg-bg-default peer-disabled:ring-bg-tertiary",
+        context.activeSlots().includes(local.index) && "ring-ring-accent peer-hover:ring-ring-accent",
         local.class,
       )}
       {...others}
@@ -57,7 +66,7 @@ const OtpFieldSlot: Component<ComponentProps<"div"> & { index: number }> = (prop
               },
             ],
             {
-              duration: showCursor() ? 0 : 300,
+              duration: context.value() ? (showCursor() ? 0 : 300) : 0,
               easing: "cubic-bezier(0.68,-0.55,0.27,1.55)",
             },
           );
@@ -78,19 +87,19 @@ const OtpFieldSlot: Component<ComponentProps<"div"> & { index: number }> = (prop
               },
             ],
             {
-              duration: showCursor() ? 300 : 0,
+              duration: context.value() ? (showCursor() ? 300 : 0) : 300,
               easing: "cubic-bezier(0.68,-0.55,0.27,1.55)",
             },
           );
           a.finished.then(done);
         }}
-        mode="outin"
+        mode={showCursor() ? undefined : "outin"}
       >
         <Show when={char()}>
           <span>{char()}</span>
         </Show>
         <Show when={showCursor()}>
-          <Cursor blink={true} class="h-4 w-px" />
+          <Cursor blink={true} class="h-4 w-px rounded" />
         </Show>
       </Transition>
     </div>
