@@ -1,6 +1,6 @@
 import { createForm, email, FormError, minLength, required } from "@modular-forms/solid";
 import { A, useAction, useSearchParams } from "@solidjs/router";
-import { Show } from "solid-js";
+import { Show, type JSX } from "solid-js";
 import { MIN_PASSWORD_LENGTH } from "~/entities/user/password";
 import { authenticate, LoginForm } from "~/shared/api/auth";
 import { Button, Collapse, Container, FormControl, Heading, Link, Lottie, Stack, Text } from "~/shared/components";
@@ -32,7 +32,7 @@ export const UserLoginForm = () => {
           <Text>{t.description()}</Text>
         </Stack.Vertical>
 
-        <Form onSubmit={onSubmit} method="post">
+        <Form onSubmit={onSubmit} method="post" class="w-full">
           <Stack.Vertical as="fieldset" class="items-stretch gap-4" disabled={form.submitting}>
             <Field
               name="email"
@@ -65,14 +65,16 @@ export const UserLoginForm = () => {
                   type="password"
                   label={t.form.fields.password.label()}
                   placeholder={t.form.fields.password.placeholder()}
-                  description={(() => (
-                    <>
-                      <span>{t.form.fields.password.description()}</span>
-                      <Link as={A} href="/reset-password">
-                        {t.form.fields.password.forgot()}
-                      </Link>
-                    </>
-                  ))()}
+                  description={
+                    (() => (
+                      <>
+                        <span>{t.form.fields.password.description()}</span>
+                        <Link as={A} href="/reset-password">
+                          {t.form.fields.password.forgot()}
+                        </Link>
+                      </>
+                    )) as unknown as JSX.Element
+                  }
                   value={field.value}
                   error={field.error}
                   required
@@ -108,15 +110,13 @@ export const UserLoginForm = () => {
           </Stack.Vertical>
         </Form>
 
-        <Stack.Horizontal class="gap-1 text-xs">
+        <Stack.Horizontal class="gap-1 text-xs" separator={"·"}>
           <Link as={A} href="/">
             {t.home()}
           </Link>
-          {" · "}
           <Link as={A} href="/settings">
             {t.settings()}
           </Link>
-          {" · "}
           <Link as={A} href="/register">
             {t.register()}
           </Link>
