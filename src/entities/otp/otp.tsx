@@ -3,7 +3,7 @@ import { createEffect, createResource, createSignal, For, on, Show, splitProps, 
 import { createForm, FormError, FormProps, reset, submit, SubmitHandler } from "@modular-forms/solid";
 
 import { isCorrectOtp, sendOtp } from "~/shared/api/otp";
-import { Button, Heading, Link, Lottie, OtpField, Stack, Text, TextField } from "~/shared/components";
+import { Heading, Link, Lottie, OtpField, Stack, Text, TextField } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const OTP_LENGTH = 6;
@@ -90,9 +90,9 @@ export const OtpForm = (props: OtpStepProps) => {
             )}
           </Field>
 
-          <Button variant="hyperlink" class="text-xs" onClick={resend} type="reset">
+          <Link as={"button"} type="reset" class="text-xs" onClick={resend}>
             {t.resend()}
-          </Button>
+          </Link>
         </Stack.Vertical>
       </Form>
     </Stack.Vertical>

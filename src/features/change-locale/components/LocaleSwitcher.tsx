@@ -27,7 +27,7 @@ export const LocaleSwitcher: Component = () => {
             <span class="text-fg-muted">—</span>
             <span class="text-fg-muted">{getLanguageName(props.item.rawValue)}</span>
           </Select.ItemLabel>
-          <Select.ItemIndicator as={Icon} path={check} class="size-3.5 stroke-current text-fg-accent" />
+          <Select.ItemIndicator as={Icon} path={check} class="size-4 stroke-current text-fg-accent" />
         </Select.Item>
       )}
     >
@@ -35,7 +35,7 @@ export const LocaleSwitcher: Component = () => {
         <Select.Value<Locale> class="capitalize">
           {(state) => getNativeLanguageName(state.selectedOption())}
         </Select.Value>
-        <Icon path={chevronUpDown} class="size-3.5" />
+        <Icon path={chevronUpDown} class="size-4" />
       </Select.Trigger>
       <Select.Content inert={i18n.isSettingLocale()}>
         <Select.ListBox class="outline-none" />

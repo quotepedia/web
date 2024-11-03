@@ -5,7 +5,7 @@ import { PasswordUpdatedStep } from "./PasswordUpdatedStep";
 export const UpdatePasswordStepper = () => {
   return (
     <Stepper>
-      <Stepper.Steps class="w-full">
+      <Stepper.Steps class="my-auto overflow-y-auto">
         <NewPasswordFormStep />
         <PasswordUpdatedStep />
       </Stepper.Steps>
