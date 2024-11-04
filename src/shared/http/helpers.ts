@@ -37,7 +37,7 @@ export const createEnsureLoggedOut = (pathname: string, redirect: string = "/") 
   // NOTE: `createRenderEffect` here is important to ensure that screen doesn't flash.
   createRenderEffect(() => {
     if (isLoggedIn() === true && location.pathname === pathname) {
-      if (searchParams.redirect?.startsWith("/")) {
+      if (typeof searchParams.redirect === "string" && searchParams.redirect.startsWith("/")) {
         navigate(searchParams.redirect, { replace: true });
       } else {
         navigate(redirect, { replace: true });
