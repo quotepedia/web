@@ -14,10 +14,18 @@ export const createEnsureLoggedIn = (pathname: string, redirect: string = `/logi
 
   const isLoggedIn = createAsync(() => getIsLoggedIn(), { deferStream: true });
 
-  createEffect(() => {
+  const ensureLoggedIn = () => {
     if (isLoggedIn() === false && location.pathname === pathname) {
       navigate(redirect, { replace: true });
     }
+  };
+
+  createEffect(() => {
+    ensureLoggedIn();
+  });
+
+  createRenderEffect(() => {
+    ensureLoggedIn();
   });
 };
 
@@ -34,8 +42,7 @@ export const createEnsureLoggedOut = (pathname: string, redirect: string = "/") 
 
   const isLoggedIn = createAsync(() => getIsLoggedIn(), { deferStream: true });
 
-  // NOTE: `createRenderEffect` here is important to ensure that screen doesn't flash.
-  createRenderEffect(() => {
+  const ensureLoggedOut = () => {
     if (isLoggedIn() === true && location.pathname === pathname) {
       if (typeof searchParams.redirect === "string" && searchParams.redirect.startsWith("/")) {
         navigate(searchParams.redirect, { replace: true });
@@ -43,5 +50,13 @@ export const createEnsureLoggedOut = (pathname: string, redirect: string = "/") 
         navigate(redirect, { replace: true });
       }
     }
+  };
+
+  createEffect(() => {
+    ensureLoggedOut();
+  });
+
+  createRenderEffect(() => {
+    ensureLoggedOut();
   });
 };

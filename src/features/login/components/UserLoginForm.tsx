@@ -25,7 +25,7 @@ export const UserLoginForm = () => {
   return (
     <Container size="tight" class="self-center">
       <Stack.Vertical class="gap-6">
-        <Lottie path="tgs/wave.json" class="size-24" />
+        <Lottie path="/tgs/wave.json" class="size-24" />
 
         <Stack.Vertical class="text-center">
           <Heading>{t.heading()}</Heading>

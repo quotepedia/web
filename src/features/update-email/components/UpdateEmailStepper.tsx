@@ -8,7 +8,7 @@ export const UpdateEmailStepper = () => {
   return (
     <ChangeEmailProvider>
       <Stepper>
-        <Stepper.Steps class="my-auto overflow-y-auto">
+        <Stepper.Steps class="my-auto overflow-y-auto overflow-x-hidden">
           <NewEmailFormStep />
           <NewEmailVerificationFormStep />
           <EmailUpdatedStep />

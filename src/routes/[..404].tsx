@@ -17,7 +17,7 @@ export default function Page() {
   return (
     <Container class="self-center">
       <Stack.Vertical class="gap-6">
-        <Lottie path="tgs/eyes.json" class="size-24" />
+        <Lottie path="/tgs/eyes.json" class="size-24" />
         <Stack.Vertical class="text-center">
           <Heading>{t.heading()}</Heading>
           <Text variant="muted">{t.description()}</Text>
