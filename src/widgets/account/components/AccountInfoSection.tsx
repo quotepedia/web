@@ -1,7 +1,7 @@
 import { createAsync } from "@solidjs/router";
 import { Show } from "solid-js";
+import { getCurrentUser } from "~/entities/user";
 import { AvatarEdit } from "~/features/update-avatar";
-import { getCurrentUser } from "~/shared/api/users/me";
 import { Heading, Stack, Text } from "~/shared/components";
 
 export const AccountInfoSection = () => {

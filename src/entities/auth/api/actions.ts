@@ -1,36 +1,41 @@
 import { action, redirect } from "@solidjs/router";
 
+import { client, serializeFormData } from "~/shared/api";
 import { resetSession, updateSession } from "~/shared/http";
 
-import { $login, $register, $resetUserPassword } from "./service";
 import type { LoginForm, RegisterForm, UserPasswordResetForm } from "./types";
 
 export const authenticate = action(async (form: LoginForm) => {
   "use server";
 
-  const { data, error } = await $login(form.email, form.password);
+  const { data, error } = await client.POST("/api/v1/auth/login", {
+    body: {
+      scope: "",
+      username: form.email,
+      password: form.password,
+    },
+    bodySerializer: serializeFormData,
+  });
 
   if (data) {
     await updateSession(data);
-  } else if (error) {
-    return { error };
+    throw redirect(form.redirect || "/");
   }
 
-  throw redirect(form.redirect || "/");
+  return { error };
 });
 
-export const register = action(async (form: RegisterForm) => {
+export const register = action(async (body: RegisterForm) => {
   "use server";
 
-  const { data, error } = await $register(form.email, form.otp, form.password);
+  const { data, error } = await client.POST("/api/v1/auth/register", { body: body });
 
   if (data) {
     await updateSession(data);
-  } else if (error) {
-    return { error };
+    throw redirect("/");
   }
 
-  throw redirect("/");
+  return { error };
 });
 
 export const unauthenticate = action(async () => {
@@ -44,11 +49,11 @@ export const unauthenticate = action(async () => {
 export const resetUserPassword = action(async (body: UserPasswordResetForm) => {
   "use server";
 
-  const { data, error } = await $resetUserPassword(body);
+  const { data, error } = await client.PATCH("/api/v1/auth/reset-password", { body: body });
 
   if (data) {
     await updateSession(data);
-  } else if (error) {
-    return { error };
   }
+
+  return { error };
 });

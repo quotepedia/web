@@ -1,10 +1,7 @@
-import colors from "picocolors";
-
 import type { Middleware } from "openapi-fetch";
-
 import { getRequestEvent } from "solid-js/web";
+
 import { getSession } from "~/shared/http/session";
-import logger from "~/shared/logging/console";
 
 export const AUTH_MIDDLEWARE: Middleware = {
   onRequest: async ({ request }) => {
@@ -20,7 +17,7 @@ export const AUTH_MIDDLEWARE: Middleware = {
 };
 
 export const I18N_MIDDLEWARE: Middleware = {
-  onRequest: ({ request }) => {
+  onRequest: async ({ request }) => {
     const event = getRequestEvent();
 
     if (event && event.locals.settings.locale) {
@@ -28,20 +25,5 @@ export const I18N_MIDDLEWARE: Middleware = {
     }
 
     return request;
-  },
-};
-
-export const DEBUG_MIDDLEWARE: Middleware = {
-  onResponse: ({ request, response }) => {
-    const method = colors.white(request.method);
-    const route = colors.cyan(colors.underline(request.url));
-
-    const clone = response.clone();
-    const colorizeStatus = clone.status >= 400 && clone.status < 600 ? colors.red : colors.green;
-    const status = colorizeStatus(`${clone.status} ${clone.statusText}`);
-
-    const icon = request.headers.has("Authorization") ? "🔓" : "🔒";
-
-    logger.debug(`${method} ${route} ${status} ${icon}`);
   },
 };

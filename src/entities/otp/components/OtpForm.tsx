@@ -1,10 +1,10 @@
+import { createForm, FormError, FormProps, reset, submit, SubmitHandler } from "@modular-forms/solid";
 import { createEffect, createResource, createSignal, For, on, Show, splitProps, Suspense } from "solid-js";
 
-import { createForm, FormError, FormProps, reset, submit, SubmitHandler } from "@modular-forms/solid";
-
-import { isCorrectOtp, sendOtp } from "~/shared/api/otp";
 import { Heading, Link, Lottie, OtpField, Stack, Text, TextField } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
+
+import { sendOtp, verifyOtp } from "../api/cache";
 
 export const OTP_LENGTH = 6;
 
@@ -29,7 +29,7 @@ export const OtpForm = (props: OtpStepProps) => {
 
   const onSubmit: SubmitHandler<OtpFormData> = async (values, event) => {
     const otp = Number(values.otp);
-    const result = await isCorrectOtp({ email: props.recipient, otp: otp });
+    const result = await verifyOtp({ email: props.recipient, otp: otp });
 
     if (!result.error) {
       setIsCorrect(true);

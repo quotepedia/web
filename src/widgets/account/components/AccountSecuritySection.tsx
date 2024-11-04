@@ -1,10 +1,11 @@
 import { createAsync, useSubmission } from "@solidjs/router";
 import { arrowRightOnRectangle, chevronRight, envelopeOpen, key } from "solid-heroicons/solid-mini";
 import { Show } from "solid-js";
+
+import { unauthenticate } from "~/entities/auth";
+import { getCurrentUser } from "~/entities/user";
 import { UpdateEmailStepper } from "~/features/update-email";
 import { UpdatePasswordStepper } from "~/features/update-password";
-import { unauthenticate } from "~/shared/api/auth";
-import { getCurrentUser } from "~/shared/api/users/me";
 import { Dialog, Heading, SettingsCard, SettingsGroup, Stack } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 

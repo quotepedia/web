@@ -1,6 +1,6 @@
 import type { SubmitHandler } from "@modular-forms/solid";
 import { A } from "@solidjs/router";
-import { UnregisteredEmailForm, type EmailFormData } from "~/entities/user/email";
+import { UnregisteredEmailForm, type EmailFormData } from "~/entities/user";
 import { Heading, Link, Lottie, Stack, Stepper, Text } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 import { useRegistration } from "../context";

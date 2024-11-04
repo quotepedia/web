@@ -1,8 +1,8 @@
 import { SubmitHandler } from "@modular-forms/solid";
 import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
-import { PasswordForm, PasswordFormData } from "~/entities/user/password";
-import { updateCurrentUserPassword } from "~/shared/api/users/me";
+import { PasswordForm, PasswordFormData } from "~/entities/user";
+import { updateCurrentUserPassword } from "~/entities/user";
 import { Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
 import { useStepperContext } from "~/shared/components/stepper/context";
 import { useI18n } from "~/shared/i18n";
@@ -16,13 +16,12 @@ export const NewPasswordFormStep = () => {
   const changePassword = useAction(updateCurrentUserPassword);
 
   const onSubmit: SubmitHandler<PasswordFormData> = async (values) => {
-    const result = await changePassword(values.newPassword1);
-    if (!result.error) {
+    const { error } = await changePassword({ password: values.newPassword1 });
+
+    if (error) {
+      toast.error(String(error.detail));
+    } else {
       stepper.moveForward();
-      return;
-    }
-    if (result.error.detail) {
-      toast.error(result.error.detail.toString());
     }
   };
 

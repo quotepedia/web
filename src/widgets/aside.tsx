@@ -1,7 +1,7 @@
 import { createAsync } from "@solidjs/router";
 import { cog, folder, home } from "solid-heroicons/solid-mini";
 import { Show } from "solid-js";
-import { getCurrentUser } from "~/shared/api/users/me";
+import { getCurrentUser } from "~/entities/user";
 import { Avatar, Sidebar } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 

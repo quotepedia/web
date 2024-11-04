@@ -1,10 +1,10 @@
-import { cache } from "@solidjs/router";
+import { query } from "@solidjs/router";
 import { getSession } from "./session";
 
 /**
  * Determines whether the current user is logged in using the JWT.
  */
-export const getIsLoggedIn = cache(async () => {
+export const getIsLoggedIn = query(async () => {
   "use server";
 
   const session = await getSession();
@@ -17,7 +17,7 @@ export const getIsLoggedIn = cache(async () => {
 /**
  * Retrieves the session expiration date.
  */
-export const getSessionExpirationDate = cache(async () => {
+export const getSessionExpirationDate = query(async () => {
   "use server";
 
   const session = await getSession();

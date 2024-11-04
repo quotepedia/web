@@ -1,5 +1,5 @@
 import { SubmitHandler } from "@modular-forms/solid";
-import { EmailFormData, UnregisteredEmailForm } from "~/entities/user/email";
+import { EmailFormData, UnregisteredEmailForm } from "~/entities/user";
 import { Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 import { useUpdateEmail } from "../context";

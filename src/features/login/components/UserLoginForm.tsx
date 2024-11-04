@@ -1,8 +1,9 @@
 import { createForm, email, FormError, minLength, required } from "@modular-forms/solid";
 import { A, useAction, useSearchParams } from "@solidjs/router";
 import { Show, type JSX } from "solid-js";
-import { MIN_PASSWORD_LENGTH } from "~/entities/user/password";
-import { authenticate, LoginForm } from "~/shared/api/auth";
+
+import { authenticate, type LoginForm } from "~/entities/auth";
+import { MIN_PASSWORD_LENGTH } from "~/entities/user/components/PasswordForm";
 import { Button, Collapse, Container, FormControl, Heading, Link, Lottie, Stack, Text } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 

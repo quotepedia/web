@@ -1,15 +1,5 @@
 // @refresh reload
 import { createHandler, StartServer } from "@solidjs/start/server";
-import type { Settings } from "~/shared/settings";
-
-declare module "@solidjs/start/server" {
-  interface RequestEventLocals {
-    /**
-     * Custom user-specific web app settings.
-     */
-    settings: Settings;
-  }
-}
 
 export default createHandler((event) => (
   <StartServer
@@ -19,7 +9,7 @@ export default createHandler((event) => (
           <meta charset="utf-8" />
           <meta
             name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, interactive-widget=resizes-content, viewport-fit=cover"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, interactive-widget=resizes-content"
           />
           <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
           <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16 24x24 32x32 48x48" />

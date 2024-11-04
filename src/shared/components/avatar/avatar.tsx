@@ -4,7 +4,7 @@ import { Transition } from "solid-transition-group";
 import { Image } from "@kobalte/core/image";
 import type { PolymorphicProps } from "@kobalte/core/polymorphic";
 
-import { formatResourceURL } from "~/shared/api/media";
+import { formatStorageObject } from "~/shared/api";
 import { cn } from "~/shared/utils/css";
 
 import type { AvatarImgProps, AvatarRootProps } from "./avatar.props";
@@ -32,7 +32,7 @@ export const AvatarImg = <T extends ValidComponent = "img">(props: PolymorphicPr
       <Show when={local.src} fallback={<span class={styles().alt()}>{props.alt.slice(0, 2)}</span>}>
         {(src) => (
           <span>
-            <Image.Img src={formatResourceURL(src())} class={cn(styles().img(), local.class)} {...others} />
+            <Image.Img src={formatStorageObject(src())} class={cn(styles().img(), local.class)} {...others} />
             <Image.Fallback class={styles().fallback()} />
           </span>
         )}

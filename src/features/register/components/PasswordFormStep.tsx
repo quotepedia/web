@@ -1,10 +1,12 @@
 import { SubmitHandler } from "@modular-forms/solid";
 import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
-import { PasswordForm, PasswordFormData } from "~/entities/user/password";
+
+import { register } from "~/entities/auth";
+import { PasswordForm, PasswordFormData } from "~/entities/user";
 import { Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
-import { register } from "~/shared/api/auth";
 import { useI18n } from "~/shared/i18n";
+
 import { useRegistration } from "../context";
 
 export const PasswordFormStep = () => {

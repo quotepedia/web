@@ -1,8 +1,8 @@
 import { createForm, email, FormError, FormProps, required, SubmitHandler } from "@modular-forms/solid";
 import { splitProps } from "solid-js";
-import { getUserExists } from "~/shared/api/users";
 import { Button, FormControl, Stack } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
+import { getUserExists } from "../api/cache";
 
 export type EmailFormData = {
   email: string;

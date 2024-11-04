@@ -1,5 +1,5 @@
 import { SubmitHandler } from "@modular-forms/solid";
-import { OtpForm, OtpFormData } from "~/entities/otp/otp";
+import { OtpForm, OtpFormData } from "~/entities/otp";
 import { Stepper } from "~/shared/components";
 import { useRegistration } from "../context";
 

@@ -4,9 +4,8 @@ import { Icon } from "solid-heroicons";
 import { arrowTopRightOnSquare, arrowUpTray, camera, trash } from "solid-heroicons/solid-mini";
 import { Component, createSignal, Show } from "solid-js";
 import { toast } from "solid-sonner";
-import { formatResourceURL } from "~/shared/api/media";
-import { components } from "~/shared/api/schema";
-import { removeCurrentUserAvatar, updateCurrentUserAvatar } from "~/shared/api/users/me";
+import { removeCurrentUserAvatar, updateCurrentUserAvatar } from "~/entities/user";
+import { type components, formatStorageObject } from "~/shared/api";
 import { Avatar, Button, Dialog, Dropdown, Separator, Stack } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
@@ -50,7 +49,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
           <Show when={props.user.avatar_url}>
             {(avatar_url) => (
               <>
-                <Dropdown.Item onSelect={() => window.open(formatResourceURL(avatar_url()), "_blank")}>
+                <Dropdown.Item onSelect={() => window.open(formatStorageObject(avatar_url()), "_blank")}>
                   <Dropdown.ItemIcon path={arrowTopRightOnSquare} class="size-4" />
                   <Dropdown.ItemLabel>{t.dropdown.open()}</Dropdown.ItemLabel>
                 </Dropdown.Item>

@@ -1,5 +1,5 @@
 import type { RouteDefinition } from "@solidjs/router";
-import { getCurrentUser } from "~/shared/api/users/me";
+import { getCurrentUser } from "~/entities/user";
 import { Stack } from "~/shared/components";
 import { createEnsureLoggedIn } from "~/shared/http";
 import { useI18n } from "~/shared/i18n";

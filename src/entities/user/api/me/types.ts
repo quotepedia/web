@@ -1,3 +1,3 @@
-import { components } from "~/shared/api/schema";
+import { components } from "~/shared/api";
 
 export type CurrentUserEmailUpdateForm = components["schemas"]["CurrentUserEmailUpdateRequest"];

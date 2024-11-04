@@ -1,11 +1,9 @@
-import { createAsync, revalidate } from "@solidjs/router";
-import { createEffect, createSignal, on, ParentComponent } from "solid-js";
-
-import { toast } from "solid-sonner";
-
 import { makeBroadcastChannel } from "@solid-primitives/broadcast-channel";
 import { makeEventListener } from "@solid-primitives/event-listener";
-import { getCurrentUser } from "~/shared/api/users/me";
+import { createAsync, revalidate } from "@solidjs/router";
+import { createEffect, createSignal, on, ParentComponent } from "solid-js";
+import { toast } from "solid-sonner";
+import { getCurrentUser } from "~/entities/user";
 import { getIsLoggedIn, getSessionExpirationDate } from "~/shared/http";
 import { useI18n } from "~/shared/i18n";
 
