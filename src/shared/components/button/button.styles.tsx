@@ -17,24 +17,24 @@ export const styles = tv({
     color: {
       default: [
         "outline-bg-secondary bg-bg-body ring-ring-accent focus-visible:bg-bg-secondary",
-        "enabled:hover:bg-bg-default enabled:active:bg-bg-secondary",
-        "enabled:hover:outline-bg-tertiary enabled:active:outline-bg-tertiary",
+        "enabled:hover:bg-bg-default enabled:active:bg-bg-secondary enabled:data-[expanded]:bg-bg-default",
+        "enabled:hover:outline-bg-tertiary enabled:active:outline-bg-tertiary enabled:data-[expanded]:outline-bg-tertiary",
       ],
       dark: [
         "outline-neutral-700 bg-neutral-800 ring-neutral-800 focus-visible:bg-neutral-700",
-        "enabled:hover:bg-neutral-700 enabled:active:bg-neutral-600",
+        "enabled:hover:bg-neutral-700 enabled:active:bg-neutral-600 enabled:data-[expanded]:bg-neutral-700",
       ],
       primary: [
         "outline-blue-800 bg-blue-600 ring-blue-600 focus-visible:bg-blue-700",
-        "enabled:hover:bg-blue-700 enabled:active:bg-blue-800",
+        "enabled:hover:bg-blue-700 enabled:active:bg-blue-800 enabled:data-[expanded]:bg-blue-700",
       ],
       success: [
         "outline-green-800 bg-green-600 ring-green-600 focus-visible:bg-green-700",
-        "enabled:hover:bg-green-700 enabled:active:bg-green-800",
+        "enabled:hover:bg-green-700 enabled:active:bg-green-800 enabled:data-[expanded]:bg-green-700",
       ],
       danger: [
         "outline-red-800 bg-red-600 ring-red-600 focus-visible:bg-red-700",
-        "enabled:hover:bg-red-700 enabled:active:bg-red-800",
+        "enabled:hover:bg-red-700 enabled:active:bg-red-800 enabled:data-[expanded]:bg-red-700",
       ],
     },
   },

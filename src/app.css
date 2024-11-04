@@ -5,16 +5,16 @@
 @layer base {
   @define-mixin color-scheme-light {
     /** Foreground **/
-    --fg-color-body: theme("colors.zinc.950");
-    --fg-color-soft: theme("colors.zinc.800");
-    --fg-color-muted: theme("colors.zinc.500");
+    --fg-color-body: theme("colors.neutral.950");
+    --fg-color-soft: theme("colors.neutral.800");
+    --fg-color-muted: theme("colors.neutral.500");
     --fg-color-accent: theme("colors.blue.600");
 
     /** Background **/
     --bg-color-body: theme("colors.white");
-    --bg-color-default: theme("colors.zinc.100");
-    --bg-color-secondary: theme("colors.zinc.200");
-    --bg-color-tertiary: theme("colors.zinc.300");
+    --bg-color-default: theme("colors.neutral.100");
+    --bg-color-secondary: theme("colors.neutral.200");
+    --bg-color-tertiary: theme("colors.neutral.300");
 
     /** Stroke **/
     --ring-color-accent: theme("colors.blue.400");
@@ -25,16 +25,16 @@
 
   @define-mixin color-scheme-dark {
     /** Foreground **/
-    --fg-color-body: theme("colors.zinc.50");
-    --fg-color-soft: theme("colors.zinc.400");
-    --fg-color-muted: theme("colors.zinc.400");
+    --fg-color-body: theme("colors.neutral.50");
+    --fg-color-soft: theme("colors.neutral.400");
+    --fg-color-muted: theme("colors.neutral.400");
     --fg-color-accent: theme("colors.blue.500");
 
     /** Background **/
-    --bg-color-body: theme("colors.zinc.900");
-    --bg-color-default: theme("colors.zinc.800");
-    --bg-color-secondary: theme("colors.zinc.700");
-    --bg-color-tertiary: theme("colors.zinc.600");
+    --bg-color-body: theme("colors.neutral.900");
+    --bg-color-default: theme("colors.neutral.800");
+    --bg-color-secondary: theme("colors.neutral.700");
+    --bg-color-tertiary: theme("colors.neutral.600");
 
     /** Stroke **/
     --ring-color-accent: theme("colors.blue.600");
@@ -45,16 +45,16 @@
 
   @define-mixin color-scheme-night {
     /** Foreground **/
-    --fg-color-body: theme("colors.zinc.100");
-    --fg-color-soft: theme("colors.zinc.400");
-    --fg-color-muted: theme("colors.zinc.400");
+    --fg-color-body: theme("colors.neutral.100");
+    --fg-color-soft: theme("colors.neutral.400");
+    --fg-color-muted: theme("colors.neutral.400");
     --fg-color-accent: theme("colors.blue.500");
 
     /** Background **/
     --bg-color-body: theme("colors.black");
-    --bg-color-default: theme("colors.zinc.900");
-    --bg-color-secondary: theme("colors.zinc.800");
-    --bg-color-tertiary: theme("colors.zinc.700");
+    --bg-color-default: theme("colors.neutral.900");
+    --bg-color-secondary: theme("colors.neutral.800");
+    --bg-color-tertiary: theme("colors.neutral.700");
 
     /** Stroke **/
     --ring-color-accent: theme("colors.blue.700");

@@ -18,8 +18,8 @@ export const ThemeSwitcherItemPreview = (props: ThemeSwitcherItemPreviewProps) =
         "peer-checked:group-[]:after:ring-2 peer-checked:group-[]:after:ring-ring-accent",
       )}
     >
-      <div class="flex h-16 w-24 bg-bg-body" data-theme={props.value}>
-        <div class="flex w-2/5 flex-col gap-1.5 bg-bg-default p-2">
+      <div class="flex h-18 w-28 bg-bg-body" data-theme={props.value}>
+        <div class="flex w-2/5 flex-col gap-1.5 bg-bg-default p-2 border-r border-r-bg-secondary">
           <Repeat times={3}>
             <div class="flex gap-0.5">
               <div class="size-1 rounded-sm bg-bg-tertiary" />
