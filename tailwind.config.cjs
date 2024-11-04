@@ -72,6 +72,7 @@ module.exports = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require("tailwindcss-safe-area"),
     plugin(function ({ addUtilities }) {
       addUtilities({
         '.container-size': {
