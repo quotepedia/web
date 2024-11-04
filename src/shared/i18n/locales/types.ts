@@ -211,10 +211,18 @@ export type DictionaryMap = {
       expired: string;
     };
     avatarEdit: {
-      open: string;
       update: string;
-      select: string;
-      remove: string;
+      dropdown: {
+        open: string;
+        select: string;
+        remove: string;
+      };
+      confirm: {
+        title: string;
+        description: string;
+        close: string;
+        remove: string;
+      };
     };
   };
 };

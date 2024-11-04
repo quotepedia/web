@@ -220,11 +220,20 @@ export const dict: DictionaryMap = {
       expired: "Your session has expired!",
     },
     avatarEdit: {
-      open: "Open original",
       update: "Update",
-      select: "Select new avatar",
-      remove: "Remove this avatar",
+      dropdown: {
+        open: "Open original",
+        select: "Select new avatar",
+        remove: "Remove this avatar…",
+      },
+      confirm: {
+        title: "Remove avatar",
+        description: "Do you really want to remove this avatar? This action cannot be undone.",
+        close: "Cancel",
+        remove: "Remove",
+      },
     },
+    
   },
 };
 
