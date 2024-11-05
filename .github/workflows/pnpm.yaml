@@ -29,13 +29,20 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        working-directory: ./web
         run: pnpm install
 
-      - name: Test
+      - name: Test TailwindCSS
+        working-directory: ./packages/tailwindcss
+        run: pnpm test
+
+      - name: Build TailwindCSS
+        working-directory: ./packages/tailwindcss
+        run: pnpm build
+
+      - name: Test application
         working-directory: ./web
         run: pnpm test
 
-      - name: Build
+      - name: Build application
         working-directory: ./web
         run: pnpm build
