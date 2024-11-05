@@ -32,7 +32,7 @@ jobs:
         run: pnpm install
 
       - name: Move to web
-        run: cd web
+        run: cd ./web
 
       - name: Test
         run: pnpm test
