@@ -4,7 +4,7 @@ import { createHandler, StartServer } from "@solidjs/start/server";
 export default createHandler((event) => (
   <StartServer
     document={({ assets, children, scripts }) => (
-      <html lang={event.locals.settings.locale} data-theme={event.locals.settings.theme}>
+      <html lang={event.locals.settings.locale}>
         <head>
           <meta charset="utf-8" />
           <meta
@@ -17,7 +17,7 @@ export default createHandler((event) => (
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
           {assets}
         </head>
-        <body class="overflow-x-hidden text-sm text-fg-body antialiased">
+        <body class="overflow-x-hidden text-sm text-fg-body antialiased" data-theme={event.locals.settings.theme}>
           <div id="app" class="flex min-h-dvh bg-bg-body transition-colors">
             {children}
           </div>

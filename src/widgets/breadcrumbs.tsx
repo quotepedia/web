@@ -14,7 +14,7 @@ export const BreadcrumbRouteMatchItem = (props: { match: RouteMatch }) => {
     <li class="flex select-none items-center gap-1 text-fg-muted">
       <Breadcrumbs.Link
         href={props.match.path}
-        class="hover:text-fg-body data-[current]:text-fg-body"
+        class="transition-colors hover:text-fg-body data-[current]:text-fg-body"
         current={current()}
       >
         <Heading>{title()}</Heading>
