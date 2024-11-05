@@ -99,7 +99,7 @@ const OtpFieldSlot: Component<ComponentProps<"div"> & { index: number }> = (prop
           <span>{char()}</span>
         </Show>
         <Show when={showCursor()}>
-          <Cursor blink={true} class="h-4 w-px rounded" />
+          <Cursor flash={true} class="h-4 w-px rounded" />
         </Show>
       </Transition>
     </div>

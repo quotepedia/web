@@ -8,9 +8,9 @@ import { type CursorProps } from "./cursor.props";
 import { styles } from "./cursor.styles";
 
 export const Cursor = <T extends ValidComponent = "span">(props: PolymorphicProps<T, CursorProps>) => {
-  const [local, others] = splitProps(props, ["class", "blink"]);
+  const [local, others] = splitProps(props, ["class", "flash"]);
 
   return (
-    <Polymorphic as="span" class={cn(styles().root(), { [styles().blink()]: local.blink }, local.class)} {...others} />
+    <Polymorphic as="span" class={cn(styles().root(), { [styles().flash()]: local.flash }, local.class)} {...others} />
   );
 };

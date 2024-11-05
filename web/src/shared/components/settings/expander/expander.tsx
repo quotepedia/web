@@ -32,7 +32,7 @@ export const SettingsExpanderIndicator = () => (
   <SettingsCard.Icon
     path={chevronDown}
     class={cn(
-      "size-4 text-fg-muted transition-[transform,color]",
+      "text-fg-muted size-4 transition-[transform,color]",
       "group-data-[expanded]/collapsible:[transform:rotateX(180deg)]",
     )}
   />
@@ -42,7 +42,7 @@ export const SettingsExpanderContent = (props: SettingsExpanderContentProps) => 
   const [local, others] = splitProps(props, ["class", "children"]);
   return (
     <Collapsible.Content
-      class={cn("overflow-hidden data-[closed]:animate-collapse data-[expanded]:animate-expand", local.class)}
+      class={cn("data-[closed]:animate-collapse data-[expanded]:animate-expand overflow-hidden", local.class)}
       {...others}
     >
       <Separator orientation="horizontal" />

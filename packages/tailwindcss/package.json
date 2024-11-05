@@ -1,0 +1,51 @@
+{
+  "name": "@quotepedia/tailwindcss",
+  "version": "0.1.0",
+  "description": "TailwindCSS plugin for Quotepedia",
+  "keywords": [
+    "tailwind",
+    "tailwindcss"
+  ],
+  "homepage": "https://github.com/quotepedia/web",
+  "bugs": {
+    "url": "https://github.com/quotepedia/web/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quotepedia/web.git"
+  },
+  "license": "MIT",
+  "author": "Nikita Gaziev",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "solid": "./dist/*.jsx",
+      "default": "./dist/*.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist node_modules",
+    "test": "pnpm \"/^test:.*/\"",
+    "test:ts": "tsc"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3",
+    "tailwindcss-themer": "^4.1.0"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3"
+  }
+}

@@ -4,7 +4,9 @@ export const styles = tv({
   slots: {
     content: [
       "z-50 min-w-56",
-      "origin-[var(--kb-select-content-transform-origin)] animate-content-hide data-[expanded]:animate-content-show",
+      "origin-[var(--kb-popper-content-transform-origin)]",
+      "data-[closed]:animate-out data-[closed]:fade-out-0 data-[closed]:zoom-out-0",
+      "data-[expanded]:animate-in data-[expanded]:fade-in-0 data-[expanded]:zoom-in-0",
       "rounded-lg border border-bg-tertiary bg-bg-default backdrop-blur-xl py-0.5 shadow-md",
     ],
     item: [

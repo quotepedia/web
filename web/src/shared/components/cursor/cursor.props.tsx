@@ -2,7 +2,7 @@ import type { JSX } from "solid-js";
 
 export type CursorProps = {
   /**
-   * Determines whether the cursor should blink.
+   * Determines whether the cursor should flash.
    */
-  blink: boolean;
+  flash: boolean;
 } & JSX.StylableSVGAttributes;
