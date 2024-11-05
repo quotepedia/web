@@ -48,7 +48,7 @@ export const SettingsCardValue = <T extends ValidComponent = "span">(
     <Polymorphic
       as="span"
       class={cn(
-        "text-xs text-fg-muted max-md:leading-none",
+        "text-xs text-fg-muted max-xl:leading-none",
         "transition-[opacity,color] group-data-[expanded]/collapsible:opacity-0",
         local.class,
       )}

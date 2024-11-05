@@ -9,14 +9,14 @@ export const SidebarItem: ParentComponent<AnchorProps> = (props) => {
       class={cn(
         "flex w-full select-none items-center justify-center gap-1 text-fg-soft",
         "transition-[opacity,color] active:duration-0",
-        "max-md:hover:opacity-75 max-md:active:opacity-50",
+        "max-xl:hover:opacity-75 max-xl:active:opacity-50",
         "max-sm:flex-col",
-        "md:flex-row md:justify-start md:gap-2 md:rounded-lg md:p-2 md:hover:bg-bg-secondary",
+        "xl:flex-row xl:justify-start xl:gap-2 xl:rounded-lg xl:p-2 xl:hover:bg-bg-secondary",
         local.class,
       )}
       activeClass={cn(
-        "max-md:text-fg-accent md:text-fg-body md:bg-bg-tertiary md:hover:bg-bg-tertiary !transition-[opacity,color,background-color]",
-        "[&_span]:max-md:ring-fg-accent",
+        "max-xl:text-fg-accent xl:text-fg-body xl:bg-bg-tertiary xl:hover:bg-bg-tertiary !transition-[opacity,color,background-color]",
+        "[&_span]:max-xl:ring-fg-accent",
         local.activeClass,
       )}
       end={false}

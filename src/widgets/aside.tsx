@@ -19,7 +19,7 @@ export const Aside = () => {
         <Sidebar.ItemIcon path={folder} />
         <Sidebar.ItemLabel>Library</Sidebar.ItemLabel>
       </Sidebar.Item>
-      <Sidebar.Item href="/settings" class="group md:mt-auto">
+      <Sidebar.Item href="/settings" class="group xl:mt-auto">
         <Show when={currentUser()} fallback={<Sidebar.ItemIcon path={cog} />}>
           {(user) => (
             <Sidebar.ItemIcon as={Avatar}>
