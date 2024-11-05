@@ -4,7 +4,7 @@ export const styles = tv({
   slots: {
     root: [
       "group relative inline-flex size-24 items-center justify-center container-size",
-      "select-none overflow-hidden rounded-full text-fg-soft ring-1 ring-bg-tertiary",
+      "select-none overflow-hidden rounded-full text-fg-soft transition-shadow ring-1 ring-bg-tertiary",
     ],
     img: ["group-aria-busy:cursor-progress group-aria-busy:animate-pulse"],
     alt: [

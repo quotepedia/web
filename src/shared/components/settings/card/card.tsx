@@ -37,7 +37,7 @@ export const SettingsCardDescription = <T extends ValidComponent = "p">(
   props: PolymorphicProps<T, SettingsCardDescriptionProps>,
 ) => {
   const [local, others] = splitProps(props, ["class"]);
-  return <Polymorphic as="p" class={cn("truncate text-xs text-fg-muted", local.class)} {...others} />;
+  return <Polymorphic as="p" class={cn("truncate text-xs text-fg-muted transition", local.class)} {...others} />;
 };
 
 export const SettingsCardValue = <T extends ValidComponent = "span">(
@@ -49,7 +49,7 @@ export const SettingsCardValue = <T extends ValidComponent = "span">(
       as="span"
       class={cn(
         "text-xs text-fg-muted max-xl:leading-none",
-        "transition-[opacity,color] group-data-[expanded]/collapsible:opacity-0",
+        "transition group-data-[expanded]/collapsible:opacity-0",
         local.class,
       )}
       {...others}

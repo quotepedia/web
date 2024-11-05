@@ -26,8 +26,8 @@ export const AvatarImg = <T extends ValidComponent = "img">(props: PolymorphicPr
       enterToClass="blur-0"
       exitClass="blur-0"
       exitToClass="blur-md"
-      enterActiveClass="transition-filter"
-      exitActiveClass="transition-filter"
+      enterActiveClass="transition"
+      exitActiveClass="transition"
     >
       <Show when={local.src} fallback={<span class={styles().alt()}>{props.alt.slice(0, 2)}</span>}>
         {(src) => (
