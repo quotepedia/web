@@ -29,13 +29,13 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
+        working-directory: ./web
         run: pnpm install
 
-      - name: Move to web
-        run: cd ./web
-
       - name: Test
+        working-directory: ./web
         run: pnpm test
 
       - name: Build
+        working-directory: ./web
         run: pnpm build
