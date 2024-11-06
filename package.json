@@ -6,6 +6,9 @@
   "license": "ISC",
   "author": "",
   "main": "index.js",
+  "scripts": {
+    "cloc": "cloc . --exclude-dir=node_modules,dist,.vercel,.output,.vinxi --exclude-lang=YAML,MARKDOWN,SVG"
+  },
   "devDependencies": {
     "@types/node": "^22.9.0",
     "esbuild-plugin-solid": "^0.6.0",
