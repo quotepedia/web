@@ -1,7 +1,7 @@
 import * as ButtonPrimitive from "@kobalte/core/button";
 import type { PolymorphicProps } from "@kobalte/core/polymorphic";
+import { cn } from "@src/utils/css";
 import { type ValidComponent, splitProps } from "solid-js";
-import { cn } from "~/shared/utils/css";
 import type { ButtonProps } from "./button.props";
 import { styles } from "./button.styles";
 

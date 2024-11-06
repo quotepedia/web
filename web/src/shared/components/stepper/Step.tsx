@@ -5,7 +5,7 @@ import createPersistent from "solid-persistent";
 import { Polymorphic, PolymorphicProps } from "@kobalte/core/polymorphic";
 
 import useStepperContext from "./context";
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 
 export type StepperStepProps = {
   class?: string;

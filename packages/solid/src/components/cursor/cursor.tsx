@@ -2,7 +2,7 @@ import { type ValidComponent, splitProps } from "solid-js";
 
 import { type PolymorphicProps, Polymorphic } from "@kobalte/core";
 
-import { cn } from "~/shared/utils/css";
+import { cn } from "@src/utils/css";
 
 import { type CursorProps } from "./cursor.props";
 import { styles } from "./cursor.styles";

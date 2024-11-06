@@ -3,7 +3,7 @@ import { splitProps, type ValidComponent } from "solid-js";
 import { Polymorphic, PolymorphicProps } from "@kobalte/core";
 import * as TextFieldPrimitive from "@kobalte/core/text-field";
 
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 
 import { CollapseGroup } from "../transition";
 import {

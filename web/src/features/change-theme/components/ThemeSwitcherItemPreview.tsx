@@ -2,7 +2,7 @@ import { makeEventListener } from "@solid-primitives/event-listener";
 import { Repeat } from "@solid-primitives/range";
 import { createEffect, createSignal } from "solid-js";
 import { Theme } from "~/shared/theme";
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 
 export type ThemeSwitcherItemPreviewProps = {
   value: Theme;

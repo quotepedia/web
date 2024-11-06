@@ -1,7 +1,7 @@
 import { Polymorphic, type PolymorphicProps } from "@kobalte/core";
 import { Icon } from "solid-heroicons";
 import { splitProps, type JSX, type ValidComponent } from "solid-js";
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 
 export type IconProps = {
   path?: {

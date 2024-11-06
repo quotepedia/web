@@ -1,4 +1,4 @@
 module.exports = {
-  content: ["./src/**/*.{ts,tsx}"],
+  content: ["./node_modules/@quotepedia/solid/dist/**/*.{js,jsx}", "./src/**/*.{ts,tsx}"],
   presets: [require("@quotepedia/tailwindcss")],
 };

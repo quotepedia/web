@@ -2,7 +2,7 @@ import { type ValidComponent, splitProps } from "solid-js";
 
 import { type PolymorphicProps, Polymorphic } from "@kobalte/core";
 
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 
 import { type HeadingProps } from "./heading.props";
 import { styles } from "./heading.styles";

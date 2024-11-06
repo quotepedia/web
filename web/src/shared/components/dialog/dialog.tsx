@@ -6,7 +6,7 @@ import { Polymorphic, type PolymorphicProps } from "@kobalte/core/polymorphic";
 
 import { Icon } from "solid-heroicons";
 import { xMark } from "solid-heroicons/solid-mini";
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 
 import type {
   DialogContentProps,

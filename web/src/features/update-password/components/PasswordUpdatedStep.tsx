@@ -1,6 +1,7 @@
+import { Button } from "@quotepedia/solid";
 import { Icon } from "solid-heroicons";
 import { arrowRight } from "solid-heroicons/solid-mini";
-import { Button, Dialog, Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
+import { Dialog, Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const PasswordUpdatedStep = () => {
@@ -20,7 +21,7 @@ export const PasswordUpdatedStep = () => {
             <Text size="lg" variant="danger">
               ••••••••
             </Text>
-            <Icon class="size-4 text-fg-muted" path={arrowRight} />
+            <Icon class="text-fg-muted size-4" path={arrowRight} />
             <Text size="lg" variant="success">
               ••••••••
             </Text>

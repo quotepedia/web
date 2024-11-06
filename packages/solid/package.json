@@ -1,0 +1,58 @@
+{
+  "name": "@quotepedia/solid",
+  "version": "0.1.0",
+  "description": "SolidJS components for Quotepedia",
+  "keywords": [
+    "solid",
+    "solidjs"
+  ],
+  "homepage": "https://github.com/quotepedia/web",
+  "bugs": {
+    "url": "https://github.com/quotepedia/web/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quotepedia/web.git"
+  },
+  "license": "MIT",
+  "author": "Nikita Gaziev",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "solid": "./dist/index.jsx",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist node_modules",
+    "test": "pnpm \"/^test:.*/\"",
+    "test:ts": "tsc"
+  },
+  "devDependencies": {
+    "@kobalte/core": "^0.13.7",
+    "@quotepedia/tailwindcss": "workspace:^",
+    "clsx": "^2.1.1",
+    "solid-js": "^1.9.3",
+    "tailwind-merge": "^2.5.4",
+    "tailwind-variants": "^0.2.1",
+    "tailwindcss": "^3.4.14"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.9.3"
+  }
+}

@@ -1,6 +1,7 @@
 import { createForm, email, FormError, FormProps, required, SubmitHandler } from "@modular-forms/solid";
+import { Button } from "@quotepedia/solid";
 import { splitProps } from "solid-js";
-import { Button, FormControl, Stack } from "~/shared/components";
+import { FormControl, Stack } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 import { getUserExists } from "../api/cache";
 

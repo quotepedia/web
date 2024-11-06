@@ -3,7 +3,7 @@ import { type ValidComponent, splitProps } from "solid-js";
 import * as LinkPrimitive from "@kobalte/core/link";
 import type { PolymorphicProps } from "@kobalte/core/polymorphic";
 
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 
 import type { LinkProps } from "./link.props";
 import { styles } from "./link.styles";

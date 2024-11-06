@@ -5,7 +5,7 @@ import { Image } from "@kobalte/core/image";
 import type { PolymorphicProps } from "@kobalte/core/polymorphic";
 
 import { formatStorageObject } from "~/shared/api";
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 
 import type { AvatarImgProps, AvatarRootProps } from "./avatar.props";
 import { styles } from "./avatar.styles";

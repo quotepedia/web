@@ -1,8 +1,8 @@
+import { Button } from "@quotepedia/solid";
 import { Icon } from "solid-heroicons";
 import { check, chevronUpDown } from "solid-heroicons/solid-mini";
 import { type Component } from "solid-js";
-
-import { Button, Select } from "~/shared/components";
+import { Select } from "~/shared/components";
 import { CULTURES, Locale, useI18n } from "~/shared/i18n";
 
 export const LocaleSwitcher: Component = () => {
@@ -27,7 +27,7 @@ export const LocaleSwitcher: Component = () => {
             <span class="text-fg-muted">—</span>
             <span class="text-fg-muted">{getLanguageName(props.item.rawValue)}</span>
           </Select.ItemLabel>
-          <Select.ItemIndicator as={Icon} path={check} class="size-4 stroke-current text-fg-accent" />
+          <Select.ItemIndicator as={Icon} path={check} class="text-fg-accent size-4 stroke-current" />
         </Select.Item>
       )}
     >

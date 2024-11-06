@@ -1,6 +1,6 @@
 import { type PolymorphicProps } from "@kobalte/core/polymorphic";
 import { splitProps, type ValidComponent } from "solid-js";
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 import { StackRoot, type StackRootProps } from "./Root";
 
 export type StackHorizontalProps = StackRootProps;

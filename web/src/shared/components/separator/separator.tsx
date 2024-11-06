@@ -3,7 +3,7 @@ import { type ValidComponent, splitProps } from "solid-js";
 import { PolymorphicProps } from "@kobalte/core/polymorphic";
 import * as SeparatorPrimitive from "@kobalte/core/separator";
 
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 
 import { SeparatorProps } from "./separator.props";
 import { styles } from "./separator.styles";

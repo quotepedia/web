@@ -3,7 +3,7 @@ import { splitProps } from "solid-js";
 import { Collapsible } from "@kobalte/core/collapsible";
 import { chevronDown } from "solid-heroicons/solid-mini";
 
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 import { SettingsCard } from "../card";
 
 import { Separator } from "../../separator";

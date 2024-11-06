@@ -2,7 +2,7 @@ import { splitProps, type ValidComponent } from "solid-js";
 
 import { Polymorphic, type PolymorphicProps } from "@kobalte/core";
 
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 
 import type {
   SettingsCardDescriptionProps,

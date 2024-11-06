@@ -10,8 +10,6 @@ export { Lottie } from "./tgs";
 export { Collapse, CollapseGroup } from "./transition";
 
 export { Avatar } from "./avatar";
-export { Button } from "./button";
-export { Cursor } from "./cursor";
 export { Dialog } from "./dialog";
 export { Dropdown } from "./dropdown";
 export { FormControl } from "./form-control";

@@ -6,8 +6,9 @@ import { Transition } from "solid-transition-group";
 import type { DynamicProps, RootProps } from "@corvu/otp-field";
 import OtpFieldPrimitive, { type InputProps } from "@corvu/otp-field";
 
-import { Cursor } from "~/shared/components";
-import { cn } from "~/shared/utils/css";
+// import { Cursor } from "~/shared/components";
+import { Cursor } from "@quotepedia/solid";
+import { cn } from "@quotepedia/solid";
 
 type OtpFieldProps<T extends ValidComponent = "div"> = RootProps<T> & JSX.StylableSVGAttributes;
 

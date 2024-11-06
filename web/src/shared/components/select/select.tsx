@@ -3,7 +3,7 @@ import { splitProps, type ValidComponent } from "solid-js";
 import { PolymorphicProps } from "@kobalte/core/polymorphic";
 import * as SelectPrimitive from "@kobalte/core/select";
 
-import { cn } from "~/shared/utils/css";
+import { cn } from "@quotepedia/solid";
 import { DropdownMenuContentProps, DropdownMenuItemProps } from "./select.props";
 import { styles } from "./select.styles";
 
