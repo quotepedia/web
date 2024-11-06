@@ -1,11 +1,11 @@
-import Resizable from "@corvu/resizable";
 import { Container } from "@quotepedia/solid";
 import { cookieStorage, makePersisted } from "@solid-primitives/storage";
 import type { RouteSectionProps } from "@solidjs/router";
+import Resizable from "corvu/resizable";
 import { createSignal } from "solid-js";
 import { makeBroadcastChannelSync } from "~/shared/utils/storage";
-import { Aside } from "~/widgets/aside";
 import { DynamicBreadcrumbs } from "~/widgets/breadcrumbs";
+import { Aside } from "~/widgets/sidebar";
 
 export default function SidebarRouteSection(props: RouteSectionProps) {
   const [sizes, setSizes] = makePersisted(createSignal<number[]>([0.2, 0.8]), {

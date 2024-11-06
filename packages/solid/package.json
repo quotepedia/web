@@ -44,9 +44,12 @@
     "test:ts": "tsc"
   },
   "dependencies": {
-    "@corvu/otp-field": "^0.1.3",
     "@kobalte/core": "^0.13.6",
+    "@solid-primitives/event-listener": "^2.3.3",
+    "@solid-primitives/intersection-observer": "^2.1.6",
     "clsx": "^2.1.1",
+    "corvu": "^0.7.1",
+    "lottie-web": "^5.12.2",
     "solid-heroicons": "^3.2.4",
     "solid-persistent": "^0.1.0",
     "solid-transition-group": "^0.2.3",

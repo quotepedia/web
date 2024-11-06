@@ -5,7 +5,7 @@ import { toast } from "solid-sonner";
 import { Heading, Stack, Stepper, Text } from "@quotepedia/solid";
 import { register } from "~/entities/auth";
 import { PasswordForm, PasswordFormData } from "~/entities/user";
-import { Lottie } from "~/shared/components";
+import { Lottie } from "@quotepedia/solid";
 import { useI18n } from "~/shared/i18n";
 
 import { useRegistration } from "../context";

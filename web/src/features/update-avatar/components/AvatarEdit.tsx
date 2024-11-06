@@ -1,4 +1,4 @@
-import { Avatar, Button, Dropdown, Separator, Stack } from "@quotepedia/solid";
+import { Avatar, Button, Dialog, Dropdown, Separator, Stack } from "@quotepedia/solid";
 import { createFileUploader } from "@solid-primitives/upload";
 import { useAction, useSubmission } from "@solidjs/router";
 import { Icon } from "solid-heroicons";
@@ -7,7 +7,6 @@ import { Component, createSignal, Show } from "solid-js";
 import { toast } from "solid-sonner";
 import { removeCurrentUserAvatar, updateCurrentUserAvatar } from "~/entities/user";
 import { type components, formatStorageObject } from "~/shared/api";
-import { Dialog } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export type AvatarEditProps = {

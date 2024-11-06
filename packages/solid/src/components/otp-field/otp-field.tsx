@@ -3,8 +3,8 @@ import { Show, splitProps } from "solid-js";
 
 import { Transition } from "solid-transition-group";
 
-import type { DynamicProps, RootProps } from "@corvu/otp-field";
-import OtpFieldPrimitive, { type InputProps } from "@corvu/otp-field";
+import type { DynamicProps, RootProps } from "corvu/otp-field";
+import OtpFieldPrimitive, { type InputProps } from "corvu/otp-field";
 
 import { cn } from "@src/utils/css";
 

@@ -4,7 +4,7 @@ import { A, useAction, useSearchParams } from "@solidjs/router";
 import { Show, type JSX } from "solid-js";
 import { authenticate, type LoginForm } from "~/entities/auth";
 import { MIN_PASSWORD_LENGTH } from "~/entities/user/components/PasswordForm";
-import { Lottie } from "~/shared/components";
+import { Lottie } from "@quotepedia/solid";
 import { useI18n } from "~/shared/i18n";
 
 export const UserLoginForm = () => {

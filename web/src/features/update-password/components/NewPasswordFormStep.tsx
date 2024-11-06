@@ -3,7 +3,7 @@ import { Heading, Stack, Stepper, Text } from "@quotepedia/solid";
 import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
 import { PasswordForm, PasswordFormData, updateCurrentUserPassword } from "~/entities/user";
-import { Lottie } from "~/shared/components";
+import { Lottie } from "@quotepedia/solid";
 import { useI18n } from "~/shared/i18n";
 
 export const NewPasswordFormStep = () => {

@@ -1,7 +1,7 @@
-import { Button, Heading, Stack, Stepper, Text } from "@quotepedia/solid";
+import { Button, Dialog, Heading, Stack, Stepper, Text } from "@quotepedia/solid";
 import { Icon } from "solid-heroicons";
 import { arrowRight } from "solid-heroicons/solid-mini";
-import { Dialog, Lottie } from "~/shared/components";
+import { Lottie } from "@quotepedia/solid";
 import { useI18n } from "~/shared/i18n";
 import { useUpdateEmail } from "../context";
 

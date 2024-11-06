@@ -1,4 +1,4 @@
-import { Heading, SettingsCard, SettingsGroup, Stack } from "@quotepedia/solid";
+import { Dialog, Heading, SettingsCard, SettingsGroup, Stack } from "@quotepedia/solid";
 import { createAsync, useSubmission } from "@solidjs/router";
 import { Icon } from "solid-heroicons";
 import { arrowRightOnRectangle, chevronRight, envelopeOpen, key } from "solid-heroicons/solid-mini";
@@ -7,7 +7,6 @@ import { unauthenticate } from "~/entities/auth";
 import { getCurrentUser } from "~/entities/user";
 import { UpdateEmailStepper } from "~/features/update-email";
 import { UpdatePasswordStepper } from "~/features/update-password";
-import { Dialog } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const AccountSecuritySection = () => {

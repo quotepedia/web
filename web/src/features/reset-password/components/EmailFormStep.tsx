@@ -2,7 +2,7 @@ import { SubmitHandler } from "@modular-forms/solid";
 import { Button, Heading, Stack, Stepper, Text } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
 import { EmailFormData, RegisteredEmailForm } from "~/entities/user";
-import { Lottie } from "~/shared/components";
+import { Lottie } from "@quotepedia/solid";
 import { useI18n } from "~/shared/i18n";
 import { useResetPassword } from "../context";
 

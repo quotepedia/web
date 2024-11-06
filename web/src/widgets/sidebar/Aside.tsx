@@ -4,8 +4,8 @@ import { cog, folder, home } from "solid-heroicons/solid-mini";
 import { Show } from "solid-js";
 import { getCurrentUser } from "~/entities/user";
 import { formatStorageObject } from "~/shared/api";
-import { Sidebar } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
+import { Sidebar } from "./sidebar";
 
 export const Aside = () => {
   const i18n = useI18n();

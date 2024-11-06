@@ -22,7 +22,6 @@
     "test:ts": "tsc"
   },
   "devDependencies": {
-    "@corvu/resizable": "^0.2.3",
     "@kobalte/core": "^0.13.6",
     "@modular-forms/solid": "^0.24.1",
     "@quotepedia/solid": "workspace:^",
@@ -30,7 +29,6 @@
     "@solid-primitives/broadcast-channel": "^0.0.105",
     "@solid-primitives/event-listener": "^2.3.3",
     "@solid-primitives/i18n": "^2.1.1",
-    "@solid-primitives/intersection-observer": "^2.1.6",
     "@solid-primitives/range": "^0.1.18",
     "@solid-primitives/storage": "^4.2.1",
     "@solid-primitives/upload": "^0.0.117",
@@ -38,7 +36,7 @@
     "@solidjs/router": "^0.15.0",
     "@solidjs/start": "^1.0.10",
     "autoprefixer": "^10.4.20",
-    "lottie-web": "^5.12.2",
+    "corvu": "^0.7.1",
     "openapi-fetch": "^0.13.0",
     "openapi-typescript": "^7.4.2",
     "postcss": "^8.4.47",
@@ -46,7 +44,6 @@
     "solid-js": "^1.9.3",
     "solid-sonner": "^0.2.8",
     "solid-transition-group": "^0.2.3",
-    "tailwind-variants": "^0.2.1",
     "tailwindcss": "^3.4.14",
     "vinxi": "^0.4.3"
   },

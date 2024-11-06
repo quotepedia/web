@@ -4,9 +4,7 @@ import { splitProps } from "solid-js";
 import * as DialogPrimitive from "@kobalte/core/dialog";
 import { Polymorphic, type PolymorphicProps } from "@kobalte/core/polymorphic";
 
-import { Icon } from "solid-heroicons";
-import { xMark } from "solid-heroicons/solid-mini";
-import { cn } from "@quotepedia/solid";
+import { cn } from "@src/utils/css";
 
 import type {
   DialogContentProps,
@@ -48,7 +46,9 @@ export const DialogHeader = <T extends ValidComponent = "div">(props: Polymorphi
 export const DialogDismiss = () => {
   return (
     <DialogPrimitive.CloseButton class={cn(styles().dismiss())}>
-      <Icon path={xMark} />
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current stroke-2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
     </DialogPrimitive.CloseButton>
   );
 };
