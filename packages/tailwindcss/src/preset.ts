@@ -1,7 +1,12 @@
+import cqi from "@src/plugins/cqi";
+import reset from "@src/plugins/reset";
+import themer from "@src/plugins/themer";
 import type { Config } from "tailwindcss";
 
-export default {
-  content: ["./src/**/*.{ts,tsx}"],
+export default (): Partial<Config> => ({
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     extend: {
       fontFamily: {
@@ -41,15 +46,10 @@ export default {
     },
   },
   plugins: [
+    cqi,
+    reset,
+    themer,
     require("tailwindcss-animate"),
     require("tailwindcss-safe-area"),
-    require("tailwindcss-themer")({
-      themes: [
-        require("@quotepedia/tailwindcss/themes/light"),
-        require("@quotepedia/tailwindcss/themes/dark"),
-        require("@quotepedia/tailwindcss/themes/night"),
-      ],
-    }),
-    require("@quotepedia/tailwindcss/plugins/cqi"),
   ],
-} satisfies Config;
+});

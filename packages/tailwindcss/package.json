@@ -20,15 +20,18 @@
   "type": "module",
   "exports": {
     "./*": {
-      "types": "./dist/*.d.ts",
-      "solid": "./dist/*.jsx",
-      "default": "./dist/*.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
       "*": [
-        "./dist/*.d.ts"
+        "./dist/index.d.ts"
       ]
     }
   },
@@ -43,6 +46,8 @@
   },
   "devDependencies": {
     "tailwindcss": "^3",
+    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-safe-area": "^0.6.0",
     "tailwindcss-themer": "^4.1.0"
   },
   "peerDependencies": {

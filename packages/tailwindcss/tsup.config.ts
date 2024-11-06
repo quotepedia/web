@@ -1,5 +1,5 @@
-import type { Options } from "tsup";
 import { defineConfig } from "tsup";
+import type { Options } from "tsup";
 
 function generateConfig(format: "esm" | "cjs"): Options {
   return {
@@ -8,7 +8,7 @@ function generateConfig(format: "esm" | "cjs"): Options {
     format,
     clean: true,
     dts: format === "esm",
-    entry: ["src/**/*.ts"],
+    entry: { index: "src/index.ts" },
     outDir: "dist/",
     treeshake: { preset: "smallest" },
     replaceNodeEnv: true,

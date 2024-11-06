@@ -17,8 +17,8 @@ export default createHandler((event) => (
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
           {assets}
         </head>
-        <body class="overflow-x-hidden text-sm text-fg-body antialiased" data-theme={event.locals.settings.theme}>
-          <div id="app" class="flex min-h-dvh bg-bg-body transition-colors">
+        <body class="overflow-x-hidden text-sm transition-colors" data-theme={event.locals.settings.theme}>
+          <div id="app" class="flex min-h-dvh">
             {children}
           </div>
           {scripts}
