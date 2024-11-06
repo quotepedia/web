@@ -48,9 +48,9 @@ jobs:
         run: pnpm build
 
       - name: Test application
-        working-directory: ./web
+        working-directory: ./apps/web
         run: pnpm test
 
       - name: Build application
-        working-directory: ./web
+        working-directory: ./apps/web
         run: pnpm build
