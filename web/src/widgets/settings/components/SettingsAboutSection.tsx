@@ -1,7 +1,8 @@
 import { Image } from "@kobalte/core/image";
+import { Heading, Separator, SettingsCard, SettingsExpander, SettingsGroup, Stack } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
+import { Icon } from "solid-heroicons";
 import { arrowTopRightOnSquare, chatBubbleOvalLeft, codeBracket, informationCircle } from "solid-heroicons/solid-mini";
-import { Heading, Separator, SettingsCard, SettingsExpander, SettingsGroup, Stack } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const SettingsAboutSection = () => {
@@ -19,7 +20,7 @@ export const SettingsAboutSection = () => {
           <SettingsExpander.Trigger>
             <Image class="size-4">
               <Image.Img src="/favicon.svg" alt={import.meta.env.APP_NAME} />
-              <Image.Fallback as={SettingsCard.Icon} path={informationCircle} />
+              <Image.Fallback as={Icon} path={informationCircle} />
             </Image>
             <SettingsCard.HeaderGroup>
               <SettingsCard.Header class="capitalize">{import.meta.env.APP_NAME}</SettingsCard.Header>
@@ -32,21 +33,21 @@ export const SettingsAboutSection = () => {
           </SettingsExpander.Trigger>
           <SettingsExpander.Content>
             <SettingsCard variant="hover" as={A} href={import.meta.env.APP_BUGS_URL} target="_blank">
-              <SettingsCard.Icon path={chatBubbleOvalLeft} class="size-4" />
+              <Icon path={chatBubbleOvalLeft} class="size-4" />
               <SettingsCard.HeaderGroup>
                 <SettingsCard.Header>{t.cards.app.feedback.heading()}</SettingsCard.Header>
                 <SettingsCard.Description>{t.cards.app.feedback.description()}</SettingsCard.Description>
               </SettingsCard.HeaderGroup>
-              <SettingsCard.Icon path={arrowTopRightOnSquare} class="size-4 text-fg-muted" />
+              <Icon path={arrowTopRightOnSquare} class="text-fg-muted size-4" />
             </SettingsCard>
             <Separator orientation="horizontal" />
             <SettingsCard variant="hover" as={A} href={import.meta.env.APP_REPOSITORY_URL} target="_blank">
-              <SettingsCard.Icon path={codeBracket} class="size-4" />
+              <Icon path={codeBracket} class="size-4" />
               <SettingsCard.HeaderGroup>
                 <SettingsCard.Header>{t.cards.app.contribute.heading()}</SettingsCard.Header>
                 <SettingsCard.Description>{t.cards.app.contribute.description()}</SettingsCard.Description>
               </SettingsCard.HeaderGroup>
-              <SettingsCard.Icon path={arrowTopRightOnSquare} class="size-4 text-fg-muted" />
+              <Icon path={arrowTopRightOnSquare} class="text-fg-muted size-4" />
             </SettingsCard>
           </SettingsExpander.Content>
         </SettingsExpander>

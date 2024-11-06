@@ -1,4 +1,4 @@
-import { Stack } from "~/shared/components";
+import { Stack } from "@quotepedia/solid";
 import { SettingsAboutSection, SettingsAccountSection, SettingsAppearanceSection } from "~/widgets/settings";
 
 export default function SettingsRoute() {

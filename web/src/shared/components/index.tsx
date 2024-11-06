@@ -1,22 +1,5 @@
-export { Container } from "./container";
-export { Stack } from "./stack";
-
-export { Heading } from "./heading";
-export { Link } from "./link";
-export { Separator } from "./separator";
-export { Text } from "./text";
+// TODO: Move these components to @quotepedia/solid
 
 export { Lottie } from "./tgs";
-export { Collapse, CollapseGroup } from "./transition";
-
-export { Avatar } from "./avatar";
 export { Dialog } from "./dialog";
-export { Dropdown } from "./dropdown";
-export { FormControl } from "./form-control";
-export { OtpField } from "./otp-field";
-export { Select } from "./select";
-export { SettingsCard, SettingsExpander, SettingsGroup } from "./settings";
 export { Sidebar } from "./sidebar";
-export { Stepper } from "./stepper";
-
-export { TextField } from "./text-field";

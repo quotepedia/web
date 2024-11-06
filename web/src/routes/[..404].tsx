@@ -1,7 +1,7 @@
-import { Button } from "@quotepedia/solid";
+import { Button, Container, Heading, Stack, Text } from "@quotepedia/solid";
 import { A, type RouteDefinition } from "@solidjs/router";
 import { LocaleSwitcher } from "~/features/change-locale";
-import { Container, Heading, Lottie, Stack, Text } from "~/shared/components";
+import { Lottie } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 const useTranslator = () => useI18n().t.routes[404];

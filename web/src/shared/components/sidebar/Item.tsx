@@ -1,5 +1,5 @@
-import { A, AnchorProps } from "@solidjs/router";
-import { ParentComponent, splitProps } from "solid-js";
+import { A, type AnchorProps } from "@solidjs/router";
+import { type ParentComponent, splitProps } from "solid-js";
 import { cn } from "@quotepedia/solid";
 
 export const SidebarItem: ParentComponent<AnchorProps> = (props) => {

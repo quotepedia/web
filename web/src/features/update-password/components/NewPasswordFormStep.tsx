@@ -1,17 +1,16 @@
 import { SubmitHandler } from "@modular-forms/solid";
+import { Heading, Stack, Stepper, Text } from "@quotepedia/solid";
 import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
-import { PasswordForm, PasswordFormData } from "~/entities/user";
-import { updateCurrentUserPassword } from "~/entities/user";
-import { Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
-import { useStepperContext } from "~/shared/components/stepper/context";
+import { PasswordForm, PasswordFormData, updateCurrentUserPassword } from "~/entities/user";
+import { Lottie } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const NewPasswordFormStep = () => {
   const i18n = useI18n();
   const t = i18n.t.components.changePassword.steps.password;
 
-  const stepper = useStepperContext();
+  const stepper = Stepper.useContext();
 
   const changePassword = useAction(updateCurrentUserPassword);
 

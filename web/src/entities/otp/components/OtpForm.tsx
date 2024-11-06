@@ -1,7 +1,8 @@
 import { createForm, FormError, FormProps, reset, submit, SubmitHandler } from "@modular-forms/solid";
 import { createEffect, createResource, createSignal, For, on, Show, splitProps, Suspense } from "solid-js";
 
-import { Heading, Link, Lottie, OtpField, Stack, Text, TextField } from "~/shared/components";
+import { Heading, Link, OtpField, Stack, Text, TextField } from "@quotepedia/solid";
+import { Lottie } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 import { sendOtp, verifyOtp } from "../api/cache";

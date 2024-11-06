@@ -1,4 +1,4 @@
-import { Container, Stepper } from "~/shared/components";
+import { Container, Stepper } from "@quotepedia/solid";
 import { ResetPasswordProvider } from "../Provider";
 import { EmailFormStep } from "./EmailFormStep";
 import { EmailVerificationFormStep } from "./EmailVerificationFormStep";

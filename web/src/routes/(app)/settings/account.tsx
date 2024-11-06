@@ -1,6 +1,6 @@
+import { Stack } from "@quotepedia/solid";
 import type { RouteDefinition } from "@solidjs/router";
 import { getCurrentUser } from "~/entities/user";
-import { Stack } from "~/shared/components";
 import { createEnsureLoggedIn } from "~/shared/http";
 import { useI18n } from "~/shared/i18n";
 import { AccountInfoSection, AccountSecuritySection } from "~/widgets/account";

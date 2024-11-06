@@ -24,7 +24,7 @@
   "devDependencies": {
     "@corvu/otp-field": "^0.1.3",
     "@corvu/resizable": "^0.2.3",
-    "@kobalte/core": "^0.13.7",
+    "@kobalte/core": "^0.13.6",
     "@modular-forms/solid": "^0.24.1",
     "@quotepedia/solid": "workspace:^",
     "@quotepedia/tailwindcss": "workspace:^",

@@ -1,8 +1,10 @@
+import { Avatar } from "@quotepedia/solid";
 import { createAsync } from "@solidjs/router";
 import { cog, folder, home } from "solid-heroicons/solid-mini";
 import { Show } from "solid-js";
 import { getCurrentUser } from "~/entities/user";
-import { Avatar, Sidebar } from "~/shared/components";
+import { formatStorageObject } from "~/shared/api";
+import { Sidebar } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const Aside = () => {
@@ -23,7 +25,7 @@ export const Aside = () => {
         <Show when={currentUser()} fallback={<Sidebar.ItemIcon path={cog} />}>
           {(user) => (
             <Sidebar.ItemIcon as={Avatar}>
-              <Avatar.Img src={user().avatar_url} alt={user().email} />
+              <Avatar.Img src={user().avatar_url && formatStorageObject(user().avatar_url!)} alt={user().email} />
             </Sidebar.ItemIcon>
           )}
         </Show>

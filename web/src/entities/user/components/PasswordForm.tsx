@@ -1,7 +1,6 @@
 import { createForm, FormError, FormProps, minLength, required, SubmitHandler } from "@modular-forms/solid";
-import { Button } from "@quotepedia/solid";
+import { Button, Collapse, FormControl, Stack, Text } from "@quotepedia/solid";
 import { Show, splitProps } from "solid-js";
-import { Collapse, FormControl, Stack, Text } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const MIN_PASSWORD_LENGTH = 8;

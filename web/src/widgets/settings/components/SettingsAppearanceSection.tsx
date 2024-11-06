@@ -1,7 +1,8 @@
+import { Heading, SettingsCard, SettingsExpander, SettingsGroup, Stack } from "@quotepedia/solid";
+import { Icon } from "solid-heroicons";
 import { language, paintBrush } from "solid-heroicons/solid-mini";
 import { LocaleSwitcher } from "~/features/change-locale";
 import { ThemeSwitcher } from "~/features/change-theme";
-import { Heading, SettingsCard, SettingsExpander, SettingsGroup, Stack } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 import { useTheme } from "~/shared/theme";
 
@@ -19,7 +20,7 @@ export const SettingsAppearanceSection = () => {
       <SettingsGroup>
         <SettingsExpander>
           <SettingsExpander.Trigger>
-            <SettingsCard.Icon path={paintBrush} class="size-4" />
+            <Icon path={paintBrush} class="size-4" />
             <SettingsCard.HeaderGroup>
               <SettingsCard.Header>{t.cards.theme.heading()}</SettingsCard.Header>
               <SettingsCard.Description>{t.cards.theme.description()}</SettingsCard.Description>
@@ -32,7 +33,7 @@ export const SettingsAppearanceSection = () => {
           </SettingsExpander.Content>
         </SettingsExpander>
         <SettingsCard>
-          <SettingsCard.Icon path={language} class="size-4" />
+          <Icon path={language} class="size-4" />
           <SettingsCard.HeaderGroup>
             <SettingsCard.Header>{t.cards.locale.heading()}</SettingsCard.Header>
             <SettingsCard.Description>{t.cards.locale.description()}</SettingsCard.Description>

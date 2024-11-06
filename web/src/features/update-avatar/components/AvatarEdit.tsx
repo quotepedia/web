@@ -1,4 +1,4 @@
-import { Button } from "@quotepedia/solid";
+import { Avatar, Button, Dropdown, Separator, Stack } from "@quotepedia/solid";
 import { createFileUploader } from "@solid-primitives/upload";
 import { useAction, useSubmission } from "@solidjs/router";
 import { Icon } from "solid-heroicons";
@@ -7,7 +7,7 @@ import { Component, createSignal, Show } from "solid-js";
 import { toast } from "solid-sonner";
 import { removeCurrentUserAvatar, updateCurrentUserAvatar } from "~/entities/user";
 import { type components, formatStorageObject } from "~/shared/api";
-import { Avatar, Dialog, Dropdown, Separator, Stack } from "~/shared/components";
+import { Dialog } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export type AvatarEditProps = {
@@ -40,7 +40,10 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
     <>
       <Dropdown placement="bottom">
         <Dropdown.Trigger as={Avatar} aria-busy={updatingAvatar.pending || removingAvatar.pending}>
-          <Avatar.Img src={props.user.avatar_url} alt={props.user.email} />
+          <Avatar.Img
+            src={props.user.avatar_url && formatStorageObject(props.user.avatar_url)}
+            alt={props.user.email}
+          />
           <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/50 font-semibold text-white opacity-0 transition-opacity hover:opacity-100">
             <Icon path={camera} class="size-8" />
             <span>{t.update()}</span>
@@ -51,7 +54,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             {(avatar_url) => (
               <>
                 <Dropdown.Item onSelect={() => window.open(formatStorageObject(avatar_url()), "_blank")}>
-                  <Dropdown.ItemIcon path={arrowTopRightOnSquare} class="size-4" />
+                  <Icon path={arrowTopRightOnSquare} class="size-4" />
                   <Dropdown.ItemLabel>{t.dropdown.open()}</Dropdown.ItemLabel>
                 </Dropdown.Item>
                 <Separator orientation="horizontal" class="my-0.5" />
@@ -59,7 +62,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             )}
           </Show>
           <Dropdown.Item onSelect={selectAvatar} disabled={updatingAvatar.pending}>
-            <Dropdown.ItemIcon path={arrowUpTray} class="size-4" />
+            <Icon path={arrowUpTray} class="size-4" />
             <Dropdown.ItemLabel>{t.dropdown.select()}</Dropdown.ItemLabel>
           </Dropdown.Item>
           <Dropdown.Item
@@ -67,7 +70,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             onSelect={openRemoveAvatarConfirm}
             disabled={!props.user.avatar_url || removingAvatar.pending}
           >
-            <Dropdown.ItemIcon path={trash} class="size-4" />
+            <Icon path={trash} class="size-4" />
             <Dropdown.ItemLabel>{t.dropdown.remove()}</Dropdown.ItemLabel>
           </Dropdown.Item>
         </Dropdown.Content>
@@ -76,14 +79,14 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
       <Show when={props.user.avatar_url}>
         {(avatar_url) => (
           <Dialog open={isRemoveAvatarConfirmOpen()} onOpenChange={setIsRemoveAvatarConfirmOpen}>
-            <Dialog.Content>
+            <Dialog.Body>
               <Dialog.Header>
                 <Dialog.Title>{t.confirm.title()}</Dialog.Title>
                 <Dialog.Dismiss />
               </Dialog.Header>
               <Stack.Vertical>
                 <Avatar>
-                  <Avatar.Img src={avatar_url()} alt={props.user.email} />
+                  <Avatar.Img src={formatStorageObject(avatar_url())} alt={props.user.email} />
                 </Avatar>
                 <Dialog.Description class="text-center">{t.confirm.description()}</Dialog.Description>
               </Stack.Vertical>
@@ -95,7 +98,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
                   {t.confirm.remove()}
                 </Dialog.Close>
               </Dialog.Footer>
-            </Dialog.Content>
+            </Dialog.Body>
           </Dialog>
         )}
       </Show>

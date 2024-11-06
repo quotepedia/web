@@ -1,9 +1,9 @@
 import { Breadcrumbs } from "@kobalte/core/breadcrumbs";
+import { Heading } from "@quotepedia/solid";
 import { useCurrentMatches, useMatch, type RouteMatch } from "@solidjs/router";
 import { Icon } from "solid-heroicons";
 import { chevronRight } from "solid-heroicons/solid-mini";
 import { createMemo, For, Show, type ComponentProps } from "solid-js";
-import { Heading } from "../shared/components/heading";
 
 export const BreadcrumbRouteMatchItem = (props: { match: RouteMatch }) => {
   const title = createMemo(() => props.match.route.info?.title?.());
@@ -11,10 +11,10 @@ export const BreadcrumbRouteMatchItem = (props: { match: RouteMatch }) => {
   const current = () => Boolean(match());
 
   return (
-    <li class="flex select-none items-center gap-1 text-fg-muted">
+    <li class="text-fg-muted flex select-none items-center gap-1">
       <Breadcrumbs.Link
         href={props.match.path}
-        class="transition-colors hover:text-fg-body data-[current]:text-fg-body"
+        class="hover:text-fg-body data-[current]:text-fg-body transition-colors"
         current={current()}
       >
         <Heading>{title()}</Heading>

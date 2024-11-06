@@ -1,6 +1,6 @@
 import {
   DialogClose as Close,
-  DialogContent as Content,
+  DialogContent as Body,
   DialogDescription as Description,
   DialogDismiss as Dismiss,
   DialogFooter as Footer,
@@ -21,11 +21,11 @@ import type {
 
 export type { ContentProps, DescriptionProps, FooterProps, HeaderProps, OverlayProps, TitleProps };
 
-export { Close, Content, Description, Dismiss, Footer, Header, Root, Title, Trigger };
+export { Close, Body, Description, Dismiss, Footer, Header, Root, Title, Trigger };
 
 export const Dialog = Object.assign(Root, {
   Trigger,
-  Content,
+  Body,
   Close,
   Dismiss,
   Header,

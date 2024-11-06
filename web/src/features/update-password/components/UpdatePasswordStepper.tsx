@@ -1,4 +1,4 @@
-import { Stepper } from "~/shared/components";
+import { Stepper } from "@quotepedia/solid";
 import { NewPasswordFormStep } from "./NewPasswordFormStep";
 import { PasswordUpdatedStep } from "./PasswordUpdatedStep";
 

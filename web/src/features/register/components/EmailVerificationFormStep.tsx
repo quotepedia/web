@@ -1,6 +1,6 @@
 import { SubmitHandler } from "@modular-forms/solid";
 import { OtpForm, OtpFormData } from "~/entities/otp";
-import { Stepper } from "~/shared/components";
+import { Stepper } from "@quotepedia/solid";
 import { useRegistration } from "../context";
 
 export const EmailVerificationFormStep = () => {

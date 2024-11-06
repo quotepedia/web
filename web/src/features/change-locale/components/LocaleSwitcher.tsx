@@ -1,8 +1,7 @@
-import { Button } from "@quotepedia/solid";
+import { Button, Select } from "@quotepedia/solid";
 import { Icon } from "solid-heroicons";
 import { check, chevronUpDown } from "solid-heroicons/solid-mini";
 import { type Component } from "solid-js";
-import { Select } from "~/shared/components";
 import { CULTURES, Locale, useI18n } from "~/shared/i18n";
 
 export const LocaleSwitcher: Component = () => {
@@ -31,12 +30,12 @@ export const LocaleSwitcher: Component = () => {
         </Select.Item>
       )}
     >
-      <Select.Trigger as={Button<"button">} aria-busy={i18n.isSettingLocale()} disabled={i18n.isSettingLocale()}>
+      <Button as={Select.Trigger} aria-busy={i18n.isSettingLocale()} disabled={i18n.isSettingLocale()}>
         <Select.Value<Locale> class="capitalize">
           {(state) => getNativeLanguageName(state.selectedOption())}
         </Select.Value>
         <Icon path={chevronUpDown} class="size-4" />
-      </Select.Trigger>
+      </Button>
       <Select.Content inert={i18n.isSettingLocale()}>
         <Select.ListBox class="outline-none" />
       </Select.Content>

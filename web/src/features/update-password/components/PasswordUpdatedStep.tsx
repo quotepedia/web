@@ -1,7 +1,7 @@
-import { Button } from "@quotepedia/solid";
+import { Button, Heading, Stack, Stepper, Text } from "@quotepedia/solid";
 import { Icon } from "solid-heroicons";
 import { arrowRight } from "solid-heroicons/solid-mini";
-import { Dialog, Heading, Lottie, Stack, Stepper, Text } from "~/shared/components";
+import { Dialog, Lottie } from "~/shared/components";
 import { useI18n } from "~/shared/i18n";
 
 export const PasswordUpdatedStep = () => {

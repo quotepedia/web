@@ -1,8 +1,8 @@
 import Resizable from "@corvu/resizable";
+import { Container } from "@quotepedia/solid";
 import { cookieStorage, makePersisted } from "@solid-primitives/storage";
 import type { RouteSectionProps } from "@solidjs/router";
 import { createSignal } from "solid-js";
-import { Container } from "~/shared/components";
 import { makeBroadcastChannelSync } from "~/shared/utils/storage";
 import { Aside } from "~/widgets/aside";
 import { DynamicBreadcrumbs } from "~/widgets/breadcrumbs";
@@ -36,7 +36,7 @@ export default function SidebarRouteSection(props: RouteSectionProps) {
         <Aside />
       </Resizable.Panel>
       <Resizable.Handle class="group z-10 -mx-4 basis-px px-4 outline-none max-xl:!hidden">
-        <div class="relative h-full w-px bg-bg-tertiary transition-colors before:absolute before:right-0 before:z-20 before:h-full before:w-0.5 before:transition-colors after:absolute after:left-0 after:z-20 after:h-full after:w-0.5 after:transition-colors group-hover:bg-ring-accent group-hover:before:bg-ring-accent group-hover:after:bg-ring-accent group-focus-visible:bg-ring-accent group-focus-visible:before:bg-ring-accent group-focus-visible:after:bg-ring-accent group-data-[dragging]:bg-ring-accent/50 group-data-[dragging]:before:bg-ring-accent/50 group-data-[dragging]:after:bg-ring-accent/50" />
+        <div class="bg-bg-tertiary group-hover:bg-ring-accent group-hover:before:bg-ring-accent group-hover:after:bg-ring-accent group-focus-visible:bg-ring-accent group-focus-visible:before:bg-ring-accent group-focus-visible:after:bg-ring-accent group-data-[dragging]:bg-ring-accent/50 group-data-[dragging]:before:bg-ring-accent/50 group-data-[dragging]:after:bg-ring-accent/50 relative h-full w-px transition-colors before:absolute before:right-0 before:z-20 before:h-full before:w-0.5 before:transition-colors after:absolute after:left-0 after:z-20 after:h-full after:w-0.5 after:transition-colors" />
       </Resizable.Handle>
       <Resizable.Panel initialSize={sizes()[1]} minSize={0.2} class="max-xl:grow">
         <Container size="wide">

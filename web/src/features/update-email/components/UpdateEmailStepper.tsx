@@ -1,4 +1,4 @@
-import { Stepper } from "~/shared/components";
+import { Stepper } from "@quotepedia/solid";
 import { ChangeEmailProvider } from "../Provider";
 import { EmailUpdatedStep } from "./EmailUpdatedStep";
 import { NewEmailFormStep } from "./NewEmailFormStep";
