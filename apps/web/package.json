@@ -2,6 +2,7 @@
   "name": "quotepedia",
   "version": "2025.0.0",
   "private": true,
+  "homepage": "https://github.com/quotepedia/web",
   "bugs": {
     "url": "https://github.com/quotepedia/web/issues"
   },
