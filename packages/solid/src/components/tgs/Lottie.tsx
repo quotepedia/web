@@ -11,11 +11,7 @@ import {
   splitProps,
 } from "solid-js";
 
-import LottiePlayer, {
-  type AnimationConfigWithPath,
-  type AnimationItem,
-  type RendererType,
-} from "lottie-web/build/player/lottie_light";
+import type { AnimationConfigWithPath, AnimationItem, RendererType } from "lottie-web/build/player/lottie_light";
 
 export type LottieProps<R extends RendererType = "svg"> = ComponentProps<"div"> & LottieConfigProps<R>;
 
@@ -44,7 +40,9 @@ export const Lottie: VoidComponent<LottieProps> = (props) => {
   const pause = () => animationItem()?.pause();
 
   createEffect(
-    on(path, () => {
+    on(path, async () => {
+      const LottiePlayer = (await import("lottie-web/build/player/lottie_light")).default;
+
       // NOTE: `requestAnimationFrame` call here is important to ensure that the
       // animation stays in sync with the browser's repaint cycle in all scenarios.
       requestAnimationFrame(() => {
