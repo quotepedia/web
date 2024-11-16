@@ -1,1 +1,1 @@
-@quotepedia/playground
+# @quotepedia/playground
