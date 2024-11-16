@@ -1,0 +1,27 @@
+{
+  // * Editor:
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // * TailwindCSS:
+  "tailwindCSS.classAttributes": [
+    ".*class.*",
+    ".*Class.*",
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "styles \\=([^;]*);",
+      "'([^']*)'",
+    ],
+    [
+      "styles \\=([^;]*);",
+      "\"([^\"]*)\"",
+    ],
+    [
+      "styles \\=([^;]*);",
+      "\\`([^\\`]*)\\`",
+    ],
+  ],
+  
+  // * JavaScript & TypeScript:
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+}
