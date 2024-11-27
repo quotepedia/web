@@ -1,4 +1,4 @@
-import { Container } from "@quotepedia/solid";
+import { Container, Fade } from "@quotepedia/solid";
 import { cookieStorage, makePersisted } from "@solid-primitives/storage";
 import type { RouteSectionProps } from "@solidjs/router";
 import Resizable from "corvu/resizable";
@@ -42,7 +42,7 @@ export default function SidebarRouteSection(props: RouteSectionProps) {
         <Container size="wide">
           <DynamicBreadcrumbs class="mb-6" />
 
-          {props.children}
+          <Fade>{props.children}</Fade>
         </Container>
       </Resizable.Panel>
     </Resizable>
