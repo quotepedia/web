@@ -6,6 +6,7 @@ import {
   type VoidComponent,
   createEffect,
   createSignal,
+  mergeProps,
   on,
   onCleanup,
   splitProps,
@@ -18,7 +19,9 @@ export type LottieProps<R extends RendererType = "svg"> = ComponentProps<"div"> 
 export type LottieConfigProps<R extends RendererType = "svg"> = Omit<AnimationConfigWithPath<R>, "container">;
 
 export const Lottie: VoidComponent<LottieProps> = (props) => {
-  const [configProps, otherProps] = splitProps(props, [
+  const defaultedProps = mergeProps({ loop: false }, props);
+
+  const [configProps, otherProps] = splitProps(defaultedProps, [
     "assetsPath",
     "audioFactory",
     "autoplay",
