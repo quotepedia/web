@@ -22,6 +22,16 @@ export type StepperContextValue = {
   setLength: Setter<number>;
 
   /**
+   * Increments the `length` of the stepper.
+   */
+  register: VoidFunction;
+
+  /**
+   * Decrements the `length` of the stepper.
+   */
+  unregister: VoidFunction;
+
+  /**
    * The index of the current step.
    */
   currentIndex: number;

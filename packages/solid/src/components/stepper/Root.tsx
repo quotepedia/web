@@ -1,15 +1,19 @@
-import type { JSX, ParentProps } from "solid-js";
+import type { Accessor, Component, JSX } from "solid-js";
 import { createMemo, createSignal } from "solid-js";
 
-import { StepperContext } from "./context";
+import { createChildrenProps } from "@src/utils/children";
+import { StepperContext, type StepperContextValue } from "./context";
 
-export type StepperRootProps = ParentProps & {
+export type StepperRootProps = {
   index?: number;
+  children: JSX.Element | ((context: StepperContextValue) => JSX.Element);
 };
 
-export const StepperRoot = (props: StepperRootProps) => {
-  const steps = new Map<number, () => JSX.Element>();
+export const StepperRoot: Component<StepperRootProps> = (props) => {
+  const steps = new Map<number, Accessor<JSX.Element>>();
   const [length, setLength] = createSignal(0);
+  const register = () => setLength((prev) => prev + 1);
+  const unregister = () => setLength((prev) => prev - 1);
   const [currentIndex, setCurrentIndex] = createSignal(props.index || 0);
   const [previousIndex, setPreviousIndex] = createSignal(-1);
   const moveForward = () => canMoveForward() && updateCurrentIndex((i) => i + 1);
@@ -18,6 +22,7 @@ export const StepperRoot = (props: StepperRootProps) => {
   const canMoveBackward = createMemo(() => currentIndex() > 0);
   const movePrevious = () => canMovePrevious() && updateCurrentIndex((_) => previousIndex());
   const canMovePrevious = createMemo(() => previousIndex() >= 0 && length() > previousIndex());
+  const children = () => createChildrenProps(props.children, context);
 
   const updateCurrentIndex = (fn: (prev: number) => number) => {
     setCurrentIndex((previous) => {
@@ -33,6 +38,8 @@ export const StepperRoot = (props: StepperRootProps) => {
       return length();
     },
     setLength,
+    register,
+    unregister,
     get currentIndex() {
       return currentIndex();
     },
@@ -53,7 +60,7 @@ export const StepperRoot = (props: StepperRootProps) => {
     },
   };
 
-  return <StepperContext.Provider value={context}>{props.children}</StepperContext.Provider>;
+  return <StepperContext.Provider value={context}>{children()}</StepperContext.Provider>;
 };
 
 export default StepperRoot;

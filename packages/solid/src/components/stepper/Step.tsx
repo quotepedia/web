@@ -1,8 +1,7 @@
-import type { Accessor, JSX, ValidComponent } from "solid-js";
-import { createEffect, splitProps } from "solid-js";
-import createPersistent from "solid-persistent";
-
 import { Polymorphic, type PolymorphicProps } from "@kobalte/core/polymorphic";
+import type { Accessor, JSX, ValidComponent } from "solid-js";
+import { onCleanup, onMount, splitProps } from "solid-js";
+import createPersistent from "solid-persistent";
 
 import { cn } from "@src/utils/css";
 import useStepperContext from "./context";
@@ -10,46 +9,48 @@ import useStepperContext from "./context";
 export type StepperStepProps = {
   class?: string;
   index?: number;
-  onEnter?: VoidFunction;
-  children: ((current: Accessor<boolean>) => JSX.Element) | JSX.Element;
+  children: JSX.Element;
 };
 
-export const StepperStep = <T extends ValidComponent = "li">(
+export type StepperStepReturn = { ref: () => Accessor<JSX.Element> };
+
+export const StepperStep = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, StepperStepProps>,
 ): JSX.Element => {
   const context = useStepperContext();
+
   const [scopedProps, otherProps] = splitProps(props, ["class"]);
 
-  const getPersistentStep = () => context.steps.get(context.currentIndex);
+  const ref = () => getPersistentRef() ?? createPersistentRef();
 
-  const createPersistentStep = () => {
+  const getPersistentRef = () => context.steps.get(context.currentIndex);
+
+  const createPersistentRef = () => {
     props.index = context.currentIndex;
 
-    const step = createPersistent(() => {
-      const current = () => props.index === context.currentIndex;
+    const ref = createPersistent(() => (
+      <Polymorphic
+        as="div"
+        aria-current="step"
+        class={cn("flex items-center justify-center", scopedProps)}
+        {...otherProps}
+      />
+    ));
 
-      createEffect(() => {
-        current() && props.onEnter?.();
-      });
+    context.steps.set(context.currentIndex, ref);
 
-      return (
-        <Polymorphic
-          as={"li"}
-          class={cn("flex items-center justify-center", scopedProps)}
-          aria-current="step"
-          {...otherProps}
-        />
-      );
-    });
-
-    context.steps.set(context.currentIndex, step);
-
-    return step;
+    return ref;
   };
 
-  const ref = () => getPersistentStep() ?? createPersistentStep();
+  onMount(() => {
+    context.register();
+  });
 
-  return { ref: ref } as unknown as JSX.Element;
+  onCleanup(() => {
+    context.unregister();
+  });
+
+  return { ref: ref } satisfies StepperStepReturn as unknown as JSX.Element;
 };
 
 export default StepperStep;

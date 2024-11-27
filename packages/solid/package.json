@@ -44,6 +44,7 @@
     "test:ts": "tsc"
   },
   "dependencies": {
+    "@corvu/utils": "^0.4.2",
     "@kobalte/core": "^0.13.6",
     "@solid-primitives/event-listener": "^2.3.3",
     "@solid-primitives/intersection-observer": "^2.1.6",
