@@ -42,7 +42,7 @@ export default function SidebarRouteSection(props: RouteSectionProps) {
         <Container size="wide">
           <DynamicBreadcrumbs class="mb-6" />
 
-          <Fade>{props.children}</Fade>
+          {props.children}
         </Container>
       </Resizable.Panel>
     </Resizable>

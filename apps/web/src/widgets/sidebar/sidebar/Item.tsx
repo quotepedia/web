@@ -16,7 +16,8 @@ export const SidebarItem: ParentComponent<AnchorProps> = (props) => {
         local.class,
       )}
       activeClass={cn(
-        "!transition-[opacity,color,background-color]",
+        "xl:!transition-[opacity,color,background-color]",
+        "max-xl:!transition-[opacity,color]",
         "max-xl:text-fg-accent xl:text-fg-body xl:bg-bg-tertiary xl:hover:bg-bg-tertiary",
         "max-xl:[&_span]:ring-fg-accent",
         local.activeClass,

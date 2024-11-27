@@ -2,7 +2,7 @@ import type { RouteDefinition } from "@solidjs/router";
 
 export const route = {
   info: {
-    title: () => "Home",
+    title: () => "Explore",
   },
 } satisfies RouteDefinition;
 
