@@ -16,5 +16,5 @@ export { Stepper } from "./components/stepper";
 export { Text } from "./components/text";
 export { TextField } from "./components/text-field";
 export { Lottie } from "./components/tgs";
-export { Collapse, CollapseGroup } from "./components/transition";
+export { Collapse, CollapseGroup, Fade } from "./components/transition";
 export { cn } from "./utils/css";
