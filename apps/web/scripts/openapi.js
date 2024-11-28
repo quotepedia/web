@@ -35,7 +35,7 @@ const DATE = ts.factory.createTypeReferenceNode(ts.factory.createIdentifier("Dat
 
 const source = new URL("openapi.json", process.env.VITE_API_URL);
 
-console.info(`Using source URL for OpenAPI JSON: ${source}`);
+console.info(`🔗 Using source URL for OpenAPI JSON: ${source}`);
 
 const ast = await openapiTS(source, {
   transform: (obj) => {
@@ -54,6 +54,16 @@ const output = await prettier.format(astToString(ast), {
   parser: "typescript",
 });
 
-fs.writeFile(path, output, () => {
-  console.info(`The AST has been written to ${path}`);
+fs.readFile(path, (_, data) => {
+  if (data.toString() === output) {
+    console.info(`🔎 The schema is already up-to-date.`);
+    return;
+  }
+
+  fs.writeFile(path, output, (_) => {
+    const intl = Intl.NumberFormat(undefined, { style: "unit", unit: "kilobyte" });
+    const size = intl.format(fs.statSync(path).size / 1024);
+
+    console.info(`🚀 The schema has been written to ${path} (${size})`);
+  });
 });
