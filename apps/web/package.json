@@ -16,6 +16,7 @@
   "type": "module",
   "scripts": {
     "build": "vinxi build",
+    "build:api": "node --env-file=.env ./scripts/openapi.js ./src/shared/api/generated/schema.d.ts",
     "dev": "vinxi dev",
     "serve": "pnpm build && pnpm start",
     "start": "vinxi start",
