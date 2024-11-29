@@ -1,1 +1,0 @@
-# @quotepedia/playground
