@@ -12,19 +12,19 @@ export default (({ addBase }) => {
       MozOsxFontSmoothing: "grayscale",
     },
     '[data-theme="light"]': {
-      colorScheme: "light",
+      colorScheme: "only light",
     },
     '[data-theme="dark"], [data-theme="night"]': {
-      colorScheme: "dark",
+      colorScheme: "only dark",
     },
     '@media (prefers-color-scheme: light)': {
       '[data-theme="system"]': {
-        colorScheme: "light",
+        colorScheme: "only light",
       },
     },
     '@media (prefers-color-scheme: dark)': {
       '[data-theme="system"]': {
-        colorScheme: "dark",
+        colorScheme: "only dark",
       },
     },
   });
