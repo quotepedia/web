@@ -1,5 +1,7 @@
 /**
  * Common easing curves.
+ * 
+ * Preview: https://easings.co/
  */
 
 export const easeIn = {
