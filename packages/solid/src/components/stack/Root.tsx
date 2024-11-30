@@ -11,16 +11,16 @@ export type StackRootRenderProps = { class?: string; separator?: JSX.Element };
 export type StackRootProps = ParentProps<StackRootRenderProps>;
 
 export const StackRoot = <T extends ValidComponent = "div">(props: PolymorphicProps<T, StackRootProps>) => {
-  const [scopedProps, variantProps, otherProps] = splitProps(props, ["separator", "children"], ["class"]);
+  const [localProps, styleProps, otherProps] = splitProps(props, ["separator", "children"], ["class"]);
 
-  const c = children(() => scopedProps.children);
+  const c = children(() => localProps.children);
 
   return (
-    <Polymorphic as="div" class={styles(variantProps)} {...otherProps}>
+    <Polymorphic as="div" class={styles(styleProps)} {...otherProps}>
       <For each={c.toArray()}>
         {(child, index) => (
           <>
-            <Show when={scopedProps.separator && index() !== 0 && index() !== c.length}>{scopedProps.separator}</Show>
+            <Show when={localProps.separator && index() !== 0 && index() !== c.length}>{localProps.separator}</Show>
 
             {child}
           </>

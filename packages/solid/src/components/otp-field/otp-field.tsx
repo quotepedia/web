@@ -1,19 +1,18 @@
-import type { Component, ComponentProps, JSX, ValidComponent } from "solid-js";
+import type { Component, ComponentProps, ValidComponent } from "solid-js";
 import { Show, splitProps } from "solid-js";
 
 import { Transition } from "solid-transition-group";
 
-import type { DynamicProps, RootProps } from "corvu/otp-field";
-import OtpFieldPrimitive, { type InputProps } from "corvu/otp-field";
+import type { DynamicProps } from "corvu/otp-field";
+import OtpFieldPrimitive from "corvu/otp-field";
 
 import { cn } from "@src/utils/css";
 
 import { Cursor } from "../cursor";
+import type { OtpFieldInputProps, OtpFieldRootProps } from "./otp-field.props";
 
-type OtpFieldProps<T extends ValidComponent = "div"> = RootProps<T> & JSX.StylableSVGAttributes;
-
-export const OtpFieldRoot = <T extends ValidComponent = "div">(props: DynamicProps<T, OtpFieldProps<T>>) => {
-  const [local, others] = splitProps(props as OtpFieldProps, ["class"]);
+export const OtpFieldRoot = <T extends ValidComponent = "div">(props: DynamicProps<T, OtpFieldRootProps<T>>) => {
+  const [local, others] = splitProps(props as OtpFieldRootProps, ["class"]);
   return (
     <OtpFieldPrimitive
       class={cn(
@@ -23,10 +22,6 @@ export const OtpFieldRoot = <T extends ValidComponent = "div">(props: DynamicPro
       {...others}
     />
   );
-};
-
-type OtpFieldInputProps<T extends ValidComponent = "input"> = InputProps<T> & {
-  class?: string;
 };
 
 export const OtpFieldInput = <T extends ValidComponent = "input">(props: DynamicProps<T, OtpFieldInputProps<T>>) => {

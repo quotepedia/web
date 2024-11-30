@@ -1,78 +1,61 @@
 import { splitProps, type ValidComponent } from "solid-js";
 
 import { Polymorphic, type PolymorphicProps } from "@kobalte/core";
-import * as TextFieldPrimitive from "@kobalte/core/text-field";
+import { Description, ErrorMessage, Input, Label, Root, TextArea } from "@kobalte/core/text-field";
 
-import { cn } from "@src/utils/css";
-
-import { CollapseGroup } from "../transition";
 import type {
   TextFieldDescriptionProps,
   TextFieldErrorMessageProps,
   TextFieldInputProps,
   TextFieldLabelProps,
+  TextFieldRootProps,
   TextFieldTextAreaProps,
   TextFieldWrapperProps,
 } from "./text-field.props";
 import { styles } from "./text-field.styles";
 
-export const TextFieldRoot = <T extends ValidComponent = "div">(
-  props: PolymorphicProps<T, TextFieldPrimitive.TextFieldRootProps<T>>,
-) => {
-  const [local, others] = splitProps(props as TextFieldWrapperProps, ["children"]);
-
-  return (
-    <TextFieldPrimitive.Root {...others}>
-      <CollapseGroup>{local.children}</CollapseGroup>
-    </TextFieldPrimitive.Root>
-  );
+export const TextFieldRoot = <T extends ValidComponent = "div">(props: PolymorphicProps<T, TextFieldRootProps<T>>) => {
+  return <Root {...props} />;
 };
 
-export const TextFieldInputWrapper = <T extends ValidComponent = "div">(
+export const TextFieldWrapper = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, TextFieldWrapperProps<T>>,
 ) => {
-  const [local, others] = splitProps(props as TextFieldWrapperProps, ["class"]);
-  return <Polymorphic as="div" class={cn(styles().wrapper(), local.class)} {...others} />;
+  const [styleProps, otherProps] = splitProps(props as TextFieldWrapperProps, ["class"]);
+  return <Polymorphic as="div" class={styles().wrapper(styleProps)} {...otherProps} />;
 };
 
 export const TextFieldInput = <T extends ValidComponent = "input">(
-  props: PolymorphicProps<T, TextFieldPrimitive.TextFieldInputProps<T>>,
+  props: PolymorphicProps<T, TextFieldInputProps<T>>,
 ) => {
-  const [local, others] = splitProps(props as TextFieldInputProps, ["class"]);
-  return <TextFieldPrimitive.Input class={cn(styles().input(), local.class)} {...others} />;
+  const [styleProps, otherProps] = splitProps(props as TextFieldInputProps, ["class"]);
+  return <Input class={styles().input(styleProps)} {...otherProps} />;
 };
 
-const TextFieldTextArea = <T extends ValidComponent = "textarea">(
+export const TextFieldTextArea = <T extends ValidComponent = "textarea">(
   props: PolymorphicProps<T, TextFieldTextAreaProps<T>>,
 ) => {
-  const [local, others] = splitProps(props as TextFieldTextAreaProps, ["class"]);
-  return <TextFieldPrimitive.TextArea class={cn(styles().textarea(), local.class)} {...others} />;
+  const [styleProps, otherProps] = splitProps(props as TextFieldTextAreaProps, ["class"]);
+  return <TextArea class={styles().textarea(styleProps)} {...otherProps} />;
 };
 
-const TextFieldLabel = <T extends ValidComponent = "label">(props: PolymorphicProps<T, TextFieldLabelProps<T>>) => {
-  const [local, others] = splitProps(props as TextFieldLabelProps, ["class"]);
-  return <TextFieldPrimitive.Label class={cn(styles().label(), local.class)} {...others} />;
+export const TextFieldLabel = <T extends ValidComponent = "label">(
+  props: PolymorphicProps<T, TextFieldLabelProps<T>>,
+) => {
+  const [styleProps, otherProps] = splitProps(props as TextFieldLabelProps, ["class"]);
+  return <Label class={styles().label(styleProps)} {...otherProps} />;
 };
 
-const TextFieldDescription = <T extends ValidComponent = "div">(
+export const TextFieldDescription = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, TextFieldDescriptionProps<T>>,
 ) => {
-  const [local, others] = splitProps(props as TextFieldDescriptionProps, ["class"]);
-  return <TextFieldPrimitive.Description class={cn(styles().description(), local.class)} {...others} />;
+  const [styleProps, otherProps] = splitProps(props as TextFieldDescriptionProps, ["class"]);
+  return <Description class={styles().description(styleProps)} {...otherProps} />;
 };
 
-const TextFieldErrorMessage = <T extends ValidComponent = "div">(
+export const TextFieldErrorMessage = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, TextFieldErrorMessageProps<T>>,
 ) => {
-  const [local, others] = splitProps(props as TextFieldErrorMessageProps, ["class"]);
-  return <TextFieldPrimitive.ErrorMessage class={cn(styles().error(), local.class)} {...others} />;
+  const [styleProps, otherProps] = splitProps(props as TextFieldErrorMessageProps, ["class"]);
+  return <ErrorMessage class={styles().error(styleProps)} {...otherProps} />;
 };
-
-export const TextField = Object.assign(TextFieldRoot, {
-  Description: TextFieldDescription,
-  ErrorMessage: TextFieldErrorMessage,
-  InputWrapper: TextFieldInputWrapper,
-  Input: TextFieldInput,
-  Label: TextFieldLabel,
-  TextArea: TextFieldTextArea,
-});

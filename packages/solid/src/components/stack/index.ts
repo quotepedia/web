@@ -2,9 +2,17 @@ import Horizontal, { type StackHorizontalProps as HorizontalProps } from "./Hori
 import Root, { type StackRootProps as RootProps } from "./Root";
 import Vertical, { type StackVerticalProps as VerticalProps } from "./Vertical";
 
-export type { HorizontalProps, RootProps, VerticalProps };
+export type {
+  HorizontalProps,
+  RootProps,
+  VerticalProps,
+};
 
-export { Horizontal, Root, Vertical };
+export {
+  Horizontal,
+  Root,
+  Vertical,
+};
 
 export const Stack = Object.assign(Root, {
   Horizontal,

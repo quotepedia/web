@@ -1,12 +1,15 @@
-import type { JSX, ParentProps, ValidComponent } from "solid-js";
+import type { ParentProps, ValidComponent } from "solid-js";
 
-import * as LinkPrimitive from "@kobalte/core/link";
+import type { LinkRootProps as RootProps } from "@kobalte/core/link";
 import type { VariantProps } from "tailwind-variants";
 
 import { styles } from "./link.styles";
 
-export type LinkVariantProps = VariantProps<typeof styles>;
+export type LinkRootRenderProps = {
+  class?: string;
+};
 
-export type LinkProps<T extends ValidComponent = "a"> = ParentProps<LinkPrimitive.LinkRootProps<T>> &
-  LinkVariantProps &
-  JSX.StylableSVGAttributes;
+export type LinkRootVariantProps = VariantProps<typeof styles>;
+
+export type LinkRootProps<T extends ValidComponent | HTMLElement = HTMLElement> = RootProps<T> &
+  ParentProps<LinkRootRenderProps & LinkRootVariantProps>;

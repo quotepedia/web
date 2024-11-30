@@ -1,7 +1,8 @@
-import type { ParentProps } from "solid-js";
+import type { JSX, ParentProps } from "solid-js";
 import type { VariantProps } from "tailwind-variants";
+
 import type { styles } from "./text.styles";
 
-export type TextVariantProps = VariantProps<typeof styles>;
+export type TextRootVariantProps = VariantProps<typeof styles>;
 
-export type TextProps = Omit<ParentProps<TextVariantProps>, "class">;
+export type TextRootProps = ParentProps<TextRootVariantProps & JSX.StylableSVGAttributes>;

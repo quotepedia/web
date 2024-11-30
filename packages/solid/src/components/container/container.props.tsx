@@ -2,10 +2,10 @@ import type { ParentProps } from "solid-js";
 import type { VariantProps } from "tailwind-variants";
 import type { styles } from "./container.styles";
 
-export type ContainerRenderProps = {
+export type ContainerRootRenderProps = {
   class?: string;
 };
 
-export type ContainerVariantProps = VariantProps<typeof styles>;
+export type ContainerRootVariantProps = VariantProps<typeof styles>;
 
-export type ContainerProps = ParentProps<ContainerVariantProps & ContainerRenderProps>;
+export type ContainerRootProps = ParentProps<ContainerRootVariantProps & ContainerRootRenderProps>;

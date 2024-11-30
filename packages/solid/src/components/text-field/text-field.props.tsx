@@ -1,22 +1,31 @@
-import type { JSX, ValidComponent, ParentProps } from "solid-js";
+import type { ComponentProps, JSX, ValidComponent } from "solid-js";
 
-import * as TextFieldPrimitive from "@kobalte/core/text-field";
+import type { ElementOf } from "@kobalte/core";
+import type {
+  TextFieldDescriptionProps as DescriptionProps,
+  TextFieldErrorMessageProps as ErrorMessageProps,
+  TextFieldInputProps as InputProps,
+  TextFieldLabelProps as LabelProps,
+  TextFieldRootProps as RootProps,
+  TextFieldTextAreaProps as TextAreaProps,
+} from "@kobalte/core/text-field";
 
-export type TextFieldWrapperProps<T extends ValidComponent = "div"> = TextFieldPrimitive.TextFieldErrorMessageProps<T> &
-  JSX.StylableSVGAttributes &
-  ParentProps;
+export type TextFieldRootProps<T extends ValidComponent | HTMLElement = HTMLElement> = RootProps<T>;
 
-export type TextFieldInputProps<T extends ValidComponent = "input"> = TextFieldPrimitive.TextFieldInputProps<T> &
+export type TextFieldWrapperProps<T extends ValidComponent | HTMLElement = HTMLElement> = ComponentProps<ElementOf<T>> &
   JSX.StylableSVGAttributes;
 
-export type TextFieldTextAreaProps<T extends ValidComponent = "textarea"> =
-  TextFieldPrimitive.TextFieldTextAreaProps<T> & JSX.StylableSVGAttributes;
-
-export type TextFieldLabelProps<T extends ValidComponent = "label"> = TextFieldPrimitive.TextFieldLabelProps<T> &
+export type TextFieldInputProps<T extends ValidComponent | HTMLElement = HTMLElement> = InputProps<T> &
   JSX.StylableSVGAttributes;
 
-export type TextFieldDescriptionProps<T extends ValidComponent = "div"> =
-  TextFieldPrimitive.TextFieldDescriptionProps<T> & JSX.StylableSVGAttributes;
+export type TextFieldTextAreaProps<T extends ValidComponent | HTMLElement = HTMLElement> = TextAreaProps<T> &
+  JSX.StylableSVGAttributes;
 
-export type TextFieldErrorMessageProps<T extends ValidComponent = "div"> =
-  TextFieldPrimitive.TextFieldErrorMessageProps<T> & JSX.StylableSVGAttributes;
+export type TextFieldLabelProps<T extends ValidComponent | HTMLElement = HTMLElement> = LabelProps<T> &
+  JSX.StylableSVGAttributes;
+
+export type TextFieldDescriptionProps<T extends ValidComponent | HTMLElement = HTMLElement> = DescriptionProps<T> &
+  JSX.StylableSVGAttributes;
+
+export type TextFieldErrorMessageProps<T extends ValidComponent | HTMLElement = HTMLElement> = ErrorMessageProps<T> &
+  JSX.StylableSVGAttributes;

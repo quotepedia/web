@@ -1,8 +1,10 @@
-import type { JSX } from "solid-js";
+import type { VariantProps } from "tailwind-variants";
+import type { styles } from "./cursor.styles";
 
-export type CursorProps = {
-  /**
-   * Determines whether the cursor should flash.
-   */
-  flash: boolean;
-} & JSX.StylableSVGAttributes;
+export type CursorRootRenderProps = {
+  class?: string;
+};
+
+export type CursorRootVariantProps = VariantProps<typeof styles>;
+
+export type CursorRootProps = CursorRootRenderProps & CursorRootVariantProps;

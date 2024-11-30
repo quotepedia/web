@@ -3,6 +3,7 @@ import { Show, splitProps } from "solid-js";
 import { TextField } from "../text-field";
 
 import type { TextFieldProps } from "./form-control.props";
+import { Collapse } from "../transition";
 
 export function FormControl(props: TextFieldProps) {
   const [rootProps, inputProps] = splitProps(
@@ -18,15 +19,17 @@ export function FormControl(props: TextFieldProps) {
           {props.label}
         </TextField.Label>
       </Show>
-      <TextField.InputWrapper>
+      <TextField.Wrapper>
         <Show when={props.multiline} fallback={<TextField.Input {...inputProps} type={props.type} />}>
           <TextField.TextArea {...inputProps} autoResize />
         </Show>
-      </TextField.InputWrapper>
+      </TextField.Wrapper>
       <Show when={props.description}>
         {(description) => <TextField.Description>{description()}</TextField.Description>}
       </Show>
-      <TextField.ErrorMessage>{props.error}</TextField.ErrorMessage>
+      <Collapse>
+        <TextField.ErrorMessage>{props.error}</TextField.ErrorMessage>
+      </Collapse>
     </TextField>
   );
 }
