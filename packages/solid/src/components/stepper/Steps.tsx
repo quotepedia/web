@@ -16,7 +16,7 @@ export const StepperSteps = <T extends ValidComponent = "div">(props: Polymorphi
 
   return (
     <Polymorphic as="div" {...props}>
-      <Transition mode="outin" {...createStepperTransition()}>
+      <Transition {...createStepperTransition()}>
         {steps()[context.currentIndex]?.ref()()}
       </Transition>
     </Polymorphic>

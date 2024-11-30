@@ -10,6 +10,7 @@ import { cn } from "@src/utils/css";
 
 import { Cursor } from "../cursor";
 import type { OtpFieldInputProps, OtpFieldRootProps } from "./otp-field.props";
+import { createSlotTransition } from "./transition";
 
 export const OtpFieldRoot = <T extends ValidComponent = "div">(props: DynamicProps<T, OtpFieldRootProps<T>>) => {
   const [local, others] = splitProps(props as OtpFieldRootProps, ["class"]);
@@ -46,51 +47,7 @@ export const OtpFieldSlot: Component<ComponentProps<"div"> & { index: number }> 
       )}
       {...others}
     >
-      <Transition
-        onEnter={(el, done) => {
-          const a = el.animate(
-            [
-              {
-                scale: 0,
-                opacity: 0,
-                transform: "translateY(100%)",
-              },
-              {
-                scale: 1,
-                opacity: 1,
-                transform: "translateY(0%)",
-              },
-            ],
-            {
-              duration: context.value() ? (showCursor() ? 0 : 300) : 0,
-              easing: "cubic-bezier(0.68,-0.55,0.27,1.55)",
-            },
-          );
-          a.finished.then(done);
-        }}
-        onExit={(el, done) => {
-          const a = el.animate(
-            [
-              {
-                scale: 1,
-                opacity: 1,
-                transform: "translateY(0%)",
-              },
-              {
-                scale: 0,
-                opacity: 0,
-                transform: "translateY(100%)",
-              },
-            ],
-            {
-              duration: context.value() ? (showCursor() ? 300 : 0) : 300,
-              easing: "cubic-bezier(0.68,-0.55,0.27,1.55)",
-            },
-          );
-          a.finished.then(done);
-        }}
-        mode={showCursor() ? undefined : "outin"}
-      >
+      <Transition {...createSlotTransition(showCursor)}>
         <Show when={char()}>
           <span>{char()}</span>
         </Show>
