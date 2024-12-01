@@ -10,7 +10,7 @@ export default (): Partial<Config> => ({
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", { fontFeatureSettings: '"cv11"' }],
+        sans: ["Inter", { fontFeatureSettings: '"ss03", "cv06", "cv08", "cv11"' }],
       },
       animation: {
         flash: "flash 1s infinite",

@@ -13,8 +13,9 @@ export default createHandler((event) => (
           />
           <link rel="icon" href="/favicon.ico" type="image/x-icon" />
           <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-          <link rel="preconnect" href="https://rsms.me/" />
-          <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" />
           {assets}
         </head>
         <body class="overflow-x-hidden text-sm transition-colors" data-theme={event.locals.settings.theme}>
