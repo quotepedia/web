@@ -32,11 +32,6 @@ interface ImportMetaEnv {
   readonly VITE_API_URL: string;
 
   /**
-   * Private key used to encrypt sessions.
-   */
-  readonly VITE_SESSION_SECRET: string;
-
-  /**
    * Determines whether the cookies sent to browser should be
    * marked as [secure](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#block_access_to_your_cookies).
    */

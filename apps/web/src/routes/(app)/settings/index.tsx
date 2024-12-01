@@ -1,7 +1,7 @@
 import { Stack } from "@quotepedia/solid";
 import { SettingsAboutSection, SettingsAccountSection, SettingsAppearanceSection } from "~/widgets/settings";
 
-export default function SettingsRoute() {
+export default function () {
   return (
     <Stack.Vertical class="gap-6">
       <SettingsAccountSection />

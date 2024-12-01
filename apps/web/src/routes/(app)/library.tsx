@@ -1,16 +1,17 @@
 import type { RouteDefinition } from "@solidjs/router";
-import { createEnsureLoggedIn } from "~/shared/http";
+import { getIsLoggedIn } from "~/shared/http";
+import { protect } from "~/shared/router";
 
 export const route = {
-  preload: ({ location }) => {
-    createEnsureLoggedIn(location.pathname);
+  preload: () => {
+    getIsLoggedIn();
   },
   info: {
     title: () => "Library",
   },
 } satisfies RouteDefinition;
 
-export default function LibraryRoute() {
+export default protect(() => {
   return (
     <div class="space-y-6">
       <p>
@@ -80,4 +81,4 @@ export default function LibraryRoute() {
       </p>
     </div>
   );
-}
+});

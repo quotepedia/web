@@ -1,7 +1,7 @@
 import { action, redirect } from "@solidjs/router";
 
 import { client, serializeFormData } from "~/shared/api";
-import { resetSession, updateSession } from "~/shared/http";
+import { clearSession, updateSession } from "~/shared/http";
 
 import type { LoginForm, RegisterForm, UserPasswordResetForm } from "./types";
 
@@ -41,7 +41,7 @@ export const register = action(async (body: RegisterForm) => {
 export const unauthenticate = action(async () => {
   "use server";
 
-  await resetSession();
+  await clearSession();
 
   throw redirect("/");
 });

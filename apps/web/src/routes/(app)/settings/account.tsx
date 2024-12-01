@@ -1,13 +1,14 @@
 import { Stack } from "@quotepedia/solid";
 import type { RouteDefinition } from "@solidjs/router";
 import { getCurrentUser } from "~/entities/user";
-import { createEnsureLoggedIn } from "~/shared/http";
+import { getIsLoggedIn } from "~/shared/http";
 import { useI18n } from "~/shared/i18n";
+import { protect } from "~/shared/router";
 import { AccountInfoSection, AccountSecuritySection } from "~/widgets/account";
 
 export const route = {
-  preload: ({ location }) => {
-    createEnsureLoggedIn(location.pathname);
+  preload: () => {
+    getIsLoggedIn();
     getCurrentUser();
   },
   info: {
@@ -15,11 +16,11 @@ export const route = {
   },
 } satisfies RouteDefinition;
 
-export default function AccountRoute() {
+export default protect(() => {
   return (
     <Stack.Vertical class="gap-6">
       <AccountInfoSection />
       <AccountSecuritySection />
     </Stack.Vertical>
   );
-}
+});

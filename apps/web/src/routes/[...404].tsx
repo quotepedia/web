@@ -1,7 +1,6 @@
-import { Button, Container, Heading, Stack, Text } from "@quotepedia/solid";
+import { Button, Container, Heading, Lottie, Stack, Text } from "@quotepedia/solid";
 import { A, type RouteDefinition } from "@solidjs/router";
 import { LocaleSwitcher } from "~/features/change-locale";
-import { Lottie } from "@quotepedia/solid";
 import { useI18n } from "~/shared/i18n";
 
 const useTranslator = () => useI18n().t.routes[404];
@@ -12,7 +11,7 @@ export const route = {
   },
 } satisfies RouteDefinition;
 
-export default function Page() {
+export default function () {
   const t = useTranslator();
 
   return (

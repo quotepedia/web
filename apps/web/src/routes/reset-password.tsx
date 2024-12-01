@@ -1,17 +1,18 @@
 import type { RouteDefinition } from "@solidjs/router";
 import { ResetPasswordStepper } from "~/features/reset-password";
-import { createEnsureLoggedOut } from "~/shared/http";
+import { getIsLoggedIn } from "~/shared/http";
 import { useI18n } from "~/shared/i18n";
+import { guest } from "~/shared/router";
 
 export const route = {
-  preload: ({ location }) => {
-    createEnsureLoggedOut(location.pathname);
+  preload: () => {
+    getIsLoggedIn();
   },
   info: {
     title: () => useI18n().t.routes.resetPassword.title(),
   },
 } satisfies RouteDefinition;
 
-export default function ResetPasswordRoute() {
+export default guest(() => {
   return <ResetPasswordStepper />;
-}
+});

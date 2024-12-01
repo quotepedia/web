@@ -1,4 +1,4 @@
-import { Container, Fade } from "@quotepedia/solid";
+import { Container } from "@quotepedia/solid";
 import { cookieStorage, makePersisted } from "@solid-primitives/storage";
 import type { RouteSectionProps } from "@solidjs/router";
 import Resizable from "corvu/resizable";
@@ -7,7 +7,7 @@ import { makeBroadcastChannelSync } from "~/shared/utils/storage";
 import { DynamicBreadcrumbs } from "~/widgets/breadcrumbs";
 import { Aside } from "~/widgets/sidebar";
 
-export default function SidebarRouteSection(props: RouteSectionProps) {
+export default function (props: RouteSectionProps) {
   const [sizes, setSizes] = makePersisted(createSignal<number[]>([0.2, 0.8]), {
     storage: cookieStorage,
     name: "sidebar-sizes",
