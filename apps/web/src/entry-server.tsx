@@ -11,8 +11,8 @@ export default createHandler((event) => (
             name="viewport"
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, interactive-widget=resizes-content, viewport-fit=cover"
           />
-          <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
-          <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16 24x24 32x32 48x48" />
+          <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+          <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
           <link rel="preconnect" href="https://rsms.me/" />
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
           {assets}
