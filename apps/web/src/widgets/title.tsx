@@ -1,11 +1,11 @@
-import { Title } from "@solidjs/meta";
+import { Title as MetaTitle } from "@solidjs/meta";
 import { useCurrentMatches, useLocation } from "@solidjs/router";
 import { createEffect, createSignal } from "solid-js";
 import { capitalize } from "~/shared/utils/string/case";
 
-export const DEFAULT_APP_TITLE = capitalize(import.meta.env.APP_NAME)
+export const DEFAULT_APP_TITLE = capitalize(import.meta.env.APP_NAME);
 
-export const AppTitle = () => {
+export const Title = () => {
   const location = useLocation();
   const matches = useCurrentMatches();
 
@@ -16,5 +16,5 @@ export const AppTitle = () => {
     setTitle(match()?.route.info?.title() ?? DEFAULT_APP_TITLE);
   });
 
-  return <Title>{title()}</Title>;
+  return <MetaTitle>{title()}</MetaTitle>;
 };

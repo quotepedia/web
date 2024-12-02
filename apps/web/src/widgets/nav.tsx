@@ -5,7 +5,7 @@ import { Icon } from "solid-heroicons";
 import { chevronRight } from "solid-heroicons/solid-mini";
 import { createMemo, For, Show, type ComponentProps } from "solid-js";
 
-export const BreadcrumbRouteMatchItem = (props: { match: RouteMatch }) => {
+export const NavRouteMatch = (props: { match: RouteMatch }) => {
   const title = createMemo(() => props.match.route.info?.title?.());
   const match = useMatch(() => props.match.path);
   const current = () => Boolean(match());
@@ -26,14 +26,14 @@ export const BreadcrumbRouteMatchItem = (props: { match: RouteMatch }) => {
   );
 };
 
-export const DynamicBreadcrumbs = (props: ComponentProps<"nav">) => {
+export const Nav = (props: ComponentProps<"nav">) => {
   const matches = useCurrentMatches();
   const breadcrumbs = () => matches().filter((match) => match.route.info?.title);
 
   return (
     <Breadcrumbs separator={<Icon class="size-6" path={chevronRight} />} {...props}>
       <ol class="flex gap-1">
-        <For each={breadcrumbs()}>{(match) => <BreadcrumbRouteMatchItem match={match} />}</For>
+        <For each={breadcrumbs()}>{(match) => <NavRouteMatch match={match} />}</For>
       </ol>
     </Breadcrumbs>
   );

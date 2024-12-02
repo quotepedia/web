@@ -5,7 +5,7 @@ import { getCurrentUser } from "~/entities/user";
 import { formatStorageObject } from "~/shared/api";
 import { useI18n } from "~/shared/i18n";
 
-import { DEFAULT_APP_TITLE } from "../app-title";
+import { DEFAULT_APP_TITLE } from "../title";
 import { library, cog, telescope } from "./icons";
 import { Sidebar } from "./sidebar";
 

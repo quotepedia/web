@@ -1,7 +1,7 @@
 import type { RouteDefinition } from "@solidjs/router";
 import { useI18n } from "~/shared/i18n";
 import { protect } from "~/shared/router";
-import { AccountInfoSection, AccountSecuritySection } from "~/widgets/account";
+import { AccountInfoSection, AccountSecuritySection } from "~/widgets/settings";
 
 export const route = {
   info: {

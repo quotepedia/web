@@ -7,7 +7,7 @@ import { SessionExpirationObserver } from "~/entities/auth";
 import { I18nProvider } from "~/shared/i18n";
 import { SettingsProvider } from "~/shared/settings";
 import { ThemeProvider } from "~/shared/theme";
-import { AppTitle } from "~/widgets/app-title";
+import { Title } from "~/widgets/title";
 import "./app.css";
 
 export default function App() {
@@ -20,8 +20,8 @@ export default function App() {
               <ThemeProvider>
                 <Suspense>{props.children}</Suspense>
 
+                <Title />
                 <Toaster />
-                <AppTitle />
                 <SessionExpirationObserver />
               </ThemeProvider>
             </I18nProvider>

@@ -4,8 +4,8 @@ import type { RouteSectionProps } from "@solidjs/router";
 import Resizable from "corvu/resizable";
 import { createSignal } from "solid-js";
 import { makeBroadcastChannelSync } from "~/shared/utils/storage";
-import { DynamicBreadcrumbs } from "~/widgets/breadcrumbs";
-import { Aside } from "~/widgets/sidebar";
+import { Nav } from "~/widgets/nav";
+import { Aside } from "~/widgets/aside";
 
 export default function (props: RouteSectionProps) {
   const [sizes, setSizes] = makePersisted(createSignal<number[]>([0.2, 0.8]), {
@@ -40,7 +40,7 @@ export default function (props: RouteSectionProps) {
       </Resizable.Handle>
       <Resizable.Panel initialSize={sizes()[1]} minSize={0.2} class="max-xl:grow">
         <Container size="wide">
-          <DynamicBreadcrumbs class="mb-6" />
+          <Nav class="mb-6" />
 
           {props.children}
         </Container>
