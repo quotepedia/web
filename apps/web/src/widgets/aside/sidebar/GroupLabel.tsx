@@ -11,7 +11,7 @@ export const SidebarGroupLabel = (props: SidebarGroupLabelProps) => {
   return (
     <span
       class={cn(
-        "text-fg-muted w-full select-none self-start p-2 text-xs font-semibold leading-none max-xl:hidden",
+        "text-fg-muted w-full select-none self-start p-2 text-xs font-semibold leading-none max-lg:hidden",
         local.class,
       )}
       {...others}

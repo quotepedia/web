@@ -15,7 +15,7 @@ export const Aside = () => {
 
   return (
     <Sidebar>
-      <Sidebar.Group class="max-xl:basis-2/3">
+      <Sidebar.Group class="max-lg:basis-2/3">
         <Sidebar.GroupLabel>{DEFAULT_APP_TITLE}</Sidebar.GroupLabel>
         <Sidebar.Item href="/" end>
           <Sidebar.ItemIcon path={telescope} />
@@ -27,11 +27,11 @@ export const Aside = () => {
         </Sidebar.Item>
       </Sidebar.Group>
 
-      <Sidebar.Group class="max-xl:hidden">
+      <Sidebar.Group class="max-lg:hidden">
         <Sidebar.GroupLabel>Collections</Sidebar.GroupLabel>
       </Sidebar.Group>
 
-      <Sidebar.Group class="max-xl:basis-1/3 xl:mt-auto">
+      <Sidebar.Group class="max-lg:basis-1/3 lg:mt-auto">
         <Sidebar.Item href="/settings" class="group">
           <Show when={currentUser()} fallback={<Sidebar.ItemIcon path={cog} />}>
             {(user) => (

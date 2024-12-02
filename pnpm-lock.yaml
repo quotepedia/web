@@ -107,9 +107,6 @@ importers:
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.47)
-      corvu:
-        specifier: ^0.7.1
-        version: 0.7.1(solid-js@1.9.3)
       openapi-fetch:
         specifier: ^0.13.0
         version: 0.13.0

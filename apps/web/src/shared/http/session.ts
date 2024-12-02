@@ -13,6 +13,7 @@ export const getSession = async () => {
     name: "session",
     password: process.env.SESSION_SECRET,
     cookie: {
+      path: "/",
       secure: /true/i.test(import.meta.env.VITE_SECURE_COOKIES),
       sameSite: "lax",
     },

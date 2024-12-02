@@ -15,7 +15,7 @@ export type SidebarIconProps = IconProps & JSX.StylableSVGAttributes;
 
 export const SidebarItemIcon = <T extends ValidComponent>(props: PolymorphicProps<T, SidebarIconProps>) => {
   const [scopedProps, otherProps] = splitProps(props, ["class"]);
-  return <Polymorphic as={Icon} class={cn("size-6 xl:size-4", scopedProps.class)} {...otherProps} />;
+  return <Polymorphic as={Icon} class={cn("size-6 lg:size-4", scopedProps.class)} {...otherProps} />;
 };
 
 export default SidebarItemIcon;

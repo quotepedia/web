@@ -11,7 +11,7 @@ export const SidebarGroup = <T extends ValidComponent = "div">(props: Polymorphi
   return (
     <Polymorphic
       as="div"
-      class={cn("flex w-full max-xl:flex-row xl:flex xl:flex-col xl:gap-1", local.class)}
+      class={cn("flex w-full max-lg:flex-row lg:flex lg:flex-col lg:gap-1", local.class)}
       {...others}
     />
   );

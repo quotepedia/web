@@ -39,7 +39,6 @@
     "@solidjs/router": "^0.15.0",
     "@solidjs/start": "^1.0.10",
     "autoprefixer": "^10.4.20",
-    "corvu": "^0.7.1",
     "openapi-fetch": "^0.13.0",
     "openapi-typescript": "^7.4.2",
     "postcss": "^8.4.47",
