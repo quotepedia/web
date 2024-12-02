@@ -1,11 +1,7 @@
 import type { RouteDefinition } from "@solidjs/router";
-import { getIsLoggedIn } from "~/shared/http";
 import { protect } from "~/shared/router";
 
 export const route = {
-  preload: () => {
-    getIsLoggedIn();
-  },
   info: {
     title: () => "Library",
   },

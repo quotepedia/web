@@ -6,7 +6,7 @@ export const route = {
   },
 } satisfies RouteDefinition;
 
-export default function () {
+export default () => {
   return (
     <div class="space-y-6">
       <p>

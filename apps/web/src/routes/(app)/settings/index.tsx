@@ -1,12 +1,11 @@
-import { Stack } from "@quotepedia/solid";
 import { SettingsAboutSection, SettingsAccountSection, SettingsAppearanceSection } from "~/widgets/settings";
 
-export default function () {
+export default () => {
   return (
-    <Stack.Vertical class="gap-6">
+    <div class="space-y-6">
       <SettingsAccountSection />
       <SettingsAppearanceSection />
       <SettingsAboutSection />
-    </Stack.Vertical>
+    </div>
   );
-}
+};

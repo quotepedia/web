@@ -16,7 +16,7 @@ export default function (props: RouteSectionProps) {
       secure: /true/i.test(import.meta.env.VITE_SECURE_COOKIES),
       sameSite: "Lax",
     },
-    sync: makeBroadcastChannelSync(`sync-sidebar-sizes`),
+    sync: makeBroadcastChannelSync("sync-sidebar-sizes"),
   });
 
   return (

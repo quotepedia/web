@@ -7,6 +7,6 @@ export const route = {
   },
 } satisfies RouteDefinition;
 
-export default function (props: RouteSectionProps) {
+export default (props: RouteSectionProps) => {
   return props.children;
 }

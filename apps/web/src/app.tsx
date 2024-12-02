@@ -1,4 +1,3 @@
-import { Fade } from "@quotepedia/solid";
 import { MetaProvider } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
@@ -19,9 +18,7 @@ export default function App() {
           <SettingsProvider>
             <I18nProvider>
               <ThemeProvider>
-                <Suspense>
-                  <Fade>{props.children}</Fade>
-                </Suspense>
+                <Suspense>{props.children}</Suspense>
 
                 <Toaster />
                 <AppTitle />
