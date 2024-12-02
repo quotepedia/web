@@ -9,11 +9,11 @@ export const FADE_HIDDEN_PROPERTIES = {
   opacity: 0,
 };
 
-const animateExit = (element: Element, done: VoidFunction, options: number | KeyframeAnimationOptions) => {
+const animateExit = (element: Element, done: VoidFunction, options: KeyframeAnimationOptions) => {
   element.animate([FADE_SHOWN_PROPERTIES, FADE_HIDDEN_PROPERTIES], options).finished.then(done);
 };
 
-const animateEnter = (element: Element, done: VoidFunction, options: number | KeyframeAnimationOptions) => {
+const animateEnter = (element: Element, done: VoidFunction, options: KeyframeAnimationOptions) => {
   element.animate([FADE_HIDDEN_PROPERTIES, FADE_SHOWN_PROPERTIES], options).finished.then(done);
 };
 

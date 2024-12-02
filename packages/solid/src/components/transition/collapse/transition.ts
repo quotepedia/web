@@ -12,7 +12,7 @@ export const COLLAPSED_PROPERTIES = {
   borderBottomWidth: 0,
 };
 
-const animateExit = (element: Element, done: VoidFunction, options: number | KeyframeAnimationOptions) => {
+const animateExit = (element: Element, done: VoidFunction, options: KeyframeAnimationOptions) => {
   element
     .animate(
       [
@@ -26,7 +26,7 @@ const animateExit = (element: Element, done: VoidFunction, options: number | Key
     .finished.then(done);
 };
 
-const animateEnter = (element: Element, done: VoidFunction, options: number | KeyframeAnimationOptions) => {
+const animateEnter = (element: Element, done: VoidFunction, options: KeyframeAnimationOptions) => {
   element
     .animate(
       [
