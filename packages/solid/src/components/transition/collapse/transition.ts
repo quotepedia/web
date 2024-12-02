@@ -41,7 +41,7 @@ const animateEnter = (element: Element, done: VoidFunction, options: KeyframeAni
 };
 
 export const createCollapseTransition = (options: KeyframeAnimationOptions): TransitionProps => {
-  options = { easing: easing.easeOutQuart, duration: 300, ...options };
+  options = { easing: easing.easeOutQuart, duration: 150, ...options };
 
   return {
     mode: "outin",
