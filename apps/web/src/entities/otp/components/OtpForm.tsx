@@ -1,8 +1,7 @@
 import { createForm, FormError, FormProps, reset, submit, SubmitHandler } from "@modular-forms/solid";
 import { createEffect, createResource, createSignal, For, on, Show, splitProps, Suspense } from "solid-js";
 
-import { Heading, Link, OtpField, Stack, Text, TextField } from "@quotepedia/solid";
-import { Lottie } from "@quotepedia/solid";
+import { Collapse, Heading, Link, Lottie, OtpField, Stack, Text, TextField } from "@quotepedia/solid";
 import { useI18n } from "~/shared/i18n";
 
 import { sendOtp, verifyOtp } from "../api/cache";
@@ -86,7 +85,9 @@ export const OtpForm = (props: OtpStepProps) => {
                   <TextField.Input as={OtpField.Input} {...props} ref={setOtpInputRef} autofocus />
                   <For each={Array(OTP_LENGTH)}>{(_, index) => <OtpField.Slot index={index()} />}</For>
                 </OtpField>
-                <TextField.ErrorMessage class="mt-2">{field.error}</TextField.ErrorMessage>
+                <Collapse>
+                  <TextField.ErrorMessage>{field.error}</TextField.ErrorMessage>
+                </Collapse>
               </TextField>
             )}
           </Field>
