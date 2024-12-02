@@ -3,7 +3,7 @@ import { tv } from "tailwind-variants";
 export const styles = tv({
   slots: {
     wrapper: [
-      "flex min-h-8 w-full overflow-hidden rounded-lg border border-bg-secondary bg-bg-body text-sm leading-none",
+      "flex min-h-8 w-full overflow-hidden rounded-lg border border-bg-secondary bg-bg-body text-sm",
       "transition-[color,background-color,border-color] duration-75",
       "placeholder-fg-muted",
       "hover:border-bg-tertiary",

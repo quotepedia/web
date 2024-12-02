@@ -56,6 +56,11 @@ export const TextFieldDescription = <T extends ValidComponent = "div">(
 export const TextFieldErrorMessage = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, TextFieldErrorMessageProps<T>>,
 ) => {
-  const [styleProps, otherProps] = splitProps(props as TextFieldErrorMessageProps, ["class"]);
-  return <ErrorMessage class={styles().error(styleProps)} {...otherProps} />;
+  const [localProps, styleProps, otherProps] = splitProps(props as TextFieldErrorMessageProps, ["children"], ["class"]);
+
+  return (
+    <ErrorMessage {...otherProps}>
+      <p class={styles().error(styleProps)} {...localProps} />
+    </ErrorMessage>
+  );
 };

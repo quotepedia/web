@@ -1,4 +1,4 @@
-import type { ComponentProps, JSX, ValidComponent } from "solid-js";
+import type { ComponentProps, JSX, ParentProps, ValidComponent } from "solid-js";
 
 import type { ElementOf } from "@kobalte/core";
 import type {
@@ -28,4 +28,4 @@ export type TextFieldDescriptionProps<T extends ValidComponent | HTMLElement = H
   JSX.StylableSVGAttributes;
 
 export type TextFieldErrorMessageProps<T extends ValidComponent | HTMLElement = HTMLElement> = ErrorMessageProps<T> &
-  JSX.StylableSVGAttributes;
+  ParentProps<JSX.StylableSVGAttributes>;
