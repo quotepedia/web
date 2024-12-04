@@ -53,6 +53,9 @@ importers:
       '@solid-primitives/i18n':
         specifier: ^2.1.1
         version: 2.1.1(solid-js@1.9.3)
+      '@solid-primitives/media':
+        specifier: ^2.2.9
+        version: 2.2.9(solid-js@1.9.3)
       '@solid-primitives/range':
         specifier: ^0.1.18
         version: 0.1.18(solid-js@1.9.3)
