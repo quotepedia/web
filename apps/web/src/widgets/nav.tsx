@@ -46,7 +46,7 @@ export const CompactNavigation = () => {
 
   return (
     <Show when={breadcrumbs().length > 1} fallback={<Heading class="mb-4">{current()?.route.info?.title?.()}</Heading>}>
-      <nav class={"relative mb-8 flex text-base leading-none max-lg:-mx-4 max-lg:-mt-4"}>
+      <nav class="relative mb-8 flex text-base leading-none max-lg:-mx-4 max-lg:-mt-4">
         <Link as={A} href={previous()?.path} class="absolute inset-y-1/2 left-0 flex items-center justify-center">
           <Icon path={chevronLeft} class="size-8" />
           {previous()?.route.info?.title?.()}
