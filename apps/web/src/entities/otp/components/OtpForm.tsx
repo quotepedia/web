@@ -1,5 +1,6 @@
 import { createForm, FormError, FormProps, reset, submit, SubmitHandler } from "@modular-forms/solid";
-import { createEffect, createResource, createSignal, For, on, Show, splitProps, Suspense } from "solid-js";
+import { Repeat } from "@solid-primitives/range";
+import { createEffect, createResource, createSignal, on, Show, splitProps, Suspense } from "solid-js";
 
 import { Collapse, Heading, Link, Lottie, OtpField, Stack, Text, TextField } from "@quotepedia/solid";
 import { useI18n } from "~/shared/i18n";
@@ -83,7 +84,7 @@ export const OtpForm = (props: OtpStepProps) => {
               <TextField validationState={isCorrect() ? "valid" : field.error ? "invalid" : undefined}>
                 <OtpField maxLength={OTP_LENGTH} onComplete={() => submit(form)}>
                   <TextField.Input as={OtpField.Input} {...props} ref={setOtpInputRef} autofocus />
-                  <For each={Array(OTP_LENGTH)}>{(_, index) => <OtpField.Slot index={index()} />}</For>
+                  <Repeat times={OTP_LENGTH}>{(index) => <OtpField.Slot index={index} />}</Repeat>
                 </OtpField>
                 <Collapse>
                   <TextField.ErrorMessage>{field.error}</TextField.ErrorMessage>
