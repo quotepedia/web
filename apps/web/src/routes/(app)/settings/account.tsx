@@ -1,11 +1,11 @@
 import type { RouteDefinition } from "@solidjs/router";
-import { useI18n } from "~/shared/i18n";
+import { useMessage } from "~/shared/i18n";
 import { protect } from "~/shared/router";
 import { AccountInfoSection, AccountSecuritySection } from "~/widgets/settings";
 
 export const route = {
   info: {
-    title: () => useI18n().t.routes.settings.account.heading(),
+    title: () => useMessage("routes.settings.account.heading"),
   },
 } satisfies RouteDefinition;
 

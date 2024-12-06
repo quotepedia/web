@@ -3,7 +3,7 @@ import { Repeat } from "@solid-primitives/range";
 import { createEffect, createResource, createSignal, on, Show, splitProps, Suspense } from "solid-js";
 
 import { Collapse, Heading, Link, Lottie, OtpField, Stack, Text, TextField } from "@quotepedia/solid";
-import { useI18n } from "~/shared/i18n";
+import { useScopedTranslator } from "~/shared/i18n";
 
 import { sendOtp, verifyOtp } from "../api/cache";
 
@@ -20,8 +20,7 @@ export type OtpStepProps = Omit<FormProps<OtpFormData, undefined>, "of" | "child
 export const OtpForm = (props: OtpStepProps) => {
   const [scopedProps, otherProps] = splitProps(props, ["onSubmit"]);
 
-  const i18n = useI18n();
-  const t = i18n.t.components.forms.otp;
+  const t = useScopedTranslator("components.forms.otp");
 
   const [isCorrect, setIsCorrect] = createSignal(false);
   const [otpInputRef, setOtpInputRef] = createSignal<HTMLInputElement>();
@@ -68,10 +67,10 @@ export const OtpForm = (props: OtpStepProps) => {
       <Lottie path="/tgs/mailbox.json" class="size-24" />
 
       <Stack.Vertical>
-        <Heading>{t.heading()}</Heading>
+        <Heading>{t("heading")}</Heading>
         <Text>
-          <Suspense fallback={t.sending()}>
-            <Show when={resourse()}>{t.sent()}</Show>
+          <Suspense fallback={t("sending")}>
+            <Show when={resourse()}>{t("sent")}</Show>
           </Suspense>{" "}
           <Link href={`mailto:${props.recipient}`}>{props.recipient}</Link>
         </Text>
@@ -94,7 +93,7 @@ export const OtpForm = (props: OtpStepProps) => {
           </Field>
 
           <Link as={"button"} type="reset" class="text-xs" onClick={resend}>
-            {t.resend()}
+            {t("resend")}
           </Link>
         </Stack.Vertical>
       </Form>

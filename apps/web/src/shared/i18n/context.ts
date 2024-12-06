@@ -1,31 +1,21 @@
-import { type Accessor, createContext, useContext } from "solid-js";
-import type { Locale, LocalizedTranslator } from "./types";
+import {
+  scopedTranslator,
+  type BaseTemplateArgs,
+  type Scoped,
+  type Scopes,
+  type Translator,
+} from "@solid-primitives/i18n";
+import { createContext, useContext, type Accessor } from "solid-js";
+import type { Dictionary, Locale } from "./types";
 
 export type I18nContextValue = {
-  /**
-   * The [BCP47](https://www.ietf.org/rfc/bcp/bcp47.txt) language code for the user.
-   */
+  t: Translator<Dictionary>;
   locale: Accessor<Locale>;
-
-  /**
-   * Sets the locale for the client.
-   *
-   * @param locale The locale to set.
-   */
   setLocale: (locale: Locale) => void;
-
-  /**
-   * Determines whether the locale is currently changing.
-   */
   isSettingLocale: Accessor<boolean>;
-
-  /**
-   * Provides access to a dictionary translated to the specified locale.
-   */
-  t: LocalizedTranslator;
 };
 
-export const I18nContext = createContext<I18nContextValue>({} as I18nContextValue);
+export const I18nContext = createContext<I18nContextValue>();
 
 export const useI18n = () => {
   const context = useContext(I18nContext);
@@ -35,4 +25,18 @@ export const useI18n = () => {
   }
 
   return context;
+};
+
+export const useTranslator = (): Translator<Dictionary> => {
+  return useI18n().t;
+};
+
+export const useScopedTranslator = <S extends Scopes<keyof Dictionary>>(
+  scope: S,
+): Translator<Scoped<Dictionary, S>> => {
+  return scopedTranslator(useTranslator(), scope);
+};
+
+export const useMessage = (path: keyof Dictionary, args: BaseTemplateArgs | undefined = undefined) => {
+  return useTranslator()(path, args);
 };

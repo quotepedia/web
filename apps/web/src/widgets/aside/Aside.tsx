@@ -3,14 +3,14 @@ import { createAsync } from "@solidjs/router";
 import { Show } from "solid-js";
 import { getCurrentUser } from "~/entities/user";
 import { formatStorageObject } from "~/shared/api";
-import { useI18n } from "~/shared/i18n";
+import { useTranslator } from "~/shared/i18n";
 
 import { DEFAULT_APP_TITLE } from "../title";
-import { library, cog, telescope } from "./icons";
+import { cog, library, telescope } from "./icons";
 import { Sidebar } from "./sidebar";
 
 export const Aside = () => {
-  const i18n = useI18n();
+  const t = useTranslator();
   const currentUser = createAsync(() => getCurrentUser());
 
   return (
@@ -40,7 +40,7 @@ export const Aside = () => {
               </Sidebar.ItemIcon>
             )}
           </Show>
-          <Sidebar.ItemLabel>{i18n.t.routes.settings.heading()}</Sidebar.ItemLabel>
+          <Sidebar.ItemLabel>{t("routes.settings.heading")}</Sidebar.ItemLabel>
         </Sidebar.Item>
       </Sidebar.Group>
     </Sidebar>

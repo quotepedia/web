@@ -1,14 +1,12 @@
 import { SubmitHandler } from "@modular-forms/solid";
-import { Button, Heading, Stack, Stepper, Text } from "@quotepedia/solid";
+import { Button, Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
 import { EmailFormData, RegisteredEmailForm } from "~/entities/user";
-import { Lottie } from "@quotepedia/solid";
-import { useI18n } from "~/shared/i18n";
+import { useScopedTranslator } from "~/shared/i18n";
 import { useResetPassword } from "../context";
 
 export const EmailFormStep = () => {
-  const i18n = useI18n();
-  const t = i18n.t.components.resetPassword.steps.email;
+  const t = useScopedTranslator("components.resetPassword.steps.email");
 
   const stepper = Stepper.useContext();
   const context = useResetPassword();
@@ -24,14 +22,14 @@ export const EmailFormStep = () => {
         <Lottie path="/tgs/envelope.json" class="size-24" />
 
         <Stack.Vertical class="text-center">
-          <Heading>{t.heading()}</Heading>
-          <Text>{t.description()}</Text>
+          <Heading>{t("heading")}</Heading>
+          <Text>{t("description")}</Text>
         </Stack.Vertical>
 
         <Stack.Vertical>
           <RegisteredEmailForm onSubmit={onSubmit} />
           <Button as={A} href="/login" class="w-full">
-            {t.login()}
+            {t("login")}
           </Button>
         </Stack.Vertical>
       </Stack.Vertical>

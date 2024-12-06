@@ -1,14 +1,12 @@
 import { SubmitHandler } from "@modular-forms/solid";
-import { Heading, Stack, Stepper, Text } from "@quotepedia/solid";
+import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
 import { PasswordForm, PasswordFormData, updateCurrentUserPassword } from "~/entities/user";
-import { Lottie } from "@quotepedia/solid";
-import { useI18n } from "~/shared/i18n";
+import { useScopedTranslator } from "~/shared/i18n";
 
 export const NewPasswordFormStep = () => {
-  const i18n = useI18n();
-  const t = i18n.t.components.changePassword.steps.password;
+  const t = useScopedTranslator("components.changePassword.steps.password");
 
   const stepper = Stepper.useContext();
 
@@ -30,8 +28,8 @@ export const NewPasswordFormStep = () => {
         <Lottie path="/tgs/key.json" class="size-24" />
 
         <Stack.Vertical class="text-center">
-          <Heading>{t.heading()}</Heading>
-          <Text>{t.description()}</Text>
+          <Heading>{t("heading")}</Heading>
+          <Text>{t("description")}</Text>
         </Stack.Vertical>
 
         <PasswordForm onSubmit={onSubmit} />

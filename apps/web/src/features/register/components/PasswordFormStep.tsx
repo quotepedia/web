@@ -2,17 +2,15 @@ import { SubmitHandler } from "@modular-forms/solid";
 import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
 
-import { Heading, Stack, Stepper, Text } from "@quotepedia/solid";
+import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { register } from "~/entities/auth";
 import { PasswordForm, PasswordFormData } from "~/entities/user";
-import { Lottie } from "@quotepedia/solid";
-import { useI18n } from "~/shared/i18n";
 
+import { useScopedTranslator } from "~/shared/i18n";
 import { useRegistration } from "../context";
 
 export const PasswordFormStep = () => {
-  const i18n = useI18n();
-  const t = i18n.t.components.registration.steps.password;
+  const t = useScopedTranslator("components.registration.steps.password");
 
   const context = useRegistration();
   const signup = useAction(register);
@@ -33,8 +31,8 @@ export const PasswordFormStep = () => {
         <Lottie path="/tgs/key.json" class="size-24 self-center" />
 
         <Stack.Vertical class="text-center">
-          <Heading>{t.heading()}</Heading>
-          <Text>{t.description()}</Text>
+          <Heading>{t("heading")}</Heading>
+          <Text>{t("description")}</Text>
         </Stack.Vertical>
 
         <PasswordForm onSubmit={onSubmit} />

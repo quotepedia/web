@@ -1,13 +1,11 @@
 import { SubmitHandler } from "@modular-forms/solid";
-import { Heading, Stack, Stepper, Text } from "@quotepedia/solid";
+import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { EmailFormData, UnregisteredEmailForm } from "~/entities/user";
-import { Lottie } from "@quotepedia/solid";
-import { useI18n } from "~/shared/i18n";
+import { useScopedTranslator } from "~/shared/i18n";
 import { useUpdateEmail } from "../context";
 
 export const NewEmailFormStep = () => {
-  const i18n = useI18n();
-  const t = i18n.t.components.changeEmail.steps.email;
+  const t = useScopedTranslator("components.changeEmail.steps.email");
 
   const stepper = Stepper.useContext();
   const context = useUpdateEmail();
@@ -23,8 +21,8 @@ export const NewEmailFormStep = () => {
         <Lottie path="/tgs/envelope.json" class="size-24" />
 
         <Stack.Vertical class="text-center">
-          <Heading>{t.heading()}</Heading>
-          <Text>{t.description()}</Text>
+          <Heading>{t("heading")}</Heading>
+          <Text>{t("description")}</Text>
         </Stack.Vertical>
 
         <UnregisteredEmailForm onSubmit={onSubmit} />

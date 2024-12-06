@@ -5,10 +5,10 @@ import { createEffect, createSignal, on, ParentComponent } from "solid-js";
 import { toast } from "solid-sonner";
 import { getCurrentUser } from "~/entities/user";
 import { getIsLoggedIn, getSessionExpirationDate } from "~/shared/http";
-import { useI18n } from "~/shared/i18n";
+import { useScopedTranslator } from "~/shared/i18n";
 
 export const SessionExpirationObserver: ParentComponent = (props) => {
-  const i18n = useI18n();
+  const t = useScopedTranslator("components.sessionExpirationObserver");
 
   const isLoggedIn = createAsync(() => getIsLoggedIn(), { deferStream: true });
   const sessionExpirationDate = createAsync(() => getSessionExpirationDate(), { deferStream: true });
@@ -40,7 +40,7 @@ export const SessionExpirationObserver: ParentComponent = (props) => {
 
   const toastSessionExpired = (): void => {
     if (isLoggedIn() === false) {
-      toast.info(i18n.t.components.sessionExpirationObserver.expired());
+      toast.info(t("expired"));
     }
   };
 

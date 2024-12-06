@@ -1,15 +1,9 @@
-import { proxyTranslator, resolveTemplate, translator } from "@solid-primitives/i18n";
-import { createResource } from "solid-js";
-import type { Locale, LocalizedTranslator } from "./types";
-import { getLocalizedDictionary } from "./dict";
+import { resolveTemplate, translator, type Translator } from "@solid-primitives/i18n";
+import { createResource, type Accessor } from "solid-js";
+import { fetchDictionary } from "./dict";
+import type { Dictionary, Locale } from "./types";
 
-/**
- * Creates a translator based on the provided locale.
- * @param locale A function that returns the current locale.
- * @returns A proxy translator function.
- */
-export function createTranslator(locale: () => Locale): LocalizedTranslator {
-  const [dict] = createResource(locale, getLocalizedDictionary);
-  const t = translator(() => dict()!, resolveTemplate);
-  return proxyTranslator(t);
+export function createTranslator(locale: Accessor<Locale>): Translator<Dictionary> {
+  const [dict] = createResource(locale, fetchDictionary);
+  return translator(() => dict()!, resolveTemplate);
 }

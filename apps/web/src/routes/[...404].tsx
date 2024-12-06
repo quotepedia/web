@@ -1,31 +1,29 @@
 import { Button, Container, Heading, Lottie, Stack, Text } from "@quotepedia/solid";
 import { A, type RouteDefinition } from "@solidjs/router";
 import { LocaleSwitcher } from "~/features/change-locale";
-import { useI18n } from "~/shared/i18n";
-
-const useTranslator = () => useI18n().t.routes[404];
+import { useMessage, useScopedTranslator } from "~/shared/i18n";
 
 export const route = {
   info: {
-    title: () => useTranslator().title(),
+    title: () => useMessage("routes.404.title"),
   },
 } satisfies RouteDefinition;
 
 export default function () {
-  const t = useTranslator();
+  const t = useScopedTranslator("routes.404");
 
   return (
     <Container class="self-center">
       <Stack.Vertical class="gap-6">
         <Lottie path="/tgs/eyes.json" class="size-24" />
         <Stack.Vertical class="text-center">
-          <Heading>{t.heading()}</Heading>
-          <Text variant="muted">{t.description()}</Text>
+          <Heading>{t("heading")}</Heading>
+          <Text variant="muted">{t("description")}</Text>
         </Stack.Vertical>
         <Stack.Horizontal>
           <LocaleSwitcher />
           <Button as={A} href="/" color="primary">
-            {t.home()}
+            {t("home")}
           </Button>
         </Stack.Horizontal>
       </Stack.Vertical>

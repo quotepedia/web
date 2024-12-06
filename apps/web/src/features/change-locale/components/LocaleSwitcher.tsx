@@ -2,7 +2,7 @@ import { Button, Select } from "@quotepedia/solid";
 import { Icon } from "solid-heroicons";
 import { check, chevronUpDown } from "solid-heroicons/solid-mini";
 import { type Component } from "solid-js";
-import { CULTURES, Locale, useI18n } from "~/shared/i18n";
+import { Locale, LOCALES, useI18n } from "~/shared/i18n";
 
 export const LocaleSwitcher: Component = () => {
   const i18n = useI18n();
@@ -13,7 +13,7 @@ export const LocaleSwitcher: Component = () => {
   return (
     <Select
       gutter={1}
-      options={[...Object.keys(CULTURES)]}
+      options={[...LOCALES]}
       defaultValue={i18n.locale()}
       value={i18n.locale()}
       onChange={(value) => value && i18n.setLocale(value)}

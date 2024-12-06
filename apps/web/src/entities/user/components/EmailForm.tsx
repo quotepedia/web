@@ -1,7 +1,7 @@
 import { createForm, email, FormError, FormProps, required, SubmitHandler } from "@modular-forms/solid";
 import { Button, FormControl, Stack } from "@quotepedia/solid";
 import { splitProps } from "solid-js";
-import { useI18n } from "~/shared/i18n";
+import { useScopedTranslator } from "~/shared/i18n";
 import { getUserExists } from "../api/cache";
 
 export type EmailFormData = {
@@ -11,22 +11,21 @@ export type EmailFormData = {
 export type EmailFormProps = Omit<FormProps<EmailFormData, undefined>, "of" | "children">;
 
 export const EmailForm = (props: EmailFormProps) => {
-  const i18n = useI18n();
-  const t = i18n.t.components.forms.email;
+  const t = useScopedTranslator("components.forms.email");
 
   const [form, { Form, Field }] = createForm<EmailFormData>({ validateOn: "input" });
 
   return (
     <Form {...props} class="w-full">
       <Stack.Vertical as={"fieldset"} class="items-stretch gap-4" disabled={form.submitting}>
-        <Field name="email" validate={[required(t.required()), email(t.invalid())]}>
+        <Field name="email" validate={[required(t("required")), email(t("invalid"))]}>
           {(field, props) => (
             <FormControl
               {...props}
               type="email"
-              label={t.label()}
-              description={t.description()}
-              placeholder={t.placeholder()}
+              label={t("label")}
+              description={t("description")}
+              placeholder={t("placeholder")}
               value={field.value}
               error={field.error}
               required
@@ -41,7 +40,7 @@ export const EmailForm = (props: EmailFormProps) => {
           aria-busy={form.submitting}
           disabled={form.invalid || !form.dirty}
         >
-          {t.submit()}
+          {t("submit")}
         </Button>
       </Stack.Vertical>
     </Form>
@@ -53,12 +52,11 @@ export type RegisteredEmailFormProps = EmailFormProps;
 export const RegisteredEmailForm = (props: RegisteredEmailFormProps) => {
   const [scopedProps, otherProps] = splitProps(props, ["onSubmit"]);
 
-  const i18n = useI18n();
-  const t = i18n.t.components.forms.email;
+  const t = useScopedTranslator("components.forms.email");
 
   const onSubmit: SubmitHandler<EmailFormData> = async (values, event) => {
     if (!(await getUserExists(values.email))) {
-      throw new FormError<EmailFormData>({ email: t.unregistered() });
+      throw new FormError<EmailFormData>({ email: t("unregistered") });
     }
     await scopedProps.onSubmit?.(values, event);
   };
@@ -71,12 +69,11 @@ export type UnregisteredEmailFormProps = EmailFormProps;
 export const UnregisteredEmailForm = (props: UnregisteredEmailFormProps) => {
   const [scopedProps, otherProps] = splitProps(props, ["onSubmit"]);
 
-  const i18n = useI18n();
-  const t = i18n.t.components.forms.email;
+  const t = useScopedTranslator("components.forms.email");
 
   const onSubmit: SubmitHandler<EmailFormData> = async (values, event) => {
     if (await getUserExists(values.email)) {
-      throw new FormError<EmailFormData>({ email: t.registered() });
+      throw new FormError<EmailFormData>({ email: t("registered") });
     }
     await scopedProps.onSubmit?.(values, event);
   };

@@ -7,15 +7,14 @@ import { Component, createSignal, Show } from "solid-js";
 import { toast } from "solid-sonner";
 import { removeCurrentUserAvatar, updateCurrentUserAvatar } from "~/entities/user";
 import { type components, formatStorageObject } from "~/shared/api";
-import { useI18n } from "~/shared/i18n";
+import { useScopedTranslator } from "~/shared/i18n";
 
 export type AvatarEditProps = {
   user: components["schemas"]["CurrentUserResponse"];
 };
 
 export const AvatarEdit: Component<AvatarEditProps> = (props) => {
-  const i18n = useI18n();
-  const t = i18n.t.components.avatarEdit;
+  const t = useScopedTranslator("components.avatarEdit");
 
   const updateAvatar = useAction(updateCurrentUserAvatar);
   const updatingAvatar = useSubmission(updateCurrentUserAvatar);
@@ -45,7 +44,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
           />
           <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/50 font-semibold text-white opacity-0 transition-opacity hover:opacity-100">
             <Icon path={camera} class="size-8" />
-            <span>{t.update()}</span>
+            <span>{t("update")}</span>
           </div>
         </Dropdown.Trigger>
         <Dropdown.Content>
@@ -54,7 +53,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
               <>
                 <Dropdown.Item onSelect={() => window.open(formatStorageObject(avatar_url()), "_blank")}>
                   <Icon path={arrowTopRightOnSquare} class="size-4" />
-                  <Dropdown.ItemLabel>{t.dropdown.open()}</Dropdown.ItemLabel>
+                  <Dropdown.ItemLabel>{t("dropdown.open")}</Dropdown.ItemLabel>
                 </Dropdown.Item>
                 <Separator orientation="horizontal" class="my-0.5" />
               </>
@@ -62,7 +61,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
           </Show>
           <Dropdown.Item onSelect={selectAvatar} disabled={updatingAvatar.pending}>
             <Icon path={arrowUpTray} class="size-4" />
-            <Dropdown.ItemLabel>{t.dropdown.select()}</Dropdown.ItemLabel>
+            <Dropdown.ItemLabel>{t("dropdown.select")}</Dropdown.ItemLabel>
           </Dropdown.Item>
           <Dropdown.Item
             class="text-red-600"
@@ -70,7 +69,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             disabled={!props.user.avatar_url || removingAvatar.pending}
           >
             <Icon path={trash} class="size-4" />
-            <Dropdown.ItemLabel>{t.dropdown.remove()}</Dropdown.ItemLabel>
+            <Dropdown.ItemLabel>{t("dropdown.remove")}</Dropdown.ItemLabel>
           </Dropdown.Item>
         </Dropdown.Content>
       </Dropdown>
@@ -80,21 +79,21 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
           <Dialog open={isRemoveAvatarConfirmOpen()} onOpenChange={setIsRemoveAvatarConfirmOpen}>
             <Dialog.Body>
               <Dialog.Header>
-                <Dialog.Title>{t.confirm.title()}</Dialog.Title>
+                <Dialog.Title>{t("confirm.title")}</Dialog.Title>
                 <Dialog.Dismiss />
               </Dialog.Header>
               <Stack.Vertical>
                 <Avatar>
                   <Avatar.Img src={formatStorageObject(avatar_url())} alt={props.user.email} />
                 </Avatar>
-                <Dialog.Description class="text-center">{t.confirm.description()}</Dialog.Description>
+                <Dialog.Description class="text-center">{t("confirm.description")}</Dialog.Description>
               </Stack.Vertical>
               <Dialog.Footer>
                 <Dialog.Close as={Button} class="w-full">
-                  {t.confirm.close()}
+                  {t("confirm.close")}
                 </Dialog.Close>
                 <Dialog.Close as={Button} onClick={removeAvatar} color="danger" class="w-full">
-                  {t.confirm.remove()}
+                  {t("confirm.remove")}
                 </Dialog.Close>
               </Dialog.Footer>
             </Dialog.Body>

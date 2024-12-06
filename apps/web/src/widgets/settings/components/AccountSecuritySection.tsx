@@ -7,11 +7,10 @@ import { unauthenticate } from "~/entities/auth";
 import { getCurrentUser } from "~/entities/user";
 import { UpdateEmailStepper } from "~/features/update-email";
 import { UpdatePasswordStepper } from "~/features/update-password";
-import { useI18n } from "~/shared/i18n";
+import { useScopedTranslator } from "~/shared/i18n";
 
 export const AccountSecuritySection = () => {
-  const i18n = useI18n();
-  const t = i18n.t.routes.settings.account.sections.security;
+  const t = useScopedTranslator("routes.settings.account.sections.security");
 
   const currentUser = createAsync(() => getCurrentUser());
 
@@ -22,7 +21,7 @@ export const AccountSecuritySection = () => {
       {(user) => (
         <Stack.Vertical class="items-start gap-3">
           <Heading size="subheading" as="h2">
-            {t.heading()}
+            {t("heading")}
           </Heading>
 
           <SettingsGroup>
@@ -30,15 +29,15 @@ export const AccountSecuritySection = () => {
               <SettingsCard as={Dialog.Trigger} variant="hover">
                 <Icon path={envelopeOpen} class="size-4" />
                 <SettingsCard.HeaderGroup>
-                  <SettingsCard.Header>{t.cards.email.heading()}</SettingsCard.Header>
-                  <SettingsCard.Description>{t.cards.email.description()}</SettingsCard.Description>
+                  <SettingsCard.Header>{t("cards.email.heading")}</SettingsCard.Header>
+                  <SettingsCard.Description>{t("cards.email.description")}</SettingsCard.Description>
                 </SettingsCard.HeaderGroup>
                 <SettingsCard.Value>{user().email}</SettingsCard.Value>
                 <Icon path={chevronRight} class="text-fg-muted size-4" />
               </SettingsCard>
               <Dialog.Body>
                 <Dialog.Header>
-                  <Dialog.Title>{t.cards.email.update()}</Dialog.Title>
+                  <Dialog.Title>{t("cards.email.update")}</Dialog.Title>
                   <Dialog.Dismiss />
                 </Dialog.Header>
                 <UpdateEmailStepper />
@@ -49,14 +48,14 @@ export const AccountSecuritySection = () => {
               <SettingsCard as={Dialog.Trigger} variant="hover">
                 <Icon path={key} class="size-4" />
                 <SettingsCard.HeaderGroup>
-                  <SettingsCard.Header>{t.cards.password.heading()}</SettingsCard.Header>
-                  <SettingsCard.Description>{t.cards.password.description()}</SettingsCard.Description>
+                  <SettingsCard.Header>{t("cards.password.heading")}</SettingsCard.Header>
+                  <SettingsCard.Description>{t("cards.password.description")}</SettingsCard.Description>
                 </SettingsCard.HeaderGroup>
                 <Icon path={chevronRight} class="text-fg-muted size-4" />
               </SettingsCard>
               <Dialog.Body>
                 <Dialog.Header>
-                  <Dialog.Title>{t.cards.password.update()}</Dialog.Title>
+                  <Dialog.Title>{t("cards.password.update")}</Dialog.Title>
                   <Dialog.Dismiss />
                 </Dialog.Header>
                 <UpdatePasswordStepper />
@@ -74,8 +73,8 @@ export const AccountSecuritySection = () => {
             >
               <Icon path={arrowRightOnRectangle} class="size-4 text-red-600" />
               <SettingsCard.HeaderGroup>
-                <SettingsCard.Header class="text-red-600">{t.cards.signout.heading()}</SettingsCard.Header>
-                <SettingsCard.Description>{t.cards.signout.description()}</SettingsCard.Description>
+                <SettingsCard.Header class="text-red-600">{t("cards.signout.heading")}</SettingsCard.Header>
+                <SettingsCard.Description>{t("cards.signout.description")}</SettingsCard.Description>
               </SettingsCard.HeaderGroup>
               <Icon path={chevronRight} class="text-fg-muted size-4" />
             </SettingsCard>

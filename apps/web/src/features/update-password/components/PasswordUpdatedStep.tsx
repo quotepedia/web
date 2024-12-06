@@ -1,12 +1,10 @@
-import { Button, Dialog, Heading, Stack, Stepper, Text } from "@quotepedia/solid";
+import { Button, Dialog, Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { Icon } from "solid-heroicons";
 import { arrowRight } from "solid-heroicons/solid-mini";
-import { Lottie } from "@quotepedia/solid";
-import { useI18n } from "~/shared/i18n";
+import { useScopedTranslator } from "~/shared/i18n";
 
 export const PasswordUpdatedStep = () => {
-  const i18n = useI18n();
-  const t = i18n.t.components.changePassword.steps.done;
+  const t = useScopedTranslator("components.changePassword.steps.done");
 
   return (
     <Stepper.Step>
@@ -14,8 +12,8 @@ export const PasswordUpdatedStep = () => {
         <Lottie path="/tgs/boomstick.json" class="size-24" />
 
         <Stack.Vertical>
-          <Heading>{t.heading()}</Heading>
-          <Text>{t.description()}</Text>
+          <Heading>{t("heading")}</Heading>
+          <Text>{t("description")}</Text>
 
           <Stack.Horizontal>
             <Text size="lg" variant="danger">
@@ -27,15 +25,15 @@ export const PasswordUpdatedStep = () => {
             </Text>
           </Stack.Horizontal>
 
-          <Text size="sm">{t.purpose()}</Text>
+          <Text size="sm">{t("purpose")}</Text>
 
           <Text size="sm" variant="muted">
-            {t.editable()}
+            {t("editable")}
           </Text>
         </Stack.Vertical>
 
         <Dialog.Close as={Button} color="primary" class="w-full">
-          {t.close()}
+          {t("close")}
         </Dialog.Close>
       </Stack.Vertical>
     </Stepper.Step>
