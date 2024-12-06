@@ -11,7 +11,7 @@ export const styles = tv({
     ],
     item: [
       "mx-0.5 flex cursor-default select-none items-center gap-2 rounded-md px-2 py-2 text-sm outline-none",
-      "transition-colors duration-0 active:hover:bg-bg-tertiary leading-none",
+      "transition-colors duration-0 active:bg-bg-tertiary leading-none",
       "data-[disabled]:pointer-events-none data-[highlighted]:bg-bg-secondary data-[disabled]:opacity-50",
     ],
   },

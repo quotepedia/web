@@ -9,7 +9,7 @@ export const styles = tv({
     "aria-busy:cursor-progress",
     "aria-disabled:pointer-events-none aria-disabled:opacity-75",
     "disabled:pointer-events-none disabled:opacity-75",
-    "transition-[opacity,box-shadow,outline-color,background-color] active:hover:duration-0",
+    "transition-[opacity,box-shadow,outline-color,background-color] active:duration-0",
   ],
   variants: {
     size: {
