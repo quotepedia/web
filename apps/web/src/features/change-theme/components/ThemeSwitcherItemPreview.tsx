@@ -11,13 +11,13 @@ export type ThemeSwitcherItemPreviewProps = {
 export const ThemeSwitcherItemPreview = (props: ThemeSwitcherItemPreviewProps) => {
   const [theme, setTheme] = createSignal<Theme>(props.value);
 
-  if (props.value === "system") {
-    const prefersDark = usePrefersDark();
+  createEffect(() => {
+    if (props.value === "system") {
+      const prefersDark = usePrefersDark();
 
-    createEffect(() => {
       setTheme(prefersDark() ? "dark" : "light");
-    });
-  }
+    }
+  });
 
   return (
     <div
