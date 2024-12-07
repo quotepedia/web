@@ -19,16 +19,16 @@ export const Aside = () => {
         <Sidebar.GroupLabel>{DEFAULT_APP_TITLE}</Sidebar.GroupLabel>
         <Sidebar.Item href="/" end>
           <Sidebar.ItemIcon path={telescope} />
-          <Sidebar.ItemLabel>Explore</Sidebar.ItemLabel>
+          <Sidebar.ItemLabel>{t("routes.explore.title")}</Sidebar.ItemLabel>
         </Sidebar.Item>
         <Sidebar.Item href="/library">
           <Sidebar.ItemIcon path={library} />
-          <Sidebar.ItemLabel>Library</Sidebar.ItemLabel>
+          <Sidebar.ItemLabel>{t("routes.library.title")}</Sidebar.ItemLabel>
         </Sidebar.Item>
       </Sidebar.Group>
 
       <Sidebar.Group class="max-lg:hidden">
-        <Sidebar.GroupLabel>Collections</Sidebar.GroupLabel>
+        <Sidebar.GroupLabel>{t("components.aside.collections")}</Sidebar.GroupLabel>
       </Sidebar.Group>
 
       <Sidebar.Group class="max-lg:basis-1/3 lg:mt-auto">

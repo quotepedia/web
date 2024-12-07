@@ -1,8 +1,9 @@
 import type { RouteDefinition } from "@solidjs/router";
+import { useMessage } from "~/shared/i18n";
 
 export const route = {
   info: {
-    title: () => "Explore",
+    title: () => useMessage("routes.explore.title"),
   },
 } satisfies RouteDefinition;
 

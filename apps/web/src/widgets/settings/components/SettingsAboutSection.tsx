@@ -2,7 +2,7 @@ import { Image } from "@kobalte/core/image";
 import { Heading, Separator, SettingsCard, SettingsExpander, SettingsGroup, Stack } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
 import { Icon } from "solid-heroicons";
-import { arrowTopRightOnSquare, chatBubbleOvalLeft, codeBracket, informationCircle } from "solid-heroicons/solid-mini";
+import { arrowTopRightOnSquare, chatBubbleOvalLeft, codeBracket, flag, informationCircle } from "solid-heroicons/solid-mini";
 import { useScopedTranslator } from "~/shared/i18n";
 
 export const SettingsAboutSection = () => {
@@ -32,10 +32,10 @@ export const SettingsAboutSection = () => {
           </SettingsExpander.Trigger>
           <SettingsExpander.Content>
             <SettingsCard variant="hover" as={A} href={import.meta.env.APP_BUGS_URL} target="_blank">
-              <Icon path={chatBubbleOvalLeft} class="size-4" />
+              <Icon path={flag} class="size-4" />
               <SettingsCard.HeaderGroup>
                 <SettingsCard.Header>{t("cards.app.feedback.heading")}</SettingsCard.Header>
-                <SettingsCard.Description>{t("cards.app.feedback.description")}</SettingsCard.Description>
+                <SettingsCard.Description>{import.meta.env.APP_BUGS_URL}</SettingsCard.Description>
               </SettingsCard.HeaderGroup>
               <Icon path={arrowTopRightOnSquare} class="text-fg-muted size-4" />
             </SettingsCard>
@@ -44,7 +44,7 @@ export const SettingsAboutSection = () => {
               <Icon path={codeBracket} class="size-4" />
               <SettingsCard.HeaderGroup>
                 <SettingsCard.Header>{t("cards.app.contribute.heading")}</SettingsCard.Header>
-                <SettingsCard.Description>{t("cards.app.contribute.description")}</SettingsCard.Description>
+                <SettingsCard.Description>{import.meta.env.APP_REPOSITORY_URL}</SettingsCard.Description>
               </SettingsCard.HeaderGroup>
               <Icon path={arrowTopRightOnSquare} class="text-fg-muted size-4" />
             </SettingsCard>
