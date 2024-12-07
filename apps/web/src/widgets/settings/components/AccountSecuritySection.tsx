@@ -1,12 +1,10 @@
-import { Dialog, Heading, SettingsCard, SettingsGroup, Stack } from "@quotepedia/solid";
-import { createAsync, useSubmission } from "@solidjs/router";
+import { Heading, SettingsCard, SettingsGroup, Stack } from "@quotepedia/solid";
+import { A, createAsync, useSubmission } from "@solidjs/router";
 import { Icon } from "solid-heroicons";
 import { arrowRightOnRectangle, chevronRight, envelopeOpen, key } from "solid-heroicons/solid-mini";
 import { Show } from "solid-js";
 import { unauthenticate } from "~/entities/auth";
 import { getCurrentUser } from "~/entities/user";
-import { UpdateEmailStepper } from "~/features/update-email";
-import { UpdatePasswordStepper } from "~/features/update-password";
 import { useScopedTranslator } from "~/shared/i18n";
 
 export const AccountSecuritySection = () => {
@@ -25,42 +23,24 @@ export const AccountSecuritySection = () => {
           </Heading>
 
           <SettingsGroup>
-            <Dialog>
-              <SettingsCard as={Dialog.Trigger} variant="hover">
-                <Icon path={envelopeOpen} class="size-4" />
-                <SettingsCard.HeaderGroup>
-                  <SettingsCard.Header>{t("cards.email.heading")}</SettingsCard.Header>
-                  <SettingsCard.Description>{t("cards.email.description")}</SettingsCard.Description>
-                </SettingsCard.HeaderGroup>
-                <SettingsCard.Value>{user().email}</SettingsCard.Value>
-                <Icon path={chevronRight} class="text-fg-muted size-4" />
-              </SettingsCard>
-              <Dialog.Body>
-                <Dialog.Header>
-                  <Dialog.Title>{t("cards.email.update")}</Dialog.Title>
-                  <Dialog.Dismiss />
-                </Dialog.Header>
-                <UpdateEmailStepper />
-              </Dialog.Body>
-            </Dialog>
+            <SettingsCard variant="hover" as={A} href="/settings/account/update-email">
+              <Icon path={envelopeOpen} class="size-4" />
+              <SettingsCard.HeaderGroup>
+                <SettingsCard.Header>{t("cards.email.heading")}</SettingsCard.Header>
+                <SettingsCard.Description>{t("cards.email.description")}</SettingsCard.Description>
+              </SettingsCard.HeaderGroup>
+              <SettingsCard.Value>{user().email}</SettingsCard.Value>
+              <Icon path={chevronRight} class="text-fg-muted size-4" />
+            </SettingsCard>
 
-            <Dialog>
-              <SettingsCard as={Dialog.Trigger} variant="hover">
-                <Icon path={key} class="size-4" />
-                <SettingsCard.HeaderGroup>
-                  <SettingsCard.Header>{t("cards.password.heading")}</SettingsCard.Header>
-                  <SettingsCard.Description>{t("cards.password.description")}</SettingsCard.Description>
-                </SettingsCard.HeaderGroup>
-                <Icon path={chevronRight} class="text-fg-muted size-4" />
-              </SettingsCard>
-              <Dialog.Body>
-                <Dialog.Header>
-                  <Dialog.Title>{t("cards.password.update")}</Dialog.Title>
-                  <Dialog.Dismiss />
-                </Dialog.Header>
-                <UpdatePasswordStepper />
-              </Dialog.Body>
-            </Dialog>
+            <SettingsCard variant="hover" as={A} href="/settings/account/update-password">
+              <Icon path={key} class="size-4" />
+              <SettingsCard.HeaderGroup>
+                <SettingsCard.Header>{t("cards.password.heading")}</SettingsCard.Header>
+                <SettingsCard.Description>{t("cards.password.description")}</SettingsCard.Description>
+              </SettingsCard.HeaderGroup>
+              <Icon path={chevronRight} class="text-fg-muted size-4" />
+            </SettingsCard>
           </SettingsGroup>
 
           <SettingsGroup as="form" action={unauthenticate} method="post">

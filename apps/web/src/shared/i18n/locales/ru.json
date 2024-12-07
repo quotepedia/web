@@ -25,6 +25,8 @@
   "routes.resetPassword.title": "Сброс пароля",
   "routes.explore.title": "Обзор",
   "routes.library.title": "Библиотека",
+  "routes.change-email.title": "Изменить адрес почты",
+  "routes.change-password.title": "Изменить пароль",
   "routes.settings.heading": "Настройки",
   "routes.settings.sections.account.heading": "Аккаунт",
   "routes.settings.sections.account.cards.account.heading": "Личное",

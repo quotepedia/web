@@ -1,4 +1,5 @@
-import { Button, Dialog, Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
+import { Button, Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
+import { A } from "@solidjs/router";
 import { Icon } from "solid-heroicons";
 import { arrowRight } from "solid-heroicons/solid-mini";
 import { useScopedTranslator } from "~/shared/i18n";
@@ -32,9 +33,9 @@ export const PasswordUpdatedStep = () => {
           </Text>
         </Stack.Vertical>
 
-        <Dialog.Close as={Button} color="primary" class="w-full">
+        <Button as={A} href="/settings/account" color="primary" class="w-full">
           {t("close")}
-        </Dialog.Close>
+        </Button>
       </Stack.Vertical>
     </Stepper.Step>
   );

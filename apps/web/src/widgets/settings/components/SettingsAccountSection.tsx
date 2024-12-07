@@ -18,7 +18,7 @@ export const SettingsAccountSection = () => {
       </Heading>
 
       <SettingsGroup>
-        <SettingsCard variant="hover" as={A} href={"/settings/account"}>
+        <SettingsCard variant="hover" as={A} href="/settings/account">
           <Show when={currentUser()} fallback={<Icon path={userCircle} class="size-4" />}>
             {(user) => (
               <Avatar class="size-4">

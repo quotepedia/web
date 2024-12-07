@@ -7,7 +7,7 @@ export default (props: RouteSectionProps) => {
   return (
     <main class="relative flex w-full max-lg:flex-col-reverse">
       <Aside />
-      <Container size="wide" class="max-lg:grow">
+      <Container size="wide" class="flex flex-col max-lg:grow">
         <Navigation />
         {props.children}
       </Container>

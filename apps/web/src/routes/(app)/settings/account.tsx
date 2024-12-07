@@ -1,7 +1,5 @@
-import type { RouteDefinition } from "@solidjs/router";
+import { type RouteDefinition, type RouteSectionProps } from "@solidjs/router";
 import { useMessage } from "~/shared/i18n";
-import { protect } from "~/shared/router";
-import { AccountInfoSection, AccountSecuritySection } from "~/widgets/settings";
 
 export const route = {
   info: {
@@ -9,11 +7,6 @@ export const route = {
   },
 } satisfies RouteDefinition;
 
-export default protect(() => {
-  return (
-    <div class="space-y-6">
-      <AccountInfoSection />
-      <AccountSecuritySection />
-    </div>
-  );
-});
+export default (props: RouteSectionProps) => {
+  return props.children;
+};

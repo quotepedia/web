@@ -25,6 +25,8 @@
   "routes.resetPassword.title": "Reset password",
   "routes.explore.title": "Explore",
   "routes.library.title": "Library",
+  "routes.change-email.title": "Change email address",
+  "routes.change-password.title": "Change password",
   "routes.settings.heading": "Settings",
   "routes.settings.sections.account.heading": "Account",
   "routes.settings.sections.account.cards.account.heading": "Personal",
