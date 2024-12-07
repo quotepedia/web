@@ -13,9 +13,9 @@ export const LocaleSwitcher: Component = () => {
   return (
     <Select
       gutter={1}
-      options={[...LOCALES]}
-      defaultValue={i18n.locale()}
+      options={Array.from(LOCALES)}
       value={i18n.locale()}
+      defaultValue={i18n.locale()}
       onChange={(value) => value && i18n.setLocale(value)}
       disallowEmptySelection={true}
       allowDuplicateSelectionEvents={false}
@@ -30,12 +30,12 @@ export const LocaleSwitcher: Component = () => {
         </Select.Item>
       )}
     >
-      <Button as={Select.Trigger} aria-busy={i18n.isSettingLocale()} disabled={i18n.isSettingLocale()}>
+      <Select.Trigger as={Button} aria-busy={i18n.isSettingLocale()} disabled={i18n.isSettingLocale()}>
         <Select.Value<Locale> class="capitalize">
           {(state) => getNativeLanguageName(state.selectedOption())}
         </Select.Value>
         <Icon path={chevronUpDown} class="size-4" />
-      </Button>
+      </Select.Trigger>
       <Select.Content inert={i18n.isSettingLocale()}>
         <Select.ListBox class="outline-none" />
       </Select.Content>
