@@ -32,7 +32,7 @@ export const StepperRoot: Component<StepperRootProps> = (props) => {
     });
   };
 
-  const context = {
+  const context: StepperContextValue = {
     steps,
     get length() {
       return length();
