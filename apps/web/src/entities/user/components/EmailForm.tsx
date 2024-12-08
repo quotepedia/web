@@ -29,6 +29,8 @@ export const EmailForm = (props: EmailFormProps) => {
               value={field.value}
               error={field.error}
               required
+              clearable
+              autofocus
             />
           )}
         </Field>

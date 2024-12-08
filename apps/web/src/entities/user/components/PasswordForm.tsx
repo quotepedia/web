@@ -46,6 +46,7 @@ export const PasswordForm = (props: PasswordFormProps) => {
               value={field.value}
               error={field.error}
               required
+              autofocus
             />
           )}
         </Field>
