@@ -47,6 +47,7 @@ export const UserLoginForm = () => {
                   value={field.value}
                   error={field.error}
                   required
+                  autofocus
                 />
               )}
             </Field>
