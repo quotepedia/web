@@ -10,9 +10,9 @@
     "cloc": "cloc . --exclude-dir=node_modules,dist,.vercel,.output,.vinxi --exclude-lang=YAML,MARKDOWN,SVG"
   },
   "devDependencies": {
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.10.2",
     "esbuild-plugin-solid": "^0.6.0",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "sort-package-json": "^2.12.0",
     "tsup": "^8.3.5",
