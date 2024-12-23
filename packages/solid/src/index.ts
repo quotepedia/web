@@ -6,6 +6,7 @@ export { Dialog } from "./components/dialog";
 export { Dropdown } from "./components/dropdown";
 export { FormControl } from "./components/form-control";
 export { Heading } from "./components/heading";
+export { Icon } from "./components/icon";
 export { Link } from "./components/link";
 export { OtpField } from "./components/otp-field";
 export { Select } from "./components/select";

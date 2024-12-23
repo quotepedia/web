@@ -1,7 +1,5 @@
-import { Button, Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
+import { Button, Heading, Lottie, Stack, Stepper, Text, Icon } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
-import { Icon } from "solid-heroicons";
-import { arrowRight } from "solid-heroicons/solid-mini";
 import { useScopedTranslator } from "~/shared/i18n";
 import { useUpdateEmail } from "../context";
 
@@ -23,7 +21,7 @@ export const EmailUpdatedStep = () => {
             <Text size="sm" variant="danger">
               {context.store.previousEmail}
             </Text>
-            <Icon class="text-fg-muted size-3.5" path={arrowRight} />
+            <Icon icon="heroicons:arrow-right-16-solid" class="text-fg-muted size-3.5" />
             <Text size="sm" variant="success">
               {context.store.email}
             </Text>

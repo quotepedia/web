@@ -1,7 +1,5 @@
-import { Heading, SettingsCard, SettingsGroup, Stack } from "@quotepedia/solid";
+import { Icon, Heading, SettingsCard, SettingsGroup, Stack } from "@quotepedia/solid";
 import { A, createAsync, useSubmission } from "@solidjs/router";
-import { Icon } from "solid-heroicons";
-import { arrowRightOnRectangle, chevronRight, envelopeOpen, key } from "solid-heroicons/solid-mini";
 import { Show } from "solid-js";
 import { unauthenticate } from "~/entities/auth";
 import { getCurrentUser } from "~/entities/user";
@@ -24,22 +22,22 @@ export const AccountSecuritySection = () => {
 
           <SettingsGroup>
             <SettingsCard variant="hover" as={A} href="/settings/account/update-email">
-              <Icon path={envelopeOpen} class="size-4" />
+              <Icon icon="heroicons:envelope-open-16-solid" class="size-4" />
               <SettingsCard.HeaderGroup>
                 <SettingsCard.Header>{t("cards.email.heading")}</SettingsCard.Header>
                 <SettingsCard.Description>{t("cards.email.description")}</SettingsCard.Description>
               </SettingsCard.HeaderGroup>
               <SettingsCard.Value>{user().email}</SettingsCard.Value>
-              <Icon path={chevronRight} class="text-fg-muted size-4" />
+              <Icon icon="heroicons:chevron-right-16-solid" class="text-fg-muted size-4" />
             </SettingsCard>
 
             <SettingsCard variant="hover" as={A} href="/settings/account/update-password">
-              <Icon path={key} class="size-4" />
+              <Icon icon="heroicons:key-16-solid" class="size-4" />
               <SettingsCard.HeaderGroup>
                 <SettingsCard.Header>{t("cards.password.heading")}</SettingsCard.Header>
                 <SettingsCard.Description>{t("cards.password.description")}</SettingsCard.Description>
               </SettingsCard.HeaderGroup>
-              <Icon path={chevronRight} class="text-fg-muted size-4" />
+              <Icon icon="heroicons:chevron-right-16-solid" class="text-fg-muted size-4" />
             </SettingsCard>
           </SettingsGroup>
 
@@ -51,12 +49,12 @@ export const AccountSecuritySection = () => {
               aria-busy={unauthenticating.pending}
               variant="hover"
             >
-              <Icon path={arrowRightOnRectangle} class="size-4 text-red-600" />
+              <Icon icon="heroicons:arrow-right-on-rectangle-20-solid" class="size-4 text-red-600" />
               <SettingsCard.HeaderGroup>
                 <SettingsCard.Header class="text-red-600">{t("cards.signout.heading")}</SettingsCard.Header>
                 <SettingsCard.Description>{t("cards.signout.description")}</SettingsCard.Description>
               </SettingsCard.HeaderGroup>
-              <Icon path={chevronRight} class="text-fg-muted size-4" />
+              <Icon icon="heroicons:chevron-right-16-solid" class="text-fg-muted size-4" />
             </SettingsCard>
           </SettingsGroup>
         </Stack.Vertical>

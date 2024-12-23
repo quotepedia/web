@@ -2,8 +2,7 @@ import { callEventHandler } from "@corvu/utils/dom";
 import { mergeRefs } from "@corvu/utils/reactivity";
 import { Button } from "@kobalte/core/button";
 import { createAutofocus } from "@src/utils/autofocus";
-import { Icon } from "solid-heroicons";
-import { eye, eyeSlash, xCircle } from "solid-heroicons/solid-mini";
+import { Icon } from "@src/index";
 import { createEffect, createSignal, mergeProps, Show, splitProps, type JSX } from "solid-js";
 import { TextField } from "../text-field";
 import { Collapse, Fade } from "../transition";
@@ -79,12 +78,15 @@ export function FormControl(props: TextFieldProps) {
             <div class="flex">
               <Show when={defaultedProps.type === "password"}>
                 <Button onClick={togglePasswordType} class={styles().button()}>
-                  <Icon path={type() === "password" ? eye : eyeSlash} class="size-4" />
+                  <Icon
+                    icon={type() === "password" ? "heroicons:eye-16-solid" : "heroicons:eye-slash-16-solid"}
+                    class="size-4"
+                  />
                 </Button>
               </Show>
               <Show when={defaultedProps.clearable}>
                 <Button onClick={clear} class={styles().button()}>
-                  <Icon path={xCircle} class="size-4" />
+                  <Icon icon="heroicons:x-circle-16-solid" class="size-4" />
                 </Button>
               </Show>
             </div>

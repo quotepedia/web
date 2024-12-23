@@ -1,6 +1,5 @@
 import { RadioGroup } from "@kobalte/core/radio-group";
-import { Icon } from "solid-heroicons";
-import { check } from "solid-heroicons/solid-mini";
+import { Icon } from "@quotepedia/solid";
 import { For, JSX } from "solid-js";
 import { TransitionGroup } from "solid-transition-group";
 import { useScopedTranslator } from "~/shared/i18n";
@@ -30,7 +29,7 @@ export const ThemeSwitcher = (props: ThemeSwitcherProps) => {
                     exitToClass="scale-0 opacity-0 -translate-x-full"
                     exitActiveClass="absolute transition-[transform,opacity]"
                   >
-                    <RadioGroup.ItemIndicator as={Icon} path={check} class="size-3 stroke-current" />
+                    <RadioGroup.ItemIndicator as={Icon} icon="heroicons:check-20-solid" class="size-3 stroke-current" />
                     <span class="select-none text-xs font-semibold leading-none">{t(theme)}</span>
                   </TransitionGroup>
                 </div>

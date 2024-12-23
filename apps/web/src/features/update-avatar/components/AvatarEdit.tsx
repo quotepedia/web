@@ -1,8 +1,6 @@
-import { Avatar, Button, Dialog, Dropdown, Separator, Stack } from "@quotepedia/solid";
+import { Icon, Avatar, Button, Dialog, Dropdown, Separator, Stack } from "@quotepedia/solid";
 import { createFileUploader } from "@solid-primitives/upload";
 import { useAction, useSubmission } from "@solidjs/router";
-import { Icon } from "solid-heroicons";
-import { arrowTopRightOnSquare, arrowUpTray, camera, trash } from "solid-heroicons/solid-mini";
 import { Component, createSignal, Show } from "solid-js";
 import { toast } from "solid-sonner";
 import { removeCurrentUserAvatar, updateCurrentUserAvatar } from "~/entities/user";
@@ -43,7 +41,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             alt={props.user.email}
           />
           <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/50 font-semibold text-white opacity-0 transition-opacity hover:opacity-100">
-            <Icon path={camera} class="size-8" />
+            <Icon icon="heroicons:camera-16-solid" class="size-8" />
             <span>{t("update")}</span>
           </div>
         </Dropdown.Trigger>
@@ -52,7 +50,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             {(avatar_url) => (
               <>
                 <Dropdown.Item onSelect={() => window.open(formatStorageObject(avatar_url()), "_blank")}>
-                  <Icon path={arrowTopRightOnSquare} class="size-4" />
+                  <Icon icon="heroicons:arrow-top-right-on-square-16-solid" class="size-4" />
                   <Dropdown.ItemLabel>{t("dropdown.open")}</Dropdown.ItemLabel>
                 </Dropdown.Item>
                 <Separator orientation="horizontal" class="my-0.5" />
@@ -60,7 +58,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             )}
           </Show>
           <Dropdown.Item onSelect={selectAvatar} disabled={updatingAvatar.pending}>
-            <Icon path={arrowUpTray} class="size-4" />
+            <Icon icon="heroicons:arrow-up-tray-16-solid" class="size-4" />
             <Dropdown.ItemLabel>{t("dropdown.select")}</Dropdown.ItemLabel>
           </Dropdown.Item>
           <Dropdown.Item
@@ -68,7 +66,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             onSelect={openRemoveAvatarConfirm}
             disabled={!props.user.avatar_url || removingAvatar.pending}
           >
-            <Icon path={trash} class="size-4" />
+            <Icon icon="heroicons:trash-16-solid" class="size-4" />
             <Dropdown.ItemLabel>{t("dropdown.remove")}</Dropdown.ItemLabel>
           </Dropdown.Item>
         </Dropdown.Content>

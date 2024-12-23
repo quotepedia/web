@@ -1,8 +1,8 @@
 import { splitProps } from "solid-js";
 
 import { Collapsible } from "@kobalte/core/collapsible";
+import { Icon } from "@src/components/icon";
 import { Separator } from "../../separator";
-import { chevronDown } from "solid-heroicons/solid-mini";
 
 import { cn } from "@src/utils/css";
 import { SettingsCard } from "../card";
@@ -12,7 +12,6 @@ import type {
   SettingsExpanderRootProps,
   SettingsExpanderTriggerProps,
 } from "./expander.props";
-import { Icon } from "solid-heroicons";
 
 export const SettingsExpanderRoot = (props: SettingsExpanderRootProps) => {
   const [local, others] = splitProps(props, ["class"]);
@@ -31,7 +30,7 @@ export const SettingsExpanderTrigger = (props: SettingsExpanderTriggerProps) => 
 
 export const SettingsExpanderIndicator = () => (
   <Icon
-    path={chevronDown}
+    icon="heroicons:chevron-down-16-solid"
     class={cn(
       "text-fg-muted size-4 transition-[transform,color]",
       "group-data-[expanded]/collapsible:[transform:rotateX(180deg)]",

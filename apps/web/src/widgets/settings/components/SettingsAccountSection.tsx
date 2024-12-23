@@ -1,7 +1,5 @@
-import { Avatar, Heading, SettingsCard, SettingsGroup, Stack } from "@quotepedia/solid";
+import { Icon, Avatar, Heading, SettingsCard, SettingsGroup, Stack } from "@quotepedia/solid";
 import { A, createAsync } from "@solidjs/router";
-import { Icon } from "solid-heroicons";
-import { chevronRight, userCircle } from "solid-heroicons/solid-mini";
 import { Show } from "solid-js";
 import { getCurrentUser } from "~/entities/user";
 import { formatStorageObject } from "~/shared/api";
@@ -19,7 +17,7 @@ export const SettingsAccountSection = () => {
 
       <SettingsGroup>
         <SettingsCard variant="hover" as={A} href="/settings/account">
-          <Show when={currentUser()} fallback={<Icon path={userCircle} class="size-4" />}>
+          <Show when={currentUser()} fallback={<Icon icon="heroicons:user-circle-16-solid" class="size-4" />}>
             {(user) => (
               <Avatar class="size-4">
                 <Avatar.Img src={user().avatar_url && formatStorageObject(user().avatar_url!)} alt={user().email} />
@@ -30,7 +28,7 @@ export const SettingsAccountSection = () => {
             <SettingsCard.Header>{t("cards.account.heading")}</SettingsCard.Header>
             <SettingsCard.Description>{t("cards.account.description")}</SettingsCard.Description>
           </SettingsCard.HeaderGroup>
-          <Icon path={chevronRight} class="text-fg-muted size-4" />
+          <Icon icon="heroicons:chevron-right-16-solid" class="text-fg-muted size-4" />
         </SettingsCard>
       </SettingsGroup>
     </Stack.Vertical>

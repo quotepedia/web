@@ -1,6 +1,4 @@
-import { Button, Select } from "@quotepedia/solid";
-import { Icon } from "solid-heroicons";
-import { check, chevronUpDown } from "solid-heroicons/solid-mini";
+import { Button, Icon, Select } from "@quotepedia/solid";
 import { type Component } from "solid-js";
 import { Locale, LOCALES, useI18n } from "~/shared/i18n";
 
@@ -22,11 +20,14 @@ export const LocaleSwitcher: Component = () => {
       itemComponent={(props) => (
         <Select.Item item={props.item}>
           <Select.ItemLabel class="flex items-center gap-1.5 capitalize">
+            <Icon icon={`circle-flags:${props.item.rawValue}`} class="ring-bg-tertiary size-4 rounded-full ring-1" />
             <span>{getNativeLanguageName(props.item.rawValue)}</span>
             <span class="text-fg-muted">—</span>
             <span class="text-fg-muted">{getLanguageName(props.item.rawValue)}</span>
           </Select.ItemLabel>
-          <Select.ItemIndicator as={Icon} path={check} class="text-fg-accent size-4 stroke-current" />
+          <Select.ItemIndicator>
+            <Icon icon="heroicons:check-20-solid" class="text-fg-accent size-4 stroke-current" />
+          </Select.ItemIndicator>
         </Select.Item>
       )}
     >
@@ -34,7 +35,7 @@ export const LocaleSwitcher: Component = () => {
         <Select.Value<Locale> class="capitalize">
           {(state) => getNativeLanguageName(state.selectedOption())}
         </Select.Value>
-        <Icon path={chevronUpDown} class="size-4" />
+        <Icon icon="heroicons:chevron-up-down-16-solid" class="size-4" />
       </Select.Trigger>
       <Select.Content inert={i18n.isSettingLocale()}>
         <Select.ListBox class="outline-none" />
