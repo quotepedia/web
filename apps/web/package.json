@@ -1,28 +1,36 @@
 {
-  "name": "quotepedia",
+  "name": "@quotepedia/web",
   "version": "2025.0.0",
   "private": true,
+  "description": "Quotepedia's web client",
+  "keywords": [
+    "quote",
+    "quotepedia"
+  ],
   "homepage": "https://github.com/quotepedia/web",
   "bugs": {
     "url": "https://github.com/quotepedia/web/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/quotepedia/web"
+    "url": "git+https://github.com/quotepedia/web.git"
   },
+  "license": "MIT",
   "author": {
-    "name": "Nikita Gaziev"
+    "name": "Nikita Gaziev",
+    "email": "zobweyt@gmail.com",
+    "url": "https://github.com/zobweyt"
   },
   "type": "module",
   "scripts": {
     "build": "vinxi build",
+    "clean": "rm -rf .turbo .vinxi dist node_modules",
     "dev": "vinxi dev",
     "gen": "pnpm \"/^gen:.*/\"",
     "gen:ts": "node --env-file=.env ./scripts/openapi.js ./src/shared/api/generated/schema.d.ts",
-    "serve": "pnpm build && pnpm start",
-    "start": "vinxi start",
-    "test": "pnpm \"/^test:.*/\"",
-    "test:ts": "tsc"
+    "-serve": "pnpm build && pnpm start",
+    "-start": "vinxi start",
+    "lint": "tsc"
   },
   "devDependencies": {
     "@kobalte/core": "^0.13.7",

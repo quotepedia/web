@@ -1,6 +1,7 @@
 {
   "name": "@quotepedia/solid",
   "version": "0.1.0",
+  "private": true,
   "description": "SolidJS components for Quotepedia",
   "keywords": [
     "solid",
@@ -15,7 +16,11 @@
     "url": "git+https://github.com/quotepedia/web.git"
   },
   "license": "MIT",
-  "author": "Nikita Gaziev",
+  "author": {
+    "name": "Nikita Gaziev",
+    "email": "zobweyt@gmail.com",
+    "url": "https://github.com/zobweyt"
+  },
   "sideEffects": false,
   "type": "module",
   "exports": {
@@ -44,10 +49,9 @@
   ],
   "scripts": {
     "build": "tsup",
-    "clean": "rm -rf dist node_modules",
+    "clean": "rm -rf .turbo dist node_modules",
     "dev": "vite serve playground --host",
-    "test": "pnpm \"/^test:.*/\"",
-    "test:ts": "tsc"
+    "lint": "tsc"
   },
   "dependencies": {
     "@corvu/utils": "^0.4.2",

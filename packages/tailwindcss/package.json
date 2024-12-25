@@ -1,7 +1,8 @@
 {
   "name": "@quotepedia/tailwindcss",
   "version": "0.1.0",
-  "description": "TailwindCSS plugin for Quotepedia",
+  "private": true,
+  "description": "TailwindCSS preset for Quotepedia",
   "keywords": [
     "tailwind",
     "tailwindcss"
@@ -15,7 +16,11 @@
     "url": "git+https://github.com/quotepedia/web.git"
   },
   "license": "MIT",
-  "author": "Nikita Gaziev",
+  "author": {
+    "name": "Nikita Gaziev",
+    "email": "zobweyt@gmail.com",
+    "url": "https://github.com/zobweyt"
+  },
   "sideEffects": false,
   "type": "module",
   "exports": {
@@ -40,9 +45,8 @@
   ],
   "scripts": {
     "build": "tsup",
-    "clean": "rm -rf dist node_modules",
-    "test": "pnpm \"/^test:.*/\"",
-    "test:ts": "tsc"
+    "clean": "rm -rf .turbo dist node_modules",
+    "lint": "tsc"
   },
   "devDependencies": {
     "tailwindcss": "^3",
