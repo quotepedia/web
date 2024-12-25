@@ -1,9 +1,9 @@
 import { ThemeProvider } from "./Provider";
 
-import { THEMES } from "./constants";
+import { CUSTOM_THEMES, THEMES } from "./constants";
 import { useTheme } from "./context";
 import type { Theme } from "./types";
 
 export type { Theme };
 
-export { ThemeProvider, THEMES, useTheme };
+export { CUSTOM_THEMES, ThemeProvider, THEMES, useTheme };
