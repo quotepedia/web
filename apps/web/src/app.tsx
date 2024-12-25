@@ -9,27 +9,32 @@ import { SettingsProvider } from "~/shared/settings";
 import { ThemeProvider } from "~/shared/theme";
 import { Title } from "~/widgets/title";
 import "./app.css";
+import { Snowfall } from "./widgets/snowfall";
 
 export default function App() {
   return (
-    <Router
-      root={(props) => (
-        <MetaProvider>
-          <SettingsProvider>
-            <I18nProvider>
-              <ThemeProvider>
-                <Suspense>{props.children}</Suspense>
+    <MetaProvider>
+      <SettingsProvider>
+        <I18nProvider>
+          <ThemeProvider>
+            <Router
+              root={(props) => (
+                <Suspense>
+                  {props.children}
 
-                <Title />
-                <Toaster />
-                <SessionExpirationObserver />
-              </ThemeProvider>
-            </I18nProvider>
-          </SettingsProvider>
-        </MetaProvider>
-      )}
-    >
-      <FileRoutes />
-    </Router>
+                  <Title />
+                  <SessionExpirationObserver />
+                </Suspense>
+              )}
+            >
+              <FileRoutes />
+            </Router>
+
+            <Toaster />
+            <Snowfall />
+          </ThemeProvider>
+        </I18nProvider>
+      </SettingsProvider>
+    </MetaProvider>
   );
 }
