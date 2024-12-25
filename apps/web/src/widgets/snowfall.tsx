@@ -20,9 +20,9 @@ export const Snowfall = () => {
     img.onload = () => {
       setImages([img]);
 
-      requestAnimationFrame(() => {
+      setTimeout(() => {
         setMounted(true);
-      });
+      }, 1000);
     };
   });
 
