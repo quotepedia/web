@@ -9,7 +9,7 @@ export type SidebarItemIconProps = Omit<IconProps, "icon"> & {
 
 export const SidebarItemIcon = <T extends ValidComponent>(props: PolymorphicProps<T, SidebarItemIconProps>) => {
   const [localProps, otherProps] = splitProps(props, ["class"]);
-  return <Polymorphic as={Icon} class={cn("size-6 lg:size-4", localProps.class)} {...otherProps} />;
+  return <Polymorphic as={Icon} class={cn("size-6 lg:size-6", localProps.class)} {...otherProps} />;
 };
 
 export default SidebarItemIcon;
