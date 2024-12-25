@@ -18,7 +18,7 @@ export const PasswordUpdatedStep = () => {
             <Text size="lg" variant="danger">
               ••••••••
             </Text>
-            <Icon icon="heroicons:arrow-right-16-solid" class="text-fg-muted size-4" />
+            <Icon icon="f7:arrow-right" class="text-fg-muted size-6" />
             <Text size="lg" variant="success">
               ••••••••
             </Text>

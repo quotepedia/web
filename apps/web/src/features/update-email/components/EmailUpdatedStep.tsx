@@ -21,7 +21,7 @@ export const EmailUpdatedStep = () => {
             <Text size="sm" variant="danger">
               {context.store.previousEmail}
             </Text>
-            <Icon icon="heroicons:arrow-right-16-solid" class="text-fg-muted size-3.5" />
+            <Icon icon="f7:arrow-right" class="text-fg-muted size-3.5" />
             <Text size="sm" variant="success">
               {context.store.email}
             </Text>
