@@ -39,6 +39,12 @@ These settings are suitable for the most who want to run the app **locally**. He
 | `VITE_API_URL`        | URL of the API server that the web app will interact with.                                                                                                                                                                          | `string`  |         | ✓        |
 | `VITE_SECURE_COOKIES` | Determines whether the cookies sent to browser should be marked as [secure](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#block_access_to_your_cookies). Make sure to enable this when have an SSL (HTTPS) certificate. | `boolean` | `false` | ✗        |
 
+To run in production, you should export the `SESSION_SECRET` variable with your value:
+
+```sh
+EXPORT SESSION_SECRET=""
+```
+
 > [!NOTE]
 > You can also browse all available configuration options [here](./src/global.d.ts).
 
