@@ -4,7 +4,7 @@ import { protect } from "~/shared/router";
 
 export const route = {
   info: {
-    title: () => useMessage("routes.settings.account.heading"),
+    title: () => useMessage("settings.account.heading"),
   },
 } satisfies RouteDefinition;
 

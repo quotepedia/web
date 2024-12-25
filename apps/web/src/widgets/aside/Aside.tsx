@@ -39,7 +39,7 @@ export const Aside = () => {
               </Sidebar.ItemIcon>
             )}
           </Show>
-          <Sidebar.ItemLabel>{t("routes.settings.heading")}</Sidebar.ItemLabel>
+          <Sidebar.ItemLabel>{t("settings.title")}</Sidebar.ItemLabel>
         </Sidebar.Item>
       </Sidebar.Group>
     </Sidebar>

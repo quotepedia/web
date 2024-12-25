@@ -14,12 +14,12 @@ export const Navigation = () => {
 
   return (
     <Show when={breadcrumbs().length > 1} fallback={<Heading class="mb-4">{current()?.route.info?.title?.()}</Heading>}>
-      <nav class="relative mb-8 flex text-base leading-none max-lg:-mx-4 max-lg:-mt-4">
+      <nav class="relative mb-8 flex leading-none max-lg:-mx-4 max-lg:-mt-4">
         <Link as={A} href={previous()?.path} class="absolute inset-y-1/2 left-0 flex items-center justify-center">
-          <Icon icon="heroicons:chevron-left-16-solid" class="size-8" />
+          <Icon icon="f7:chevron-left" class="size-6" />
           {previous()?.route.info?.title?.()}
         </Link>
-        <Heading size="base" class="mx-auto lg:text-lg">
+        <Heading size="base" class="mx-auto">
           {current()?.route.info?.title?.()}
         </Heading>
       </nav>

@@ -2,7 +2,7 @@ import { SettingsAboutSection, SettingsAccountSection, SettingsAppearanceSection
 
 export default () => {
   return (
-    <div class="space-y-6">
+    <div class="space-y-4 mt-2">
       <SettingsAccountSection />
       <SettingsAppearanceSection />
       <SettingsAboutSection />

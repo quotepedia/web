@@ -1,54 +1,54 @@
 import { Image } from "@kobalte/core/image";
-import { Icon, Heading, Separator, SettingsCard, SettingsExpander, SettingsGroup, Stack } from "@quotepedia/solid";
-import { A } from "@solidjs/router";
+import { Icon, Separator, SettingsCard, SettingsExpander, SettingsGroup } from "@quotepedia/solid";
 import { useScopedTranslator } from "~/shared/i18n";
 
 export const SettingsAboutSection = () => {
-  const t = useScopedTranslator("routes.settings.sections.about");
+  const t = useScopedTranslator("settings.about");
 
   return (
-    <Stack.Vertical class="items-start gap-3">
-      <Heading as="h2" size="subheading">
-        {t("heading")}
-      </Heading>
-
-      <SettingsGroup>
-        <SettingsExpander>
-          <SettingsExpander.Trigger>
-            <Image class="size-4">
-              <Image.Img src="/favicon.svg" alt={import.meta.env.APP_NAME} />
-              <Image.Fallback as={Icon} icon="heroicons:information-circle-16-solid" />
-            </Image>
+    <SettingsGroup>
+      <SettingsExpander>
+        <SettingsExpander.Trigger>
+          <Image class="text-fg-accent size-6">
+            <Image.Img src="/favicon.svg" alt={import.meta.env.APP_NAME} />
+            <Image.Fallback as={Icon} icon="f7:info-circle" />
+          </Image>
+          <SettingsCard.HeaderGroup>
+            <SettingsCard.Header class="capitalize">{import.meta.env.APP_NAME}</SettingsCard.Header>
+          </SettingsCard.HeaderGroup>
+          <SettingsCard.Value as="code">{import.meta.env.APP_VERSION}</SettingsCard.Value>
+          <SettingsExpander.Indicator />
+        </SettingsExpander.Trigger>
+        <SettingsExpander.Content>
+          <Separator class="border-bg-secondary" />
+          <SettingsCard variant="hover" as={"a"} href={t("news.url")} target="_blank">
+            <Icon icon="f7:bell" class="text-fg-accent size-6" />
             <SettingsCard.HeaderGroup>
-              <SettingsCard.Header class="capitalize">{import.meta.env.APP_NAME}</SettingsCard.Header>
-              <SettingsCard.Description>
-                &copy; {import.meta.env.APP_AUTHOR_NAME}. {t("cards.app.description")}
-              </SettingsCard.Description>
+              <SettingsCard.Header>{t("news.heading")}</SettingsCard.Header>
+              <SettingsCard.Description>{t("news.url")}</SettingsCard.Description>
             </SettingsCard.HeaderGroup>
-            <SettingsCard.Value as="code">{import.meta.env.APP_VERSION}</SettingsCard.Value>
-            <SettingsExpander.Indicator />
-          </SettingsExpander.Trigger>
-          <SettingsExpander.Content>
-            <SettingsCard variant="hover" as={A} href={import.meta.env.APP_BUGS_URL} target="_blank">
-              <Icon icon="heroicons:flag-16-solid" class="size-4" />
-              <SettingsCard.HeaderGroup>
-                <SettingsCard.Header>{t("cards.app.feedback.heading")}</SettingsCard.Header>
-                <SettingsCard.Description>{import.meta.env.APP_BUGS_URL}</SettingsCard.Description>
-              </SettingsCard.HeaderGroup>
-              <Icon icon="heroicons:arrow-top-right-on-square-16-solid" class="text-fg-muted size-4" />
-            </SettingsCard>
-            <Separator orientation="horizontal" />
-            <SettingsCard variant="hover" as={A} href={import.meta.env.APP_REPOSITORY_URL} target="_blank">
-              <Icon icon="heroicons:code-bracket-16-solid" class="size-4" />
-              <SettingsCard.HeaderGroup>
-                <SettingsCard.Header>{t("cards.app.contribute.heading")}</SettingsCard.Header>
-                <SettingsCard.Description>{import.meta.env.APP_REPOSITORY_URL}</SettingsCard.Description>
-              </SettingsCard.HeaderGroup>
-              <Icon icon="heroicons:arrow-top-right-on-square-16-solid" class="text-fg-muted size-4" />
-            </SettingsCard>
-          </SettingsExpander.Content>
-        </SettingsExpander>
-      </SettingsGroup>
-    </Stack.Vertical>
+            <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
+          </SettingsCard>
+          <Separator class="border-bg-secondary" />
+          <SettingsCard variant="hover" as={"a"} href={import.meta.env.APP_BUGS_URL} target="_blank">
+            <Icon icon="f7:flag" class="text-fg-accent size-6" />
+            <SettingsCard.HeaderGroup>
+              <SettingsCard.Header>{t("feedback.heading")}</SettingsCard.Header>
+              <SettingsCard.Description>{import.meta.env.APP_BUGS_URL}</SettingsCard.Description>
+            </SettingsCard.HeaderGroup>
+            <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
+          </SettingsCard>
+          <Separator class="border-bg-secondary" />
+          <SettingsCard variant="hover" as={"a"} href={import.meta.env.APP_REPOSITORY_URL} target="_blank">
+            <Icon icon="f7:chevron-left-slash-chevron-right" class="text-fg-accent size-6" />
+            <SettingsCard.HeaderGroup>
+              <SettingsCard.Header>{t("contribute.heading")}</SettingsCard.Header>
+              <SettingsCard.Description>{import.meta.env.APP_REPOSITORY_URL}</SettingsCard.Description>
+            </SettingsCard.HeaderGroup>
+            <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
+          </SettingsCard>
+        </SettingsExpander.Content>
+      </SettingsExpander>
+    </SettingsGroup>
   );
 };

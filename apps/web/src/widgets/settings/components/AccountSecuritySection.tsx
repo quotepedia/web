@@ -6,7 +6,7 @@ import { getCurrentUser } from "~/entities/user";
 import { useScopedTranslator } from "~/shared/i18n";
 
 export const AccountSecuritySection = () => {
-  const t = useScopedTranslator("routes.settings.account.sections.security");
+  const t = useScopedTranslator("settings.account");
 
   const currentUser = createAsync(() => getCurrentUser());
 
@@ -20,8 +20,8 @@ export const AccountSecuritySection = () => {
             <SettingsCard variant="hover" as={A} href="/settings/account/update-email">
               <Icon icon="f7:envelope" class="text-fg-accent size-6" />
               <SettingsCard.HeaderGroup>
-                <SettingsCard.Header>{t("cards.email.heading")}</SettingsCard.Header>
-                <SettingsCard.Description>{t("cards.email.description")}</SettingsCard.Description>
+                <SettingsCard.Header>{t("email.heading")}</SettingsCard.Header>
+                <SettingsCard.Description>{t("email.description")}</SettingsCard.Description>
               </SettingsCard.HeaderGroup>
               <SettingsCard.Value>{user().email}</SettingsCard.Value>
               <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
@@ -30,8 +30,8 @@ export const AccountSecuritySection = () => {
             <SettingsCard variant="hover" as={A} href="/settings/account/update-password">
               <Icon icon="f7:asterisk-circle" class="text-fg-accent size-6" />
               <SettingsCard.HeaderGroup>
-                <SettingsCard.Header>{t("cards.password.heading")}</SettingsCard.Header>
-                <SettingsCard.Description>{t("cards.password.description")}</SettingsCard.Description>
+                <SettingsCard.Header>{t("password.heading")}</SettingsCard.Header>
+                <SettingsCard.Description>{t("password.description")}</SettingsCard.Description>
               </SettingsCard.HeaderGroup>
               <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
             </SettingsCard>
@@ -47,7 +47,7 @@ export const AccountSecuritySection = () => {
             >
               <Icon icon="f7:square-arrow-right" class="size-6 text-red-600" />
               <SettingsCard.HeaderGroup>
-                <SettingsCard.Header class="text-red-600">{t("cards.signout.heading")}</SettingsCard.Header>
+                <SettingsCard.Header class="text-red-600">{t("signout.heading")}</SettingsCard.Header>
               </SettingsCard.HeaderGroup>
               <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
             </SettingsCard>

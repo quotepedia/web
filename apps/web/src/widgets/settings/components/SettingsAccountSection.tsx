@@ -6,7 +6,7 @@ import { formatStorageObject } from "~/shared/api";
 import { useScopedTranslator } from "~/shared/i18n";
 
 export const SettingsAccountSection = () => {
-  const t = useScopedTranslator("routes.settings.sections.account");
+  const t = useScopedTranslator("settings.account");
   const currentUser = createAsync(() => getCurrentUser());
 
   return (
@@ -20,8 +20,8 @@ export const SettingsAccountSection = () => {
           )}
         </Show>
         <SettingsCard.HeaderGroup>
-          <SettingsCard.Header>{t("cards.account.heading")}</SettingsCard.Header>
-          <SettingsCard.Description>{t("cards.account.description")}</SettingsCard.Description>
+          <SettingsCard.Header>{t("heading")}</SettingsCard.Header>
+          <SettingsCard.Description>{t("description")}</SettingsCard.Description>
         </SettingsCard.HeaderGroup>
         <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
       </SettingsCard>

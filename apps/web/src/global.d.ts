@@ -22,11 +22,6 @@ interface ImportMetaEnv {
   readonly APP_REPOSITORY_URL: string;
 
   /**
-   * The name of the web app's author.
-   */
-  readonly APP_AUTHOR_NAME: string;
-
-  /**
    * URL of the API server that the web app will interact with.
    */
   readonly VITE_API_URL: string;

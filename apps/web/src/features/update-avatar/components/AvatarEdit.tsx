@@ -41,8 +41,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             alt={props.user.email}
           />
           <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/50 font-semibold text-white opacity-0 transition-opacity hover:opacity-100">
-            <Icon icon="heroicons:camera-16-solid" class="size-8" />
-            <span>{t("update")}</span>
+            <Icon icon="f7:camera" class="size-12" />
           </div>
         </Dropdown.Trigger>
         <Dropdown.Content>
@@ -50,7 +49,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             {(avatar_url) => (
               <>
                 <Dropdown.Item onSelect={() => window.open(formatStorageObject(avatar_url()), "_blank")}>
-                  <Icon icon="heroicons:arrow-top-right-on-square-16-solid" class="size-4" />
+                  <Icon icon="f7:link" class="size-6" />
                   <Dropdown.ItemLabel>{t("dropdown.open")}</Dropdown.ItemLabel>
                 </Dropdown.Item>
                 <Separator orientation="horizontal" class="my-0.5" />
@@ -58,7 +57,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             )}
           </Show>
           <Dropdown.Item onSelect={selectAvatar} disabled={updatingAvatar.pending}>
-            <Icon icon="heroicons:arrow-up-tray-16-solid" class="size-4" />
+            <Icon icon="f7:cloud-upload" class="size-6" />
             <Dropdown.ItemLabel>{t("dropdown.select")}</Dropdown.ItemLabel>
           </Dropdown.Item>
           <Dropdown.Item
@@ -66,7 +65,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
             onSelect={openRemoveAvatarConfirm}
             disabled={!props.user.avatar_url || removingAvatar.pending}
           >
-            <Icon icon="heroicons:trash-16-solid" class="size-4" />
+            <Icon icon="f7:trash" class="size-6" />
             <Dropdown.ItemLabel>{t("dropdown.remove")}</Dropdown.ItemLabel>
           </Dropdown.Item>
         </Dropdown.Content>

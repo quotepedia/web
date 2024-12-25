@@ -3,7 +3,7 @@ import { useMessage } from "~/shared/i18n";
 
 export const route = {
   info: {
-    title: () => useMessage("routes.settings.heading"),
+    title: () => useMessage("settings.title"),
   },
 } satisfies RouteDefinition;
 
