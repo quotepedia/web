@@ -1,7 +1,7 @@
 import { makeBroadcastChannel } from "@solid-primitives/broadcast-channel";
 import { makeEventListener } from "@solid-primitives/event-listener";
 import { createAsync, revalidate } from "@solidjs/router";
-import { createEffect, createSignal, on, ParentComponent } from "solid-js";
+import { createEffect, createSignal, on, type ParentComponent } from "solid-js";
 import { toast } from "solid-sonner";
 import { getCurrentUser } from "~/entities/user";
 import { getIsLoggedIn, getSessionExpirationDate } from "~/shared/http";

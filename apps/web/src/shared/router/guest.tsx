@@ -1,4 +1,4 @@
-import { createAsync, Navigate, RouteSectionProps, useSearchParams } from "@solidjs/router";
+import { createAsync, Navigate, type RouteSectionProps, useSearchParams } from "@solidjs/router";
 import { JSX, Match, Switch } from "solid-js";
 import { getIsLoggedIn } from "~/shared/http";
 

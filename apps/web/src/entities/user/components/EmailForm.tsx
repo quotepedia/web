@@ -1,4 +1,4 @@
-import { createForm, email, FormError, FormProps, required, SubmitHandler } from "@modular-forms/solid";
+import { createForm, email, FormError, type FormProps, required, type SubmitHandler } from "@modular-forms/solid";
 import { Button, FormControl, Stack } from "@quotepedia/solid";
 import { splitProps } from "solid-js";
 import { useScopedTranslator } from "~/shared/i18n";

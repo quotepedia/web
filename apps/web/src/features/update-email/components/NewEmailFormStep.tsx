@@ -1,6 +1,6 @@
-import { SubmitHandler } from "@modular-forms/solid";
+import type { SubmitHandler } from "@modular-forms/solid";
 import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
-import { EmailFormData, UnregisteredEmailForm } from "~/entities/user";
+import { type EmailFormData, UnregisteredEmailForm } from "~/entities/user";
 import { useScopedTranslator } from "~/shared/i18n";
 import { useUpdateEmail } from "../context";
 

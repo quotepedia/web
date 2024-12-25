@@ -1,10 +1,10 @@
-import { SubmitHandler } from "@modular-forms/solid";
+import type { SubmitHandler } from "@modular-forms/solid";
 import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
 
 import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { resetUserPassword } from "~/entities/auth";
-import { PasswordForm, PasswordFormData } from "~/entities/user";
+import { PasswordForm, type PasswordFormData } from "~/entities/user";
 
 import { useScopedTranslator } from "~/shared/i18n";
 import { useResetPassword } from "../context";

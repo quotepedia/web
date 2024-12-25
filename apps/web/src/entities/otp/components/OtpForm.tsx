@@ -1,4 +1,4 @@
-import { createForm, FormError, FormProps, reset, submit, SubmitHandler } from "@modular-forms/solid";
+import { createForm, FormError, type FormProps, reset, submit, type SubmitHandler } from "@modular-forms/solid";
 import { Repeat } from "@solid-primitives/range";
 import { createEffect, createResource, createSignal, on, Show, splitProps, Suspense } from "solid-js";
 

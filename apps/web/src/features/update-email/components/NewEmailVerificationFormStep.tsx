@@ -1,8 +1,8 @@
-import { SubmitHandler } from "@modular-forms/solid";
+import type { SubmitHandler } from "@modular-forms/solid";
 import { Stepper } from "@quotepedia/solid";
 import { createAsync, useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
-import { OtpForm, OtpFormData } from "~/entities/otp";
+import { OtpForm, type OtpFormData } from "~/entities/otp";
 import { getCurrentUser, updateCurrentUserEmail } from "~/entities/user";
 import { useUpdateEmail } from "../context";
 

@@ -1,7 +1,7 @@
 import { Icon, Avatar, Button, Dialog, Dropdown, Separator, Stack } from "@quotepedia/solid";
 import { createFileUploader } from "@solid-primitives/upload";
 import { useAction, useSubmission } from "@solidjs/router";
-import { Component, createSignal, Show } from "solid-js";
+import { type Component, createSignal, Show } from "solid-js";
 import { toast } from "solid-sonner";
 import { removeCurrentUserAvatar, updateCurrentUserAvatar } from "~/entities/user";
 import { type components, formatStorageObject } from "~/shared/api";
@@ -25,7 +25,11 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
 
   const selectAvatar = async () => {
     uploader.selectFiles(async (uploads) => {
-      const result = await updateAvatar(uploads[0].file);
+      const file = uploads[0]?.file;
+      if (!file) {
+        return;
+      }
+      const result = await updateAvatar(file);
       if (result?.error) {
         toast.error(result.error.detail?.toString());
       }

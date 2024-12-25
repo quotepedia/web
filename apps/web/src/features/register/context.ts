@@ -1,5 +1,5 @@
 import { createContext, useContext } from "solid-js";
-import { SetStoreFunction, Store } from "solid-js/store";
+import type { SetStoreFunction, Store } from "solid-js/store";
 
 import type { RegisterForm } from "~/entities/auth";
 

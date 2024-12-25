@@ -18,7 +18,7 @@ export function getUserLocale(): Locale {
  */
 export function getRequestLocale(): Locale {
   const acceptLanguage = getRequestEvent()?.request.headers.get("accept-language");
-  return (acceptLanguage?.split(";")[0].split(",")[0].split("-")[0] as Locale) ?? DEFAULT_LOCALE;
+  return (acceptLanguage?.split(";")[0]?.split(",")[0]?.split("-")[0] as Locale) ?? DEFAULT_LOCALE;
 }
 
 /**
