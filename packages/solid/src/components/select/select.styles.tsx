@@ -10,7 +10,7 @@ export const styles = tv({
       "rounded-lg border border-bg-tertiary bg-bg-default backdrop-blur-xl py-0.5 shadow-md",
     ],
     item: [
-      "mx-0.5 flex cursor-default select-none items-center justify-between gap-2 rounded-md px-2 py-2 text-sm outline-none",
+      "mx-0.5 flex cursor-default select-none items-center justify-between gap-2 rounded-md px-2 py-2 outline-none",
       "transition-colors duration-0 active:bg-bg-tertiary leading-none",
       "data-[disabled]:pointer-events-none data-[highlighted]:bg-bg-secondary data-[disabled]:opacity-50",
     ],

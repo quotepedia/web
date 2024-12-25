@@ -21,7 +21,7 @@ export const styles = tv({
     dismiss: ["size-6 rounded-md p-0.5 text-fg-muted transition-colors hover:bg-bg-secondary active:bg-bg-tertiary"],
     header: ["flex items-center justify-between"],
     title: ["text-xl font-semibold leading-none tracking-tight"],
-    description: ["text-sm"],
+    description: ["text-fg-body"],
     footer: ["flex gap-2 flex-row justify-end"],
   },
 });

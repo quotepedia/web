@@ -3,9 +3,9 @@ import { tv } from "tailwind-variants";
 export const styles = tv({
   variants: {
     size: {
-      sm: "text-xs",
-      md: "text-sm",
-      lg: "text-base",
+      sm: "text-sm",
+      md: "text-base",
+      lg: "text-lg",
     },
     variant: {
       default: "text-fg-body",

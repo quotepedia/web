@@ -30,14 +30,23 @@ export const SettingsCardHeader = <T extends ValidComponent = "h3">(
   props: PolymorphicProps<T, SettingsCardHeaderProps>,
 ) => {
   const [local, others] = splitProps(props, ["class"]);
-  return <Polymorphic as="h3" class={cn("font-semibold leading-none", local.class)} {...others} />;
+  return <Polymorphic as="h3" class={cn("leading-none", local.class)} {...others} />;
 };
 
 export const SettingsCardDescription = <T extends ValidComponent = "p">(
   props: PolymorphicProps<T, SettingsCardDescriptionProps>,
 ) => {
   const [local, others] = splitProps(props, ["class"]);
-  return <Polymorphic as="p" class={cn("truncate text-xs text-fg-muted transition", local.class)} {...others} />;
+  return (
+    <Polymorphic
+      as="p"
+      class={cn(
+        "text-fg-muted overflow-x-clip overflow-y-visible overflow-ellipsis whitespace-nowrap text-sm leading-none transition",
+        local.class,
+      )}
+      {...others}
+    />
+  );
 };
 
 export const SettingsCardValue = <T extends ValidComponent = "span">(
@@ -48,7 +57,7 @@ export const SettingsCardValue = <T extends ValidComponent = "span">(
     <Polymorphic
       as="span"
       class={cn(
-        "text-xs text-fg-muted max-xl:leading-none",
+        "text-fg-muted text-sm leading-none max-xl:leading-none",
         "transition group-data-[expanded]/collapsible:opacity-0",
         local.class,
       )}

@@ -2,7 +2,6 @@ import { splitProps } from "solid-js";
 
 import { Collapsible } from "@kobalte/core/collapsible";
 import { Icon } from "@src/components/icon";
-import { Separator } from "../../separator";
 
 import { cn } from "@src/utils/css";
 import { SettingsCard } from "../card";
@@ -30,23 +29,20 @@ export const SettingsExpanderTrigger = (props: SettingsExpanderTriggerProps) => 
 
 export const SettingsExpanderIndicator = () => (
   <Icon
-    icon="heroicons:chevron-down-16-solid"
+    icon="f7:chevron-right"
     class={cn(
       "text-fg-muted size-4 transition-[transform,color]",
-      "group-data-[expanded]/collapsible:[transform:rotateX(180deg)]",
+      "group-data-[expanded]/collapsible:[transform:rotate(-90deg)]",
     )}
   />
 );
 
 export const SettingsExpanderContent = (props: SettingsExpanderContentProps) => {
-  const [local, others] = splitProps(props, ["class", "children"]);
+  const [local, others] = splitProps(props, ["class"]);
   return (
     <Collapsible.Content
       class={cn("data-[closed]:animate-collapse data-[expanded]:animate-expand overflow-hidden", local.class)}
       {...others}
-    >
-      <Separator orientation="horizontal" />
-      {local.children}
-    </Collapsible.Content>
+    />
   );
 };

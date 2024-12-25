@@ -1,12 +1,24 @@
 import { Polymorphic, type PolymorphicProps } from "@kobalte/core";
-import type { ParentProps, ValidComponent } from "solid-js";
+import { cn } from "@src/utils/css";
+import { splitProps, type ParentProps, type ValidComponent } from "solid-js";
 
-export const SettingsGroup = <T extends ValidComponent = "div">(props: PolymorphicProps<T, ParentProps>) => {
+export type SettingsGroupRenderProps = {
+  class?: string;
+};
+
+export type SettingsGroupProps = ParentProps<SettingsGroupRenderProps>;
+
+export const SettingsGroup = <T extends ValidComponent = "div">(props: PolymorphicProps<T, SettingsGroupProps>) => {
+  const [localProps, otherProps] = splitProps(props, ["class"]);
+
   return (
     <Polymorphic
       as="div"
-      class="w-full group/group overflow-hidden divide-y divide-bg-tertiary rounded-lg bg-bg-default ring-1 ring-bg-tertiary transition-[background-color,box-shadow]"
-      {...props}
+      class={cn(
+        "group/group divide-bg-secondary bg-bg-default ring-bg-secondary w-full divide-y overflow-hidden rounded-lg ring-1 transition-[background-color,box-shadow]",
+        localProps.class,
+      )}
+      {...otherProps}
     />
   );
 };

@@ -110,7 +110,7 @@ export const UserLoginForm = () => {
           </Stack.Vertical>
         </Form>
 
-        <Stack.Horizontal class="gap-1 text-xs" separator={"·"}>
+        <Stack.Horizontal class="gap-1 text-sm" separator={"·"}>
           <Link as={A} href="/">
             {t("home")}
           </Link>

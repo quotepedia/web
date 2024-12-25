@@ -92,7 +92,7 @@ export const OtpForm = (props: OtpStepProps) => {
             )}
           </Field>
 
-          <Link as={"button"} type="reset" class="text-xs" onClick={resend}>
+          <Link as={"button"} type="reset" class="text-sm" onClick={resend}>
             {t("resend")}
           </Link>
         </Stack.Vertical>

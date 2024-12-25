@@ -13,8 +13,8 @@ export const styles = tv({
   ],
   variants: {
     size: {
-      md: "rounded-lg px-3 gap-1 text-sm leading-8",
-      sm: "rounded-2xl px-2 gap-1 text-xs leading-7",
+      md: "rounded-lg px-3 gap-1 text-base leading-8",
+      sm: "rounded-2xl px-2 gap-1 text-sm leading-7",
     },
     color: {
       default: [
