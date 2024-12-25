@@ -1,5 +1,6 @@
 import { type RouteDefinition, type RouteSectionProps } from "@solidjs/router";
 import { useMessage } from "~/shared/i18n";
+import { protect } from "~/shared/router";
 
 export const route = {
   info: {
@@ -7,6 +8,6 @@ export const route = {
   },
 } satisfies RouteDefinition;
 
-export default (props: RouteSectionProps) => {
+export default protect((props: RouteSectionProps) => {
   return props.children;
-};
+});
