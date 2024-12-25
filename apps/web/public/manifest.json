@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest",
+  "id": "quotepedia",
+  "name": "Quotepedia",
+  "description": "",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "256x256"
+    }
+  ],
+  "display": "standalone"
+}
