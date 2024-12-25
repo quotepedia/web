@@ -25,7 +25,7 @@ export const NewPasswordFormStep = () => {
   return (
     <Stepper.Step>
       <Stack.Vertical class="gap-6">
-        <Lottie path="/tgs/key.json" class="size-24" />
+        <Lottie path="/tgs/see.json" class="size-24" />
 
         <Stack.Vertical class="text-center">
           <Heading>{t("heading")}</Heading>
