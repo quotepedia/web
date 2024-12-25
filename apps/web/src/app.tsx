@@ -1,5 +1,6 @@
 import { MetaProvider } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
+import { clientOnly } from "@solidjs/start";
 import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 import { Toaster } from "solid-sonner";
@@ -9,7 +10,8 @@ import { SettingsProvider } from "~/shared/settings";
 import { ThemeProvider } from "~/shared/theme";
 import { Title } from "~/widgets/title";
 import "./app.css";
-import { Snowfall } from "./widgets/snowfall";
+
+const Snowfall = clientOnly(() => import("./widgets/snowfall"));
 
 export default function App() {
   return (

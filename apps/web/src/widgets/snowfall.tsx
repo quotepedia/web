@@ -35,3 +35,5 @@ export const Snowfall = () => {
     </Fade>
   );
 };
+
+export default Snowfall;
