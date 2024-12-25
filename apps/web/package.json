@@ -28,8 +28,6 @@
     "dev": "vinxi dev",
     "gen": "pnpm \"/^gen:.*/\"",
     "gen:ts": "node --env-file=.env ./scripts/openapi.js ./src/shared/api/generated/schema.d.ts",
-    "-serve": "pnpm build && pnpm start",
-    "-start": "vinxi start",
     "lint": "tsc"
   },
   "devDependencies": {
