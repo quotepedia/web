@@ -14,6 +14,7 @@ export { Separator } from "./components/separator";
 export { SettingsCard, SettingsExpander, SettingsGroup } from "./components/settings";
 export { Stack } from "./components/stack";
 export { Stepper } from "./components/stepper";
+export { Switch } from "./components/switch";
 export { Text } from "./components/text";
 export { TextField } from "./components/text-field";
 export { Lottie } from "./components/tgs";
