@@ -1,6 +1,5 @@
 import { Button, Container, Heading, Lottie, Stack, Text } from "@quotepedia/solid";
 import { A, type RouteDefinition } from "@solidjs/router";
-import { LocaleSwitcher } from "~/features/change-locale";
 import { useMessage, useScopedTranslator } from "~/shared/i18n";
 
 export const route = {
@@ -21,7 +20,6 @@ export default function () {
           <Text variant="muted">{t("description")}</Text>
         </Stack.Vertical>
         <Stack.Horizontal>
-          <LocaleSwitcher />
           <Button as={A} href="/" color="primary">
             {t("home")}
           </Button>
