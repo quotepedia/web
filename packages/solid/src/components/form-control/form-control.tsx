@@ -16,11 +16,10 @@ export function FormControl(props: TextFieldProps) {
     defaultedProps,
     ["ref", "onInput"],
     ["name", "value", "required", "disabled"],
-    ["placeholder", "onChange", "onBlur"],
+    ["placeholder", "onChange", "onBlur", "type"],
   );
 
   const [ref, setRef] = createSignal<HTMLInputElement | HTMLTextAreaElement>();
-  const [type, setType] = createSignal(defaultedProps.type);
   const [value, setValue] = createSignal(defaultedProps.value);
 
   const onInput: JSX.EventHandlerUnion<HTMLInputElement | HTMLTextAreaElement, InputEvent> = (event) => {
@@ -31,11 +30,6 @@ export function FormControl(props: TextFieldProps) {
     setValue("");
     ref()?.dispatchEvent(new Event("input", { bubbles: true }));
     ref()?.dispatchEvent(new Event("change", { bubbles: true }));
-    ref()?.focus();
-  };
-
-  const togglePasswordType = () => {
-    setType(type() === "password" ? "text" : "password");
     ref()?.focus();
   };
 
@@ -58,7 +52,6 @@ export function FormControl(props: TextFieldProps) {
           fallback={
             <TextField.Input
               ref={mergeRefs(setRef, localProps.ref)}
-              type={type()}
               value={value()}
               onInput={onInput}
               {...inputProps}
@@ -76,17 +69,9 @@ export function FormControl(props: TextFieldProps) {
         <Fade>
           <Show when={!defaultedProps.disabled && value()}>
             <div class="flex">
-              <Show when={defaultedProps.type === "password"}>
-                <Button onClick={togglePasswordType} class={styles().button()}>
-                  <Icon
-                    icon={type() === "password" ? "heroicons:eye-16-solid" : "heroicons:eye-slash-16-solid"}
-                    class="size-4"
-                  />
-                </Button>
-              </Show>
               <Show when={defaultedProps.clearable}>
                 <Button onClick={clear} class={styles().button()}>
-                  <Icon icon="heroicons:x-circle-16-solid" class="size-4" />
+                  <Icon icon="f7:xmark-circle-fill" class="size-4" />
                 </Button>
               </Show>
             </div>
