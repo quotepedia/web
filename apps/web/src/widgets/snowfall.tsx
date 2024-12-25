@@ -29,7 +29,7 @@ export const Snowfall = () => {
           speed={[0, 3.0]}
           wind={[-0.5, 2.0]}
           rotationSpeed={[-0.5, 1.0]}
-          style={{ "z-index": 9999 }}
+          style={{ "z-index": 9999, position: "fixed", top: 0, bottom: 0, right: 0, left: 0 }}
         />
       </Show>
     </Fade>
