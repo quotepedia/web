@@ -15,7 +15,7 @@
     <img src="https://img.shields.io/librariesio/github/quotepedia/web" alt="Dependencies Badge" />
   </a>
   <a href="https://github.com/quotepedia/web/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/quotepedia/web/pnpm.yaml" alt="Workflow Status Badge" />
+    <img src="https://img.shields.io/github/actions/workflow/status/quotepedia/web/lint.yaml" alt="Workflow Status Badge" />
   </a>
   <a href="https://github.com/quotepedia/api">
     <img src="https://img.shields.io/badge/API-0.0.0-blue" alt="API Version Badge" />
