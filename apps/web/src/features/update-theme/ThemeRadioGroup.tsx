@@ -1,7 +1,7 @@
 import { RadioGroup } from "@kobalte/core/radio-group";
 import { SettingsGroup } from "@quotepedia/solid";
-import { CUSTOM_THEMES, useTheme, type Theme } from "@src/shared/theme";
 import { For } from "solid-js";
+import { CUSTOM_THEMES, useTheme, type Theme } from "~/shared/theme";
 import { ThemeRadioGroupItem } from "./ThemeRadioGroupItem";
 
 export const ThemeRadioGroup = () => {

@@ -1,5 +1,6 @@
 import { query } from "@solidjs/router";
-import { type components, client } from "@src/shared/api";
+
+import { type components, client } from "~/shared/api";
 
 export const verifyOtp = query(async (body: components["schemas"]["OTPVerifyRequest"]) => {
   "use server";

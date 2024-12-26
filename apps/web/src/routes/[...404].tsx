@@ -1,6 +1,6 @@
 import { Button, Container, Heading, Lottie, Stack, Text } from "@quotepedia/solid";
 import { A, type RouteDefinition } from "@solidjs/router";
-import { useMessage, useScopedTranslator } from "@src/shared/i18n";
+import { useMessage, useScopedTranslator } from "~/shared/i18n";
 
 export const route = {
   info: {

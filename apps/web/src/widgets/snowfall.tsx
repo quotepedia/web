@@ -1,8 +1,8 @@
 import { Fade } from "@quotepedia/solid";
 import { clientOnly } from "@solidjs/start";
-import { useSettings } from "@src/shared/settings";
 import { createSignal, onMount, Show } from "solid-js";
 import { isServer } from "solid-js/web";
+import { useSettings } from "~/shared/settings";
 
 // @ts-ignore
 const Root = clientOnly(() => import("solid-snowfall"));

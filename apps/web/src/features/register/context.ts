@@ -1,6 +1,7 @@
-import type { RegisterForm } from "@src/entities/auth";
 import { createContext, useContext } from "solid-js";
 import type { SetStoreFunction, Store } from "solid-js/store";
+
+import type { RegisterForm } from "~/entities/auth";
 
 export type RegistrationContextValue = {
   store: Store<RegisterForm>;

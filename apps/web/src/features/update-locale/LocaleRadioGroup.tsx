@@ -1,7 +1,7 @@
 import { RadioGroup } from "@kobalte/core/radio-group";
 import { SettingsGroup } from "@quotepedia/solid";
-import { LOCALES, useI18n, type Locale } from "@src/shared/i18n";
 import { For } from "solid-js";
+import { LOCALES, useI18n, type Locale } from "~/shared/i18n";
 import { LocaleRadioGroupItem } from "./LocaleRadioGroupItem";
 
 export const LocaleToggleGroup = () => {

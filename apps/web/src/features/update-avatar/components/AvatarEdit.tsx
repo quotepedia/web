@@ -1,11 +1,11 @@
-import { Avatar, Button, Dialog, Dropdown, Icon, Separator, Stack } from "@quotepedia/solid";
+import { Icon, Avatar, Button, Dialog, Dropdown, Separator, Stack } from "@quotepedia/solid";
 import { createFileUploader } from "@solid-primitives/upload";
 import { useAction, useSubmission } from "@solidjs/router";
-import { removeCurrentUserAvatar, updateCurrentUserAvatar } from "@src/entities/user";
-import { type components, formatStorageObject } from "@src/shared/api";
-import { useScopedTranslator } from "@src/shared/i18n";
 import { type Component, createSignal, Show } from "solid-js";
 import { toast } from "solid-sonner";
+import { removeCurrentUserAvatar, updateCurrentUserAvatar } from "~/entities/user";
+import { type components, formatStorageObject } from "~/shared/api";
+import { useScopedTranslator } from "~/shared/i18n";
 
 export type AvatarEditProps = {
   user: components["schemas"]["CurrentUserResponse"];

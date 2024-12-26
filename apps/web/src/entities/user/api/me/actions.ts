@@ -1,5 +1,6 @@
 import { action } from "@solidjs/router";
-import { type components, client, serializeFormData } from "@src/shared/api";
+
+import { type components, client, serializeFormData } from "~/shared/api";
 
 export const removeCurrentUserAvatar = action(async () => {
   "use server";

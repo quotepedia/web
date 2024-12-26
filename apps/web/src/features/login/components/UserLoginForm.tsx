@@ -1,10 +1,10 @@
 import { createForm, email, FormError, minLength, required } from "@modular-forms/solid";
 import { Button, Collapse, Container, FormControl, Heading, Link, Lottie, Stack, Text } from "@quotepedia/solid";
 import { A, useAction, useSearchParams } from "@solidjs/router";
-import { authenticate, type LoginForm } from "@src/entities/auth";
-import { MIN_PASSWORD_LENGTH } from "@src/entities/user/components/PasswordForm";
-import { useScopedTranslator } from "@src/shared/i18n";
 import { Show, type JSX } from "solid-js";
+import { authenticate, type LoginForm } from "~/entities/auth";
+import { MIN_PASSWORD_LENGTH } from "~/entities/user/components/PasswordForm";
+import { useScopedTranslator } from "~/shared/i18n";
 
 export const UserLoginForm = () => {
   const t = useScopedTranslator("routes.login");

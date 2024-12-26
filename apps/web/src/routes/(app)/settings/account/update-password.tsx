@@ -1,7 +1,7 @@
 import { Container } from "@quotepedia/solid";
 import type { RouteDefinition } from "@solidjs/router";
-import { UpdatePasswordStepper } from "@src/features/update-password";
-import { useMessage } from "@src/shared/i18n";
+import { UpdatePasswordStepper } from "~/features/update-password";
+import { useMessage } from "~/shared/i18n";
 
 export const route = {
   info: {

@@ -1,6 +1,6 @@
 import { RadioGroup } from "@kobalte/core/radio-group";
 import { Fade, Icon, SettingsCard } from "@quotepedia/solid";
-import { useI18n, type Locale } from "@src/shared/i18n";
+import { useI18n, type Locale } from "~/shared/i18n";
 
 export const LocaleRadioGroupItem = (props: { locale: Locale }) => {
   const i18n = useI18n();

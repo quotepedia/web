@@ -1,6 +1,6 @@
 import type { RouteDefinition } from "@solidjs/router";
-import { ResetPasswordStepper } from "@src/features/reset-password";
-import { useMessage } from "@src/shared/i18n";
+import { ResetPasswordStepper } from "~/features/reset-password";
+import { useMessage } from "~/shared/i18n";
 
 export const route = {
   info: {

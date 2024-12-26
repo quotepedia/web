@@ -1,4 +1,4 @@
-import { AccountInfoSection, AccountSecuritySection } from "@src/widgets/settings";
+import { AccountInfoSection, AccountSecuritySection } from "~/widgets/settings";
 
 export default () => {
   return (

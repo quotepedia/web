@@ -1,8 +1,8 @@
 import { Icon, SettingsCard, SettingsGroup, Switch } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
-import { useI18n, useScopedTranslator, type Locale } from "@src/shared/i18n";
-import { useSettings } from "@src/shared/settings";
-import { useTheme } from "@src/shared/theme";
+import { useI18n, useScopedTranslator, type Locale } from "~/shared/i18n";
+import { useSettings } from "~/shared/settings";
+import { useTheme } from "~/shared/theme";
 
 export const SettingsAppearanceSection = () => {
   const i18n = useI18n();

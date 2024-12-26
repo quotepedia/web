@@ -1,9 +1,9 @@
 import { Avatar } from "@quotepedia/solid";
 import { createAsync } from "@solidjs/router";
-import { getCurrentUser } from "@src/entities/user";
-import { formatStorageObject } from "@src/shared/api";
-import { useTranslator } from "@src/shared/i18n";
 import { Show } from "solid-js";
+import { getCurrentUser } from "~/entities/user";
+import { formatStorageObject } from "~/shared/api";
+import { useTranslator } from "~/shared/i18n";
 import { Sidebar } from "./sidebar";
 
 export const Aside = () => {

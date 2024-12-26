@@ -1,8 +1,9 @@
 import { createForm, FormError, type FormProps, reset, submit, type SubmitHandler } from "@modular-forms/solid";
-import { Collapse, Heading, Link, Lottie, OtpField, Stack, Text, TextField } from "@quotepedia/solid";
 import { Repeat } from "@solid-primitives/range";
-import { useScopedTranslator } from "@src/shared/i18n";
 import { createEffect, createResource, createSignal, on, Show, splitProps, Suspense } from "solid-js";
+
+import { Collapse, Heading, Link, Lottie, OtpField, Stack, Text, TextField } from "@quotepedia/solid";
+import { useScopedTranslator } from "~/shared/i18n";
 
 import { sendOtp, verifyOtp } from "../api/cache";
 

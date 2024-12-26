@@ -1,6 +1,7 @@
-import type { UserPasswordResetForm } from "@src/entities/auth";
 import { createContext, useContext } from "solid-js";
 import type { SetStoreFunction, Store } from "solid-js/store";
+
+import type { UserPasswordResetForm } from "~/entities/auth";
 
 export type ResetPasswordContextValue = {
   store: Store<UserPasswordResetForm>;

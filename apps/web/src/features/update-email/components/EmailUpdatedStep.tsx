@@ -1,6 +1,6 @@
-import { Button, Heading, Icon, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
+import { Button, Heading, Lottie, Stack, Stepper, Text, Icon } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
-import { useScopedTranslator } from "@src/shared/i18n";
+import { useScopedTranslator } from "~/shared/i18n";
 import { useUpdateEmail } from "../context";
 
 export const EmailUpdatedStep = () => {

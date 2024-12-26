@@ -1,11 +1,11 @@
 import { makeBroadcastChannel } from "@solid-primitives/broadcast-channel";
 import { makeEventListener } from "@solid-primitives/event-listener";
 import { createAsync, revalidate } from "@solidjs/router";
-import { getCurrentUser } from "@src/entities/user";
-import { getIsLoggedIn, getSessionExpirationDate } from "@src/shared/http";
-import { useScopedTranslator } from "@src/shared/i18n";
 import { createEffect, createSignal, on, type ParentComponent } from "solid-js";
 import { toast } from "solid-sonner";
+import { getCurrentUser } from "~/entities/user";
+import { getIsLoggedIn, getSessionExpirationDate } from "~/shared/http";
+import { useScopedTranslator } from "~/shared/i18n";
 
 export const SessionExpirationObserver: ParentComponent = (props) => {
   const t = useScopedTranslator("components.sessionExpirationObserver");

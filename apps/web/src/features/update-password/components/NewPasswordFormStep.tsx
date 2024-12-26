@@ -1,9 +1,9 @@
 import type { SubmitHandler } from "@modular-forms/solid";
 import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { useAction } from "@solidjs/router";
-import { PasswordForm, type PasswordFormData, updateCurrentUserPassword } from "@src/entities/user";
-import { useScopedTranslator } from "@src/shared/i18n";
 import { toast } from "solid-sonner";
+import { PasswordForm, type PasswordFormData, updateCurrentUserPassword } from "~/entities/user";
+import { useScopedTranslator } from "~/shared/i18n";
 
 export const NewPasswordFormStep = () => {
   const t = useScopedTranslator("components.changePassword.steps.password");

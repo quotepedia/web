@@ -1,5 +1,5 @@
 import type { RouteDefinition } from "@solidjs/router";
-import { useMessage } from "@src/shared/i18n";
+import { useMessage } from "~/shared/i18n";
 
 export const route = {
   info: {
@@ -22,4 +22,4 @@ export default () => {
       </p>
     </div>
   );
-};
+}

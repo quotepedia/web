@@ -1,10 +1,12 @@
 import type { SubmitHandler } from "@modular-forms/solid";
-import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { useAction } from "@solidjs/router";
-import { resetUserPassword } from "@src/entities/auth";
-import { PasswordForm, type PasswordFormData } from "@src/entities/user";
-import { useScopedTranslator } from "@src/shared/i18n";
 import { toast } from "solid-sonner";
+
+import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
+import { resetUserPassword } from "~/entities/auth";
+import { PasswordForm, type PasswordFormData } from "~/entities/user";
+
+import { useScopedTranslator } from "~/shared/i18n";
 import { useResetPassword } from "../context";
 
 export const NewPasswordFormStep = () => {

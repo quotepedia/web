@@ -1,6 +1,7 @@
-import { getSession } from "@src/shared/http/session";
 import type { Middleware } from "openapi-fetch";
 import { getRequestEvent } from "solid-js/web";
+
+import { getSession } from "~/shared/http/session";
 
 export const AUTH_MIDDLEWARE: Middleware = {
   onRequest: async ({ request }) => {
