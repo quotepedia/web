@@ -1,6 +1,6 @@
 import { Image } from "@kobalte/core/image";
 import { Icon, Separator, SettingsCard, SettingsExpander, SettingsGroup } from "@quotepedia/solid";
-import { useScopedTranslator } from "~/shared/i18n";
+import { useMessage, useScopedTranslator } from "~/shared/i18n";
 
 export const SettingsAboutSection = () => {
   const t = useScopedTranslator("settings.about");
@@ -10,11 +10,11 @@ export const SettingsAboutSection = () => {
       <SettingsExpander>
         <SettingsExpander.Trigger>
           <Image class="text-fg-accent size-6">
-            <Image.Img src="/favicon.svg" alt={import.meta.env.APP_NAME} />
+            <Image.Img src="/favicon.svg" alt={useMessage("quotepedia")} />
             <Image.Fallback as={Icon} icon="f7:info-circle" />
           </Image>
           <SettingsCard.HeaderGroup>
-            <SettingsCard.Header class="capitalize">{import.meta.env.APP_NAME}</SettingsCard.Header>
+            <SettingsCard.Header>{useMessage("quotepedia")}</SettingsCard.Header>
           </SettingsCard.HeaderGroup>
           <SettingsCard.Value as="code">{import.meta.env.APP_VERSION}</SettingsCard.Value>
           <SettingsExpander.Indicator />

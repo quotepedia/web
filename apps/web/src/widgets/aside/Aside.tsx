@@ -4,8 +4,6 @@ import { Show } from "solid-js";
 import { getCurrentUser } from "~/entities/user";
 import { formatStorageObject } from "~/shared/api";
 import { useTranslator } from "~/shared/i18n";
-
-import { DEFAULT_APP_TITLE } from "../title";
 import { Sidebar } from "./sidebar";
 
 export const Aside = () => {
@@ -15,7 +13,7 @@ export const Aside = () => {
   return (
     <Sidebar>
       <Sidebar.Group class="max-lg:basis-2/3">
-        <Sidebar.GroupLabel>{DEFAULT_APP_TITLE}</Sidebar.GroupLabel>
+        <Sidebar.GroupLabel>{t("quotepedia")}</Sidebar.GroupLabel>
         <Sidebar.Item href="/" end>
           <Sidebar.ItemIcon icon="ion:telescope" />
           <Sidebar.ItemLabel>{t("routes.explore.title")}</Sidebar.ItemLabel>

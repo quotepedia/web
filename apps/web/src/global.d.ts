@@ -2,11 +2,6 @@
 
 interface ImportMetaEnv {
   /**
-   * The web app name.
-   */
-  readonly APP_NAME: string;
-
-  /**
    * The web app version.
    */
   readonly APP_VERSION: string;

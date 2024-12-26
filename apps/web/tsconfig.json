@@ -20,7 +20,7 @@
     "skipLibCheck": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "baseUrl": ".",
     "types": [
       "vinxi/types/client"
