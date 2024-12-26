@@ -1,6 +1,6 @@
 import type { RouteDefinition } from "@solidjs/router";
-import { RegistrationStepper } from "~/features/register";
-import { useMessage } from "~/shared/i18n";
+import { RegistrationStepper } from "@src/features/register";
+import { useMessage } from "@src/shared/i18n";
 
 export const route = {
   info: {

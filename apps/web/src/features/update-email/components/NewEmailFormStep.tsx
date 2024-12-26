@@ -1,7 +1,7 @@
 import type { SubmitHandler } from "@modular-forms/solid";
 import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
-import { type EmailFormData, UnregisteredEmailForm } from "~/entities/user";
-import { useScopedTranslator } from "~/shared/i18n";
+import { type EmailFormData, UnregisteredEmailForm } from "@src/entities/user";
+import { useScopedTranslator } from "@src/shared/i18n";
 import { useUpdateEmail } from "../context";
 
 export const NewEmailFormStep = () => {

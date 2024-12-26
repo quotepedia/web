@@ -1,9 +1,9 @@
 import type { SubmitHandler } from "@modular-forms/solid";
 import { Stepper } from "@quotepedia/solid";
 import { createAsync, useAction } from "@solidjs/router";
+import { OtpForm, type OtpFormData } from "@src/entities/otp";
+import { getCurrentUser, updateCurrentUserEmail } from "@src/entities/user";
 import { toast } from "solid-sonner";
-import { OtpForm, type OtpFormData } from "~/entities/otp";
-import { getCurrentUser, updateCurrentUserEmail } from "~/entities/user";
 import { useUpdateEmail } from "../context";
 
 export const NewEmailVerificationFormStep = () => {

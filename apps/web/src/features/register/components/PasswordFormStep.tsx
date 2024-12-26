@@ -3,10 +3,10 @@ import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
 
 import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
-import { register } from "~/entities/auth";
-import { PasswordForm, type PasswordFormData } from "~/entities/user";
+import { register } from "@src/entities/auth";
+import { PasswordForm, type PasswordFormData } from "@src/entities/user";
 
-import { useScopedTranslator } from "~/shared/i18n";
+import { useScopedTranslator } from "@src/shared/i18n";
 import { useRegistration } from "../context";
 
 export const PasswordFormStep = () => {

@@ -1,6 +1,6 @@
-import { Icon, Button, Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
+import { Button, Heading, Icon, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
-import { useScopedTranslator } from "~/shared/i18n";
+import { useScopedTranslator } from "@src/shared/i18n";
 
 export const PasswordUpdatedStep = () => {
   const t = useScopedTranslator("components.changePassword.steps.done");

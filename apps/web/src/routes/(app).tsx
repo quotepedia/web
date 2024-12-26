@@ -1,7 +1,7 @@
 import { Container } from "@quotepedia/solid";
 import type { RouteSectionProps } from "@solidjs/router";
-import { Aside } from "~/widgets/aside";
-import { Navigation } from "~/widgets/nav";
+import { Aside } from "@src/widgets/aside";
+import { Navigation } from "@src/widgets/nav";
 
 export default (props: RouteSectionProps) => {
   return (

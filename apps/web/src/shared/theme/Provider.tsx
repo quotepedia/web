@@ -1,5 +1,5 @@
+import { useSettings } from "@src/shared/settings";
 import { createEffect, type ParentComponent } from "solid-js";
-import { useSettings } from "~/shared/settings";
 import { ThemeContext, type ThemeContextValue } from "./context";
 import type { Theme } from "./types";
 

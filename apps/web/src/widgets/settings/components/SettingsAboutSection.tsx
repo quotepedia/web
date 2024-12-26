@@ -1,6 +1,6 @@
 import { Image } from "@kobalte/core/image";
 import { Icon, Separator, SettingsCard, SettingsExpander, SettingsGroup } from "@quotepedia/solid";
-import { useMessage, useScopedTranslator } from "~/shared/i18n";
+import { useMessage, useScopedTranslator } from "@src/shared/i18n";
 
 export const SettingsAboutSection = () => {
   const t = useScopedTranslator("settings.about");

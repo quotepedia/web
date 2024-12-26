@@ -1,5 +1,5 @@
+import { useSettings } from "@src/shared/settings";
 import { type ParentComponent, createEffect, useTransition } from "solid-js";
-import { useSettings } from "~/shared/settings";
 import { I18nContext } from "./context";
 import { getUserLocale } from "./language";
 import { createTranslator } from "./translator";

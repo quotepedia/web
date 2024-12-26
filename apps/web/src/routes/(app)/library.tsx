@@ -1,6 +1,6 @@
 import type { RouteDefinition } from "@solidjs/router";
-import { useMessage } from "~/shared/i18n";
-import { protect } from "~/shared/router";
+import { useMessage } from "@src/shared/i18n";
+import { protect } from "@src/shared/router";
 
 export const route = {
   info: {

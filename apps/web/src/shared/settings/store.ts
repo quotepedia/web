@@ -1,6 +1,6 @@
+import { getUserLocale, type Locale } from "@src/shared/i18n";
+import { type Theme } from "@src/shared/theme";
 import { createStore } from "solid-js/store";
-import { getUserLocale, type Locale } from "~/shared/i18n";
-import { type Theme } from "~/shared/theme";
 import { createStorage } from "../utils/storage/create";
 import { SETTINGS_COOKIE_NAME } from "./constants";
 

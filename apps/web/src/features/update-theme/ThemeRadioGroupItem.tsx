@@ -1,7 +1,7 @@
 import { RadioGroup } from "@kobalte/core/radio-group";
 import { Fade, Icon, SettingsCard } from "@quotepedia/solid";
-import { useScopedTranslator } from "~/shared/i18n";
-import type { Theme } from "~/shared/theme";
+import { useScopedTranslator } from "@src/shared/i18n";
+import type { Theme } from "@src/shared/theme";
 import { ThemeRadioGroupItemPreview } from "./ThemeRadioGroupItemPreview";
 
 export type ThemeRadioGroupItemProps = {

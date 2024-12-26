@@ -1,9 +1,9 @@
 import { Icon, SettingsCard, SettingsGroup, Stack } from "@quotepedia/solid";
 import { A, createAsync, useSubmission } from "@solidjs/router";
+import { unauthenticate } from "@src/entities/auth";
+import { getCurrentUser } from "@src/entities/user";
+import { useScopedTranslator } from "@src/shared/i18n";
 import { Show } from "solid-js";
-import { unauthenticate } from "~/entities/auth";
-import { getCurrentUser } from "~/entities/user";
-import { useScopedTranslator } from "~/shared/i18n";
 
 export const AccountSecuritySection = () => {
   const t = useScopedTranslator("settings.account");

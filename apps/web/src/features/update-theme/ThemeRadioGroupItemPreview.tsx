@@ -1,6 +1,6 @@
 import { usePrefersDark } from "@solid-primitives/media";
+import type { Theme } from "@src/shared/theme";
 import { createEffect, createSignal } from "solid-js";
-import type { Theme } from "~/shared/theme";
 
 export type ThemeRadioGroupItemPreviewProps = {
   value: Theme;

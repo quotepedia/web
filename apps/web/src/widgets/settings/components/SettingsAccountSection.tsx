@@ -1,9 +1,9 @@
 import { Avatar, Icon, SettingsCard, SettingsGroup } from "@quotepedia/solid";
 import { A, createAsync } from "@solidjs/router";
+import { getCurrentUser } from "@src/entities/user";
+import { formatStorageObject } from "@src/shared/api";
+import { useScopedTranslator } from "@src/shared/i18n";
 import { Show } from "solid-js";
-import { getCurrentUser } from "~/entities/user";
-import { formatStorageObject } from "~/shared/api";
-import { useScopedTranslator } from "~/shared/i18n";
 
 export const SettingsAccountSection = () => {
   const t = useScopedTranslator("settings.account");

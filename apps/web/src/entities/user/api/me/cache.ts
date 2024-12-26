@@ -1,6 +1,5 @@
 import { query } from "@solidjs/router";
-
-import { client } from "~/shared/api";
+import { client } from "@src/shared/api";
 
 export const getCurrentUser = query(async () => {
   "use server";

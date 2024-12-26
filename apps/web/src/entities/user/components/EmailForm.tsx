@@ -1,7 +1,7 @@
 import { createForm, email, FormError, type FormProps, required, type SubmitHandler } from "@modular-forms/solid";
 import { Button, FormControl, Stack } from "@quotepedia/solid";
+import { useScopedTranslator } from "@src/shared/i18n";
 import { splitProps } from "solid-js";
-import { useScopedTranslator } from "~/shared/i18n";
 import { getUserExists } from "../api/cache";
 
 export type EmailFormData = {

@@ -1,7 +1,7 @@
 import { Title as MetaTitle } from "@solidjs/meta";
 import { useCurrentMatches, useLocation } from "@solidjs/router";
+import { useMessage } from "@src/shared/i18n";
 import { createEffect, createSignal } from "solid-js";
-import { useMessage } from "~/shared/i18n";
 
 export const Title = () => {
   const location = useLocation();

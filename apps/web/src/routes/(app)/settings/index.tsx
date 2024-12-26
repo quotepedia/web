@@ -1,4 +1,4 @@
-import { SettingsAboutSection, SettingsAccountSection, SettingsAppearanceSection } from "~/widgets/settings";
+import { SettingsAboutSection, SettingsAccountSection, SettingsAppearanceSection } from "@src/widgets/settings";
 
 export default () => {
   return (

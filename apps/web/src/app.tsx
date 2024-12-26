@@ -1,14 +1,14 @@
 import { MetaProvider } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
+import { SessionExpirationObserver } from "@src/entities/auth";
+import { I18nProvider } from "@src/shared/i18n";
+import { SettingsProvider } from "@src/shared/settings";
+import { ThemeProvider } from "@src/shared/theme";
+import { Snowfall } from "@src/widgets/snowfall";
+import { Title } from "@src/widgets/title";
 import { Suspense } from "solid-js";
 import { Toaster } from "solid-sonner";
-import { SessionExpirationObserver } from "~/entities/auth";
-import { I18nProvider } from "~/shared/i18n";
-import { SettingsProvider } from "~/shared/settings";
-import { ThemeProvider } from "~/shared/theme";
-import { Snowfall } from "~/widgets/snowfall";
-import { Title } from "~/widgets/title";
 import "./app.css";
 
 export default function App() {
