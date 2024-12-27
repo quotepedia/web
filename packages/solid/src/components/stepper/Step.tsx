@@ -40,7 +40,7 @@ export const StepperStep = <T extends ValidComponent = "div">(
         <Polymorphic
           as="div"
           aria-current="step"
-          class={cn("flex items-center justify-center", scopedProps)}
+          class={cn("flex items-center justify-center", scopedProps.class)}
           {...otherProps}
         />
       );
