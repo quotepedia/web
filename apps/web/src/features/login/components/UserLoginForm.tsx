@@ -102,8 +102,8 @@ export const UserLoginForm = () => {
               color="primary"
               type="submit"
               class="w-full"
-              aria-busy={form.submitting}
-              disabled={form.invalid || !form.dirty}
+              loading={form.submitting}
+              disabled={form.invalid}
             >
               {t("form.submit")}
             </Button>

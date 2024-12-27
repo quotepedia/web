@@ -86,8 +86,8 @@ export const PasswordForm = (props: PasswordFormProps) => {
           type="submit"
           color="primary"
           class="w-full"
-          aria-busy={form.submitting}
-          disabled={form.invalid || !form.dirty}
+          loading={form.submitting}
+          disabled={form.invalid}
         >
           {t("submit")}
         </Button>
