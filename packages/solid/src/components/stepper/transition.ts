@@ -1,67 +1,58 @@
-import { createSignal } from "solid-js";
+import { createMemo } from "solid-js";
 import type { TransitionProps } from "solid-transition-group";
 import easing from "../transition/easing";
-import { getHeight } from "../transition/helpers";
 import useStepperContext from "./context";
 
 export const createStepperTransition = (): TransitionProps => {
   const context = useStepperContext();
 
-  const isMovingForward = () => context.previousIndex < context.currentIndex;
-  const [enterHeight, setEnterHeight] = createSignal<string>();
+  const isMovingForward = createMemo(() => context.previousIndex < context.currentIndex);
 
   const animateEnter = (element: Element, done: VoidFunction) => {
-    element
-      .animate(
-        [
-          {
-            opacity: 0,
-            height: enterHeight(),
-            transform: isMovingForward() ? "translateX(100%)" : "translateX(-100%)",
-          },
-          {
-            opacity: 1,
-            height: getHeight(element),
-            transform: "translateX(0)",
-          },
-        ],
+    const animation = element.animate(
+      [
         {
-          duration: 400,
-          easing: easing.easeOutCirc,
+          opacity: 0,
+          transform: isMovingForward() ? "translateX(100%)" : "translateX(-100%)",
         },
-      )
-      .finished.then(done);
+        {
+          opacity: 1,
+        },
+      ],
+      {
+        duration: 250,
+        easing: easing.easeOutCubic,
+      },
+    );
+    animation.finished.then(done);
   };
 
   const animateExit = (element: Element, done: VoidFunction) => {
-    element
-      .animate(
-        [
-          {
-            opacity: 1,
-            transform: "translateX(0)",
-          },
-          {
-            opacity: 0,
-            transform: isMovingForward() ? "translateX(-100%)" : "translateX(100%)",
-          },
-        ],
+    const animation = element.animate(
+      [
         {
-          duration: 200,
-          easing: easing.easeInCirc,
+          opacity: 1,
         },
-      )
-      .finished.then(done);
-  };
+        {
+          opacity: 0,
+          transform: isMovingForward() ? "translateX(-100%)" : "translateX(100%)",
+        },
+      ],
+      {
+        duration: 250,
+        easing: easing.easeInCubic,
+      },
+    );
 
-  const onBeforeExit = (element: Element) => {
-    setEnterHeight(getHeight(element));
+    animation.finished.then(() => {
+      element.remove();
+      return requestAnimationFrame(() => done());
+    });
   };
 
   return {
     mode: "outin",
     onEnter: animateEnter,
     onExit: animateExit,
-    onBeforeExit,
   };
 };
