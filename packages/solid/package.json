@@ -58,6 +58,7 @@
     "@kobalte/core": "^0.13.7",
     "@solid-primitives/event-listener": "^2.3.3",
     "@solid-primitives/intersection-observer": "^2.1.6",
+    "@solid-primitives/scroll": "^2.0.23",
     "clsx": "^2.1.1",
     "corvu": "^0.7.1",
     "lottie-web": "^5.12.2",

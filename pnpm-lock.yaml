@@ -122,6 +122,9 @@ importers:
       '@solid-primitives/intersection-observer':
         specifier: ^2.1.6
         version: 2.1.6(solid-js@1.9.3)
+      '@solid-primitives/scroll':
+        specifier: ^2.0.23
+        version: 2.0.23(solid-js@1.9.3)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -1342,6 +1345,11 @@ packages:
 
   '@solid-primitives/scheduled@1.4.4':
     resolution: {integrity: sha512-BTGdFP7t+s7RSak+s1u0eTix4lHP23MrbGkgQTFlt1E+4fmnD/bEx3ZfNW7Grylz3GXgKyXrgDKA7jQ/wuWKgA==}
+    peerDependencies:
+      solid-js: ^1.6.12
+
+  '@solid-primitives/scroll@2.0.23':
+    resolution: {integrity: sha512-kO0YpXKEUHaAnHp3zIsHYmxxuKXO3/LxVhZQHHmhqsmUY6A5IBObkSkoQ/ChIPl/WMKE7ynxEq40OgRmhvyUSw==}
     peerDependencies:
       solid-js: ^1.6.12
 
@@ -4822,6 +4830,13 @@ snapshots:
 
   '@solid-primitives/scheduled@1.4.4(solid-js@1.9.3)':
     dependencies:
+      solid-js: 1.9.3
+
+  '@solid-primitives/scroll@2.0.23(solid-js@1.9.3)':
+    dependencies:
+      '@solid-primitives/event-listener': 2.3.3(solid-js@1.9.3)
+      '@solid-primitives/rootless': 1.4.5(solid-js@1.9.3)
+      '@solid-primitives/static-store': 0.0.8(solid-js@1.9.3)
       solid-js: 1.9.3
 
   '@solid-primitives/static-store@0.0.8(solid-js@1.9.3)':
