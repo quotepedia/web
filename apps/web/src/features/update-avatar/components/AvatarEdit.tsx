@@ -38,7 +38,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
 
   return (
     <>
-      <Dropdown placement="bottom">
+      <Dropdown placement="bottom" gutter={4}>
         <Dropdown.Trigger as={Avatar} aria-busy={updatingAvatar.pending || removingAvatar.pending}>
           <Avatar.Img
             src={props.user.avatar_url && formatStorageObject(props.user.avatar_url)}
@@ -90,7 +90,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
                 <Dialog.Description class="text-center">{t("confirm.description")}</Dialog.Description>
               </Stack.Vertical>
               <Dialog.Footer>
-                <Dialog.Close as={Button} class="w-full">
+                <Dialog.Close as={Button} color="secondary" class="w-full">
                   {t("confirm.close")}
                 </Dialog.Close>
                 <Dialog.Close as={Button} onClick={removeAvatar} color="danger" class="w-full">
