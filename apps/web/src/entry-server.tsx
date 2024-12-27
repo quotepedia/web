@@ -17,6 +17,7 @@ export default createHandler((event) => (
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" />
+          <title>Quotepedia</title>
           {assets}
         </head>
         <body class="overflow-x-hidden transition-colors" data-theme={event.locals.settings.theme}>
