@@ -1,9 +1,8 @@
 {
   "quotepedia": "Quotepedia",
-  "routes.404.title": "Page not found",
-  "routes.404.heading": "This page does not exist",
-  "routes.404.description": "Sorry, we couldn't find the page you're looking for.",
-  "routes.404.home": "Take me home",
+  "404.heading": "This page does not exist",
+  "404.description": "Sorry, we couldn't find the page you're looking for.",
+  "404.home": "Take me home",
   "routes.login.title": "Sign in",
   "routes.login.heading": "Log in to your account",
   "routes.login.description": "We're happy to see you again! Enter credentials in order to access your account:",

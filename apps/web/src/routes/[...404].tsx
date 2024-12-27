@@ -1,30 +1,24 @@
 import { Button, Container, Heading, Lottie, Stack, Text } from "@quotepedia/solid";
-import { A, type RouteDefinition } from "@solidjs/router";
-import { useMessage, useScopedTranslator } from "~/shared/i18n";
+import { A } from "@solidjs/router";
+import { useScopedTranslator } from "~/shared/i18n";
 
-export const route = {
-  info: {
-    title: () => useMessage("routes.404.title"),
-  },
-} satisfies RouteDefinition;
-
-export default function () {
-  const t = useScopedTranslator("routes.404");
+export default () => {
+  const t = useScopedTranslator("404");
 
   return (
     <Container class="self-center">
-      <Stack.Vertical class="gap-6">
-        <Lottie path="/tgs/eyes.json" class="size-24" />
-        <Stack.Vertical class="text-center">
-          <Heading>{t("heading")}</Heading>
-          <Text variant="muted">{t("description")}</Text>
+      <Stack.Vertical class="gap-8">
+        <Stack.Vertical class="gap-6">
+          <Lottie path="/tgs/compass.json" class="size-24" />
+          <Stack.Vertical class="gap-4">
+            <Heading>{t("heading")}</Heading>
+            <Text>{t("description")}</Text>
+          </Stack.Vertical>
         </Stack.Vertical>
-        <Stack.Horizontal>
-          <Button as={A} href="/" color="primary">
-            {t("home")}
-          </Button>
-        </Stack.Horizontal>
+        <Button as={A} href="/" spacing="lg" style="bezeled" leadingIcon="f7:map-pin-ellipse">
+          {t("home")}
+        </Button>
       </Stack.Vertical>
     </Container>
   );
-}
+};
