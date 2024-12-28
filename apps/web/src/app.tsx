@@ -8,7 +8,6 @@ import { I18nProvider } from "~/shared/i18n";
 import { SettingsProvider } from "~/shared/settings";
 import { ThemeProvider } from "~/shared/theme";
 import { Snowfall } from "~/widgets/snowfall";
-import { Title } from "~/widgets/title";
 import "./app.css";
 
 export default function App() {
@@ -22,7 +21,6 @@ export default function App() {
                 <Suspense>
                   {props.children}
 
-                  <Title />
                   <SessionExpirationObserver />
                 </Suspense>
               )}

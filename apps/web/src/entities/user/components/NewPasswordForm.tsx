@@ -1,34 +1,42 @@
-import { createForm, FormError, type FormProps, minLength, required, type SubmitHandler } from "@modular-forms/solid";
-import { Button, Collapse, FormControl, Stack, Text } from "@quotepedia/solid";
-import { Show, splitProps } from "solid-js";
+import {
+  createForm,
+  FormError,
+  type FormProps,
+  type FormStore,
+  minLength,
+  required,
+  type SubmitHandler,
+} from "@modular-forms/solid";
+import { Button, FormControl } from "@quotepedia/solid";
+import { createEffect, splitProps } from "solid-js";
+import { FormResponse } from "~/entities/form/FormResponse";
 import { useScopedTranslator } from "~/shared/i18n";
+import { MIN_PASSWORD_LENGTH } from "../constants";
+import type { NewPasswordFormFieldValues } from "../types";
 
-export const MIN_PASSWORD_LENGTH = 8;
-
-export type PasswordFormData = {
-  newPassword1: string;
-  newPassword2: string;
+export type NewPasswordFormProps = Omit<FormProps<NewPasswordFormFieldValues, undefined>, "of" | "children"> & {
+  ref?: (form: FormStore<NewPasswordFormFieldValues>) => void;
 };
 
-export type PasswordFormProps = Omit<FormProps<PasswordFormData, undefined>, "of" | "children">;
-
-export const PasswordForm = (props: PasswordFormProps) => {
+export const NewPasswordForm = (props: NewPasswordFormProps) => {
   const [scopedProps, otherProps] = splitProps(props, ["onSubmit"]);
 
   const t = useScopedTranslator("components.forms.password");
 
-  const [form, { Form, Field }] = createForm<PasswordFormData>({ validateOn: "input" });
+  const [form, { Form, Field }] = createForm<NewPasswordFormFieldValues>();
 
-  const onSubmit: SubmitHandler<PasswordFormData> = async (values, event) => {
+  createEffect(() => props.ref?.(form));
+
+  const onSubmit: SubmitHandler<NewPasswordFormFieldValues> = async (values, event) => {
     if (values.newPassword1 !== values.newPassword2) {
-      throw new FormError<PasswordFormData>(t("mismatch"));
+      throw new FormError<NewPasswordFormFieldValues>(t("mismatch"));
     }
     await scopedProps.onSubmit?.(values, event);
   };
 
   return (
     <Form onSubmit={onSubmit} {...otherProps} class="w-full">
-      <Stack.Vertical as={"fieldset"} class="items-stretch gap-4" disabled={form.submitting}>
+      <fieldset class="flex flex-col items-stretch gap-4" disabled={form.submitting}>
         <Field
           name="newPassword1"
           validate={[
@@ -46,7 +54,6 @@ export const PasswordForm = (props: PasswordFormProps) => {
               value={field.value}
               error={field.error}
               required
-              autofocus
             />
           )}
         </Field>
@@ -72,26 +79,12 @@ export const PasswordForm = (props: PasswordFormProps) => {
           )}
         </Field>
 
-        <Collapse>
-          <Show when={form.response.message}>
-            {(message) => (
-              <Text size="sm" variant="danger">
-                {message()}
-              </Text>
-            )}
-          </Show>
-        </Collapse>
+        <FormResponse of={form} />
 
-        <Button
-          type="submit"
-          color="primary"
-          class="w-full"
-          loading={form.submitting}
-          disabled={form.invalid}
-        >
+        <Button type="submit" class="w-full" loading={form.submitting} disabled={form.invalid}>
           {t("submit")}
         </Button>
-      </Stack.Vertical>
+      </fieldset>
     </Form>
   );
 };

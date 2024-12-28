@@ -1,24 +1,25 @@
-import type { SubmitHandler } from "@modular-forms/solid";
+import type { FormStore, SubmitHandler } from "@modular-forms/solid";
 import { Stepper } from "@quotepedia/solid";
-import { createAsync, useAction } from "@solidjs/router";
+import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
 import { OtpForm, type OtpFormData } from "~/entities/otp";
-import { getCurrentUser, updateCurrentUserEmail } from "~/entities/user";
+import { updateCurrentUserEmail } from "~/entities/user";
 import { useUpdateEmail } from "../context";
+import { createSignal } from "solid-js";
+import FormStepper from "~/entities/form-stepper";
 
-export const NewEmailVerificationFormStep = () => {
+export const UpdateEmailStepperVerificationStep = () => {
   const stepper = Stepper.useContext();
   const context = useUpdateEmail();
-  const currentUser = createAsync(() => getCurrentUser());
+  const formStepper = FormStepper.useContext();
+  const [form, setForm] = createSignal<FormStore<any, any>>();
 
   const updateEmail = useAction(updateCurrentUserEmail);
 
   const onSubmit: SubmitHandler<OtpFormData> = async (values) => {
     context.set("otp", Number(values.otp));
-    const previousEmail = currentUser()?.email || "";
     const result = await updateEmail(context.store);
     if (!result.error) {
-      context.set("previousEmail", previousEmail);
       stepper.moveForward();
       return;
     }
@@ -28,8 +29,8 @@ export const NewEmailVerificationFormStep = () => {
   };
 
   return (
-    <Stepper.Step>
-      <OtpForm onSubmit={onSubmit} recipient={context.store.email} />
+    <Stepper.Step onEnter={() => formStepper.setForm(form())}>
+      <OtpForm ref={setForm} onSubmit={onSubmit} recipient={context.store.email} />
     </Stepper.Step>
   );
 };

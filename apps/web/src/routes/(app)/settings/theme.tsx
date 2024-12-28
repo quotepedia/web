@@ -1,27 +1,34 @@
-import { Heading, Icon, Text } from "@quotepedia/solid";
-import { type RouteDefinition } from "@solidjs/router";
+import { Button, Container, Heading, Icon, NavigationBar, Text } from "@quotepedia/solid";
+import { A } from "@solidjs/router";
 import { ThemeRadioGroup } from "~/features/update-theme";
 import { useMessage, useScopedTranslator } from "~/shared/i18n";
-
-export const route = {
-  info: {
-    title: () => useMessage("settings.theme.title"),
-  },
-} satisfies RouteDefinition;
 
 export default () => {
   const t = useScopedTranslator("settings.theme");
 
   return (
-    <div class="space-y-4">
-      <section class="space-y-4 text-center">
-        <Icon icon="f7:paintbrush" class="size-20 text-fg-accent" />
-        <hgroup class="space-y-3">
-          <Heading>{t("heading")}</Heading>
-          <Text>{t("description")}</Text>
-        </hgroup>
-      </section>
-      <ThemeRadioGroup />
+    <div class="flex h-full w-full grow flex-col">
+      <NavigationBar>
+        <NavigationBar.Leading>
+          <Button as={A} href="/settings" style="ghost" leadingIcon="f7:chevron-left">
+            {useMessage("settings.title")}
+          </Button>
+        </NavigationBar.Leading>
+        <NavigationBar.Center>
+          <Heading size="base">{t("heading")}</Heading>
+        </NavigationBar.Center>
+        <NavigationBar.Trailing />
+      </NavigationBar>
+      <Container size="wide" class="flex flex-col space-y-6 max-lg:grow">
+        <section class="space-y-4 text-center">
+          <Icon icon="f7:paintbrush" class="text-fg-accent size-20" />
+          <hgroup class="space-y-3">
+            <Heading>{t("heading")}</Heading>
+            <Text>{t("description")}</Text>
+          </hgroup>
+        </section>
+        <ThemeRadioGroup />
+      </Container>
     </div>
   );
 };

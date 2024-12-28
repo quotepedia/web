@@ -3,7 +3,7 @@ import { Button, Collapse, Container, FormControl, Heading, Link, Lottie, Stack,
 import { A, useAction, useSearchParams } from "@solidjs/router";
 import { Show, type JSX } from "solid-js";
 import { authenticate, type LoginForm } from "~/entities/auth";
-import { MIN_PASSWORD_LENGTH } from "~/entities/user/components/PasswordForm";
+import { MIN_PASSWORD_LENGTH } from "~/entities/user/constants";
 import { useScopedTranslator } from "~/shared/i18n";
 
 export const UserLoginForm = () => {

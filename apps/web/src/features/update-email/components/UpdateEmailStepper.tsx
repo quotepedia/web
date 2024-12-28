@@ -1,19 +1,26 @@
-import { Stepper } from "@quotepedia/solid";
+import { Container, Stepper } from "@quotepedia/solid";
+import FormStepper from "~/entities/form-stepper";
 import { ChangeEmailProvider } from "../Provider";
-import { EmailUpdatedStep } from "./EmailUpdatedStep";
-import { NewEmailFormStep } from "./NewEmailFormStep";
-import { NewEmailVerificationFormStep } from "./NewEmailVerificationFormStep";
+import { UpdateEmailStepperDescriptionStep } from "./UpdateEmailStepperDescriptionStep";
+import { UpdateEmailStepperDoneStep } from "./UpdateEmailStepperDoneStep";
+import { UpdateEmailStepperFormStep } from "./UpdateEmailStepperFormStep";
+import { UpdateEmailStepperVerificationStep } from "./UpdateEmailStepperVerificationStep";
+import { useTranslator } from "~/shared/i18n";
 
 export const UpdateEmailStepper = () => {
+  const t = useTranslator();
+
   return (
     <ChangeEmailProvider>
-      <Stepper>
-        <Stepper.Steps class="my-auto overflow-y-auto overflow-x-hidden">
-          <NewEmailFormStep />
-          <NewEmailVerificationFormStep />
-          <EmailUpdatedStep />
+      <FormStepper>
+        <FormStepper.NavigationBar title={t("settings.account.email.update")} href="/settings/account" />
+        <Stepper.Steps as={Container} size="tight" class="my-auto">
+          <UpdateEmailStepperDescriptionStep />
+          <UpdateEmailStepperFormStep />
+          <UpdateEmailStepperVerificationStep />
+          <UpdateEmailStepperDoneStep />
         </Stepper.Steps>
-      </Stepper>
+      </FormStepper>
     </ChangeEmailProvider>
   );
 };

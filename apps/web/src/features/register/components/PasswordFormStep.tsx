@@ -4,7 +4,7 @@ import { toast } from "solid-sonner";
 
 import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { register } from "~/entities/auth";
-import { PasswordForm, type PasswordFormData } from "~/entities/user";
+import { NewPasswordForm, type NewPasswordFormFieldValues } from "~/entities/user";
 
 import { useScopedTranslator } from "~/shared/i18n";
 import { useRegistration } from "../context";
@@ -15,7 +15,7 @@ export const PasswordFormStep = () => {
   const context = useRegistration();
   const signup = useAction(register);
 
-  const onSubmit: SubmitHandler<PasswordFormData> = async (values) => {
+  const onSubmit: SubmitHandler<NewPasswordFormFieldValues> = async (values) => {
     context.set("password", values.newPassword1);
 
     const result = await signup(context.store);
@@ -35,7 +35,7 @@ export const PasswordFormStep = () => {
           <Text>{t("description")}</Text>
         </Stack.Vertical>
 
-        <PasswordForm onSubmit={onSubmit} />
+        <NewPasswordForm onSubmit={onSubmit} />
       </Stack.Vertical>
     </Stepper.Step>
   );

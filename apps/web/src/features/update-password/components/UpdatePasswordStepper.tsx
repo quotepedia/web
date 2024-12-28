@@ -1,14 +1,21 @@
-import { Stepper } from "@quotepedia/solid";
-import { NewPasswordFormStep } from "./NewPasswordFormStep";
-import { PasswordUpdatedStep } from "./PasswordUpdatedStep";
+import { Container, Stepper } from "@quotepedia/solid";
+import FormStepper from "~/entities/form-stepper";
+import { useTranslator } from "~/shared/i18n";
+import { UpdatePasswordStepperDescriptionStep } from "./UpdatePasswordStepperDescriptionStep";
+import { UpdatePasswordStepperDoneStep } from "./UpdatePasswordStepperDoneStep";
+import { UpdatePasswordStepperFormStep } from "./UpdatePasswordStepperFormStep";
 
 export const UpdatePasswordStepper = () => {
+  const t = useTranslator();
+
   return (
-    <Stepper>
-      <Stepper.Steps class="my-auto overflow-y-auto overflow-x-hidden">
-        <NewPasswordFormStep />
-        <PasswordUpdatedStep />
+    <FormStepper>
+      <FormStepper.NavigationBar title={t("settings.account.password.update")} href="/settings/account" />
+      <Stepper.Steps as={Container} size="tight" class="my-auto">
+        <UpdatePasswordStepperDescriptionStep />
+        <UpdatePasswordStepperFormStep />
+        <UpdatePasswordStepperDoneStep />
       </Stepper.Steps>
-    </Stepper>
+    </FormStepper>
   );
 };

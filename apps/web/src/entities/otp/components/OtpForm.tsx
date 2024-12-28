@@ -1,4 +1,4 @@
-import { createForm, FormError, type FormProps, reset, submit, type SubmitHandler } from "@modular-forms/solid";
+import { createForm, FormError, type FormProps, type FormStore, reset, submit, type SubmitHandler } from "@modular-forms/solid";
 import { Repeat } from "@solid-primitives/range";
 import { createEffect, createResource, createSignal, on, Show, splitProps, Suspense } from "solid-js";
 
@@ -15,6 +15,7 @@ export type OtpFormData = {
 
 export type OtpStepProps = Omit<FormProps<OtpFormData, undefined>, "of" | "children"> & {
   recipient: string;
+  ref?: (form: FormStore<OtpFormData>) => void;
 };
 
 export const OtpForm = (props: OtpStepProps) => {
@@ -60,6 +61,7 @@ export const OtpForm = (props: OtpStepProps) => {
     refetch();
   };
 
+  createEffect(() => props.ref?.(form));
   createEffect(on(resourse, () => otpInputRef()?.focus()));
 
   return (

@@ -1,6 +1,14 @@
-import { createForm, email, FormError, type FormProps, required, type SubmitHandler } from "@modular-forms/solid";
+import {
+  createForm,
+  email,
+  FormError,
+  type FormProps,
+  type FormStore,
+  required,
+  type SubmitHandler,
+} from "@modular-forms/solid";
 import { Button, FormControl, Stack } from "@quotepedia/solid";
-import { splitProps } from "solid-js";
+import { createEffect, splitProps } from "solid-js";
 import { useScopedTranslator } from "~/shared/i18n";
 import { getUserExists } from "../api/cache";
 
@@ -8,12 +16,16 @@ export type EmailFormData = {
   email: string;
 };
 
-export type EmailFormProps = Omit<FormProps<EmailFormData, undefined>, "of" | "children">;
+export type EmailFormProps = Omit<FormProps<EmailFormData, undefined>, "of" | "children"> & {
+  ref?: (form: FormStore<EmailFormData>) => void;
+};
 
 export const EmailForm = (props: EmailFormProps) => {
   const t = useScopedTranslator("components.forms.email");
 
   const [form, { Form, Field }] = createForm<EmailFormData>({ validateOn: "input" });
+
+  createEffect(() => props.ref?.(form));
 
   return (
     <Form {...props} class="w-full">
@@ -35,13 +47,7 @@ export const EmailForm = (props: EmailFormProps) => {
           )}
         </Field>
 
-        <Button
-          type="submit"
-          color="primary"
-          class="w-full"
-          loading={form.submitting}
-          disabled={form.invalid}
-        >
+        <Button type="submit" color="primary" class="w-full" loading={form.submitting} disabled={form.invalid}>
           {t("submit")}
         </Button>
       </Stack.Vertical>
