@@ -16,7 +16,7 @@ export default protect(() => {
           </Button>
         </NavigationBar.Leading>
         <NavigationBar.Center>
-          <Heading size="base">{t("account.heading")}</Heading>
+          <p class="font-semibold">{t("account.heading")}</p>
         </NavigationBar.Center>
         <NavigationBar.Trailing />
       </NavigationBar>

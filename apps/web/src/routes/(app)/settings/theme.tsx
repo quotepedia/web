@@ -15,7 +15,7 @@ export default () => {
           </Button>
         </NavigationBar.Leading>
         <NavigationBar.Center>
-          <Heading size="base">{t("heading")}</Heading>
+          <p class="font-semibold">{t("heading")}</p>
         </NavigationBar.Center>
         <NavigationBar.Trailing />
       </NavigationBar>

@@ -1,3 +1,4 @@
+import { Fade } from "@quotepedia/solid";
 import { MetaProvider } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
@@ -19,7 +20,7 @@ export default function App() {
             <Router
               root={(props) => (
                 <Suspense>
-                  {props.children}
+                  <Fade>{props.children}</Fade>
 
                   <SessionExpirationObserver />
                 </Suspense>

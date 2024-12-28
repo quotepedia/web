@@ -28,7 +28,7 @@ export const EmailFormStep = () => {
 
         <Stack.Vertical>
           <RegisteredEmailForm onSubmit={onSubmit} />
-          <Button as={A} href="/login" class="w-full">
+          <Button as={A} href="/login" color="secondary" class="w-full">
             {t("login")}
           </Button>
         </Stack.Vertical>
