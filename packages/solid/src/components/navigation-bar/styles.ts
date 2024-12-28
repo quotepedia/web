@@ -9,9 +9,9 @@ export const styles = tv({
       "transition duration-100",
       "border-transparent",
     ],
-    leading: "shrink-0 grow basis-0 justify-start truncate px-3",
+    leading: "shrink-0 grow basis-0 justify-start truncate lg:px-3",
     center: "flex flex-col justify-center gap-1 truncate text-center",
-    trailing: "flex shrink-0 grow basis-0 justify-end truncate px-3",
+    trailing: "flex shrink-0 grow basis-0 justify-end truncate lg:px-3",
   },
   variants: {
     scrolled: {
