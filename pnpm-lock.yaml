@@ -59,9 +59,6 @@ importers:
       '@solid-primitives/media':
         specifier: ^2.2.9
         version: 2.2.9(solid-js@1.9.3)
-      '@solid-primitives/range':
-        specifier: ^0.1.18
-        version: 0.1.18(solid-js@1.9.3)
       '@solid-primitives/storage':
         specifier: ^4.2.1
         version: 4.2.1(solid-js@1.9.3)
@@ -1320,11 +1317,6 @@ packages:
 
   '@solid-primitives/props@3.1.11':
     resolution: {integrity: sha512-jZAKWwvDRHjiydIumDgMj68qviIbowQ1ci7nkEAgzgvanNkhKSQV8iPgR2jMk1uv7S2ZqXYHslVQTgJel/TEyg==}
-    peerDependencies:
-      solid-js: ^1.6.12
-
-  '@solid-primitives/range@0.1.18':
-    resolution: {integrity: sha512-F5OTdpRFdeLOPEHs92S714GKUk1ZUUmEJ45Z/Z5h6i43DHi7fUFgUL7LeHFxVgIjtGv+Tg5Op7aM9PdSo5iqeQ==}
     peerDependencies:
       solid-js: ^1.6.12
 
@@ -4801,11 +4793,6 @@ snapshots:
       solid-js: 1.9.3
 
   '@solid-primitives/props@3.1.11(solid-js@1.9.3)':
-    dependencies:
-      '@solid-primitives/utils': 6.2.3(solid-js@1.9.3)
-      solid-js: 1.9.3
-
-  '@solid-primitives/range@0.1.18(solid-js@1.9.3)':
     dependencies:
       '@solid-primitives/utils': 6.2.3(solid-js@1.9.3)
       solid-js: 1.9.3
