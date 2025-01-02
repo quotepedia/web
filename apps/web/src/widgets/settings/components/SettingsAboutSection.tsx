@@ -1,4 +1,3 @@
-import { Image } from "@kobalte/core/image";
 import { Icon, Separator, SettingsCard, SettingsExpander, SettingsGroup } from "@quotepedia/solid";
 import { useMessage, useScopedTranslator } from "~/shared/i18n";
 
