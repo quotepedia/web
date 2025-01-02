@@ -5,9 +5,8 @@ import { SettingsAboutSection, SettingsAccountSection, SettingsAppearanceSection
 export default () => {
   const t = useScopedTranslator("settings");
 
-  // TODO: move to component
   return (
-    <Container size="wide" class="flex flex-col space-y-4 max-lg:grow">
+    <Container size="wide" class="flex flex-col space-y-6 max-lg:grow pt-safe-offset-12">
       <Heading>{t("title")}</Heading>
 
       <SettingsAccountSection />

@@ -6,7 +6,7 @@ export default protect(() => {
   const t = useTranslator();
 
   return (
-    <Container size="wide" class="grow">
+    <Container size="wide" class="grow pt-safe-offset-12">
       <Heading>{t("routes.library.title")}</Heading>
     </Container>
   );

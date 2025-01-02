@@ -5,7 +5,7 @@ export default () => {
   const t = useTranslator();
 
   return (
-    <Container size="wide" class="grow">
+    <Container size="wide" class="grow pt-safe-offset-12">
       <Heading>{t("routes.explore.title")}</Heading>
     </Container>
   );

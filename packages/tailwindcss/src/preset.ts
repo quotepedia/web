@@ -2,6 +2,7 @@ import cqi from "@src/plugins/cqi";
 import reset from "@src/plugins/reset";
 import themer from "@src/plugins/themer";
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 export default (): Partial<Config> => ({
   future: {
@@ -54,5 +55,11 @@ export default (): Partial<Config> => ({
     themer,
     require("tailwindcss-animate"),
     require("tailwindcss-safe-area"),
+    plugin(function ({ addVariant }) {
+      addVariant("standalone", "@media all and (display-mode: standalone)");
+      addVariant("fullscreen", "@media all and (display-mode: fullscreen)");
+      addVariant("minimal-ui", "@media all and (display-mode: minimal-ui)");
+      addVariant("browser", "@media all and (display-mode: browser)");
+    }),
   ],
 });
