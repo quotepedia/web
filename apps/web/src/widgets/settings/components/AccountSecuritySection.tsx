@@ -15,7 +15,7 @@ export const AccountSecuritySection = () => {
   return (
     <Show when={currentUser()}>
       {(user) => (
-        <Stack.Vertical class="items-start gap-3">
+        <Stack.Vertical class="gap-6">
           <SettingsGroup>
             <SettingsCard variant="hover" as={A} href="/settings/account/update-email">
               <Icon icon="f7:envelope" class="text-fg-accent size-6" />
