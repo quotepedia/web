@@ -1,5 +1,6 @@
-import { query } from "@solidjs/router";
+import { query, revalidate } from "@solidjs/router";
 import { getSession } from "./cookie";
+import { getCurrentUser } from "~/entities/user";
 
 /**
  * Determines whether the current user is logged in using the JWT.
@@ -26,3 +27,19 @@ export const getSessionExpirationDate = query(async () => {
 
   return sessionExpirationDate;
 }, "sessionExpirationDate");
+
+export const getSessionExpirationTimeout = query(async () => {
+  "use server";
+
+  const expirationDate = await getSessionExpirationDate();
+  if (!expirationDate) {
+    return false;
+  }
+
+  const expiresAfterMs = expirationDate - Date.now();
+  if (expiresAfterMs <= 0) {
+    return false;
+  }
+
+  return expiresAfterMs;
+}, "sessionExpirationTimeout");
