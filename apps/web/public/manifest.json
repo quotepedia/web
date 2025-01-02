@@ -2,17 +2,43 @@
   "$schema": "https://json.schemastore.org/web-manifest",
   "id": "quotepedia",
   "name": "Quotepedia",
-  "description": "",
+  "short_name": "Quotepedia",
+  "description": "Quotepedia is a library of inspiration that you create yourself.",
+  "start_url": "/",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "type": "image/svg+xml",
-      "sizes": "any"
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/favicon.ico",
       "type": "image/x-icon",
       "sizes": "256x256"
+    },
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
     }
   ],
   "display": "standalone"
