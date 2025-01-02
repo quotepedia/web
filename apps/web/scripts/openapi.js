@@ -55,7 +55,7 @@ const output = await prettier.format(astToString(ast), {
 });
 
 fs.readFile(path, (_, data) => {
-  if (data.toString() === output) {
+  if (data?.toString() === output) {
     console.info(`🔎 The schema is already up-to-date.`);
     return;
   }
