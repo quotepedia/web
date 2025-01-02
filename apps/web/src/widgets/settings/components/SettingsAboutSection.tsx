@@ -9,10 +9,7 @@ export const SettingsAboutSection = () => {
     <SettingsGroup>
       <SettingsExpander>
         <SettingsExpander.Trigger>
-          <Image class="text-fg-accent size-6">
-            <Image.Img src="/favicon.svg" alt={useMessage("quotepedia")} />
-            <Image.Fallback as={Icon} icon="f7:info-circle" />
-          </Image>
+          <Icon icon="f7:info-circle" class="text-fg-accent size-6" />
           <SettingsCard.HeaderGroup>
             <SettingsCard.Header>{useMessage("quotepedia")}</SettingsCard.Header>
           </SettingsCard.HeaderGroup>
