@@ -19,7 +19,8 @@ const DropdownContent = <T extends ValidComponent = "div">(props: PolymorphicPro
   const [, rest] = splitProps(props as DropdownContentProps, ["class"]);
   return (
     <DropdownPrimitive.Portal>
-      <DropdownPrimitive.Content class={cn(styles().content(), props.class)} {...rest}>
+      <DropdownPrimitive.Content class={cn(styles().content(), props.class)} {...rest} >
+        <DropdownPrimitive.Arrow class="my-px" size={36} />
         {props.children}
       </DropdownPrimitive.Content>
     </DropdownPrimitive.Portal>
