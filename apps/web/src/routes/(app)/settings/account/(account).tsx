@@ -1,7 +1,7 @@
 import { Button, Container, Heading, NavigationBar } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
 import { useScopedTranslator } from "~/shared/i18n";
-import { protect } from "~/shared/router";
+import { protect } from "~/shared/utils/router";
 import { AccountInfoSection, AccountSecuritySection } from "~/widgets/settings";
 
 export default protect(() => {
