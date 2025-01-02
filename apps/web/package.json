@@ -26,9 +26,8 @@
     "build": "vinxi build",
     "clean": "rm -rf .turbo .vinxi .output node_modules",
     "dev": "vinxi dev",
-    "gen": "pnpm \"/^gen:.*/\"",
-    "gen:ts": "node --env-file=.env ./scripts/openapi.js ./src/shared/api/types.ts",
-    "lint": "tsc"
+    "lint": "tsc",
+    "script:generate-api-types": "tsx --env-file=.env src/scripts/generate-api-types.ts src/lib/api/types.ts"
   },
   "devDependencies": {
     "@kobalte/core": "^0.13.7",

@@ -61,9 +61,10 @@ fs.readFile(path, (_, data) => {
   }
 
   fs.writeFile(path, output, (_) => {
-    const intl = Intl.NumberFormat(undefined, { style: "unit", unit: "kilobyte" });
-    const size = intl.format(fs.statSync(path).size / 1024);
+    // const intl = Intl.NumberFormat(undefined, { style: "unit", unit: "kilobyte" });
+    // const size = intl.format(fs.statSync(path).size / 1024);
 
-    console.info(`🚀 The schema has been written to ${path} (${size})`);
+    // console.info(`🚀 The schema has been written to ${path} (${size})`);
+    console.info(`🚀 The schema has been written to ${path}`);
   });
 });
