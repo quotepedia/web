@@ -1,4 +1,4 @@
-import { Icon, Avatar, Button, Dialog, Dropdown, Separator, Stack } from "@quotepedia/solid";
+import { Avatar, Button, Dialog, Dropdown, Icon, Stack } from "@quotepedia/solid";
 import { createFileUploader } from "@solid-primitives/upload";
 import { useAction, useSubmission } from "@solidjs/router";
 import { type Component, createSignal, Show } from "solid-js";
@@ -51,13 +51,10 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
         <Dropdown.Content>
           <Show when={props.user.avatar_url}>
             {(avatar_url) => (
-              <>
-                <Dropdown.Item onSelect={() => window.open(formatStorageObject(avatar_url()), "_blank")}>
-                  <Icon icon="f7:link" class="size-6" />
-                  <Dropdown.ItemLabel>{t("dropdown.open")}</Dropdown.ItemLabel>
-                </Dropdown.Item>
-                <Separator orientation="horizontal" class="my-0.5" />
-              </>
+              <Dropdown.Item onSelect={() => window.open(formatStorageObject(avatar_url()), "_blank")}>
+                <Icon icon="f7:link" class="size-6" />
+                <Dropdown.ItemLabel>{t("dropdown.open")}</Dropdown.ItemLabel>
+              </Dropdown.Item>
             )}
           </Show>
           <Dropdown.Item onSelect={selectAvatar} disabled={updatingAvatar.pending}>
