@@ -2,7 +2,7 @@ import type { FormStore } from "@modular-forms/solid";
 import { createContext, useContext, type Accessor, type Setter } from "solid-js";
 
 export type FormStepperContextValue = {
-  form: Accessor<FormStore<any, any> | undefined>;
+  form: FormStore<any, any> | undefined;
   setForm: Setter<FormStore<any, any> | undefined>;
 };
 

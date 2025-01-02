@@ -7,7 +7,9 @@ export const FormStepperRoot: ParentComponent = (props) => {
   const [form, setForm] = createSignal<FormStore<any, any>>();
 
   const context: FormStepperContextValue = {
-    form,
+    get form() {
+      return form();
+    },
     setForm,
   };
 
