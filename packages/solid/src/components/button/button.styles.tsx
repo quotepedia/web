@@ -44,7 +44,7 @@ export const styles = tv({
         root: "px-1.5 py-1.5 gap-0.5",
       },
       lg: {
-        root: "py-1.5 px-2.5 gap-0.5",
+        root: "py-2 px-2.5 gap-0.5",
       },
     },
     color: {
