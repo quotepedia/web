@@ -4,7 +4,7 @@ import { createAsync, revalidate } from "@solidjs/router";
 import { createEffect, createSignal, on, type ParentComponent } from "solid-js";
 import { toast } from "solid-sonner";
 import { getCurrentUser } from "~/entities/user";
-import { getIsLoggedIn, getSessionExpirationDate } from "~/shared/http";
+import { getIsLoggedIn, getSessionExpirationDate } from "~/shared/session";
 import { useScopedTranslator } from "~/shared/i18n";
 
 export const SessionExpirationObserver: ParentComponent = (props) => {

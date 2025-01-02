@@ -1,6 +1,6 @@
 import { createAsync, Navigate, type RouteSectionProps, useSearchParams } from "@solidjs/router";
 import { JSX, Match, Switch } from "solid-js";
-import { getIsLoggedIn } from "~/shared/http";
+import { getIsLoggedIn } from "~/shared/session";
 
 export function guest(children: (props: RouteSectionProps) => JSX.Element, fallback: string = "/settings") {
   return (props: RouteSectionProps) => {

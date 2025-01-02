@@ -1,7 +1,7 @@
 import { action, redirect } from "@solidjs/router";
 
 import { client, serializeFormData } from "~/shared/api";
-import { clearSession, updateSession } from "~/shared/http";
+import { clearSession, updateSession } from "~/shared/session";
 
 import type { LoginForm, RegisterForm, UserPasswordResetForm } from "./types";
 
