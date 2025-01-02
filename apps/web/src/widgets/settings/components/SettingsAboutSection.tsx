@@ -10,7 +10,7 @@ export const SettingsAboutSection = () => {
         <SettingsExpander.Trigger>
           <Icon icon="f7:info-circle" class="text-fg-accent size-6" />
           <SettingsCard.HeaderGroup>
-            <SettingsCard.Header>{useMessage("quotepedia")}</SettingsCard.Header>
+            <SettingsCard.Header>{t("app.heading")}</SettingsCard.Header>
           </SettingsCard.HeaderGroup>
           <SettingsCard.Value as="code">{import.meta.env.APP_VERSION}</SettingsCard.Value>
           <SettingsExpander.Indicator />

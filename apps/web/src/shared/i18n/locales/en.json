@@ -44,6 +44,7 @@
   "settings.about.news.url": "https://t.me/QuotepediaNews",
   "settings.about.feedback.heading": "Report an issue",
   "settings.about.contribute.heading": "Browse the source code",
+  "settings.about.app.heading": "About the application",
   "settings.theme.title": "Theme",
   "settings.theme.heading": "Theme",
   "settings.theme.description": "Change the color scheme across the application.",
