@@ -1,7 +1,7 @@
 import { Button, Container, Heading, Icon, NavigationBar, Text } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
-import { ThemeRadioGroup } from "~/features/update-theme";
-import { useMessage, useScopedTranslator } from "~/shared/i18n";
+import { ThemeRadioGroup } from "~/components/update-theme";
+import { useMessage, useScopedTranslator } from "~/lib/i18n";
 
 export default () => {
   const t = useScopedTranslator("settings.theme");

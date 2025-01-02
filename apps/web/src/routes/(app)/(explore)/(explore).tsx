@@ -1,5 +1,5 @@
 import { Container, Heading } from "@quotepedia/solid";
-import { useTranslator } from "~/shared/i18n";
+import { useTranslator } from "~/lib/i18n";
 
 export default () => {
   const t = useTranslator();

@@ -1,4 +1,4 @@
-import { UserLoginForm } from "~/features/login";
+import { UserLoginForm } from "~/components/login";
 
 export default () => {
   return <UserLoginForm />;

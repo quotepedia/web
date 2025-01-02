@@ -1,6 +1,6 @@
 import { Button, Container, Heading, Lottie, Stack, Text } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
-import { useScopedTranslator } from "~/shared/i18n";
+import { useScopedTranslator } from "~/lib/i18n";
 
 export default () => {
   const t = useScopedTranslator("404");

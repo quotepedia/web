@@ -1,6 +1,6 @@
 import { Container, Heading } from "@quotepedia/solid";
-import { useTranslator } from "~/shared/i18n";
-import { protect } from "~/shared/utils/router";
+import { useTranslator } from "~/lib/i18n";
+import { protect } from "~/utils/router";
 
 export default protect(() => {
   const t = useTranslator();

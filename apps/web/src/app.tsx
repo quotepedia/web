@@ -3,11 +3,11 @@ import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 import { Toaster } from "solid-sonner";
-import { I18nProvider } from "~/shared/i18n";
-import { createSessionValidator } from "~/shared/session";
-import { SettingsProvider } from "~/shared/settings";
-import { ThemeProvider } from "~/shared/theme";
-import { Snowfall } from "~/widgets/snowfall";
+import { I18nProvider } from "~/lib/i18n";
+import { createSessionValidator } from "~/lib/session";
+import { SettingsProvider } from "~/lib/settings";
+import { ThemeProvider } from "~/lib/theme";
+import { Snowfall } from "~/components/snowfall";
 import "./app.css";
 
 export default function App() {

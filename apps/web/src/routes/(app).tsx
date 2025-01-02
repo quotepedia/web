@@ -1,5 +1,5 @@
 import type { RouteSectionProps } from "@solidjs/router";
-import { Aside } from "~/widgets/aside";
+import { Aside } from "~/components/aside";
 
 export default (props: RouteSectionProps) => {
   return (

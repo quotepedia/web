@@ -1,6 +1,6 @@
 import { Container, Heading, Stack } from "@quotepedia/solid";
-import { useScopedTranslator } from "~/shared/i18n";
-import { SettingsAboutSection, SettingsAccountSection, SettingsAppearanceSection } from "~/widgets/settings";
+import { useScopedTranslator } from "~/lib/i18n";
+import { SettingsAboutSection, SettingsAccountSection, SettingsAppearanceSection } from "~/components/settings";
 
 export default () => {
   const t = useScopedTranslator("settings");

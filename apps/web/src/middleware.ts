@@ -1,6 +1,6 @@
 import { createMiddleware } from "@solidjs/start/middleware";
-import type { Settings } from "~/shared/settings";
-import { getSettings } from "~/shared/settings/server";
+import type { Settings } from "~/lib/settings";
+import { getSettings } from "~/lib/settings/server";
 
 declare module "@solidjs/start/server" {
   interface RequestEventLocals {

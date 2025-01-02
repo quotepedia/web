@@ -1,5 +1,5 @@
-import { UpdatePasswordStepper } from "~/features/update-password";
-import { protect } from "~/shared/utils/router";
+import { UpdatePasswordStepper } from "~/components/update-password";
+import { protect } from "~/utils/router";
 
 export default protect(() => {
   return <UpdatePasswordStepper />;

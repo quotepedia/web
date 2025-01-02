@@ -1,4 +1,4 @@
-import { RegistrationStepper } from "~/features/register";
+import { RegistrationStepper } from "~/components/register";
 
 export default () => {
   return <RegistrationStepper />;
