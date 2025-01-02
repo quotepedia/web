@@ -27,7 +27,7 @@
     "clean": "rm -rf .turbo .vinxi .output node_modules",
     "dev": "vinxi dev",
     "lint": "tsc",
-    "script:generate-api-types": "tsx --env-file=.env src/scripts/generate-api-types.ts src/lib/api/types.ts"
+    "script:generate-api-types": "tsx --env-file=.env scripts/generate-api-types.ts src/lib/api/types.ts"
   },
   "devDependencies": {
     "@kobalte/core": "^0.13.7",
