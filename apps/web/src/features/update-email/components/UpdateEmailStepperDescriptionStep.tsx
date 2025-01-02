@@ -1,9 +1,9 @@
 import { Button, Heading, Link, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
-import { createAsync } from "@solidjs/router";
+import { A, createAsync } from "@solidjs/router";
 import { Show } from "solid-js";
 import FormStepper from "~/entities/form-stepper";
 import { getCurrentUser } from "~/entities/user";
-import { useScopedTranslator, useTranslator } from "~/shared/i18n";
+import { useTranslator } from "~/shared/i18n";
 
 export const UpdateEmailStepperDescriptionStep = () => {
   const t = useTranslator();
@@ -29,9 +29,14 @@ export const UpdateEmailStepperDescriptionStep = () => {
 
             <Text variant="muted">{t("components.changeEmail.steps.description.hint")}</Text>
 
-            <Stepper.Forward as={Button} class="w-full">
-              {t("continue")}
-            </Stepper.Forward>
+            <Stack.Vertical>
+              <Stepper.Forward as={Button} class="w-full">
+                {t("continue")}
+              </Stepper.Forward>
+              <Button as={A} href="/settings/account" style="ghost" class="w-full">
+                {t("back")}
+              </Button>
+            </Stack.Vertical>
           </Stack.Vertical>
         )}
       </Show>

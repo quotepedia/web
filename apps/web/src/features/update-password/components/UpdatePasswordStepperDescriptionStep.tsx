@@ -1,4 +1,5 @@
 import { Button, Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
+import { A } from "@solidjs/router";
 import FormStepper from "~/entities/form-stepper";
 import { useTranslator } from "~/shared/i18n";
 
@@ -18,9 +19,14 @@ export const UpdatePasswordStepperDescriptionStep = () => {
 
         <Text variant="muted">{t("components.changePassword.steps.description.hint")}</Text>
 
-        <Stepper.Forward as={Button} class="w-full">
-          {t("continue")}
-        </Stepper.Forward>
+        <Stack.Vertical>
+          <Stepper.Forward as={Button} class="w-full">
+            {t("continue")}
+          </Stepper.Forward>
+          <Button as={A} href="/settings/account" style="ghost" class="w-full">
+            {t("back")}
+          </Button>
+        </Stack.Vertical>
       </Stack.Vertical>
     </Stepper.Step>
   );
