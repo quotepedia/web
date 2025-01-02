@@ -5,7 +5,7 @@ import { createEffect, createResource, createSignal, on, Show, splitProps, Suspe
 import { Collapse, Heading, Link, Lottie, OtpField, Stack, Text, TextField } from "@quotepedia/solid";
 import { useScopedTranslator } from "~/shared/i18n";
 
-import { sendOtp, verifyOtp } from "../api/cache";
+import { sendOTP, verifyOTP } from "../shared/api/otp/cache";
 
 export const OTP_LENGTH = 6;
 
@@ -25,12 +25,12 @@ export const OtpForm = (props: OtpStepProps) => {
 
   const [isCorrect, setIsCorrect] = createSignal(false);
   const [otpInputRef, setOtpInputRef] = createSignal<HTMLInputElement>();
-  const [resourse, { refetch }] = createResource(props.recipient, sendOtp);
+  const [resourse, { refetch }] = createResource(props.recipient, sendOTP);
   const [form, { Form, Field }] = createForm<OtpFormData>();
 
   const onSubmit: SubmitHandler<OtpFormData> = async (values, event) => {
     const otp = Number(values.otp);
-    const result = await verifyOtp({ email: props.recipient, otp: otp });
+    const result = await verifyOTP({ email: props.recipient, otp: otp });
 
     if (!result.error) {
       setIsCorrect(true);

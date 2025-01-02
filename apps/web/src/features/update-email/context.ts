@@ -1,6 +1,6 @@
 import { createContext, useContext } from "solid-js";
 import type { SetStoreFunction, Store } from "solid-js/store";
-import type { CurrentUserEmailUpdateForm } from "~/entities/user/api/me/types";
+import type { CurrentUserEmailUpdateForm } from "~/shared/api/users/me/types";
 
 export type CurrentUserEmailUpdateStoreValue = CurrentUserEmailUpdateForm
 

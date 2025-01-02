@@ -10,7 +10,7 @@ import {
 import { Button, FormControl, Stack } from "@quotepedia/solid";
 import { createEffect, splitProps } from "solid-js";
 import { useScopedTranslator } from "~/shared/i18n";
-import { getUserExists } from "../api/cache";
+import { getUserExists } from "../shared/api/users/cache";
 
 export type EmailFormData = {
   email: string;

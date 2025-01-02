@@ -2,11 +2,11 @@ import type { FormStore, SubmitHandler } from "@modular-forms/solid";
 import { Stepper } from "@quotepedia/solid";
 import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
-import { OtpForm, type OtpFormData } from "~/entities/otp";
-import { updateCurrentUserEmail } from "~/entities/user";
 import { useUpdateEmail } from "../context";
 import { createSignal } from "solid-js";
 import FormStepper from "~/entities/form-stepper";
+import { updateCurrentUserEmailAction } from "~/shared/api/users/me";
+import { OtpForm, type OtpFormData } from "~/entities/OtpForm";
 
 export const UpdateEmailStepperVerificationStep = () => {
   const stepper = Stepper.useContext();
@@ -14,7 +14,7 @@ export const UpdateEmailStepperVerificationStep = () => {
   const formStepper = FormStepper.useContext();
   const [form, setForm] = createSignal<FormStore<any, any>>();
 
-  const updateEmail = useAction(updateCurrentUserEmail);
+  const updateEmail = useAction(updateCurrentUserEmailAction);
 
   const onSubmit: SubmitHandler<OtpFormData> = async (values) => {
     context.set("otp", Number(values.otp));

@@ -1,7 +1,7 @@
 import { Avatar } from "@quotepedia/solid";
 import { createAsync } from "@solidjs/router";
 import { Show } from "solid-js";
-import { getCurrentUser } from "~/entities/user";
+import { getCurrentUser } from "~/shared/api/users/me";
 import { formatStorageObject } from "~/shared/api";
 import { useTranslator } from "~/shared/i18n";
 import { Sidebar } from "./sidebar";

@@ -4,7 +4,9 @@ import { useAction } from "@solidjs/router";
 import { createSignal } from "solid-js";
 import { toast } from "solid-sonner";
 import FormStepper from "~/entities/form-stepper";
-import { NewPasswordForm, updateCurrentUserPassword, type NewPasswordFormFieldValues } from "~/entities/user";
+import { NewPasswordForm } from "~/entities/NewPasswordForm";
+import { type NewPasswordFormFieldValues } from "~/shared/api/users";
+import { updateCurrentUserPasswordAction } from "~/shared/api/users/me";
 import { useTranslator } from "~/shared/i18n";
 
 export const UpdatePasswordStepperFormStep = () => {
@@ -13,7 +15,7 @@ export const UpdatePasswordStepperFormStep = () => {
   const context = FormStepper.useContext();
   const stepper = Stepper.useContext();
 
-  const updatePassword = useAction(updateCurrentUserPassword);
+  const updatePassword = useAction(updateCurrentUserPasswordAction);
 
   const [form, setForm] = createSignal<FormStore<any, any>>();
 

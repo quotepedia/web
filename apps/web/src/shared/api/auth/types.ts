@@ -1,4 +1,4 @@
-import type { components } from "~/shared/api";
+import type { components } from "../types";
 
 export type LoginForm = {
   email: string;

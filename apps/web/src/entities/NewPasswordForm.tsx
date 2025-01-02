@@ -11,8 +11,8 @@ import { Button, FormControl } from "@quotepedia/solid";
 import { createEffect, splitProps } from "solid-js";
 import { FormResponse } from "~/entities/form/FormResponse";
 import { useScopedTranslator } from "~/shared/i18n";
-import { MIN_PASSWORD_LENGTH } from "../constants";
-import type { NewPasswordFormFieldValues } from "../types";
+import { MIN_PASSWORD_LENGTH } from "../shared/api/users/constants";
+import type { NewPasswordFormFieldValues } from "../shared/api/users/types";
 
 export type NewPasswordFormProps = Omit<FormProps<NewPasswordFormFieldValues, undefined>, "of" | "children"> & {
   ref?: (form: FormStore<NewPasswordFormFieldValues>) => void;

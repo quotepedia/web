@@ -1,5 +1,5 @@
 import type { SubmitHandler } from "@modular-forms/solid";
-import { OtpForm, type OtpFormData } from "~/entities/otp";
+import { OtpForm, type OtpFormData } from "~/entities/OtpForm";
 import { Stepper } from "@quotepedia/solid";
 import { useRegistration } from "../context";
 

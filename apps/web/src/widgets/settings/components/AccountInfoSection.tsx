@@ -1,7 +1,7 @@
 import { Heading, Stack, Text } from "@quotepedia/solid";
 import { createAsync } from "@solidjs/router";
 import { Show } from "solid-js";
-import { getCurrentUser } from "~/entities/user";
+import { getCurrentUser } from "~/shared/api/users/me";
 import { AvatarEdit } from "~/features/update-avatar";
 
 export const AccountInfoSection = () => {

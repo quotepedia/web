@@ -27,7 +27,7 @@
     "clean": "rm -rf .turbo .vinxi .output node_modules",
     "dev": "vinxi dev",
     "gen": "pnpm \"/^gen:.*/\"",
-    "gen:ts": "node --env-file=.env ./scripts/openapi.js ./src/shared/api/generated/schema.d.ts",
+    "gen:ts": "node --env-file=.env ./scripts/openapi.js ./src/shared/api/types.ts",
     "lint": "tsc"
   },
   "devDependencies": {

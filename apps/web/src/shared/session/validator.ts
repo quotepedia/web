@@ -2,7 +2,7 @@ import { makeBroadcastChannel } from "@solid-primitives/broadcast-channel";
 import { createTimer } from "@solid-primitives/timer";
 import { createAsync, revalidate } from "@solidjs/router";
 import { createEffect } from "solid-js";
-import { getCurrentUser } from "~/entities/user";
+import { getCurrentUser } from "~/shared/api/users/me";
 import { getIsLoggedIn, getSessionExpirationTimeout } from "./cache";
 import { SESSION_VALIDATOR_SYNC_NAME } from "./constants";
 

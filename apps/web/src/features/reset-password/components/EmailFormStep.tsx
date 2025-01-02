@@ -1,9 +1,9 @@
 import type { SubmitHandler } from "@modular-forms/solid";
 import { Button, Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
-import { type EmailFormData, RegisteredEmailForm } from "~/entities/user";
 import { useScopedTranslator } from "~/shared/i18n";
 import { useResetPassword } from "../context";
+import { RegisteredEmailForm, type EmailFormData } from "~/entities/EmailForm";
 
 export const EmailFormStep = () => {
   const t = useScopedTranslator("components.resetPassword.steps.email");

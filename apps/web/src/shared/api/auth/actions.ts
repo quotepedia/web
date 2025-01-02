@@ -1,11 +1,12 @@
 import { action, redirect } from "@solidjs/router";
 
-import { client, serializeFormData } from "~/shared/api";
 import { clearSession, updateSession } from "~/shared/session";
 
 import type { LoginForm, RegisterForm, UserPasswordResetForm } from "./types";
+import { client } from "../instance";
+import { serializeFormData } from "../serializers";
 
-export const authenticate = action(async (form: LoginForm) => {
+export const loginAction = action(async (form: LoginForm) => {
   "use server";
 
   const { data, error } = await client.POST("/api/v1/auth/login", {
@@ -25,7 +26,7 @@ export const authenticate = action(async (form: LoginForm) => {
   return { error };
 });
 
-export const register = action(async (body: RegisterForm) => {
+export const registerAction = action(async (body: RegisterForm) => {
   "use server";
 
   const { data, error } = await client.POST("/api/v1/auth/register", { body: body });
@@ -38,7 +39,7 @@ export const register = action(async (body: RegisterForm) => {
   return { error };
 });
 
-export const unauthenticate = action(async () => {
+export const logoutAction = action(async () => {
   "use server";
 
   await clearSession();
@@ -46,7 +47,7 @@ export const unauthenticate = action(async () => {
   throw redirect("/");
 });
 
-export const resetUserPassword = action(async (body: UserPasswordResetForm) => {
+export const resetPasswordAction = action(async (body: UserPasswordResetForm) => {
   "use server";
 
   const { data, error } = await client.PATCH("/api/v1/auth/reset-password", { body: body });

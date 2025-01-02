@@ -1,7 +1,7 @@
 import { Avatar, Icon, SettingsCard, SettingsGroup } from "@quotepedia/solid";
 import { A, createAsync } from "@solidjs/router";
 import { Show } from "solid-js";
-import { getCurrentUser } from "~/entities/user";
+import { getCurrentUser } from "~/shared/api/users/me";
 import { formatStorageObject } from "~/shared/api";
 import { useScopedTranslator } from "~/shared/i18n";
 

@@ -1,6 +1,5 @@
-import { query, revalidate } from "@solidjs/router";
+import { query } from "@solidjs/router";
 import { getSession } from "./cookie";
-import { getCurrentUser } from "~/entities/user";
 
 /**
  * Determines whether the current user is logged in using the JWT.

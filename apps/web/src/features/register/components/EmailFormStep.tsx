@@ -1,7 +1,7 @@
 import type { SubmitHandler } from "@modular-forms/solid";
 import { Heading, Link, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
-import { UnregisteredEmailForm, type EmailFormData } from "~/entities/user";
+import { UnregisteredEmailForm, type EmailFormData } from "~/entities/EmailForm";
 import { useScopedTranslator } from "~/shared/i18n";
 import { useRegistration } from "../context";
 

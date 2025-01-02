@@ -3,17 +3,18 @@ import { useAction } from "@solidjs/router";
 import { toast } from "solid-sonner";
 
 import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
-import { resetUserPassword } from "~/entities/auth";
-import { NewPasswordForm, type NewPasswordFormFieldValues } from "~/entities/user";
-
+import { NewPasswordForm } from "~/entities/NewPasswordForm";
+import { resetPasswordAction } from "~/shared/api/auth";
+import { type NewPasswordFormFieldValues } from "~/shared/api/users";
 import { useScopedTranslator } from "~/shared/i18n";
+
 import { useResetPassword } from "../context";
 
 export const NewPasswordFormStep = () => {
   const t = useScopedTranslator("components.resetPassword.steps.password");
 
   const context = useResetPassword();
-  const resetPassword = useAction(resetUserPassword);
+  const resetPassword = useAction(resetPasswordAction);
 
   const onSubmit: SubmitHandler<NewPasswordFormFieldValues> = async (values) => {
     context.set("password", values.newPassword1);

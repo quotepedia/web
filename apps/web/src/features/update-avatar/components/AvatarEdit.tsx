@@ -3,7 +3,7 @@ import { createFileUploader } from "@solid-primitives/upload";
 import { useAction, useSubmission } from "@solidjs/router";
 import { type Component, createSignal, Show } from "solid-js";
 import { toast } from "solid-sonner";
-import { removeCurrentUserAvatar, updateCurrentUserAvatar } from "~/entities/user";
+import { removeCurrentUserAvatarAction, updateCurrentUserAvatarAction } from "~/shared/api/users/me";
 import { type components, formatStorageObject } from "~/shared/api";
 import { useScopedTranslator } from "~/shared/i18n";
 
@@ -14,12 +14,12 @@ export type AvatarEditProps = {
 export const AvatarEdit: Component<AvatarEditProps> = (props) => {
   const t = useScopedTranslator("components.avatarEdit");
 
-  const updateAvatar = useAction(updateCurrentUserAvatar);
-  const updatingAvatar = useSubmission(updateCurrentUserAvatar);
+  const updateAvatar = useAction(updateCurrentUserAvatarAction);
+  const updatingAvatar = useSubmission(updateCurrentUserAvatarAction);
   const uploader = createFileUploader({ accept: "image/*" });
 
-  const removeAvatar = useAction(removeCurrentUserAvatar);
-  const removingAvatar = useSubmission(removeCurrentUserAvatar);
+  const removeAvatar = useAction(removeCurrentUserAvatarAction);
+  const removingAvatar = useSubmission(removeCurrentUserAvatarAction);
   const [isRemoveAvatarConfirmOpen, setIsRemoveAvatarConfirmOpen] = createSignal(false);
   const openRemoveAvatarConfirm = () => setIsRemoveAvatarConfirmOpen(true);
 

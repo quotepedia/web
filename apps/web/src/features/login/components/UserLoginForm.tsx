@@ -2,14 +2,14 @@ import { createForm, email, FormError, minLength, required } from "@modular-form
 import { Button, Collapse, Container, FormControl, Heading, Link, Lottie, Stack, Text } from "@quotepedia/solid";
 import { A, useAction, useSearchParams } from "@solidjs/router";
 import { Show, type JSX } from "solid-js";
-import { authenticate, type LoginForm } from "~/entities/auth";
-import { MIN_PASSWORD_LENGTH } from "~/entities/user/constants";
+import { loginAction, type LoginForm } from "~/shared/api/auth";
+import { MIN_PASSWORD_LENGTH } from "~/shared/api/users/constants";
 import { useScopedTranslator } from "~/shared/i18n";
 
 export const UserLoginForm = () => {
   const t = useScopedTranslator("routes.login");
 
-  const login = useAction(authenticate);
+  const login = useAction(loginAction);
   const [searchParams] = useSearchParams();
 
   const [form, { Form, Field }] = createForm<LoginForm>({ validateOn: "input" });

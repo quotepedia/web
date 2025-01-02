@@ -1,8 +1,8 @@
 import { Icon, SettingsCard, SettingsGroup, Stack } from "@quotepedia/solid";
 import { A, createAsync, useSubmission } from "@solidjs/router";
 import { Show } from "solid-js";
-import { unauthenticate } from "~/entities/auth";
-import { getCurrentUser } from "~/entities/user";
+import { logoutAction } from "~/shared/api/auth";
+import { getCurrentUser } from "~/shared/api/users/me";
 import { useScopedTranslator } from "~/shared/i18n";
 
 export const AccountSecuritySection = () => {
@@ -10,7 +10,7 @@ export const AccountSecuritySection = () => {
 
   const currentUser = createAsync(() => getCurrentUser());
 
-  const unauthenticating = useSubmission(unauthenticate);
+  const unauthenticating = useSubmission(logoutAction);
 
   return (
     <Show when={currentUser()}>
@@ -37,7 +37,7 @@ export const AccountSecuritySection = () => {
             </SettingsCard>
           </SettingsGroup>
 
-          <SettingsGroup as="form" action={unauthenticate} method="post">
+          <SettingsGroup as="form" action={logoutAction} method="post">
             <SettingsCard
               as={"button"}
               type="submit"

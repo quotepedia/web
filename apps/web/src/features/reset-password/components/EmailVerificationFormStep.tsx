@@ -1,7 +1,7 @@
 import type { SubmitHandler } from "@modular-forms/solid";
 import { Stepper } from "@quotepedia/solid";
-import { OtpForm, type OtpFormData } from "~/entities/otp";
 import { useResetPassword } from "../context";
+import { OtpForm, type OtpFormData } from "~/entities/OtpForm";
 
 export const EmailVerificationFormStep = () => {
   const stepper = Stepper.useContext();

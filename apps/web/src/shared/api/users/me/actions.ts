@@ -1,8 +1,9 @@
 import { action } from "@solidjs/router";
+import { client } from "../../instance";
+import { serializeFormData } from "../../serializers";
+import type { components } from "../../types";
 
-import { type components, client, serializeFormData } from "~/shared/api";
-
-export const removeCurrentUserAvatar = action(async () => {
+export const removeCurrentUserAvatarAction = action(async () => {
   "use server";
 
   const { data, error } = await client.DELETE("/api/v1/users/me/avatar");
@@ -10,7 +11,7 @@ export const removeCurrentUserAvatar = action(async () => {
   return { data, error };
 });
 
-export const updateCurrentUserAvatar = action(async (file: File) => {
+export const updateCurrentUserAvatarAction = action(async (file: File) => {
   "use server";
 
   const { data, error } = await client.PATCH("/api/v1/users/me/avatar", {
@@ -21,7 +22,7 @@ export const updateCurrentUserAvatar = action(async (file: File) => {
   return { data, error };
 });
 
-export const updateCurrentUserEmail = action(async (body: components["schemas"]["CurrentUserEmailUpdateRequest"]) => {
+export const updateCurrentUserEmailAction = action(async (body: components["schemas"]["CurrentUserEmailUpdateRequest"]) => {
   "use server";
 
   const { data, error } = await client.PATCH("/api/v1/users/me/email", { body: body });
@@ -29,7 +30,7 @@ export const updateCurrentUserEmail = action(async (body: components["schemas"][
   return { data, error };
 });
 
-export const updateCurrentUserPassword = action(async (body: components["schemas"]["UserPasswordRequest"]) => {
+export const updateCurrentUserPasswordAction = action(async (body: components["schemas"]["UserPasswordRequest"]) => {
   "use server";
 
   const { data, error } = await client.PATCH("/api/v1/users/me/password", { body: body });
