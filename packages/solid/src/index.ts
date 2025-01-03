@@ -10,6 +10,7 @@ export { Icon } from "./components/icon";
 export { Link } from "./components/link";
 export { NavigationBar } from "./components/navigation-bar";
 export { OtpField } from "./components/otp-field";
+export { Popover } from "./components/popover";
 export { Select } from "./components/select";
 export { Separator } from "./components/separator";
 export { SettingsCard, SettingsExpander, SettingsGroup } from "./components/settings";
