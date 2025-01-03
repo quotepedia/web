@@ -33,6 +33,15 @@ export const SettingsAppearanceSection = () => {
         <SettingsCard.Value class="capitalize">{getNativeLanguageName(i18n.locale())}</SettingsCard.Value>
         <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
       </SettingsCard>
+      <SettingsCard variant="hover" as={A} href="/settings/emoji">
+        <Icon icon="f7:smiley" class="text-fg-accent size-6" />
+        <SettingsCard.HeaderGroup>
+          <SettingsCard.Header>{t("emoji.heading")}</SettingsCard.Header>
+          <SettingsCard.Description>{t("emoji.description")}</SettingsCard.Description>
+        </SettingsCard.HeaderGroup>
+        <SettingsCard.Value class="capitalize">{settings.store.emojiStyle}</SettingsCard.Value>
+        <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
+      </SettingsCard>
       <Switch checked={settings.store.snowfall} onChange={(checked) => settings.set("snowfall", checked)}>
         <Switch.Input />
         <SettingsCard>
