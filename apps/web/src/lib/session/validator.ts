@@ -7,8 +7,8 @@ import { getIsLoggedIn, getSessionExpirationTimeout } from "./cache";
 import { SESSION_VALIDATOR_SYNC_NAME } from "./constants";
 
 export const createSessionValidator = () => {
-  const isLoggedIn = createAsync(() => getIsLoggedIn());
-  const sessionExpirationTimeout = createAsync(() => getSessionExpirationTimeout());
+  const isLoggedIn = createAsync(() => getIsLoggedIn(), { deferStream: true });
+  const sessionExpirationTimeout = createAsync(() => getSessionExpirationTimeout(), { deferStream: true });
 
   const { onMessage, postMessage } = makeBroadcastChannel(SESSION_VALIDATOR_SYNC_NAME);
 
