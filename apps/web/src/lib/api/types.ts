@@ -1,22 +1,5 @@
 export interface paths {
-  "/api/v1/auth/register": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /** Register */
-    post: operations["register_api_v1_auth_register_post"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/api/v1/auth/login": {
+  "/auth/login": {
     parameters: {
       query?: never;
       header?: never;
@@ -26,14 +9,31 @@ export interface paths {
     get?: never;
     put?: never;
     /** Login */
-    post: operations["login_api_v1_auth_login_post"];
+    post: operations["Login"];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/auth/reset-password": {
+  "/auth/register": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /** Register */
+    post: operations["Register"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/auth/reset-password": {
     parameters: {
       query?: never;
       header?: never;
@@ -47,10 +47,134 @@ export interface paths {
     options?: never;
     head?: never;
     /** Reset Password */
-    patch: operations["reset_password_api_v1_auth_reset_password_patch"];
+    patch: operations["ResetPassword"];
     trace?: never;
   };
-  "/api/v1/otp/verify": {
+  "/authors/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Authors */
+    get: operations["GetAuthors"];
+    put?: never;
+    /** Create Author */
+    post: operations["CreateAuthor"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/authors/{name}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Author */
+    get: operations["GetAuthor"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/collections/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Public Collections */
+    get: operations["GetPublicCollections"];
+    put?: never;
+    /** Create Collection */
+    post: operations["CreateCollection"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/collections/{collection_id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Collection */
+    get: operations["GetCollection"];
+    put?: never;
+    post?: never;
+    /** Delete Collection */
+    delete: operations["DeleteCollection"];
+    options?: never;
+    head?: never;
+    /** Update Collection */
+    patch: operations["UpdateCollection"];
+    trace?: never;
+  };
+  "/collections/{collection_id}/quotes": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Collection Quotes */
+    get: operations["GetCollectionQuotes"];
+    put?: never;
+    /** Add Quote To Collection */
+    post: operations["AddQuoteToCollection"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/collections/{collection_id}/quotes/{quote_id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    /** Remove Quote From Collection */
+    delete: operations["RemoveQuoteFromCollection"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/media/{name}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get File */
+    get: operations["GetFile"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/otp/verify": {
     parameters: {
       query?: never;
       header?: never;
@@ -60,14 +184,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** Verify Otp */
-    post: operations["verify_otp_api_v1_otp_verify_post"];
+    post: operations["VerifyOtp"];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/otp/send": {
+  "/otp/send": {
     parameters: {
       query?: never;
       header?: never;
@@ -77,14 +201,51 @@ export interface paths {
     get?: never;
     put?: never;
     /** Send Otp */
-    post: operations["send_otp_api_v1_otp_send_post"];
+    post: operations["SendOtp"];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/users/exists": {
+  "/quotes/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Quotes */
+    get: operations["GetQuotes"];
+    put?: never;
+    /** Create Quote */
+    post: operations["CreateQuote"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/quotes/{quote_id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Quote */
+    get: operations["GetQuote"];
+    put?: never;
+    post?: never;
+    /** Delete Quote */
+    delete: operations["DeleteQuote"];
+    options?: never;
+    head?: never;
+    /** Update Quote */
+    patch: operations["UpdateQuote"];
+    trace?: never;
+  };
+  "/users/exists": {
     parameters: {
       query?: never;
       header?: never;
@@ -94,14 +255,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** User Exists */
-    post: operations["user_exists_api_v1_users_exists_post"];
+    post: operations["UserExists"];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/users/me": {
+  "/users/me": {
     parameters: {
       query?: never;
       header?: never;
@@ -109,7 +270,7 @@ export interface paths {
       cookie?: never;
     };
     /** Get Current User */
-    get: operations["get_current_user_api_v1_users_me_get"];
+    get: operations["GetCurrentUser"];
     put?: never;
     post?: never;
     delete?: never;
@@ -118,7 +279,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/users/me/email": {
+  "/users/me/email": {
     parameters: {
       query?: never;
       header?: never;
@@ -132,10 +293,10 @@ export interface paths {
     options?: never;
     head?: never;
     /** Update Current User Email */
-    patch: operations["update_current_user_email_api_v1_users_me_email_patch"];
+    patch: operations["UpdateCurrentUserEmail"];
     trace?: never;
   };
-  "/api/v1/users/me/password": {
+  "/users/me/password": {
     parameters: {
       query?: never;
       header?: never;
@@ -149,10 +310,10 @@ export interface paths {
     options?: never;
     head?: never;
     /** Update Current User Password */
-    patch: operations["update_current_user_password_api_v1_users_me_password_patch"];
+    patch: operations["UpdateCurrentUserPassword"];
     trace?: never;
   };
-  "/api/v1/users/me/avatar": {
+  "/users/me/avatar": {
     parameters: {
       query?: never;
       header?: never;
@@ -163,22 +324,39 @@ export interface paths {
     put?: never;
     post?: never;
     /** Delete Current User Avatar */
-    delete: operations["delete_current_user_avatar_api_v1_users_me_avatar_delete"];
+    delete: operations["DeleteCurrentUserAvatar"];
     options?: never;
     head?: never;
     /** Update Current User Avatar */
-    patch: operations["update_current_user_avatar_api_v1_users_me_avatar_patch"];
+    patch: operations["UpdateCurrentUserAvatar"];
     trace?: never;
   };
-  "/api/v1/media/{name}": {
+  "/users/me/collections": {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    /** Get File */
-    get: operations["get_file_api_v1_media__name__get"];
+    /** Get Current User Collections */
+    get: operations["GetCurrentUserCollections"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/users/me/quotes": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Current User Quotes */
+    get: operations["GetCurrentUserQuotes"];
     put?: never;
     post?: never;
     delete?: never;
@@ -209,8 +387,22 @@ export interface components {
        */
       expires_at: string;
     };
-    /** Body_login_api_v1_auth_login_post */
-    Body_login_api_v1_auth_login_post: {
+    /** AuthorCreateRequest */
+    AuthorCreateRequest: {
+      /** Name */
+      name: string;
+    };
+    /** AuthorResponse */
+    AuthorResponse: {
+      /** Id */
+      id: number;
+      /** Name */
+      name: string;
+      /** Created By User Id */
+      created_by_user_id: number | null;
+    };
+    /** Body_Login */
+    Body_Login: {
       /** Grant Type */
       grant_type?: string | null;
       /** Username */
@@ -227,13 +419,58 @@ export interface components {
       /** Client Secret */
       client_secret?: string | null;
     };
-    /** Body_update_current_user_avatar_api_v1_users_me_avatar_patch */
-    Body_update_current_user_avatar_api_v1_users_me_avatar_patch: {
+    /** Body_UpdateCurrentUserAvatar */
+    Body_UpdateCurrentUserAvatar: {
       /**
        * File
        * Format: binary
        */
       file: Blob;
+    };
+    /** CollectionCreateRequest */
+    CollectionCreateRequest: {
+      /** Name */
+      name: string;
+      /** Description */
+      description?: string | null;
+      /** Emote */
+      emote?: string | null;
+      /** @default 2 */
+      visibility: components["schemas"]["Visibility"];
+    };
+    /** CollectionResponse */
+    CollectionResponse: {
+      /** Id */
+      id: number;
+      /** Name */
+      name: string;
+      /** Description */
+      description: string;
+      /** Emote */
+      emote: string;
+      visibility: components["schemas"]["Visibility"];
+      /** Created By User Id */
+      created_by_user_id: number;
+      /**
+       * Created At
+       * Format: date-time
+       */
+      created_at: string;
+      /**
+       * Updated At
+       * Format: date-time
+       */
+      updated_at: string;
+    };
+    /** CollectionUpdateRequest */
+    CollectionUpdateRequest: {
+      /** Name */
+      name?: string | null;
+      /** Description */
+      description?: string | null;
+      /** Emote */
+      emote?: string | null;
+      visibility?: components["schemas"]["Visibility"] | null;
     };
     /**
      * CurrentUserEmailUpdateRequest
@@ -303,6 +540,62 @@ export interface components {
        */
       email: string;
     };
+    /** QuoteCollectionsResponse */
+    QuoteCollectionsResponse: {
+      /**
+       * Created At
+       * Format: date-time
+       */
+      created_at: string;
+      /**
+       * Updated At
+       * Format: date-time
+       */
+      updated_at: string;
+      /** Id */
+      id: number;
+      /** Content */
+      content: string;
+      /** Created By User Id */
+      created_by_user_id: number | null;
+      author: components["schemas"]["AuthorResponse"] | null;
+      /** Collections */
+      collections: components["schemas"]["CollectionResponse"][];
+    };
+    /** QuoteCreateRequest */
+    QuoteCreateRequest: {
+      /** Content */
+      content: string;
+      /** Author Id */
+      author_id: number | null;
+    };
+    /** QuoteResponse */
+    QuoteResponse: {
+      /**
+       * Created At
+       * Format: date-time
+       */
+      created_at: string;
+      /**
+       * Updated At
+       * Format: date-time
+       */
+      updated_at: string;
+      /** Id */
+      id: number;
+      /** Content */
+      content: string;
+      /** Created By User Id */
+      created_by_user_id: number | null;
+      author: components["schemas"]["AuthorResponse"] | null;
+    };
+    /** QuoteUpdateRequest */
+    QuoteUpdateRequest: {
+      /** Content */
+      content?: string | null;
+      /** Author Id */
+      author_id?: number | null;
+    };
     /**
      * UserEmailRequest
      * @description Represents a request containing a user's e-mail.
@@ -327,7 +620,10 @@ export interface components {
      * @description Represents a request containing a user's password.
      */
     UserPasswordRequest: {
-      /** Password */
+      /**
+       * Password
+       * Format: password
+       */
       password: string;
     };
     /**
@@ -337,7 +633,10 @@ export interface components {
     UserPasswordResetRequest: {
       /** Otp */
       otp: number;
-      /** Password */
+      /**
+       * Password
+       * Format: password
+       */
       password: string;
       /**
        * Email
@@ -346,13 +645,21 @@ export interface components {
       email: string;
     };
     /**
+     * UserQuotesType
+     * @enum {string}
+     */
+    UserQuotesType: "all" | "saved" | "created";
+    /**
      * UserRegistrationRequest
      * @description Represents a request for user registration.
      */
     UserRegistrationRequest: {
       /** Otp */
       otp: number;
-      /** Password */
+      /**
+       * Password
+       * Format: password
+       */
       password: string;
       /**
        * Email
@@ -369,6 +676,11 @@ export interface components {
       /** Error Type */
       type: string;
     };
+    /**
+     * Visibility
+     * @enum {integer}
+     */
+    Visibility: 1 | 2;
   };
   responses: never;
   parameters: never;
@@ -378,7 +690,42 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
-  register_api_v1_auth_register_post: {
+  Login: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/x-www-form-urlencoded": components["schemas"]["Body_Login"];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AccessTokenResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  Register: {
     parameters: {
       query?: never;
       header?: {
@@ -413,42 +760,7 @@ export interface operations {
       };
     };
   };
-  login_api_v1_auth_login_post: {
-    parameters: {
-      query?: never;
-      header?: {
-        "accept-language"?: string;
-      };
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/x-www-form-urlencoded": components["schemas"]["Body_login_api_v1_auth_login_post"];
-      };
-    };
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["AccessTokenResponse"];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
-        };
-      };
-    };
-  };
-  reset_password_api_v1_auth_reset_password_patch: {
+  ResetPassword: {
     parameters: {
       query?: never;
       header?: {
@@ -483,7 +795,418 @@ export interface operations {
       };
     };
   };
-  verify_otp_api_v1_otp_verify_post: {
+  GetAuthors: {
+    parameters: {
+      query?: {
+        q?: string | null;
+        offset?: number;
+        limit?: number;
+      };
+      header?: {
+        "accept-language"?: string;
+      };
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AuthorResponse"][];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  CreateAuthor: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["AuthorCreateRequest"];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AuthorResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  GetAuthor: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AuthorResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  GetPublicCollections: {
+    parameters: {
+      query?: {
+        q?: string | null;
+        offset?: number;
+        limit?: number;
+      };
+      header?: {
+        "accept-language"?: string;
+      };
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CollectionResponse"][];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  CreateCollection: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["CollectionCreateRequest"];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CollectionResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  GetCollection: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        collection_id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CollectionResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  DeleteCollection: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        collection_id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  UpdateCollection: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        collection_id: number;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["CollectionUpdateRequest"];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CollectionResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  GetCollectionQuotes: {
+    parameters: {
+      query?: {
+        q?: string | null;
+        offset?: number;
+        limit?: number;
+      };
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        collection_id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["QuoteResponse"][];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  AddQuoteToCollection: {
+    parameters: {
+      query: {
+        quote_id: number;
+      };
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        collection_id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["QuoteCollectionsResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  RemoveQuoteFromCollection: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        collection_id: number;
+        quote_id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  GetFile: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": unknown;
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  VerifyOtp: {
     parameters: {
       query?: never;
       header?: {
@@ -518,7 +1241,7 @@ export interface operations {
       };
     };
   };
-  send_otp_api_v1_otp_send_post: {
+  SendOtp: {
     parameters: {
       query?: never;
       header?: {
@@ -553,7 +1276,178 @@ export interface operations {
       };
     };
   };
-  user_exists_api_v1_users_exists_post: {
+  GetQuotes: {
+    parameters: {
+      query?: {
+        q?: string | null;
+        offset?: number;
+        limit?: number;
+      };
+      header?: {
+        "accept-language"?: string;
+      };
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["QuoteResponse"][];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  CreateQuote: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["QuoteCreateRequest"];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["QuoteResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  GetQuote: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        quote_id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["QuoteCollectionsResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  DeleteQuote: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        quote_id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  UpdateQuote: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        quote_id: number;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["QuoteUpdateRequest"];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["QuoteResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  UserExists: {
     parameters: {
       query?: never;
       header?: {
@@ -588,7 +1482,7 @@ export interface operations {
       };
     };
   };
-  get_current_user_api_v1_users_me_get: {
+  GetCurrentUser: {
     parameters: {
       query?: never;
       header?: {
@@ -619,7 +1513,7 @@ export interface operations {
       };
     };
   };
-  update_current_user_email_api_v1_users_me_email_patch: {
+  UpdateCurrentUserEmail: {
     parameters: {
       query?: never;
       header?: {
@@ -654,7 +1548,7 @@ export interface operations {
       };
     };
   };
-  update_current_user_password_api_v1_users_me_password_patch: {
+  UpdateCurrentUserPassword: {
     parameters: {
       query?: never;
       header?: {
@@ -689,7 +1583,7 @@ export interface operations {
       };
     };
   };
-  delete_current_user_avatar_api_v1_users_me_avatar_delete: {
+  DeleteCurrentUserAvatar: {
     parameters: {
       query?: never;
       header?: {
@@ -701,13 +1595,11 @@ export interface operations {
     requestBody?: never;
     responses: {
       /** @description Successful Response */
-      200: {
+      204: {
         headers: {
           [name: string]: unknown;
         };
-        content: {
-          "application/json": components["schemas"]["CurrentUserResponse"];
-        };
+        content?: never;
       };
       /** @description Validation Error */
       422: {
@@ -720,7 +1612,7 @@ export interface operations {
       };
     };
   };
-  update_current_user_avatar_api_v1_users_me_avatar_patch: {
+  UpdateCurrentUserAvatar: {
     parameters: {
       query?: never;
       header?: {
@@ -731,7 +1623,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "multipart/form-data": components["schemas"]["Body_update_current_user_avatar_api_v1_users_me_avatar_patch"];
+        "multipart/form-data": components["schemas"]["Body_UpdateCurrentUserAvatar"];
       };
     };
     responses: {
@@ -755,15 +1647,17 @@ export interface operations {
       };
     };
   };
-  get_file_api_v1_media__name__get: {
+  GetCurrentUserCollections: {
     parameters: {
-      query?: never;
+      query?: {
+        q?: string | null;
+        offset?: number;
+        limit?: number;
+      };
       header?: {
         "accept-language"?: string;
       };
-      path: {
-        name: string;
-      };
+      path?: never;
       cookie?: never;
     };
     requestBody?: never;
@@ -774,7 +1668,43 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": unknown;
+          "application/json": components["schemas"]["CollectionResponse"][];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  GetCurrentUserQuotes: {
+    parameters: {
+      query?: {
+        type?: components["schemas"]["UserQuotesType"];
+        q?: string | null;
+        offset?: number;
+        limit?: number;
+      };
+      header?: {
+        "accept-language"?: string;
+      };
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["QuoteResponse"][];
         };
       };
       /** @description Validation Error */

@@ -5,7 +5,7 @@ import { client } from "../instance";
 export const verifyOTP = query(async (body: components["schemas"]["OTPVerifyRequest"]) => {
   "use server";
 
-  const { error } = await client.POST("/api/v1/otp/verify", {
+  const { error } = await client.POST("/otp/verify", {
     body: body,
   });
 
@@ -15,7 +15,7 @@ export const verifyOTP = query(async (body: components["schemas"]["OTPVerifyRequ
 export const sendOTP = query(async (email: string) => {
   "use server";
 
-  const { data } = await client.POST("/api/v1/otp/send", {
+  const { data } = await client.POST("/otp/send", {
     body: {
       email: email,
     },

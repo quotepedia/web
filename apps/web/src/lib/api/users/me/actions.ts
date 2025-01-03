@@ -6,7 +6,7 @@ import type { components } from "../../types";
 export const removeCurrentUserAvatarAction = action(async () => {
   "use server";
 
-  const { data, error } = await client.DELETE("/api/v1/users/me/avatar");
+  const { data, error } = await client.DELETE("/users/me/avatar");
 
   return { data, error };
 });
@@ -14,7 +14,7 @@ export const removeCurrentUserAvatarAction = action(async () => {
 export const updateCurrentUserAvatarAction = action(async (file: File) => {
   "use server";
 
-  const { data, error } = await client.PATCH("/api/v1/users/me/avatar", {
+  const { data, error } = await client.PATCH("/users/me/avatar", {
     body: { file: file },
     bodySerializer: serializeFormData,
   });
@@ -25,7 +25,7 @@ export const updateCurrentUserAvatarAction = action(async (file: File) => {
 export const updateCurrentUserEmailAction = action(async (body: components["schemas"]["CurrentUserEmailUpdateRequest"]) => {
   "use server";
 
-  const { data, error } = await client.PATCH("/api/v1/users/me/email", { body: body });
+  const { data, error } = await client.PATCH("/users/me/email", { body: body });
 
   return { data, error };
 });
@@ -33,7 +33,7 @@ export const updateCurrentUserEmailAction = action(async (body: components["sche
 export const updateCurrentUserPasswordAction = action(async (body: components["schemas"]["UserPasswordRequest"]) => {
   "use server";
 
-  const { data, error } = await client.PATCH("/api/v1/users/me/password", { body: body });
+  const { data, error } = await client.PATCH("/users/me/password", { body: body });
 
   return { data, error };
 });

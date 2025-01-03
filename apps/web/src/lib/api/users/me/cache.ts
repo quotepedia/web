@@ -4,7 +4,7 @@ import { client } from "../../instance";
 export const getCurrentUser = query(async () => {
   "use server";
 
-  const { data } = await client.GET("/api/v1/users/me");
+  const { data } = await client.GET("/users/me");
 
   return data;
 }, "currentUser");
