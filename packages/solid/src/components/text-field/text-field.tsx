@@ -1,8 +1,11 @@
-import { splitProps, type ValidComponent } from "solid-js";
+import { createEffect, createSignal, splitProps, type JSX, type ValidComponent } from "solid-js";
 
+import { callEventHandler } from "@corvu/utils/dom";
+import { mergeRefs } from "@corvu/utils/reactivity";
 import { Polymorphic, type PolymorphicProps } from "@kobalte/core";
 import { Description, ErrorMessage, Input, Label, Root, TextArea } from "@kobalte/core/text-field";
 
+import { TextFieldContext, useTextFieldContext, type TextFieldContextValue } from "./text-field-context";
 import type {
   TextFieldDescriptionProps,
   TextFieldErrorMessageProps,
@@ -15,21 +18,45 @@ import type {
 import { styles } from "./text-field.styles";
 
 export const TextFieldRoot = <T extends ValidComponent = "div">(props: PolymorphicProps<T, TextFieldRootProps<T>>) => {
-  return <Root {...props} />;
+  const [inputRef, setInputRef] = createSignal<HTMLInputElement | HTMLTextAreaElement | undefined>();
+
+  const context: TextFieldContextValue = {
+    inputRef,
+    setInputRef,
+  };
+
+  return (
+    <TextFieldContext.Provider value={context}>
+      <Root {...props} />
+    </TextFieldContext.Provider>
+  );
 };
 
 export const TextFieldWrapper = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, TextFieldWrapperProps<T>>,
 ) => {
-  const [styleProps, otherProps] = splitProps(props as TextFieldWrapperProps, ["class"]);
-  return <Polymorphic as="div" class={styles().wrapper(styleProps)} {...otherProps} />;
+  const [styleProps, localProps, otherProps] = splitProps(props as TextFieldWrapperProps, ["class"], ["onClick"]);
+  const context = useTextFieldContext();
+
+  const onClick: JSX.EventHandlerUnion<HTMLInputElement | HTMLTextAreaElement, MouseEvent> = (event) => {
+    !callEventHandler(localProps.onClick, event) && context.inputRef()?.focus();
+  };
+
+  return <Polymorphic as="div" onClick={onClick} class={styles().wrapper(styleProps)} {...otherProps} />;
 };
 
 export const TextFieldInput = <T extends ValidComponent = "input">(
   props: PolymorphicProps<T, TextFieldInputProps<T>>,
 ) => {
-  const [styleProps, otherProps] = splitProps(props as TextFieldInputProps, ["class"]);
-  return <Input class={styles().input(styleProps)} {...otherProps} />;
+  const [styleProps, localProps, otherProps] = splitProps(props as TextFieldInputProps, ["class"], ["ref"]);
+  const [ref, setRef] = createSignal<HTMLInputElement | HTMLTextAreaElement | undefined>();
+  const context = useTextFieldContext();
+
+  createEffect(() => {
+    context.setInputRef(ref);
+  });
+
+  return <Input ref={mergeRefs(setRef, localProps.ref)} class={styles().input(styleProps)} {...otherProps} />;
 };
 
 export const TextFieldTextArea = <T extends ValidComponent = "textarea">(

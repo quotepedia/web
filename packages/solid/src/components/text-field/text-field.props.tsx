@@ -13,10 +13,10 @@ import type {
 export type TextFieldRootProps<T extends ValidComponent | HTMLElement = HTMLElement> = RootProps<T>;
 
 export type TextFieldWrapperProps<T extends ValidComponent | HTMLElement = HTMLElement> = ComponentProps<ElementOf<T>> &
-  JSX.StylableSVGAttributes;
+  JSX.StylableSVGAttributes & { onClick?: JSX.EventHandlerUnion<T, MouseEvent> };
 
 export type TextFieldInputProps<T extends ValidComponent | HTMLElement = HTMLElement> = InputProps<T> &
-  JSX.StylableSVGAttributes;
+  JSX.StylableSVGAttributes & { ref?: (el: HTMLInputElement | HTMLTextAreaElement) => void };
 
 export type TextFieldTextAreaProps<T extends ValidComponent | HTMLElement = HTMLElement> = TextAreaProps<T> &
   JSX.StylableSVGAttributes;
