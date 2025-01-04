@@ -2,12 +2,14 @@ import type { JSX } from "solid-js";
 
 export type TextFieldProps = {
   name: string;
+  icon?: string;
   type?: string | undefined;
   label?: string | undefined;
   description?: string | JSX.Element | undefined;
   placeholder?: string | undefined;
   value?: string | undefined;
   error?: string | undefined;
+  loading?: boolean | undefined;
   required?: boolean | undefined;
   disabled?: boolean | undefined;
   autofocus?: boolean | undefined;
