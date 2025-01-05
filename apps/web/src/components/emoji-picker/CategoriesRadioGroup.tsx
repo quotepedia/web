@@ -31,7 +31,7 @@ export const CategoriesRadioGroup = (props: CategoriesRadioGroupProps) => {
       orientation="horizontal"
       class="border-bg-secondary flex flex-row justify-between border-t p-1"
     >
-      <For each={context.categories.keys().toArray()}>
+      <For each={Array.from(context.categories.keys())}>
         {(category) => <CategoriesRadioGroupItem value={category} />}
       </For>
     </RadioGroup>

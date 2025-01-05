@@ -16,7 +16,7 @@ export const EmojisRadioGroup = (props: EmojisRadioGroupProps) => {
   const [virtualizerHandle, setVirtualizerHandle] = createSignal<VirtualizerHandle>();
 
   const onScroll = (offset: number): void => {
-    context.setCategory(() => context.currentCategory(offset));
+    context.setCategory(context.currentCategory(offset));
   };
 
   createEffect(() => {

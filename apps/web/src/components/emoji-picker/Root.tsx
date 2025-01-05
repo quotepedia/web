@@ -38,9 +38,7 @@ export const EmojiPickerRoot: Component<EmojiPickerProps> = (props) => {
   });
 
   const currentCategory = (offset: number): number | undefined => {
-    return categories
-      .entries()
-      .toArray()
+    return Array.from(categories.entries())
       .reverse()
       .find(([_group, index]) => offset >= (virtualizerHandle()?.getItemOffset(index) || 0))?.[0];
   };

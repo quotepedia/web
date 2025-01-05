@@ -1,8 +1,8 @@
 import type { ReactiveMap } from "@solid-primitives/map";
+import type { Emoji } from "emojibase";
 import { createContext, useContext, type Accessor, type Setter } from "solid-js";
 import type { VirtualizerHandle } from "virtua/solid";
 import type { EmojiWithIndex } from "./types";
-import type { Emoji } from "emojibase";
 
 export type EmojiPickerContextValue = {
   emoji: Accessor<Emoji | undefined>;
