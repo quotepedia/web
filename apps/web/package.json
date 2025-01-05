@@ -37,6 +37,7 @@
     "@solid-primitives/broadcast-channel": "^0.0.105",
     "@solid-primitives/event-listener": "^2.3.3",
     "@solid-primitives/i18n": "^2.1.1",
+    "@solid-primitives/map": "^0.4.13",
     "@solid-primitives/media": "^2.2.9",
     "@solid-primitives/range": "^0.1.18",
     "@solid-primitives/storage": "^4.2.1",
@@ -47,6 +48,7 @@
     "@solidjs/start": "^1.0.10",
     "autoprefixer": "^10.4.20",
     "emojibase": "^16.0.0",
+    "match-sorter": "^8.0.0",
     "openapi-fetch": "^0.13.3",
     "openapi-typescript": "^7.4.4",
     "postcss": "^8.4.49",
@@ -55,7 +57,8 @@
     "solid-sonner": "^0.2.8",
     "solid-transition-group": "^0.2.3",
     "tailwindcss": "^3.4.17",
-    "vinxi": "^0.4.3"
+    "vinxi": "^0.4.3",
+    "virtua": "^0.39.3"
   },
   "engines": {
     "node": ">=20.8.0"
