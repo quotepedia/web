@@ -10,7 +10,7 @@ export default () => {
       <Stack.Vertical class="gap-8">
         <Stack.Vertical class="gap-6">
           <Lottie path="/tgs/compass.json" class="size-24" />
-          <Stack.Vertical class="gap-4">
+          <Stack.Vertical class="gap-4 text-center">
             <Heading>{t("heading")}</Heading>
             <Text>{t("description")}</Text>
           </Stack.Vertical>
