@@ -9,5 +9,6 @@ export default defineConfig({
       "import.meta.env.APP_REPOSITORY_URL": JSON.stringify(app.repository.url),
     },
   },
+  devOverlay: false,
   middleware: "./src/middleware.ts",
 });
