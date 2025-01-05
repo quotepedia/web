@@ -20,7 +20,7 @@ const PopoverContent = <T extends ValidComponent = "div">(props: PolymorphicProp
   return (
     <PopoverPrimitive.Portal>
       <PopoverPrimitive.Content class={cn(styles().content(), props.class)} {...rest} >
-        <PopoverPrimitive.Arrow class="my-px" size={36} />
+        <PopoverPrimitive.Arrow size={36} />
         {props.children}
       </PopoverPrimitive.Content>
     </PopoverPrimitive.Portal>
