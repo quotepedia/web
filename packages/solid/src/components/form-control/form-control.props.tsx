@@ -9,6 +9,7 @@ export type TextFieldProps = {
   placeholder?: string | undefined;
   value?: string | undefined;
   error?: string | undefined;
+  class?: string | undefined;
   loading?: boolean | undefined;
   required?: boolean | undefined;
   disabled?: boolean | undefined;
@@ -19,4 +20,5 @@ export type TextFieldProps = {
   onInput?: JSX.EventHandler<HTMLInputElement | HTMLTextAreaElement, InputEvent>;
   onChange?: JSX.EventHandler<HTMLInputElement | HTMLTextAreaElement, Event>;
   onBlur?: JSX.EventHandler<HTMLInputElement | HTMLTextAreaElement, FocusEvent>;
+  onKeyDown?: JSX.EventHandler<HTMLInputElement | HTMLTextAreaElement, KeyboardEvent>;
 };

@@ -23,8 +23,8 @@ export function FormControl(props: TextFieldProps) {
   const [localProps, rootProps, inputProps] = splitProps(
     defaultedProps,
     ["ref", "onInput"],
-    ["name", "value", "required", "disabled"],
-    ["placeholder", "onChange", "onBlur", "type"],
+    ["name", "value", "required", "disabled", "class"],
+    ["placeholder", "onChange", "onBlur", "onKeyDown", "type"],
   );
 
   const [ref, setRef] = createSignal<HTMLInputElement | HTMLTextAreaElement>();
