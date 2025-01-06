@@ -23,7 +23,10 @@ export default () => {
   const settings = useSettings();
 
   const updateShortcut = (key: ShortcutKey, value: string[]) => {
-    if (settings.store.shortcuts?.[key] !== value) {
+    if (!settings.store.shortcuts) {
+      settings.set("shortcuts", {});
+    }
+    if (settings.store.shortcuts![key] !== value) {
       settings.set("shortcuts", key, value);
     }
   };
