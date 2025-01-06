@@ -10,6 +10,7 @@ export type TextFieldProps = {
   value?: string | undefined;
   error?: string | undefined;
   class?: string | undefined;
+  title?: string | undefined;
   loading?: boolean | undefined;
   readonly?: boolean | undefined;
   required?: boolean | undefined;

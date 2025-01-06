@@ -21,7 +21,7 @@ export function FormControl(props: TextFieldProps) {
   const [localProps, rootProps, inputProps] = splitProps(
     defaultedProps,
     ["ref", "readonly", "value"],
-    ["name", "required", "disabled", "class"],
+    ["name", "required", "disabled", "class", "title"],
     ["placeholder", "onInput", "onChange", "onBlur", "onKeyDown", "type"],
   );
 
