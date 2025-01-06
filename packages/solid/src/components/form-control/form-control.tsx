@@ -1,7 +1,5 @@
-import { callEventHandler } from "@corvu/utils/dom";
 import { mergeRefs } from "@corvu/utils/reactivity";
-import { createAutofocus } from "@src/utils/autofocus";
-import { createEffect, createSignal, mergeProps, Show, splitProps, type JSX } from "solid-js";
+import { createEffect, createSignal, mergeProps, Show, splitProps } from "solid-js";
 import { Transition } from "solid-transition-group";
 import { Button } from "../button";
 import Icon from "../icon";
@@ -22,33 +20,33 @@ export function FormControl(props: TextFieldProps) {
 
   const [localProps, rootProps, inputProps] = splitProps(
     defaultedProps,
-    ["ref", "onInput"],
-    ["name", "value", "required", "disabled", "class"],
-    ["placeholder", "onChange", "onBlur", "onKeyDown", "type"],
+    ["ref", "readonly", "value"],
+    ["name", "required", "disabled", "class"],
+    ["placeholder", "onInput", "onChange", "onBlur", "onKeyDown", "type"],
   );
 
   const [ref, setRef] = createSignal<HTMLInputElement | HTMLTextAreaElement>();
-  const [value, setValue] = createSignal(defaultedProps.value);
-
-  const onInput: JSX.EventHandlerUnion<HTMLInputElement | HTMLTextAreaElement, InputEvent> = (event) => {
-    !callEventHandler(localProps.onInput, event) && setValue(event.currentTarget.value);
-  };
+  const [value, setValue] = createSignal(localProps.value);
 
   const clear = () => {
     setValue("");
+
     ref()?.dispatchEvent(new Event("input", { bubbles: true }));
     ref()?.dispatchEvent(new Event("change", { bubbles: true }));
-    ref()?.focus();
   };
 
   createEffect(() => {
-    if (defaultedProps.autofocus === true) {
-      createAutofocus(ref);
-    }
+    setValue(localProps.value);
   });
 
   return (
-    <TextField {...rootProps} validationState={defaultedProps.error ? "invalid" : "valid"}>
+    <TextField
+      value={value()}
+      onChange={setValue}
+      validationState={defaultedProps.error ? "invalid" : "valid"}
+      readOnly={localProps.readonly}
+      {...rootProps}
+    >
       <Show when={defaultedProps.label}>
         <TextField.Label class={styles().label({ required: defaultedProps.required })}>
           {defaultedProps.label}
@@ -74,22 +72,9 @@ export function FormControl(props: TextFieldProps) {
         </Show>
         <Show
           when={defaultedProps.multiline}
-          fallback={
-            <TextField.Input
-              ref={mergeRefs(setRef, localProps.ref)}
-              value={value()}
-              onInput={onInput}
-              {...inputProps}
-            />
-          }
+          fallback={<TextField.Input ref={mergeRefs(setRef, localProps.ref)} {...inputProps} />}
         >
-          <TextField.TextArea
-            ref={mergeRefs(setRef, localProps.ref)}
-            value={value()}
-            onInput={onInput}
-            autoResize
-            {...inputProps}
-          />
+          <TextField.TextArea ref={mergeRefs(setRef, localProps.ref)} autoResize {...inputProps} />
         </Show>
         <Fade>
           <Show when={defaultedProps.clearable && !defaultedProps.disabled && value()}>
