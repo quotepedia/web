@@ -3,11 +3,12 @@ import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 import { Toaster } from "solid-sonner";
+import { Snowfall } from "~/components/snowfall";
 import { I18nProvider } from "~/lib/i18n";
 import { createSessionValidator } from "~/lib/session";
 import { SettingsProvider } from "~/lib/settings";
+import { createAppShortcuts } from "~/lib/shortcuts";
 import { ThemeProvider } from "~/lib/theme";
-import { Snowfall } from "~/components/snowfall";
 import "./app.css";
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
           <ThemeProvider>
             <Router
               root={(props) => {
+                createAppShortcuts();
                 createSessionValidator();
 
                 return <Suspense>{props.children}</Suspense>;
