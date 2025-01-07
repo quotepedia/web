@@ -224,7 +224,7 @@ export const usePressedKeys = (target: MaybeAccessor<EventTarget | undefined>, v
     if (event.key === "Escape") {
       return reset();
     }
-    if (event.key === "Backspace" && event.ctrlKey) {
+    if (event.key === "Delete") {
       return setKeys([]);
     }
     if (event.key === "Backspace") {
