@@ -21,7 +21,7 @@ export const useKeyDown = (element: MaybeAccessor<EventTarget | undefined>) => {
   const [event, setEvent] = createSignal<KeyboardEvent | null>(null);
 
   createEventListener(element, "keydown", (e) => {
-    if (e instanceof KeyboardEvent) {
+    if (e instanceof KeyboardEvent && !e.defaultPrevented) {
       setEvent(e);
       setTimeout(() => setEvent(null));
     }
@@ -41,7 +41,7 @@ export const useKeyDownList = (element: MaybeAccessor<EventTarget | undefined>) 
   const reset = () => setPressedKeys([]);
 
   createEventListener(element, "keydown", (e) => {
-    if (!(e instanceof KeyboardEvent) || e.repeat || typeof e.code !== "string") {
+    if (!(e instanceof KeyboardEvent) || e.repeat || typeof e.code !== "string" || e.defaultPrevented) {
       return;
     }
 
@@ -58,7 +58,7 @@ export const useKeyDownList = (element: MaybeAccessor<EventTarget | undefined>) 
   });
 
   createEventListener(element, "keyup", (e) => {
-    if (!(e instanceof KeyboardEvent) || typeof e.code !== "string") {
+    if (!(e instanceof KeyboardEvent) || typeof e.code !== "string" || e.defaultPrevented) {
       return;
     }
 
@@ -204,7 +204,7 @@ export const usePressedKeys = (target: MaybeAccessor<EventTarget | undefined>, v
   const pop = () => setKeys([...keys().slice(0, keys().length - 1)]);
 
   createEventListener(target, "keydown", function (event) {
-    if (!(event instanceof KeyboardEvent)) {
+    if (!(event instanceof KeyboardEvent) || event.defaultPrevented) {
       return;
     }
 
