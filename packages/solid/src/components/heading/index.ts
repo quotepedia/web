@@ -16,6 +16,6 @@ export {
   Root,
 };
 
-export const Heading = Object.assign(Root);
+export const Heading = Root;
 
 export default Heading;

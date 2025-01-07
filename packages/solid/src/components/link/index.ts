@@ -16,6 +16,6 @@ export {
   Root,
 };
 
-export const Link = Object.assign(Root);
+export const Link = Root;
 
 export default Link;

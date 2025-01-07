@@ -16,6 +16,6 @@ export {
   Root,
 };
 
-export const Cursor = Object.assign(Root);
+export const Cursor = Root;
 
 export default Cursor;

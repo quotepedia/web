@@ -16,6 +16,6 @@ export {
   Root,
 };
 
-export const Separator = Object.assign(Root);
+export const Separator = Root;
 
 export default Separator;

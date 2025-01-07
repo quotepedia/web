@@ -16,6 +16,6 @@ export {
   Root,
 };
 
-export const Button = Object.assign(Root);
+export const Button = Root;
 
 export default Button;

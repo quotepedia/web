@@ -16,6 +16,6 @@ export {
   Root,
 };
 
-export const Container = Object.assign(Root);
+export const Container = Root;
 
 export default Container;

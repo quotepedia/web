@@ -14,6 +14,6 @@ export {
   Root,
 };
 
-export const Text = Object.assign(Root);
+export const Text = Root;
 
 export default Text;
