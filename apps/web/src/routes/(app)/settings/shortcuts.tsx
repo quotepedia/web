@@ -1,14 +1,4 @@
-import {
-  Button,
-  Container,
-  FormControl,
-  Heading,
-  Icon,
-  NavigationBar,
-  SettingsCard,
-  SettingsGroup,
-  Text,
-} from "@quotepedia/solid";
+import { Button, Container, Heading, Icon, NavigationBar, SettingsCard, SettingsGroup, Text } from "@quotepedia/solid";
 import { scopedTranslator } from "@solid-primitives/i18n";
 import { A } from "@solidjs/router";
 import { createMemo, createSignal, For } from "solid-js";
@@ -55,7 +45,7 @@ export default () => {
         <SettingsGroup>
           <For each={SHORTCUT_KEYS}>
             {(key) => {
-              const [ref, setRef] = createSignal<EventTarget>();
+              const [ref, setRef] = createSignal<HTMLElement>();
               const keys = usePressedKeys(ref, settings.store.shortcuts?.[key]);
               const value = createMemo(() => keys().join(" + "));
 
@@ -65,16 +55,14 @@ export default () => {
                     <SettingsCard.Header>{scopedTranslator(options, key)("heading")}</SettingsCard.Header>
                     <SettingsCard.Description>{scopedTranslator(options, key)("description")}</SettingsCard.Description>
                   </SettingsCard.HeaderGroup>
-                  <FormControl
+                  <SettingsCard.Value
                     ref={setRef}
-                    name={key}
+                    tabindex={0}
                     onBlur={() => updateShortcut(key, keys())}
-                    value={value()}
-                    title={value()}
-                    readonly
-                    placeholder={t("press")}
-                    class="font-mono text-sm"
-                  />
+                    class="hover:text-fg-soft focus:text-fg-body hover:bg-bg-secondary focus:bg-bg-tertiary cursor-text rounded-md p-2 font-mono outline-none"
+                  >
+                    {value() || t("press")}
+                  </SettingsCard.Value>
                 </SettingsCard>
               );
             }}
