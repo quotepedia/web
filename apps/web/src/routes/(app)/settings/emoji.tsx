@@ -1,9 +1,13 @@
 import { Button, Container, Heading, Icon, NavigationBar, Text } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
-import { EmojiStyleRadioGroup } from "~/components/update-emoji-style";
+import EmojiImg from "~/components/Emoji";
+import { RadioGroup } from "~/components/RadioGroup";
+import { EMOJI_STYLES, type EmojiStyle } from "~/lib/emoji";
 import { useMessage, useScopedTranslator } from "~/lib/i18n";
+import { useSettings } from "~/lib/settings";
 
 export default () => {
+  const settings = useSettings();
   const t = useScopedTranslator("settings.emoji");
 
   return (
@@ -19,15 +23,24 @@ export default () => {
         </NavigationBar.Center>
         <NavigationBar.Trailing />
       </NavigationBar>
-      <Container size="wide" class="flex flex-col space-y-6 max-lg:grow">
-        <section class="space-y-4 text-center">
+      <Container size="wide" class="flex flex-col gap-10 py-12">
+        <section class="space-y-6 text-center">
           <Icon icon="f7:smiley" class="text-fg-accent size-20" />
           <hgroup class="space-y-3">
             <Heading>{t("heading")}</Heading>
             <Text>{t("description")}</Text>
           </hgroup>
         </section>
-        <EmojiStyleRadioGroup />
+        <RadioGroup
+          value={settings.store.emojiStyle}
+          onChange={(value) => settings.set("emojiStyle", value as EmojiStyle)}
+          label={t("available.label")}
+          items={EMOJI_STYLES.map((style) => ({
+            icon: <EmojiImg emoji="😀" style={style} class="size-6" />,
+            value: style,
+            label: style,
+          }))}
+        />
       </Container>
     </div>
   );

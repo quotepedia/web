@@ -1,6 +1,7 @@
 import { Container, Heading, Stack } from "@quotepedia/solid";
 import { useScopedTranslator } from "~/lib/i18n";
 import { SettingsAboutSection, SettingsAccountSection, SettingsAppearanceSection } from "~/components/settings";
+import { SettingsAccessibilitySection } from "~/components/settings/components/SettingsAccessibilitySection";
 
 export default () => {
   const t = useScopedTranslator("settings");
@@ -12,6 +13,7 @@ export default () => {
       <Stack.Vertical class="gap-6">
         <SettingsAccountSection />
         <SettingsAppearanceSection />
+        <SettingsAccessibilitySection />
         <SettingsAboutSection />
       </Stack.Vertical>
     </Container>

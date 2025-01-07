@@ -1,4 +1,14 @@
-import { Button, Container, Heading, Icon, NavigationBar, SettingsCard, SettingsGroup, Text } from "@quotepedia/solid";
+import {
+  Button,
+  Container,
+  Heading,
+  Icon,
+  Link,
+  NavigationBar,
+  SettingsCard,
+  SettingsGroup,
+  Text,
+} from "@quotepedia/solid";
 import { scopedTranslator } from "@solid-primitives/i18n";
 import { A } from "@solidjs/router";
 import { createMemo, createSignal, For } from "solid-js";
@@ -34,39 +44,48 @@ export default () => {
         </NavigationBar.Center>
         <NavigationBar.Trailing />
       </NavigationBar>
-      <Container size="wide" class="flex flex-col space-y-6 max-lg:grow">
-        <section class="space-y-4 text-center">
+      <Container size="wide" class="flex flex-col gap-10 py-12">
+        <section class="space-y-6 text-center">
           <Icon icon="f7:keyboard" class="text-fg-accent size-20" />
           <hgroup class="space-y-3">
             <Heading>{t("heading")}</Heading>
             <Text>{t("description")}</Text>
           </hgroup>
         </section>
-        <SettingsGroup>
-          <For each={SHORTCUT_KEYS}>
-            {(key) => {
-              const [ref, setRef] = createSignal<HTMLElement>();
-              const keys = usePressedKeys(ref, settings.store.shortcuts?.[key]);
-              const value = createMemo(() => keys().join(" + "));
+        <section class="space-y-1.5">
+          <div class="text-fg-muted select-none px-3 text-sm uppercase">{t("available.label")}</div>
+          <SettingsGroup>
+            <For each={SHORTCUT_KEYS}>
+              {(key) => {
+                const [ref, setRef] = createSignal<HTMLElement>();
+                const keys = usePressedKeys(ref, settings.store.shortcuts?.[key]);
+                const value = createMemo(() => keys().join(" + "));
 
-              return (
-                <SettingsCard>
-                  <SettingsCard.HeaderGroup>
-                    <SettingsCard.Header>{options(key)}</SettingsCard.Header>
-                  </SettingsCard.HeaderGroup>
-                  <SettingsCard.Value
-                    ref={setRef}
-                    tabindex={0}
-                    onBlur={() => updateShortcut(key, keys())}
-                    class="hover:text-fg-soft focus:text-fg-body hover:bg-bg-secondary focus:bg-bg-tertiary cursor-text rounded-md p-2 font-mono outline-none"
-                  >
-                    {value() || t("press")}
-                  </SettingsCard.Value>
-                </SettingsCard>
-              );
-            }}
-          </For>
-        </SettingsGroup>
+                return (
+                  <SettingsCard>
+                    <SettingsCard.HeaderGroup>
+                      <SettingsCard.Header>{options(key)}</SettingsCard.Header>
+                    </SettingsCard.HeaderGroup>
+                    <SettingsCard.Value
+                      ref={setRef}
+                      tabindex={0}
+                      onBlur={() => updateShortcut(key, keys())}
+                      class="hover:text-fg-soft focus:text-fg-body hover:bg-bg-secondary focus:bg-bg-tertiary cursor-text rounded-md p-2 font-mono outline-none"
+                    >
+                      {value() || t("press")}
+                    </SettingsCard.Value>
+                  </SettingsCard>
+                );
+              }}
+            </For>
+          </SettingsGroup>
+          <div class="text-fg-muted select-none px-3 text-sm">
+            {t("available.description")}{" "}
+            <Link href={import.meta.env.APP_BUGS_URL} target="_blank">
+              {useMessage("settings.about.feedback.heading")}
+            </Link>
+          </div>
+        </section>
       </Container>
     </div>
   );
