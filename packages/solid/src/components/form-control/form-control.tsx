@@ -22,7 +22,7 @@ export function FormControl(props: TextFieldProps) {
     defaultedProps,
     ["ref", "readonly", "value"],
     ["name", "required", "disabled", "class", "title", "align", "plain"],
-    ["placeholder", "onInput", "onChange", "onBlur", "onKeyDown", "type"],
+    ["placeholder", "onInput", "onChange", "onBlur", "onFocus", "onKeyDown", "type"],
   );
 
   const [ref, setRef] = createSignal<HTMLInputElement | HTMLTextAreaElement>();

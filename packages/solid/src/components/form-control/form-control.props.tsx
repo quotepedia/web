@@ -23,5 +23,6 @@ export type TextFieldProps = {
   onInput?: JSX.EventHandler<HTMLInputElement | HTMLTextAreaElement, InputEvent>;
   onChange?: JSX.EventHandler<HTMLInputElement | HTMLTextAreaElement, Event>;
   onBlur?: JSX.EventHandler<HTMLInputElement | HTMLTextAreaElement, FocusEvent>;
+  onFocus?: JSX.EventHandler<HTMLInputElement | HTMLTextAreaElement, FocusEvent>;
   onKeyDown?: JSX.EventHandler<HTMLInputElement | HTMLTextAreaElement, KeyboardEvent>;
 } & RootVariantProps;
