@@ -14,6 +14,7 @@ import type {
   TextFieldInputProps as InputProps,
   TextFieldLabelProps as LabelProps,
   TextFieldRootProps as RootProps,
+  TextFieldRootVariantProps as RootVariantProps,
   TextFieldTextAreaProps as TextAreaProps,
   TextFieldWrapperProps as WrapperProps,
 } from "./text-field.props";
@@ -24,6 +25,7 @@ export type {
   InputProps,
   LabelProps,
   RootProps,
+  RootVariantProps,
   TextAreaProps,
   WrapperProps,
 };

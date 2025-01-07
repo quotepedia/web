@@ -19,15 +19,17 @@ import { styles } from "./text-field.styles";
 
 export const TextFieldRoot = <T extends ValidComponent = "div">(props: PolymorphicProps<T, TextFieldRootProps<T>>) => {
   const [inputRef, setInputRef] = createSignal<HTMLInputElement | HTMLTextAreaElement | undefined>();
+  const [variants, otherProps] = splitProps(props as TextFieldRootProps, ["align", "plain"]);
 
   const context: TextFieldContextValue = {
     inputRef,
     setInputRef,
+    variants,
   };
 
   return (
     <TextFieldContext.Provider value={context}>
-      <Root {...props} />
+      <Root {...otherProps} />
     </TextFieldContext.Provider>
   );
 };
@@ -42,7 +44,14 @@ export const TextFieldWrapper = <T extends ValidComponent = "div">(
     !callEventHandler(localProps.onClick, event) && context.inputRef()?.focus();
   };
 
-  return <Polymorphic as="div" onClick={onClick} class={styles().wrapper(styleProps)} {...otherProps} />;
+  return (
+    <Polymorphic
+      as="div"
+      onClick={onClick}
+      class={styles().wrapper({ ...context.variants, ...styleProps })}
+      {...otherProps}
+    />
+  );
 };
 
 export const TextFieldInput = <T extends ValidComponent = "input">(
@@ -56,38 +65,48 @@ export const TextFieldInput = <T extends ValidComponent = "input">(
     context.setInputRef(ref);
   });
 
-  return <Input ref={mergeRefs(setRef, localProps.ref)} class={styles().input(styleProps)} {...otherProps} />;
+  return (
+    <Input
+      ref={mergeRefs(setRef, localProps.ref)}
+      class={styles().input({ ...context.variants, ...styleProps })}
+      {...otherProps}
+    />
+  );
 };
 
 export const TextFieldTextArea = <T extends ValidComponent = "textarea">(
   props: PolymorphicProps<T, TextFieldTextAreaProps<T>>,
 ) => {
   const [styleProps, otherProps] = splitProps(props as TextFieldTextAreaProps, ["class"]);
-  return <TextArea class={styles().textarea(styleProps)} {...otherProps} />;
+  const context = useTextFieldContext();
+  return <TextArea class={styles().textarea({ ...context.variants, ...styleProps })} {...otherProps} />;
 };
 
 export const TextFieldLabel = <T extends ValidComponent = "label">(
   props: PolymorphicProps<T, TextFieldLabelProps<T>>,
 ) => {
   const [styleProps, otherProps] = splitProps(props as TextFieldLabelProps, ["class"]);
-  return <Label class={styles().label(styleProps)} {...otherProps} />;
+  const context = useTextFieldContext();
+  return <Label class={styles().label({ ...context.variants, ...styleProps })} {...otherProps} />;
 };
 
 export const TextFieldDescription = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, TextFieldDescriptionProps<T>>,
 ) => {
   const [styleProps, otherProps] = splitProps(props as TextFieldDescriptionProps, ["class"]);
-  return <Description class={styles().description(styleProps)} {...otherProps} />;
+  const context = useTextFieldContext();
+  return <Description class={styles().description({ ...context.variants, ...styleProps })} {...otherProps} />;
 };
 
 export const TextFieldErrorMessage = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, TextFieldErrorMessageProps<T>>,
 ) => {
   const [localProps, styleProps, otherProps] = splitProps(props as TextFieldErrorMessageProps, ["children"], ["class"]);
+  const context = useTextFieldContext();
 
   return (
     <ErrorMessage {...otherProps}>
-      <p class={styles().error(styleProps)} {...localProps} />
+      <p class={styles().error({ ...context.variants, ...styleProps })} {...localProps} />
     </ErrorMessage>
   );
 };

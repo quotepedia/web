@@ -9,8 +9,13 @@ import type {
   TextFieldRootProps as RootProps,
   TextFieldTextAreaProps as TextAreaProps,
 } from "@kobalte/core/text-field";
+import type { VariantProps } from "tailwind-variants";
+import type { styles } from "./text-field.styles";
 
-export type TextFieldRootProps<T extends ValidComponent | HTMLElement = HTMLElement> = RootProps<T>;
+export type TextFieldRootVariantProps = VariantProps<typeof styles>;
+
+export type TextFieldRootProps<T extends ValidComponent | HTMLElement = HTMLElement> = TextFieldRootVariantProps &
+  RootProps<T>;
 
 export type TextFieldWrapperProps<T extends ValidComponent | HTMLElement = HTMLElement> = ComponentProps<ElementOf<T>> &
   JSX.StylableSVGAttributes & { onClick?: JSX.EventHandlerUnion<T, MouseEvent> };
