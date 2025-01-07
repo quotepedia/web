@@ -52,8 +52,7 @@ export default () => {
               return (
                 <SettingsCard>
                   <SettingsCard.HeaderGroup>
-                    <SettingsCard.Header>{scopedTranslator(options, key)("heading")}</SettingsCard.Header>
-                    <SettingsCard.Description>{scopedTranslator(options, key)("description")}</SettingsCard.Description>
+                    <SettingsCard.Header>{options(key)}</SettingsCard.Header>
                   </SettingsCard.HeaderGroup>
                   <SettingsCard.Value
                     ref={setRef}
