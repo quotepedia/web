@@ -48,7 +48,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "NODE_OPTIONS=\"--max-old-space-size=8192\" tsup",
     "clean": "rm -rf .turbo dist node_modules",
     "dev": "vite serve playground --host",
     "lint": "tsc"
