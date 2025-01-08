@@ -1,8 +1,7 @@
-import { Button, Container, Heading, Icon, NavigationBar, Text } from "@quotepedia/solid";
+import { Button, Container, Heading, Icon, NavigationBar, RadioGroup, Text } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
 import EmojiImg from "~/components/Emoji";
-import { RadioGroup } from "~/components/RadioGroup";
-import { EMOJI_STYLES, type EmojiStyle } from "~/lib/emoji";
+import { EMOJI_STYLES } from "~/lib/emoji";
 import { useMessage, useScopedTranslator } from "~/lib/i18n";
 import { useSettings } from "~/lib/settings";
 
@@ -33,7 +32,7 @@ export default () => {
         </section>
         <RadioGroup
           value={settings.store.emojiStyle}
-          onChange={(value) => settings.set("emojiStyle", value as EmojiStyle)}
+          onChange={(value) => settings.set("emojiStyle", value)}
           label={t("available.label")}
           items={EMOJI_STYLES.map((style) => ({
             icon: <EmojiImg emoji="😀" style={style} class="size-6" />,

@@ -1,10 +1,9 @@
-import { Button, Container, Heading, Icon, Link, NavigationBar, Text } from "@quotepedia/solid";
+import { Button, Container, Heading, Icon, Link, NavigationBar, RadioGroup, Text } from "@quotepedia/solid";
 import { scopedTranslator } from "@solid-primitives/i18n";
 import { A } from "@solidjs/router";
-import { RadioGroup } from "~/components/RadioGroup";
 import { ThemeSwatch } from "~/components/ThemeSwatch";
 import { useMessage, useScopedTranslator } from "~/lib/i18n";
-import { CUSTOM_THEMES, useTheme, type Theme } from "~/lib/theme";
+import { CUSTOM_THEMES, useTheme } from "~/lib/theme";
 
 export default () => {
   const context = useTheme();
@@ -35,7 +34,7 @@ export default () => {
         <section class="space-y-6">
           <RadioGroup
             value={context.theme()}
-            onChange={(value) => context.setTheme(value as Theme)}
+            onChange={context.setTheme}
             label={t("suggested.label")}
             items={[
               {
@@ -47,7 +46,7 @@ export default () => {
           />
           <RadioGroup
             value={context.theme()}
-            onChange={(value) => context.setTheme(value as Theme)}
+            onChange={context.setTheme}
             label={t("available.label")}
             description={() => (
               <>

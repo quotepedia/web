@@ -1,7 +1,6 @@
-import { Button, Container, Heading, Icon, Link, NavigationBar, Text } from "@quotepedia/solid";
+import { Button, Container, Heading, Icon, Link, NavigationBar, RadioGroup, Text } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
-import { RadioGroup } from "~/components/RadioGroup";
-import { LOCALES, useI18n, useMessage, useScopedTranslator, type Locale } from "~/lib/i18n";
+import { LOCALES, useI18n, useMessage, useScopedTranslator } from "~/lib/i18n";
 
 export default () => {
   const t = useScopedTranslator("settings.language");
@@ -30,7 +29,7 @@ export default () => {
         </section>
         <RadioGroup
           value={i18n.locale()}
-          onChange={(value) => i18n.setLocale(value as Locale)}
+          onChange={i18n.setLocale}
           label={t("available.label")}
           description={() => (
             <>

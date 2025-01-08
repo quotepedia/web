@@ -1,4 +1,4 @@
-import { Icon, SettingsCard, SettingsGroup, Stack } from "@quotepedia/solid";
+import { Group, Stack } from "@quotepedia/solid";
 import { A, createAsync, useSubmission } from "@solidjs/router";
 import { Show } from "solid-js";
 import { logoutAction } from "~/lib/api/auth";
@@ -16,42 +16,46 @@ export const AccountSecuritySection = () => {
     <Show when={currentUser()}>
       {(user) => (
         <Stack.Vertical class="gap-6">
-          <SettingsGroup>
-            <SettingsCard variant="hover" as={A} href="/settings/account/update-email">
-              <Icon icon="f7:envelope" class="text-fg-accent size-6" />
-              <SettingsCard.HeaderGroup>
-                <SettingsCard.Header>{t("email.heading")}</SettingsCard.Header>
-                <SettingsCard.Description>{t("email.description")}</SettingsCard.Description>
-              </SettingsCard.HeaderGroup>
-              <SettingsCard.Value>{user().email}</SettingsCard.Value>
-              <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
-            </SettingsCard>
+          <Group>
+            <Group.Content>
+              <Group.Item as={A} href="/settings/account/update-email" hoverable>
+                <Group.ItemIcon icon="f7:envelope" />
+                <Group.ItemGroup>
+                  <Group.ItemLabel>{t("email.heading")}</Group.ItemLabel>
+                  <Group.ItemDescription>{t("email.description")}</Group.ItemDescription>
+                </Group.ItemGroup>
+                <Group.ItemValue>{user().email}</Group.ItemValue>
+                <Group.ItemChevron />
+              </Group.Item>
 
-            <SettingsCard variant="hover" as={A} href="/settings/account/update-password">
-              <Icon icon="f7:asterisk-circle" class="text-fg-accent size-6" />
-              <SettingsCard.HeaderGroup>
-                <SettingsCard.Header>{t("password.heading")}</SettingsCard.Header>
-                <SettingsCard.Description>{t("password.description")}</SettingsCard.Description>
-              </SettingsCard.HeaderGroup>
-              <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
-            </SettingsCard>
-          </SettingsGroup>
+              <Group.Item as={A} href="/settings/account/update-password" hoverable>
+                <Group.ItemIcon icon="f7:asterisk-circle" />
+                <Group.ItemGroup>
+                  <Group.ItemLabel>{t("password.heading")}</Group.ItemLabel>
+                  <Group.ItemDescription>{t("password.description")}</Group.ItemDescription>
+                </Group.ItemGroup>
+                <Group.ItemChevron />
+              </Group.Item>
+            </Group.Content>
+          </Group>
 
-          <SettingsGroup as="form" action={logoutAction} method="post">
-            <SettingsCard
-              as={"button"}
-              type="submit"
-              disabled={unauthenticating.pending}
-              aria-busy={unauthenticating.pending}
-              variant="hover"
-            >
-              <Icon icon="f7:square-arrow-right" class="size-6 text-red-600" />
-              <SettingsCard.HeaderGroup>
-                <SettingsCard.Header class="text-red-600">{t("signout.heading")}</SettingsCard.Header>
-              </SettingsCard.HeaderGroup>
-              <Icon icon="f7:chevron-right" class="text-fg-muted size-4" />
-            </SettingsCard>
-          </SettingsGroup>
+          <Group as="form" action={logoutAction} method="post">
+            <Group.Content>
+              <Group.Item
+                as="button"
+                type="submit"
+                disabled={unauthenticating.pending}
+                aria-busy={unauthenticating.pending}
+                hoverable
+              >
+                <Group.ItemIcon icon="f7:square-arrow-right" class="text-red-600" />
+                <Group.ItemGroup>
+                  <Group.ItemLabel class="text-red-600">{t("signout.heading")}</Group.ItemLabel>
+                </Group.ItemGroup>
+                <Group.ItemChevron />
+              </Group.Item>
+            </Group.Content>
+          </Group>
         </Stack.Vertical>
       )}
     </Show>
