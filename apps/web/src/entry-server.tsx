@@ -27,9 +27,6 @@ export default createHandler((event) => (
           <link rel="icon" type="image/png" sizes="196x196" href="/favicon-196.png" />
           <link rel="icon" type="image/x-icon" sizes="256x256" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" />
           {assets}
         </head>
         <body class="overflow-x-hidden transition-colors" data-theme={event.locals.settings.theme}>
