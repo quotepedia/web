@@ -10,7 +10,7 @@ export const ThemeProvider: ParentComponent = (props) => {
   const setTheme = (theme: Theme) => settings.set("theme", theme);
 
   createEffect(() => {
-    document.body.dataset.theme = theme();
+    document.documentElement.dataset.theme = theme();
   });
 
   const context: ThemeContextValue = {

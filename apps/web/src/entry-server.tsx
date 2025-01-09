@@ -4,7 +4,7 @@ import { createHandler, StartServer } from "@solidjs/start/server";
 export default createHandler((event) => (
   <StartServer
     document={({ assets, children, scripts }) => (
-      <html lang={event.locals.settings.locale}>
+      <html lang={event.locals.settings.locale} data-theme={event.locals.settings.theme}>
         <head>
           <meta charset="UTF-8" />
           <title>Quotepedia</title>
@@ -29,7 +29,7 @@ export default createHandler((event) => (
           <link rel="manifest" href="/manifest.json" />
           {assets}
         </head>
-        <body class="overflow-x-hidden transition-colors" data-theme={event.locals.settings.theme}>
+        <body class="overflow-x-hidden transition-colors">
           <div id="app" class="flex min-h-dvh">
             {children}
           </div>
