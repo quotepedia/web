@@ -33,7 +33,9 @@ export const Aside = () => {
           <Show when={currentUser()} fallback={<Sidebar.ItemIcon icon="f7:gear" />}>
             {(user) => (
               <Sidebar.ItemIcon as={Avatar}>
-                <Avatar.Img src={user().avatar_url && formatStorageObject(user().avatar_url!)} alt={user().email} />
+                <Show when={user().avatar_url} fallback={<Avatar.Img src={undefined} alt={user().email} />}>
+                  {(avatar_url) => <Avatar.Img src={formatStorageObject(avatar_url())} alt={user().email} />}
+                </Show>
               </Sidebar.ItemIcon>
             )}
           </Show>
