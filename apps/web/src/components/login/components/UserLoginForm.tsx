@@ -1,7 +1,8 @@
 import { createForm, email, FormError, minLength, required } from "@modular-forms/solid";
-import { Button, Collapse, Container, FormControl, Heading, Link, Lottie, Stack, Text } from "@quotepedia/solid";
+import { Button, Container, FormControl, Heading, Link, Lottie, Stack, Text } from "@quotepedia/solid";
 import { A, useAction, useSearchParams } from "@solidjs/router";
 import { Show, type JSX } from "solid-js";
+import { FormResponse } from "~/components/form/FormResponse";
 import { loginAction, type LoginForm } from "~/lib/api/auth";
 import { MIN_PASSWORD_LENGTH } from "~/lib/api/users/constants";
 import { useScopedTranslator } from "~/lib/i18n";
@@ -88,23 +89,9 @@ export const UserLoginForm = () => {
               </Field>
             </Show>
 
-            <Collapse>
-              <Show when={form.response.message}>
-                {(message) => (
-                  <Text size="sm" variant="danger">
-                    {message()}
-                  </Text>
-                )}
-              </Show>
-            </Collapse>
+            <FormResponse of={form} />
 
-            <Button
-              color="primary"
-              type="submit"
-              class="w-full"
-              loading={form.submitting}
-              disabled={form.invalid}
-            >
+            <Button color="primary" type="submit" class="w-full" loading={form.submitting} disabled={form.invalid}>
               {t("form.submit")}
             </Button>
           </Stack.Vertical>
