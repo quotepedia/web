@@ -53,6 +53,7 @@
     "match-sorter": "^8.0.0",
     "openapi-fetch": "^0.13.3",
     "openapi-typescript": "^7.4.4",
+    "picocolors": "^1.1.1",
     "postcss": "^8.4.49",
     "solid-js": "^1.9.3",
     "solid-snowfall": "0.3.2",
