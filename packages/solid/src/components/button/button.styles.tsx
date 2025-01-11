@@ -148,10 +148,10 @@ export const styles = tv({
       },
     },
     {
-      style: "bezeled",
+      style: "ghost",
       color: "secondary",
       class: {
-        root: "text-fg-body",
+        root: "text-fg-muted",
       },
     },
     {
