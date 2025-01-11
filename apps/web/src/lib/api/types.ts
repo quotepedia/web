@@ -449,6 +449,8 @@ export interface components {
       /** Emote */
       emote: string;
       visibility: components["schemas"]["Visibility"];
+      /** Quotes Count */
+      quotes_count: number;
       /** Created By User Id */
       created_by_user_id: number;
       /**
