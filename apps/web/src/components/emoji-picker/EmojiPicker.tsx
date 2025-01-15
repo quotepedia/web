@@ -28,7 +28,11 @@ export const Replace = (props: ComponentProps<"div">) => {
   );
 };
 
-export function EmojiPicker() {
+export type EmojiPickerProps = {
+  onChange?: (emoji: Emoji | undefined) => void;
+};
+
+export function EmojiPicker(props: EmojiPickerProps) {
   const i18n = useI18n();
 
   const emojis = createAsync(async () => {
@@ -59,7 +63,15 @@ export function EmojiPicker() {
         <Popover.Content>
           <Suspense>
             <Show when={emojis() && messages()}>
-              <EmojiPickerBase value={emoji()} onChange={setEmoji} emojis={emojis()!} messages={messages()!} />
+              <EmojiPickerBase
+                value={emoji()}
+                onChange={(emoji) => {
+                  setEmoji(emoji);
+                  props.onChange?.(emoji);
+                }}
+                emojis={emojis()!}
+                messages={messages()!}
+              />
             </Show>
           </Suspense>
         </Popover.Content>
