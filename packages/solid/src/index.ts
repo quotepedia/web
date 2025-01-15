@@ -13,6 +13,7 @@ export { NavigationBar } from "./components/navigation-bar";
 export { OtpField } from "./components/otp-field";
 export { Popover } from "./components/popover";
 export { RadioGroup } from "./components/radio-group";
+export { Search } from "./components/search";
 export { Select } from "./components/select";
 export { Separator } from "./components/separator";
 export { Stack } from "./components/stack";

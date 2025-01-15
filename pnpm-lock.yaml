@@ -149,6 +149,9 @@ importers:
       '@solid-primitives/intersection-observer':
         specifier: ^2.1.6
         version: 2.1.6(solid-js@1.9.3)
+      '@solid-primitives/scheduled':
+        specifier: ^1.4.4
+        version: 1.4.4(solid-js@1.9.3)
       '@solid-primitives/scroll':
         specifier: ^2.0.23
         version: 2.0.23(solid-js@1.9.3)
