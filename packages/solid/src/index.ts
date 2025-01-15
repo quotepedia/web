@@ -11,6 +11,7 @@ export { Icon } from "./components/icon";
 export { Link } from "./components/link";
 export { NavigationBar } from "./components/navigation-bar";
 export { OtpField } from "./components/otp-field";
+export { Placeholder } from "./components/placeholder";
 export { Popover } from "./components/popover";
 export { RadioGroup } from "./components/radio-group";
 export { Search } from "./components/search";
