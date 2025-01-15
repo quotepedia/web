@@ -37,6 +37,7 @@
     "@solid-primitives/broadcast-channel": "^0.0.105",
     "@solid-primitives/event-listener": "^2.3.3",
     "@solid-primitives/i18n": "^2.1.1",
+    "@solid-primitives/intersection-observer": "^2.1.6",
     "@solid-primitives/map": "^0.4.13",
     "@solid-primitives/media": "^2.2.9",
     "@solid-primitives/range": "^0.1.18",
