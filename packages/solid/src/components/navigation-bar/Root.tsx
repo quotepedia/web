@@ -21,7 +21,7 @@ export const NavigationBarRoot = <T extends ValidComponent = "nav">(
 ) => {
   const defaultedProps = mergeProps(
     {
-      scrollThreshold: 45,
+      scrollThreshold: 5,
     },
     props,
   );
