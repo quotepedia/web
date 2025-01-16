@@ -6,7 +6,7 @@ import {
   type Translator,
 } from "@solid-primitives/i18n";
 import { createContext, useContext, type Accessor } from "solid-js";
-import type { Dictionary, Locale } from "./types";
+import type { Dictionary, IntlLDMLPluralRuleScopes, Locale } from "./types";
 
 export type I18nContextValue = {
   t: Translator<Dictionary>;
@@ -39,4 +39,12 @@ export const useScopedTranslator = <S extends Scopes<keyof Dictionary>>(
 
 export const useMessage = (path: keyof Dictionary, args: BaseTemplateArgs | undefined = undefined) => {
   return useTranslator()(path, args);
+};
+
+export const usePlurarized = (scope: IntlLDMLPluralRuleScopes<keyof Dictionary>, count: number): string => {
+  const i18n = useI18n();
+  const pluralRules = new Intl.PluralRules(i18n.locale());
+  const category = pluralRules.select(count);
+
+  return `${count} ${useScopedTranslator(scope)(category)}`;
 };
