@@ -1,4 +1,4 @@
-import { query } from "@solidjs/router";
+import { query, redirect } from "@solidjs/router";
 import { client } from "../instance";
 import { RECENT_COLLECTIONS_COUNT } from "./constants";
 import type { CollectionSearchParams } from "./types";
@@ -33,13 +33,17 @@ export const getRecentUserCollections = query(
 export const getCollection = query(async (collection_id: number) => {
   "use server";
 
-  const { data } = await client.GET("/collections/{collection_id}", {
+  const { data, response } = await client.GET("/collections/{collection_id}", {
     params: {
       path: {
         collection_id: collection_id,
       },
     },
   });
+
+  if (response.status === 404 || response.status === 422) {
+    throw redirect("/library/collections", { status: 404 });
+  }
 
   return data;
 }, "collection");
