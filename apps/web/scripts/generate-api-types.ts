@@ -11,8 +11,6 @@
  *   - VITE_API_URL: The URL of the OpenAPI JSON file.
  */
 
-// @ts-check
-
 import fs from "fs";
 import ts from "typescript";
 
