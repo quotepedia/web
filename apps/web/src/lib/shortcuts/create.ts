@@ -20,4 +20,9 @@ export function createAppShortcuts() {
     () => settings.store?.shortcuts?.settings,
     () => navigate("/settings"),
   );
+
+  createShortcut(
+    () => settings.store?.shortcuts?.collection,
+    () => navigate("/library/collections/new"),
+  );
 }
