@@ -17,6 +17,7 @@ export { RadioGroup } from "./components/radio-group";
 export { Search } from "./components/search";
 export { Select } from "./components/select";
 export { Separator } from "./components/separator";
+export { Skeleton } from "./components/skeleton";
 export { Stack } from "./components/stack";
 export { Stepper } from "./components/stepper";
 export { Switch } from "./components/switch";
