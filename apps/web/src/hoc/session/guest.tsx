@@ -2,7 +2,7 @@ import { createAsync, Navigate, type RouteSectionProps, useSearchParams } from "
 import { JSX, Match, Switch } from "solid-js";
 import { getIsLoggedIn } from "~/lib/session";
 
-export function guest(children: (props: RouteSectionProps) => JSX.Element, fallback: string = "/settings") {
+export default function guest(children: (props: RouteSectionProps) => JSX.Element, fallback: string = "/settings") {
   return (props: RouteSectionProps) => {
     const [params] = useSearchParams();
     const redirect = params.redirect;

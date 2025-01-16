@@ -1,7 +1,7 @@
 import { Container, Heading, Stack } from "@quotepedia/solid";
 import { EmojiPicker } from "~/components/emoji-picker/EmojiPicker";
+import { protect } from "~/hoc/session";
 import { useTranslator } from "~/lib/i18n";
-import { protect } from "~/utils/router";
 
 export default protect(() => {
   const t = useTranslator();

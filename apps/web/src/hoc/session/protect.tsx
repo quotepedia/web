@@ -2,7 +2,7 @@ import { createAsync, Navigate, type RouteSectionProps } from "@solidjs/router";
 import { JSX, Match, Switch } from "solid-js";
 import { getIsLoggedIn } from "~/lib/session";
 
-export function protect(children: (props: RouteSectionProps) => JSX.Element, fallback: string = "/login") {
+export default function protect(children: (props: RouteSectionProps) => JSX.Element, fallback: string = "/login") {
   return (props: RouteSectionProps) => {
     const redirect = encodeURIComponent(props.location.pathname);
     const isLoggedIn = createAsync(() => getIsLoggedIn(), { deferStream: true });

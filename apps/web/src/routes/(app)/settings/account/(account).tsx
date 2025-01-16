@@ -1,8 +1,8 @@
-import { Button, Container, Heading, NavigationBar } from "@quotepedia/solid";
+import { Button, Container, NavigationBar } from "@quotepedia/solid";
 import { A } from "@solidjs/router";
-import { useScopedTranslator } from "~/lib/i18n";
-import { protect } from "~/utils/router";
 import { AccountInfoSection, AccountSecuritySection } from "~/components/settings";
+import { protect } from "~/hoc/session";
+import { useScopedTranslator } from "~/lib/i18n";
 
 export default protect(() => {
   const t = useScopedTranslator("settings");
