@@ -17,7 +17,7 @@ export const ButtonRoot = <T extends ValidComponent = "button">(props: Polymorph
 
   const [styleProps, localProps, otherProps] = splitProps(
     defaultedProps,
-    ["size", "shape", "spacing", "color", "style"],
+    ["size", "shape", "spacing", "color", "style", "stretched"],
     ["class", "children", "disabled", "loading", "leadingIcon", "trailingIcon"],
   );
 

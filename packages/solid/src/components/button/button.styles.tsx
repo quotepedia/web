@@ -4,7 +4,7 @@ export const styles = tv({
   slots: {
     root: [
       "w-fit outline-none select-none font-medium",
-      "inline-flex items-center justify-center",
+      "items-center justify-center",
       "transition duration-300 active:duration-0",
       "data-[expanded]:duration-300 data-[expanded]:opacity-25",
       "disabled:cursor-not-allowed disabled:opacity-100 disabled:text-opacity-75",
@@ -45,6 +45,14 @@ export const styles = tv({
       },
       lg: {
         root: "py-2 px-2.5 gap-0.5",
+      },
+    },
+    stretched: {
+      true: {
+        root: "flex w-full",
+      },
+      false: {
+        root: "inline-flex",
       },
     },
     color: {
