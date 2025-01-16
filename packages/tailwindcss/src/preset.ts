@@ -14,7 +14,8 @@ export default (): Partial<Config> => ({
         sans: ["Inter", { fontFeatureSettings: '"ss03", "cv06", "cv08", "cv11"' }],
       },
       animation: {
-        flash: "flash 1s infinite",
+        flash: "flash 1000ms infinite",
+        shimmer: "shimmer 1500ms infinite",
       },
       keyframes: {
         flash: {
@@ -25,6 +26,11 @@ export default (): Partial<Config> => ({
             opacity: "0",
           },
         },
+        shimmer: {
+          "100%": {
+            transform: "translateX(100vw)",
+          },
+        }
       },
       transitionTimingFunction: {
         spring: "linear(0, .006, .025 2.8%, .101 6.1%, .539 18.9%, .721 25.3%, .849 31.5%, .937 38.1%, .968 41.8%, .991 45.7%, 1.006 50.1%, 1.015 55%, 1.017 63.9%, 1.001)",
