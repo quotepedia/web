@@ -30,7 +30,7 @@ export const GroupItem = <T extends ValidComponent = "div">(props: DynamicProps<
       // === SharedProps ===
       class={cn(
         styles().item(variantProps),
-        props.hoverable && [
+        localProps.hoverable && [
           "cursor-pointer outline-none transition-[border-color,background-color,opacity] active:duration-0",
           "hover:bg-bg-secondary active:bg-bg-secondary focus-visible:bg-bg-secondary hover:bg-opacity-50",
           "aria-busy:animate-pulse aria-busy:cursor-progress",
