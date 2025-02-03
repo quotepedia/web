@@ -11,6 +11,8 @@
   "createCollection": "Create collection",
   "create": "Create",
   "newCollection": "New collection",
+  "setEmoji": "Set emoji",
+  "newQuote": "New quote",
   "noResultsFor": "There are no results found with \"{{ value }}\"",
   "empty": "It's empty here for now",
   "collections": "Collections",

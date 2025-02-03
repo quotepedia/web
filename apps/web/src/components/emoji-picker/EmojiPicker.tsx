@@ -58,7 +58,7 @@ export function EmojiPicker(props: EmojiPickerProps) {
       </Replace>
       <Popover>
         <Popover.Trigger as={Button} style="ghost">
-          Set emoji
+          {i18n.t("setEmoji")}
         </Popover.Trigger>
         <Popover.Content>
           <Suspense>

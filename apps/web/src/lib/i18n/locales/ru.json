@@ -11,6 +11,8 @@
   "createCollection": "Создать коллекцию",
   "create": "Создать",
   "newCollection": "Новая коллекция",
+  "setEmoji": "Установить эмодзи",
+  "newQuote": "Новая цитата",
   "noResultsFor": "Не найдено результатов с «{{ value }}»",
   "empty": "Тут пока что пусто",
   "collections": "Коллекции",
