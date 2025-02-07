@@ -245,6 +245,24 @@ export interface paths {
     patch: operations["UpdateQuote"];
     trace?: never;
   };
+  "/quotes/{quote_id}/collections": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Quote Collections */
+    get: operations["GetQuoteCollections"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    /** Update Quote Collections */
+    patch: operations["UpdateQuoteCollections"];
+    trace?: never;
+  };
   "/users/exists": {
     parameters: {
       query?: never;
@@ -564,12 +582,17 @@ export interface components {
       /** Collections */
       collections: components["schemas"]["CollectionResponse"][];
     };
+    /** QuoteCollectionsUpdateRequest */
+    QuoteCollectionsUpdateRequest: {
+      /** Collection Ids */
+      collection_ids: number[];
+    };
     /** QuoteCreateRequest */
     QuoteCreateRequest: {
       /** Content */
       content: string;
       /** Author Id */
-      author_id: number | null;
+      author_id?: number | null;
     };
     /** QuoteResponse */
     QuoteResponse: {
@@ -938,9 +961,7 @@ export interface operations {
   CreateCollection: {
     parameters: {
       query?: never;
-      header?: {
-        "accept-language"?: string;
-      };
+      header?: never;
       path?: never;
       cookie?: never;
     };
@@ -1449,12 +1470,80 @@ export interface operations {
       };
     };
   };
-  UserExists: {
+  GetQuoteCollections: {
     parameters: {
       query?: never;
       header?: {
         "accept-language"?: string;
       };
+      path: {
+        quote_id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": number[];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  UpdateQuoteCollections: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path: {
+        quote_id: number;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["QuoteCollectionsUpdateRequest"];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": unknown;
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
+  UserExists: {
+    parameters: {
+      query?: never;
+      header?: never;
       path?: never;
       cookie?: never;
     };
@@ -1487,9 +1576,7 @@ export interface operations {
   GetCurrentUser: {
     parameters: {
       query?: never;
-      header?: {
-        "accept-language"?: string;
-      };
+      header?: never;
       path?: never;
       cookie?: never;
     };
@@ -1502,15 +1589,6 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["CurrentUserResponse"];
-        };
-      };
-      /** @description Validation Error */
-      422: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
         };
       };
     };
@@ -1553,9 +1631,7 @@ export interface operations {
   UpdateCurrentUserPassword: {
     parameters: {
       query?: never;
-      header?: {
-        "accept-language"?: string;
-      };
+      header?: never;
       path?: never;
       cookie?: never;
     };
