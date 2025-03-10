@@ -26,7 +26,7 @@ export const CollectionsInfinitePaginator = () => {
   const [collections, setTriggerRef, paginator] = createInfinitePaginator(
     (page) =>
       getCurrentUserCollections({
-        q: searchQuery(),
+        q: searchQuery() || null,
         limit: COLLECTIONS_PER_PAGE,
         offset: COLLECTIONS_PER_PAGE * page,
       }),
