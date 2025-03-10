@@ -1,7 +1,7 @@
 import { JSX } from "solid-js";
 
-export type ToggleGroupOptionProps = {
-  value: string;
+export type ToggleGroupOptionProps<T extends string> = {
+  value: T;
   before?: JSX.Element;
   after?: JSX.Element;
   label: JSX.Element;
@@ -16,5 +16,6 @@ export type ToggleGroupProps<T extends string> = {
   value?: T[];
   defaultValue?: T[];
   onChange?: (value: T[]) => void;
-  options: ToggleGroupOptionProps[];
+  options: ToggleGroupOptionProps<T>[];
+  class?: string;
 };

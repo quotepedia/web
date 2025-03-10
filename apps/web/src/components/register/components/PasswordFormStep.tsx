@@ -1,10 +1,9 @@
 import type { SubmitHandler } from "@modular-forms/solid";
 import { useAction } from "@solidjs/router";
-import { toast } from "solid-sonner";
 
-import { Heading, Lottie, Stack, Stepper, Text } from "@quotepedia/solid";
-import { registerAction } from "~/lib/api/auth";
+import { Heading, Lottie, Stack, Stepper, Text, toast } from "@quotepedia/solid";
 import { NewPasswordForm } from "~/components/NewPasswordForm";
+import { registerAction } from "~/lib/api/auth";
 import type { NewPasswordFormFieldValues } from "~/lib/api/users";
 
 import { useScopedTranslator } from "~/lib/i18n";
@@ -22,7 +21,7 @@ export const PasswordFormStep = () => {
     const result = await register(context.store);
 
     if (result?.error && result.error.detail) {
-      toast.error(result.error.detail.toString());
+      toast(result.error.detail.toString());
     }
   };
 

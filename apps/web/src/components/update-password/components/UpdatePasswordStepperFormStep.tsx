@@ -1,8 +1,7 @@
 import { type FormStore, type SubmitHandler } from "@modular-forms/solid";
-import { Heading, Lottie, Stepper, Text } from "@quotepedia/solid";
+import { Heading, Lottie, Stepper, Text, toast } from "@quotepedia/solid";
 import { useAction } from "@solidjs/router";
 import { createSignal } from "solid-js";
-import { toast } from "solid-sonner";
 import FormStepper from "~/components/form-stepper";
 import { NewPasswordForm } from "~/components/NewPasswordForm";
 import { type NewPasswordFormFieldValues } from "~/lib/api/users";
@@ -23,7 +22,7 @@ export const UpdatePasswordStepperFormStep = () => {
     const { error } = await updatePassword({ password: values.newPassword1 });
 
     if (error) {
-      toast.error(String(error.detail));
+      toast(String(error.detail));
     } else {
       stepper.moveForward();
     }

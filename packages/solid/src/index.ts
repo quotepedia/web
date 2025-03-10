@@ -24,6 +24,7 @@ export { Switch } from "./components/switch";
 export { Text } from "./components/text";
 export { TextField } from "./components/text-field";
 export { Lottie } from "./components/tgs";
+export { toast, Toaster } from "./components/toast";
 export { ToggleGroup } from "./components/toggle-group";
 export { Collapse, Fade } from "./components/transition";
 export { cn } from "./utils/css";

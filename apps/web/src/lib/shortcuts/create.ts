@@ -25,4 +25,9 @@ export function createAppShortcuts() {
     () => settings.store?.shortcuts?.collection,
     () => navigate("/library/collections/new"),
   );
+
+  createShortcut(
+    () => settings.store?.shortcuts?.quote,
+    () => navigate("/library/quotes/new"),
+  );
 }

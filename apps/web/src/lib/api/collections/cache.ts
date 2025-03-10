@@ -15,6 +15,18 @@ export const getCurrentUserCollections = query(async (query?: CollectionSearchPa
   return data;
 }, "currentUserCollections");
 
+export const getCollections = query(async (query?: CollectionSearchParams) => {
+  "use server";
+
+  const { data } = await client.GET("/collections/", {
+    params: {
+      query: query,
+    },
+  });
+
+  return data;
+}, "collections");
+
 export const getRecentUserCollections = query(
   async (
     query: CollectionSearchParams = {
@@ -28,6 +40,21 @@ export const getRecentUserCollections = query(
     return collections?.sort((a, b) => Date.parse(a.updated_at) - Date.parse(b.updated_at));
   },
   "currentUserRecentCollections",
+);
+
+export const getRecentCollections = query(
+  async (
+    query: CollectionSearchParams = {
+      limit: RECENT_COLLECTIONS_COUNT,
+    },
+  ) => {
+    "use server";
+
+    const collections = await getCollections(query);
+
+    return collections?.sort((a, b) => Date.parse(a.updated_at) - Date.parse(b.updated_at));
+  },
+  "recentCollections",
 );
 
 export const getCollection = query(async (collection_id: number) => {

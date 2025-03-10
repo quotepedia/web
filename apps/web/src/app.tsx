@@ -1,8 +1,8 @@
+import { Toaster } from "@quotepedia/solid";
 import { MetaProvider } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
-import { Toaster } from "solid-sonner";
 import { Snowfall } from "~/components/Snowfall";
 import { I18nProvider } from "~/lib/i18n";
 import { createSessionValidator } from "~/lib/session";
@@ -28,7 +28,15 @@ export default function App() {
               <FileRoutes />
             </Router>
 
-            <Toaster />
+            <Toaster
+              // @ts-expect-error use the theme from the document element instead of the toaster
+              theme=""
+              class="lg:mb-safe-offset-0 max-lg:mb-safe-offset-16"
+              position="bottom-right"
+              duration={3000}
+              offset={24}
+              gap={8}
+            />
             <Snowfall />
           </ThemeProvider>
         </I18nProvider>

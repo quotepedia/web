@@ -1,11 +1,10 @@
 import type { ValidComponent } from "solid-js";
 import { splitProps } from "solid-js";
 
-import * as DialogPrimitive from "@kobalte/core/dialog";
-import { Polymorphic, type PolymorphicProps } from "@kobalte/core/polymorphic";
+import { Dynamic, type DynamicProps } from "@corvu/utils/dynamic";
+import { CloseButton, Content, Description, Title, Overlay, Portal } from "@kobalte/core/dialog";
 
-import { cn } from "@src/utils/css";
-
+import Icon from "../icon";
 import type {
   DialogContentProps,
   DialogDescriptionProps,
@@ -16,59 +15,48 @@ import type {
 } from "./dialog.props";
 import { styles } from "./dialog.styles";
 
-export const DialogRoot = DialogPrimitive.Root;
-export const DialogTrigger = DialogPrimitive.Trigger;
-export const DialogClose = DialogPrimitive.CloseButton;
-export const DialogPortal = DialogPrimitive.Portal;
-
-export const DialogOverlay = <T extends ValidComponent = "div">(props: PolymorphicProps<T, DialogOverlayProps<T>>) => {
-  const [scopedProps, otherProps] = splitProps(props as DialogOverlayProps, ["class"]);
-  return <DialogPrimitive.Overlay class={cn(styles().overlay(), scopedProps.class)} {...otherProps} />;
+export const DialogOverlay = <T extends ValidComponent = "div">(props: DynamicProps<T, DialogOverlayProps<T>>) => {
+  const [variantProps, otherProps] = splitProps(props as DialogOverlayProps, ["class"]);
+  return <Overlay class={styles().overlay(variantProps)} {...otherProps} />;
 };
 
-export const DialogContent = <T extends ValidComponent = "div">(props: PolymorphicProps<T, DialogContentProps<T>>) => {
-  const [scopedProps, otherProps] = splitProps(props as DialogContentProps, ["class"]);
+export const DialogContent = <T extends ValidComponent = "div">(props: DynamicProps<T, DialogContentProps<T>>) => {
+  const [variantProps, otherProps] = splitProps(props as DialogContentProps, ["class"]);
 
   return (
-    <DialogPortal>
+    <Portal>
       <DialogOverlay />
-      <DialogPrimitive.Content class={cn(styles().content(), scopedProps.class)} {...otherProps} />
-    </DialogPortal>
+      <Content class={styles().content(variantProps)} {...otherProps} />
+    </Portal>
   );
 };
 
-export const DialogHeader = <T extends ValidComponent = "div">(props: PolymorphicProps<T, DialogHeaderProps<T>>) => {
-  const [scopedProps, otherProps] = splitProps(props as DialogHeaderProps, ["class"]);
-
-  return <Polymorphic as="div" class={cn(styles().header(), scopedProps.class)} {...otherProps} />;
+export const DialogHeader = <T extends ValidComponent = "div">(props: DynamicProps<T, DialogHeaderProps<T>>) => {
+  const [variantProps, otherProps] = splitProps(props as DialogHeaderProps, ["class"]);
+  return <Dynamic as="div" class={styles().header(variantProps)} {...otherProps} />;
 };
 
 export const DialogDismiss = () => {
   return (
-    <DialogPrimitive.CloseButton class={cn(styles().dismiss())}>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current stroke-2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-      </svg>
-    </DialogPrimitive.CloseButton>
+    <CloseButton class={styles().dismiss()}>
+      <Icon icon="f7:xmark" class="size-5" />
+    </CloseButton>
   );
 };
 
-export const DialogFooter = <T extends ValidComponent = "div">(props: PolymorphicProps<T, DialogFooterProps<T>>) => {
-  const [scopedProps, otherProps] = splitProps(props as DialogFooterProps, ["class"]);
-
-  return <Polymorphic as={"div"} class={cn(styles().footer(), scopedProps.class)} {...otherProps} />;
+export const DialogFooter = <T extends ValidComponent = "div">(props: DynamicProps<T, DialogFooterProps<T>>) => {
+  const [variantProps, otherProps] = splitProps(props as DialogFooterProps, ["class"]);
+  return <Dynamic as="div" class={styles().footer(variantProps)} {...otherProps} />;
 };
 
-export const DialogTitle = <T extends ValidComponent = "h2">(props: PolymorphicProps<T, DialogTitleProps<T>>) => {
-  const [scopedProps, otherProps] = splitProps(props as DialogTitleProps, ["class"]);
-
-  return <DialogPrimitive.Title class={cn(styles().title(), scopedProps.class)} {...otherProps} />;
+export const DialogTitle = <T extends ValidComponent = "h2">(props: DynamicProps<T, DialogTitleProps<T>>) => {
+  const [variantProps, otherProps] = splitProps(props as DialogTitleProps, ["class"]);
+  return <Title class={styles().title(variantProps)} {...otherProps} />;
 };
 
 export const DialogDescription = <T extends ValidComponent = "p">(
-  props: PolymorphicProps<T, DialogDescriptionProps<T>>,
+  props: DynamicProps<T, DialogDescriptionProps<T>>,
 ) => {
-  const [scopedProps, otherProps] = splitProps(props as DialogDescriptionProps, ["class"]);
-
-  return <DialogPrimitive.Description class={cn(styles().description(), scopedProps.class)} {...otherProps} />;
+  const [variantProps, otherProps] = splitProps(props as DialogDescriptionProps, ["class"]);
+  return <Description class={styles().description(variantProps)} {...otherProps} />;
 };

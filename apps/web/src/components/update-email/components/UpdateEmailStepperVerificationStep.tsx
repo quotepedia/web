@@ -1,12 +1,11 @@
 import type { FormStore, SubmitHandler } from "@modular-forms/solid";
-import { Stepper } from "@quotepedia/solid";
+import { Stepper, toast } from "@quotepedia/solid";
 import { useAction } from "@solidjs/router";
-import { toast } from "solid-sonner";
-import { useUpdateEmail } from "../context";
 import { createSignal } from "solid-js";
 import FormStepper from "~/components/form-stepper";
-import { updateCurrentUserEmailAction } from "~/lib/api/users/me";
 import { OtpForm, type OtpFormData } from "~/components/OtpForm";
+import { updateCurrentUserEmailAction } from "~/lib/api/users/me";
+import { useUpdateEmail } from "../context";
 
 export const UpdateEmailStepperVerificationStep = () => {
   const stepper = Stepper.useContext();
@@ -24,7 +23,7 @@ export const UpdateEmailStepperVerificationStep = () => {
       return;
     }
     if (result.error.detail) {
-      toast.error(result.error.detail.toString());
+      toast(result.error.detail.toString());
     }
   };
 

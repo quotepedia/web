@@ -65,6 +65,7 @@
     "corvu": "^0.7.1",
     "lottie-web": "^5.12.2",
     "solid-persistent": "^0.1.0",
+    "solid-sonner": "^0.2.8",
     "solid-transition-group": "^0.2.3",
     "tailwind-merge": "^2.5.5",
     "tailwind-variants": "^0.3.0"

@@ -1,10 +1,13 @@
 import { Button, Container, Dropdown, Heading, Icon, NavigationBar, Skeleton } from "@quotepedia/solid";
-import { A, createAsync, type RouteDefinition } from "@solidjs/router";
-import { Show, Suspense } from "solid-js";
+import { A, createAsync, useAction, type RouteDefinition } from "@solidjs/router";
+import { Match, Show, Suspense, Switch } from "solid-js";
 import { DeleteCollectionDropdownItem } from "~/components/collections";
 import EmojiImg from "~/components/Emoji";
+import { QuoteList } from "~/components/quotes/QuoteList";
 import { protect } from "~/hoc/session";
-import { CollectionVisibility, getCollection } from "~/lib/api/collections";
+import type { operations } from "~/lib/api";
+import { changeCollectionVisibilityAction, CollectionVisibility, getCollection } from "~/lib/api/collections";
+import { getCollectionQuotes } from "~/lib/api/quotes";
 import { getCurrentUser } from "~/lib/api/users/me";
 import { usePlurarized, useTranslator } from "~/lib/i18n";
 
@@ -18,6 +21,8 @@ export default protect((props) => {
   const t = useTranslator();
   const currentUser = createAsync(() => getCurrentUser());
   const collection = createAsync(() => getCollection(Number(props.params.id)), { deferStream: true });
+
+  const changeCollectionVisibility = useAction(changeCollectionVisibilityAction);
 
   return (
     <Suspense
@@ -75,12 +80,33 @@ export default protect((props) => {
                   <Dropdown.Content>
                     <Show when={currentUser()?.id === collection().created_by_user_id}>
                       <DeleteCollectionDropdownItem id={collection().id} />
+                      <Dropdown.Item
+                        onSelect={async () =>
+                          await changeCollectionVisibility(
+                            collection().id,
+                            collection().visibility === CollectionVisibility.Private
+                              ? CollectionVisibility.Public
+                              : CollectionVisibility.Private,
+                          )
+                        }
+                      >
+                        <Switch>
+                          <Match when={collection().visibility === CollectionVisibility.Private}>
+                            <Icon icon="f7:lock-open" class="size-6" />
+                            <Dropdown.ItemLabel>Make public</Dropdown.ItemLabel>
+                          </Match>
+                          <Match when={collection().visibility === CollectionVisibility.Public}>
+                            <Icon icon="f7:lock" class="size-6" />
+                            <Dropdown.ItemLabel>Make private</Dropdown.ItemLabel>
+                          </Match>
+                        </Switch>
+                      </Dropdown.Item>
                     </Show>
                   </Dropdown.Content>
                 </Dropdown>
               </NavigationBar.Trailing>
             </NavigationBar>
-            <Container size="wide" class="flex flex-col gap-10 py-6">
+            <Container size="wide" class="flex flex-col gap-6 py-6">
               <section class="flex flex-col items-center gap-4">
                 <EmojiImg emoji={collection().emote} class="size-20" />
                 <hgroup class="space-y-3 text-center">
@@ -88,6 +114,12 @@ export default protect((props) => {
                   <p>{collection().description}</p>
                 </hgroup>
               </section>
+              <Suspense>
+                <QuoteList
+                  fetcher={(query) => getCollectionQuotes(Number(props.params.id), query)}
+                  collection_id={collection().id}
+                />
+              </Suspense>
             </Container>
           </div>
         )}

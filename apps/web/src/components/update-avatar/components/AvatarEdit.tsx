@@ -1,10 +1,9 @@
-import { Avatar, Button, Dialog, Dropdown, Icon, Stack } from "@quotepedia/solid";
+import { Avatar, Button, Dialog, Dropdown, Icon, Stack, toast } from "@quotepedia/solid";
 import { createFileUploader } from "@solid-primitives/upload";
 import { useAction, useSubmission } from "@solidjs/router";
 import { type Component, createSignal, Show } from "solid-js";
-import { toast } from "solid-sonner";
-import { removeCurrentUserAvatarAction, updateCurrentUserAvatarAction } from "~/lib/api/users/me";
 import { type components, formatStorageObject } from "~/lib/api";
+import { removeCurrentUserAvatarAction, updateCurrentUserAvatarAction } from "~/lib/api/users/me";
 import { useScopedTranslator } from "~/lib/i18n";
 
 export type AvatarEditProps = {
@@ -31,7 +30,7 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
       }
       const result = await updateAvatar(file);
       if (result?.error) {
-        toast.error(result.error.detail?.toString());
+        toast(result.error.detail?.toString());
       }
     });
   };

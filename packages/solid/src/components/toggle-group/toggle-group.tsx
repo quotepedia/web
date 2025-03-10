@@ -16,6 +16,7 @@ export const ToggleGroup = <T extends string>(props: ToggleGroupProps<T>) => {
       onChange={(value) => props.onChange?.(value as T[])}
       disabled={props.disabled}
       orientation="vertical"
+      class={props.class}
     >
       <Show when={props.label}>{(label) => <Group.Label>{label()}</Group.Label>}</Show>
       <Group.Content>
@@ -30,7 +31,7 @@ export const ToggleGroup = <T extends string>(props: ToggleGroupProps<T>) => {
                 </Show>
               </Group.ItemGroup>
               <Show when={item.after}>{(after) => after()}</Show>
-              <Icon icon="f7:checkmark" class="size-6 text-fg-accent opacity-0 group-data-[pressed]:!opacity-100" />
+              <Icon icon="f7:checkmark" class="size-5 text-fg-accent opacity-0 group-data-[pressed]:!opacity-100" />
             </Item>
           )}
         </For>

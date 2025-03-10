@@ -1,13 +1,11 @@
+import { CloseButton as Close, Description, Root, Trigger } from "@kobalte/core/dialog";
+
 import {
-  DialogClose as Close,
   DialogContent as Body,
-  DialogDescription as Description,
   DialogDismiss as Dismiss,
   DialogFooter as Footer,
   DialogHeader as Header,
-  DialogRoot as Root,
   DialogTitle as Title,
-  DialogTrigger as Trigger,
 } from "./dialog";
 
 import type {
@@ -21,7 +19,7 @@ import type {
 
 export type { ContentProps, DescriptionProps, FooterProps, HeaderProps, OverlayProps, TitleProps };
 
-export { Close, Body, Description, Dismiss, Footer, Header, Root, Title, Trigger };
+export { Body, Close, Description, Dismiss, Footer, Header, Root, Title, Trigger };
 
 export const Dialog = Object.assign(Root, {
   Trigger,

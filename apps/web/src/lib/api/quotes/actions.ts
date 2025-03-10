@@ -1,7 +1,8 @@
-import { action, json, redirect } from "@solidjs/router";
+import { action, json, redirect, revalidate } from "@solidjs/router";
 import { client } from "../instance";
 import type { components } from "../types";
-import { getQuote, getCurrentUserQuotes } from "./cache";
+import { getQuote, getCurrentUserQuotes, getQuotes, getCollectionQuotes, getQuoteCollectionIds } from "./cache";
+import { getCollection, getCollections, getRecentCollections, getRecentUserCollections } from "../collections";
 
 export const createQuoteAction = action(async (body: components["schemas"]["QuoteCreateRequest"]) => {
   "use server";
@@ -12,7 +13,7 @@ export const createQuoteAction = action(async (body: components["schemas"]["Quot
 
   if (data) {
     return redirect("/library", {
-      revalidate: [getCurrentUserQuotes.key],
+      revalidate: [getCurrentUserQuotes.key, getQuotes.key, getCollectionQuotes.key],
     });
   }
 
@@ -30,7 +31,28 @@ export const deleteQuoteAction = action(async (quote_id: number) => {
     },
   });
 
-  return redirect("/library/quotes", {
-    revalidate: [getCurrentUserQuotes.key, getQuote.keyFor(quote_id)],
-  });
+  return revalidate([getCurrentUserQuotes.key, getQuote.keyFor(quote_id), getQuotes.key, getCollectionQuotes.key]);
 }, "delete-quote-action");
+
+export const updateQuoteCollectionIdsAction = action(async (quote_id: number, collection_ids: number[]) => {
+  "use server";
+
+  await client.PATCH("/quotes/{quote_id}/collections", {
+    params: {
+      path: {
+        quote_id: quote_id,
+      },
+    },
+    body: {
+      collection_ids: collection_ids,
+    },
+  });
+
+  return revalidate([
+    getQuoteCollectionIds.key,
+    getRecentCollections.key,
+    getRecentUserCollections.key,
+    getCollection.key,
+    getCollections.key,
+  ]);
+}, "update-quote-collection-ids-action");
