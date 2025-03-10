@@ -31,7 +31,7 @@ export default function App() {
             <Toaster
               // @ts-expect-error use the theme from the document element instead of the toaster
               theme=""
-              class="lg:mb-safe-offset-0 max-lg:mb-safe-offset-16"
+              class="mb-safe-offset-0 max-lg:mb-safe-offset-10 max-sm:mb-safe-offset-16"
               position="bottom-right"
               duration={3000}
               offset={24}
