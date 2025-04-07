@@ -1,4 +1,4 @@
-import { createEffect, createSignal, on, Show, Suspense, type Component } from "solid-js";
+import { createEffect, createMemo, createSignal, on, Show, Suspense, type Component } from "solid-js";
 import { isServer } from "solid-js/web";
 import { createMasonryBreakpoints, Mason } from "solid-mason";
 import type { components, operations } from "~/lib/api";
@@ -42,7 +42,7 @@ export const QuoteList: Component<QuoteListProps> = (props) => {
 
   createEffect(
     on(
-      () => props.collection_id,
+      createMemo(() => props.collection_id),
       () => {
         if (prevCollectionId() !== undefined) {
           paginator.reset();
