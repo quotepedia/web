@@ -16,7 +16,7 @@ const CollectionDropdown: Component<CollectionDropdownProps> = (props) => {
 
   return (
     <Dropdown>
-      <Dropdown.Trigger as={Button} style="ghost" leadingIcon="f7:ellipsis-circle" />
+      <Dropdown.Trigger as={Button} style="ghost" leadingIcon="f7:ellipsis-circle" class="max-lg:pe-3" />
       <Dropdown.Content>
         <Show when={currentUser()?.id === props.collection.created_by_user_id}>
           <DeleteCollectionDropdownItem id={props.collection.id} />

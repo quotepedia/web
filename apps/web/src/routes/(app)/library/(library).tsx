@@ -14,14 +14,20 @@ export default protect(() => {
   return (
     <div class="flex h-full w-full grow flex-col">
       <NavigationBar>
-        <NavigationBar.Leading class="max-lg:ps-3">
-          <Button as={A} href="/library/collections/new" style="ghost" leadingIcon="f7:folder-badge-plus" />
+        <NavigationBar.Leading>
+          <Button
+            as={A}
+            href="/library/collections/new"
+            style="ghost"
+            leadingIcon="f7:folder-badge-plus"
+            class="max-lg:ps-3"
+          />
         </NavigationBar.Leading>
         <NavigationBar.Center>
           <p class="font-semibold">{t("routes.library.title")}</p>
         </NavigationBar.Center>
-        <NavigationBar.Trailing class="max-lg:pe-3">
-          <Button as={A} href="/library/quotes/new" style="ghost" leadingIcon="f7:square-pencil" />
+        <NavigationBar.Trailing>
+          <Button as={A} href="/library/quotes/new" style="ghost" leadingIcon="f7:square-pencil" class="max-lg:pe-3" />
         </NavigationBar.Trailing>
       </NavigationBar>
       <Container size="wide" class="flex flex-col gap-8 py-6">

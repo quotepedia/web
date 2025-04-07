@@ -20,8 +20,14 @@ export default protect(() => {
         <NavigationBar.Center>
           <h2 class="font-semibold">{t("collections")}</h2>
         </NavigationBar.Center>
-        <NavigationBar.Trailing class="max-lg:pe-3">
-          <Button as={A} href="/library/collections/new" style="ghost" trailingIcon="f7:folder-badge-plus" />
+        <NavigationBar.Trailing>
+          <Button
+            as={A}
+            href="/library/collections/new"
+            style="ghost"
+            trailingIcon="f7:folder-badge-plus"
+            class="max-lg:pe-3"
+          />
         </NavigationBar.Trailing>
       </NavigationBar>
 

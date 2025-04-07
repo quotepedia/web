@@ -47,7 +47,7 @@ export default protect(() => {
     <Form onSubmit={onSubmit} method="post" class="flex h-full w-full grow flex-col">
       <NavigationBar>
         <NavigationBar.Leading>
-          <Button as={A} href="/library" style="ghost">
+          <Button as={A} href="/library" style="ghost" class="max-lg:ps-3">
             {t("cancel")}
           </Button>
         </NavigationBar.Leading>
@@ -55,7 +55,7 @@ export default protect(() => {
           <p class="font-semibold">{t("newQuote")}</p>
         </NavigationBar.Center>
         <NavigationBar.Trailing>
-          <Button type="submit" style="ghost" loading={form.submitting} disabled={form.invalid}>
+          <Button type="submit" style="ghost" loading={form.submitting} disabled={form.invalid} class="max-lg:pe-3">
             {t("create")}
           </Button>
         </NavigationBar.Trailing>
