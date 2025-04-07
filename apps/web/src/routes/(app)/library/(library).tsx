@@ -14,13 +14,13 @@ export default protect(() => {
   return (
     <div class="flex h-full w-full grow flex-col">
       <NavigationBar>
-        <NavigationBar.Leading>
+        <NavigationBar.Leading class="max-lg:ps-3">
           <Button as={A} href="/library/collections/new" style="ghost" leadingIcon="f7:folder-badge-plus" />
         </NavigationBar.Leading>
         <NavigationBar.Center>
           <p class="font-semibold">{t("routes.library.title")}</p>
         </NavigationBar.Center>
-        <NavigationBar.Trailing>
+        <NavigationBar.Trailing class="max-lg:pe-3">
           <Button as={A} href="/library/quotes/new" style="ghost" leadingIcon="f7:square-pencil" />
         </NavigationBar.Trailing>
       </NavigationBar>

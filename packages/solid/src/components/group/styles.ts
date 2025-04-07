@@ -16,7 +16,7 @@ const styles = tv({
     itemLabel: ["text-base leading-none"],
     itemDescription: [""],
     itemValue: ["transition"],
-    itemIcon: ["text-fg-accent", "size-6"],
+    itemIcon: ["text-fg-accent", "size-6", "shrink-0"],
     itemChevron: ["text-fg-muted stroke-current", "-ms-1.5 size-4"],
     itemGroup: ["min-w-0 grow space-y-0.5 text-start"],
   },
