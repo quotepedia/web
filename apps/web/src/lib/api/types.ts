@@ -208,6 +208,23 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/quotes/random": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Random Quote */
+    get: operations["GetRandomQuote"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/quotes/": {
     parameters: {
       query?: never;
@@ -824,6 +841,7 @@ export interface operations {
     parameters: {
       query?: {
         q?: string | null;
+        seed?: number;
         offset?: number;
         limit?: number;
       };
@@ -927,6 +945,7 @@ export interface operations {
     parameters: {
       query?: {
         q?: string | null;
+        seed?: number;
         offset?: number;
         limit?: number;
       };
@@ -1096,6 +1115,7 @@ export interface operations {
     parameters: {
       query?: {
         q?: string | null;
+        seed?: number;
         offset?: number;
         limit?: number;
       };
@@ -1299,10 +1319,42 @@ export interface operations {
       };
     };
   };
+  GetRandomQuote: {
+    parameters: {
+      query?: never;
+      header?: {
+        "accept-language"?: string;
+      };
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["QuoteResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+    };
+  };
   GetQuotes: {
     parameters: {
       query?: {
         q?: string | null;
+        seed?: number;
         offset?: number;
         limit?: number;
       };
@@ -1729,6 +1781,7 @@ export interface operations {
     parameters: {
       query?: {
         q?: string | null;
+        seed?: number;
         offset?: number;
         limit?: number;
       };
@@ -1765,6 +1818,7 @@ export interface operations {
       query?: {
         type?: components["schemas"]["UserQuotesType"];
         q?: string | null;
+        seed?: number;
         offset?: number;
         limit?: number;
       };
