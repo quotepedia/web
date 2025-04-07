@@ -8,7 +8,7 @@ export const getQuotes = query(async (query?: operations["GetQuotes"]["parameter
 
   const { data } = await client.GET("/quotes/", {
     params: {
-      query: query,
+      query: { seed: Math.random() * 2 - 1, ...query },
     },
   });
 

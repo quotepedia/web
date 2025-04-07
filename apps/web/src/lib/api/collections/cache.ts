@@ -20,7 +20,7 @@ export const getCollections = query(async (query?: CollectionSearchParams) => {
 
   const { data } = await client.GET("/collections/", {
     params: {
-      query: query,
+      query: { seed: Math.random() * 2 - 1, ...query },
     },
   });
 
