@@ -8,6 +8,7 @@ import { deleteQuoteAction } from "~/lib/api/quotes";
 import { getCurrentUser } from "~/lib/api/users/me";
 import { useTranslator } from "~/lib/i18n";
 import { QuoteSaveDialog } from "./QuoteSaveDialog";
+import { createRelative } from "~/utils/date";
 
 export const styles = tv({
   slots: {
@@ -47,6 +48,7 @@ export const QuoteCard: Component<QuoteCardProps> = (props) => {
   const currentUser = createAsync(() => getCurrentUser());
 
   const [saveDialogOpen, setSaveDialogOpen] = createSignal<boolean>(false);
+  const [relative] = createRelative(() => props.quote.updated_at);
 
   return (
     <>
@@ -99,6 +101,11 @@ export const QuoteCard: Component<QuoteCardProps> = (props) => {
                             <Dropdown.ItemLabel>{t("delete")}</Dropdown.ItemLabel>
                           </Dropdown.Item>
                         </Show>
+                        <Separator class="my-0.5" />
+                        <Dropdown.Item class="text-fg-muted" closeOnSelect={false}>
+                          <Icon icon="f7:clock" class="size-6" />
+                          <Dropdown.ItemLabel>{relative()}</Dropdown.ItemLabel>
+                        </Dropdown.Item>
                       </>
                     )}
                   </Show>

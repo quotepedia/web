@@ -28,6 +28,8 @@
   "quotes.many": "цитат",
   "quotes.other": "цитат",
   "quoteCopied": "Цитата скопирована!",
+  "makePublic": "Сделать публичной",
+  "makePrivate": "Сделать приватной",
   "selectCollections": "Выберите коллекции",
   "selectedCollectionsUpdated": "Выбранные коллекции обновлены!",
   "404.heading": "Эта страница не существует",
@@ -193,7 +195,7 @@
   "components.avatarEdit.dropdown.open": "Открыть оригинал",
   "components.avatarEdit.dropdown.select": "Загрузить новый аватар",
   "components.avatarEdit.dropdown.remove": "Удалить этот аватар…",
-  "components.avatarEdit.confirm.title": "Удалить аватар",
+  "components.avatarEdit.confirm.title": "Удалить аватар?",
   "components.avatarEdit.confirm.description": "Вы действительно хотите удалить этот аватар? Это действие не может быть отменено.",
   "components.avatarEdit.confirm.close": "Отмена",
   "components.avatarEdit.confirm.remove": "Удалить"

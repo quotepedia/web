@@ -9,7 +9,7 @@ export type DeleteCollectionDropdownItemProps = {
 
 export const DeleteCollectionDropdownItem = (props: DeleteCollectionDropdownItemProps) => {
   const submit = useAction(deleteCollectionAction);
-  const submitting = useSubmission(deleteCollectionAction);
+  const submission = useSubmission(deleteCollectionAction);
 
   const onSelect = () => {
     submit(props.id);
@@ -18,8 +18,8 @@ export const DeleteCollectionDropdownItem = (props: DeleteCollectionDropdownItem
   return (
     <Dropdown.Item
       class="text-red-600"
-      disabled={submitting.pending}
-      aria-busy={submitting.pending}
+      disabled={submission.pending}
+      aria-busy={submission.pending}
       onSelect={onSelect}
     >
       <Icon icon="f7:trash" class="size-6" />

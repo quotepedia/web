@@ -1,4 +1,4 @@
-import { action, json, redirect, revalidate } from "@solidjs/router";
+import { action, json, redirect } from "@solidjs/router";
 import { client } from "../instance";
 import type { components } from "../types";
 import {
@@ -8,7 +8,6 @@ import {
   getRecentCollections,
   getRecentUserCollections,
 } from "./cache";
-import { CollectionVisibility } from "./enums";
 
 export const createCollectionAction = action(async (body: components["schemas"]["CollectionCreateRequest"]) => {
   "use server";
@@ -43,27 +42,30 @@ export const deleteCollectionAction = action(async (collection_id: number) => {
 }, "delete-collection-action");
 
 export const changeCollectionVisibilityAction = action(
-  async (collection_id: number, visibility: CollectionVisibility) => {
+  async (collection_id: number, body: components["schemas"]["CollectionUpdateRequest"]) => {
     "use server";
 
-    await client.PATCH("/collections/{collection_id}", {
+    const { response } = await client.PATCH("/collections/{collection_id}", {
       params: {
         path: {
           collection_id: collection_id,
         },
       },
-      body: {
-        visibility: visibility,
-      },
+      body: body,
     });
 
-    return revalidate([
-      getCurrentUserCollections.key,
-      getRecentUserCollections.key,
-      getCollection.keyFor(collection_id),
-      getCollections.key,
-      getRecentCollections.key,
-    ]);
+    return json(
+      { status: response.status },
+      {
+        revalidate: [
+          getCurrentUserCollections.key,
+          getRecentUserCollections.key,
+          getCollection.keyFor(collection_id),
+          getCollections.key,
+          getRecentCollections.key,
+        ],
+      },
+    );
   },
   "change-collection-visibility-action",
 );

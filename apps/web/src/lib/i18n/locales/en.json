@@ -28,6 +28,8 @@
   "quotes.many": "quotes",
   "quotes.other": "quotes",
   "quoteCopied": "Quote copied!",
+  "makePublic": "Make public",
+  "makePrivate": "Make private",
   "selectCollections": "Select collections",
   "selectedCollectionsUpdated": "Selected collections updated!",
   "404.heading": "This page does not exist",
@@ -193,7 +195,7 @@
   "components.avatarEdit.dropdown.open": "Open original",
   "components.avatarEdit.dropdown.select": "Upload new avatar",
   "components.avatarEdit.dropdown.remove": "Remove this avatar…",
-  "components.avatarEdit.confirm.title": "Remove avatar",
+  "components.avatarEdit.confirm.title": "Remove avatar?",
   "components.avatarEdit.confirm.description": "Do you really want to remove this avatar? This action cannot be undone.",
   "components.avatarEdit.confirm.close": "Cancel",
   "components.avatarEdit.confirm.remove": "Remove"

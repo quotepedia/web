@@ -68,7 +68,7 @@ export const getCollection = query(async (collection_id: number) => {
     },
   });
 
-  if (response.status === 404 || response.status === 422) {
+  if (response.status === 403 || response.status === 404 || response.status === 422) {
     throw redirect("/library/collections", { status: 404 });
   }
 
