@@ -75,21 +75,25 @@ export const AvatarEdit: Component<AvatarEditProps> = (props) => {
         {(avatar_url) => (
           <Dialog open={isRemoveAvatarConfirmOpen()} onOpenChange={setIsRemoveAvatarConfirmOpen}>
             <Dialog.Body>
-              <Dialog.Header>
-                <Dialog.Title>{t("confirm.title")}</Dialog.Title>
-                <Dialog.Dismiss />
-              </Dialog.Header>
-              <Stack.Vertical>
-                <Avatar>
-                  <Avatar.Img src={formatStorageObject(avatar_url())} alt={props.user.email} />
-                </Avatar>
-                <Dialog.Description class="text-center">{t("confirm.description")}</Dialog.Description>
+              <Avatar class="self-center">
+                <Avatar.Img src={formatStorageObject(avatar_url())} alt={props.user.email} />
+              </Avatar>
+              <Stack.Vertical class="my-2 gap-4 text-center">
+                <Dialog.Title class="text-2xl leading-tight">{t("confirm.title")}</Dialog.Title>
+                <Dialog.Description class="leading-snug">{t("confirm.description")}</Dialog.Description>
               </Stack.Vertical>
               <Dialog.Footer>
-                <Dialog.Close as={Button} color="secondary" class="w-full">
+                <Dialog.Close as={Button} color="secondary" style="bezeled" class="w-full" spacing="lg">
                   {t("confirm.close")}
                 </Dialog.Close>
-                <Dialog.Close as={Button} onClick={removeAvatar} color="danger" class="w-full">
+                <Dialog.Close
+                  as={Button}
+                  onClick={removeAvatar}
+                  color="danger"
+                  style="bezeled"
+                  class="w-full"
+                  spacing="lg"
+                >
                   {t("confirm.remove")}
                 </Dialog.Close>
               </Dialog.Footer>
