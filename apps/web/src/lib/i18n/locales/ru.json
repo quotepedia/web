@@ -132,6 +132,7 @@
   "settings.about.feedback.heading": "Сообщите о проблеме",
   "settings.about.contribute.heading": "Исследуйте исходный код",
   "settings.about.app.heading": "О приложении",
+  "settings.about.copyright": "© 2024–2025 Никита Газиев",
   "components.aside.collections": "Коллекции",
   "components.forms.email.label": "Электронная почта",
   "components.forms.email.description": "Данный адрес не передаётся третьим лицам.",

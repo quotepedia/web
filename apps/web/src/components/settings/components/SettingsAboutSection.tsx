@@ -41,6 +41,7 @@ export const SettingsAboutSection = () => {
           <Group.ItemChevron />
         </Group.Item>
       </Group.Content>
+      <Group.Description>{t("copyright")}</Group.Description>
     </Group>
   );
 };

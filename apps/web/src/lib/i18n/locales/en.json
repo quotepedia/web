@@ -132,6 +132,7 @@
   "settings.about.feedback.heading": "Report an issue",
   "settings.about.contribute.heading": "Browse the source code",
   "settings.about.app.heading": "About the application",
+  "settings.about.copyright": "© 2024–2025 Nikita Gaziev",
   "components.aside.collections": "Collections",
   "components.forms.email.label": "Email",
   "components.forms.email.description": "This address is not transferred to third parties.",
